@@ -8,12 +8,12 @@
   --text-primary: #0e0e0e;
   --text-secondary: #555555;
   --text-inverse: #fdfdfd;
-  --line-primary: #e5e5e3;
-  --line-strong: #a6a6a2;
-  --signal-primary: #e7472e;
+  --line-primary: #e9e8e4;
+  --line-strong: #c9c8c2;
+  --signal-primary: #c75543;
   --signal-information: #2155d6;
   --signal-positive: #26705b;
-  --content-max: 90rem;
+  --content-max: 82rem;
   --content-readable: 45rem;
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --section-space: clamp(4.5rem, 9vw, 9rem);
@@ -160,7 +160,11 @@ button {
 
 .desktop-navigation a {
   padding: 0.75rem 0;
-  border-bottom: 0.2rem solid var(--signal-primary);
+  border-bottom: 1px solid transparent;
+}
+
+.desktop-navigation a:hover {
+  border-bottom-color: var(--text-primary);
 }
 
 .mobile-navigation {
@@ -236,11 +240,11 @@ button {
 
 .hero {
   display: grid;
-  min-height: min(48rem, calc(100vh - 5rem));
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.38fr);
+  min-height: min(40rem, calc(100vh - 8rem));
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.42fr);
   align-items: end;
-  gap: clamp(3rem, 8vw, 8rem);
-  padding-block: clamp(5rem, 12vw, 10rem) clamp(4rem, 8vw, 7rem);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  padding-block: clamp(4rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
 }
 
 .hero__copy {
@@ -266,10 +270,10 @@ button {
 .page-intro h1,
 .project-hero h1 {
   margin: 0;
-  font-size: clamp(3rem, 8.5vw, 8.8rem);
+  font-size: clamp(3rem, 7vw, 7.2rem);
   font-weight: 800;
-  letter-spacing: -0.065em;
-  line-height: 0.9;
+  letter-spacing: -0.06em;
+  line-height: 0.96;
 }
 
 .hero__aside {
@@ -339,10 +343,10 @@ button {
 .project-entry {
   position: relative;
   display: grid;
-  min-height: 32rem;
+  min-height: 29rem;
   grid-template-columns: minmax(17rem, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  padding-block: clamp(3.5rem, 7vw, 7rem);
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-block: clamp(3rem, 5.5vw, 5.5rem);
   border-top: 1px solid var(--line-primary);
 }
 
@@ -415,22 +419,16 @@ button {
 .project-visual {
   position: relative;
   display: grid;
-  min-height: 25rem;
+  min-height: 22rem;
   align-content: center;
-  padding: clamp(1rem, 3vw, 2.5rem);
-  border: 1px solid var(--text-primary);
+  padding: clamp(1rem, 3vw, 2.25rem);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-small);
   background: var(--surface-secondary);
 }
 
 .project-visual::after {
-  position: absolute;
-  z-index: -1;
-  right: -0.5rem;
-  bottom: -0.5rem;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--text-primary);
-  content: "";
+  content: none;
 }
 
 .project-visual figure {
