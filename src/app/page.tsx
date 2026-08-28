@@ -1,69 +1,144 @@
 import Image from "next/image";
+import Link from "next/link";
+
+import { projects } from "@/content/projects";
+import { withBasePath } from "@/lib/base-path";
+import type { Project } from "@/types/project";
+
+const presentationBySlug: Record<Project["slug"], string> = {
+  "ecommerce-sales-pipeline": "dashboard-plate",
+  "shopee-thailand-analytics": "schema-led",
+  "finance-etl-pipeline": "system-flow",
+  timelimit: "offline-instrument",
+};
+
+function ProjectVisual({ project }: { project: Project }) {
+  const artifact = project.artifacts.find((item) => item.src);
+
+  if (project.slug === "finance-etl-pipeline") {
+    return (
+      <div className="project-visual" aria-label="Finance ETL system flow">
+        <p className="artifact-label">RECONSTRUCTED FROM IMPLEMENTATION</p>
+        <div className="system-flow">
+          <div className="system-node">
+            <small>01 / input</small>
+            <strong>Statement PDF</strong>
+          </div>
+          <span className="flow-arrow" aria-hidden="true">→</span>
+          <div className="system-node">
+            <small>02 / control</small>
+            <strong>Parse + validate</strong>
+          </div>
+          <span className="flow-arrow" aria-hidden="true">→</span>
+          <div className="system-node">
+            <small>03 / record</small>
+            <strong>PostgreSQL audit</strong>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!artifact?.src) {
+    return null;
+  }
+
+  return (
+    <div className="project-visual">
+      <figure>
+        <Image
+          src={withBasePath(artifact.src)}
+          alt={artifact.alt}
+          width={project.slug === "timelimit" ? 413 : 1920}
+          height={project.slug === "timelimit" ? 255 : 1095}
+          sizes="(max-width: 760px) 100vw, 58vw"
+          unoptimized
+        />
+        <figcaption>{artifact.caption}</figcaption>
+      </figure>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main id="main-content" className="page-shell">
+      <section className="hero" aria-labelledby="home-title">
+        <div className="hero__copy">
+          <p className="eyebrow">Data systems / BI / automation</p>
+          <h1 id="home-title">
+            I turn messy operational data into systems people can actually use.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        </div>
+        <div className="hero__aside">
+          <p lang="th">เปลี่ยนข้อมูลกระจัดกระจาย ให้เป็นระบบที่ตรวจสอบและใช้งานได้จริง</p>
+          <p>
+            Selected work across reporting models, data pipelines and focused internal
+            tools—shown with evidence, boundaries and the decisions behind them.
           </p>
+          <Link className="text-link" href="/work">
+            View the full work index
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="work-showcase" aria-labelledby="selected-work">
+        <div className="section-heading">
+          <span className="section-index">01–04</span>
+          <h2 id="selected-work">Selected systems</h2>
+          <p>Four projects. Different constraints. Inspectable claims.</p>
         </div>
-      </main>
-    </div>
+
+        {projects.map((project, index) => (
+          <article
+            className="project-entry"
+            data-project-entry={project.slug}
+            data-presentation={presentationBySlug[project.slug]}
+            key={project.slug}
+          >
+            <div className="project-entry__content">
+              <p className="project-kicker">
+                {String(index + 1).padStart(2, "0")} / {project.year}
+              </p>
+              {project.evidence.some((item) => item.class === "SIMULATED") ? (
+                <span className="scope-label" data-scope-label="simulated">
+                  Simulated / demonstration scope
+                </span>
+              ) : null}
+              <h3>{project.name}</h3>
+              <p className="project-entry__title">{project.displayTitle}</p>
+              <p className="project-entry__summary">{project.summary}</p>
+              <ul className="project-meta" aria-label={`${project.name} technologies`}>
+                {project.stack.slice(0, 4).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <Link className="text-link" href={`/work/${project.slug}`}>
+                Inspect project
+              </Link>
+            </div>
+            <ProjectVisual project={project} />
+          </article>
+        ))}
+      </section>
+
+      <section className="principles" aria-label="Working principles">
+        <article className="principle">
+          <span>01 / Trace</span>
+          <h2>Start with the source.</h2>
+          <p>Each material claim points back to code, tests, documentation or a committed artifact.</p>
+        </article>
+        <article className="principle">
+          <span>02 / Model</span>
+          <h2>Make the system legible.</h2>
+          <p>Inputs, transformations, decisions and outputs are separated so the work can be inspected.</p>
+        </article>
+        <article className="principle">
+          <span>03 / Bound</span>
+          <h2>State what is not proven.</h2>
+          <p>Simulation, reconstruction and implementation limits remain visible instead of becoming marketing claims.</p>
+        </article>
+      </section>
+    </main>
   );
 }
