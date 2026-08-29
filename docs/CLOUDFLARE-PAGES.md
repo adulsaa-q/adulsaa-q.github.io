@@ -3,14 +3,16 @@
 **Status: live.** The site deploys to Cloudflare Pages and GitHub Pages on every
 push to `main`.
 
-| URL | Security headers | Notes |
+| URL | Role | Security headers |
 |---|---|---|
-| <https://adulsaa-q.pages.dev> | yes (`public/_headers`) | Cloudflare Pages, project `adulsaa-q` |
-| <https://adulsaa-q.github.io> | no (platform limit) | GitHub Pages, unchanged |
+| <https://adulsaa-q.pages.dev> | **canonical / public** | yes (`public/_headers`) |
+| <https://adulsaa-q.github.io> | legacy mirror — redirects to pages.dev | no (platform limit) |
 
-Canonical tags, OG URLs and the sitemap still point at `adulsaa-q.github.io`
-(`defaultSiteUrl` in `src/lib/site-url.ts`). Change that string if you want
-`pages.dev` or a custom domain to become the public URL.
+`defaultSiteUrl` in `src/lib/site-url.ts` is `https://adulsaa-q.pages.dev`, so
+canonical tags, OG URLs, the sitemap and JSON-LD all point there. `layout.tsx`
+carries a one-line script that forwards any `adulsaa-q.github.io` visitor to the
+same path on `pages.dev`. To move to a custom domain later, change that one
+string and update the redirect host.
 
 ## How the deploy works
 

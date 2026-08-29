@@ -31,7 +31,7 @@ describe("structured data", () => {
     const schema = websiteSchema();
 
     expect(schema["@type"]).toBe("WebSite");
-    expect(schema.url).toBe("https://adulsaa-q.github.io/");
+    expect(schema.url).toBe("https://adulsaa-q.pages.dev/");
     expect(schema.inLanguage).toEqual(["th-TH", "en"]);
   });
 
@@ -43,7 +43,7 @@ describe("structured data", () => {
       expect(schema.name).toBe(project.name);
       expect(schema.description).toBe(project.summary);
       expect(schema.codeRepository).toBe(project.repository);
-      expect(schema.url).toBe(`https://adulsaa-q.github.io/work/${project.slug}/`);
+      expect(schema.url).toBe(`https://adulsaa-q.pages.dev/work/${project.slug}/`);
       assertNoFabricatedTrustSignals(schema);
     });
   });

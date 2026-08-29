@@ -66,6 +66,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        {/* Forward the legacy github.io host to the canonical Cloudflare origin. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(location.hostname==='adulsaa-q.github.io')location.replace('https://adulsaa-q.pages.dev'+location.pathname+location.search+location.hash);",
+          }}
+        />
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <SiteHeader />
         {children}

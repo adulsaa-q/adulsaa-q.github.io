@@ -20,13 +20,13 @@ describe("root metadata", () => {
 
   it("defines a canonical root and a local neutral social image", () => {
     expect(metadata.alternates).toMatchObject({
-      canonical: "https://adulsaa-q.github.io/",
+      canonical: "https://adulsaa-q.pages.dev/",
     });
     expect(metadata.openGraph).toMatchObject({
-      url: "https://adulsaa-q.github.io/",
+      url: "https://adulsaa-q.pages.dev/",
       images: [
         expect.objectContaining({
-          url: "https://adulsaa-q.github.io/og/q-portfolio.png",
+          url: "https://adulsaa-q.pages.dev/og/q-portfolio.png",
           width: 1200,
           height: 630,
         }),

@@ -2,7 +2,7 @@
 
 Evidence-led portfolio for Q / Data, BI & Automation Systems.
 
-Live site: <https://adulsaa-q.github.io/>
+Live site: <https://adulsaa-q.pages.dev/>
 
 The site presents public GitHub work as inspectable case studies. It uses explicit evidence classes, visible limitations, and synthetic or reconstructed labels where the public repositories do not prove live business outcomes.
 

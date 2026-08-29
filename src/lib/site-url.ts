@@ -1,6 +1,6 @@
 import { normalizeBasePath } from "@/lib/base-path";
 
-export const defaultSiteUrl = "https://adulsaa-q.github.io";
+export const defaultSiteUrl = "https://adulsaa-q.pages.dev";
 
 interface CanonicalUrlOptions {
   siteUrl?: string;

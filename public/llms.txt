@@ -5,9 +5,9 @@
 > studies: every material claim links to code, tests or a committed artifact,
 > and simulated, reconstructed or README-reported material is labelled as such.
 
-Site: https://adulsaa-q.github.io/
+Site: https://adulsaa-q.pages.dev/
 Source of record: https://github.com/adulsaa-q
-Contact: work enquiries via https://adulsaa-q.github.io/contact/
+Contact: work enquiries via https://adulsaa-q.pages.dev/contact/
 
 ## What Q does
 
