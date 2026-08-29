@@ -131,16 +131,12 @@ button {
   text-transform: uppercase;
 }
 
-.wordmark span:first-child {
-  display: grid;
-  width: 2.35rem;
-  aspect-ratio: 1;
-  place-items: center;
-  border: 2px solid var(--text-primary);
-  background: var(--signal-primary);
-  color: #fff;
-  font-size: 1.15rem;
-  letter-spacing: 0;
+.brand-mark {
+  width: 2.45rem;
+  height: 2.45rem;
+  flex: 0 0 auto;
+  overflow: visible;
+  color: var(--text-primary);
 }
 
 .desktop-navigation {

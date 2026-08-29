@@ -25,6 +25,14 @@ describe("site header", () => {
     }
   });
 
+  it("uses the selected Orbit Q mark instead of a boxed text initial", () => {
+    render(<SiteHeader />);
+
+    const mark = screen.getByTestId("brand-mark");
+    expect(mark.tagName).toBe("svg");
+    expect(mark.getAttribute("viewBox")).toBe("0 0 120 120");
+  });
+
   it("contains focus while open and restores it after Escape", async () => {
     const user = userEvent.setup();
     render(<SiteHeader />);

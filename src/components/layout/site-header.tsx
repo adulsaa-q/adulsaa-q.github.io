@@ -12,7 +12,31 @@ export function SiteHeader() {
       <header className="site-header">
         <div className="site-header__inner">
           <Link className="wordmark" href="/" aria-label="Q, home">
-            <span aria-hidden="true">Q</span>
+            <svg
+              aria-hidden="true"
+              className="brand-mark"
+              data-testid="brand-mark"
+              viewBox="0 0 120 120"
+            >
+              <circle
+                cx="54"
+                cy="54"
+                r="32"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeWidth="12"
+                strokeDasharray="170 45"
+                transform="rotate(-38 54 54)"
+              />
+              <path
+                d="M76 77L103 104"
+                fill="none"
+                stroke="var(--signal-primary)"
+                strokeLinecap="round"
+                strokeWidth="12"
+              />
+            </svg>
             <span>Data, BI &amp; Automation Systems</span>
           </Link>
 
