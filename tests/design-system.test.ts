@@ -32,8 +32,12 @@ describe("global design system", () => {
 
   it("keeps the desktop hero breathable rather than viewport-filling", () => {
     expect(css).toContain("min-height: min(34rem, calc(100svh - 10rem))");
-    expect(css).toContain("font-size: clamp(3rem, 5.8vw, 6rem)");
-    expect(css).toContain("line-height: 1");
+    // Display headings are clamped to a calm ceiling, not a viewport-scaled shout.
+    const heroClamp = css.match(/\.hero h1,[\s\S]*?font-size:\s*clamp\(([^)]+)\)/);
+    expect(heroClamp).not.toBeNull();
+    const max = heroClamp![1].split(",").at(-1)!.trim();
+    expect(parseFloat(max)).toBeLessThanOrEqual(5);
+    expect(max.endsWith("rem")).toBe(true);
   });
 
   it("does not paint every navigation item with a primary-color underline", () => {
@@ -55,5 +59,21 @@ describe("global design system", () => {
     expect(css).not.toMatch(/gradient\s*\(/i);
     expect(css).not.toMatch(/backdrop-filter/i);
     expect(css).not.toMatch(/filter:\s*blur/i);
+  });
+
+  it("defines every line token it references", () => {
+    const referenced = new Set(
+      [...css.matchAll(/var\((--line-[a-z]+)\)/g)].map((match) => match[1]),
+    );
+    for (const token of referenced) {
+      expect(css).toContain(`${token}:`);
+    }
+  });
+
+  it("styles the contact, archive and not-found pages instead of leaving them unstyled", () => {
+    expect(css).toMatch(/\.contact-route\s*\{[\s\S]*?border-bottom:\s*1px solid var\(--line-primary\)/);
+    expect(css).toMatch(/\.archive-row\s*\{[\s\S]*?border-bottom:\s*1px solid var\(--line-primary\)/);
+    expect(css).toMatch(/\.not-found-page\s*\{[\s\S]*?padding-block/);
+    expect(css).toMatch(/\.source-link\s*\{[\s\S]*?font-family:\s*var\(--font-mono\)/);
   });
 });

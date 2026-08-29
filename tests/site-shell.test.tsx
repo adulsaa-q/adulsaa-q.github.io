@@ -17,6 +17,7 @@ describe("site header", () => {
     );
     for (const [name, href] of [
       ["Work", "/work"],
+      ["Services", "/services"],
       ["Archive", "/archive"],
       ["About", "/about"],
       ["Contact", "/contact"],

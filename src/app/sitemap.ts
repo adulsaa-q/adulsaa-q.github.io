@@ -10,10 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/work",
     ...projects.map(({ slug }) => `/work/${slug}`),
+    "/services",
     "/archive",
     "/about",
     "/contact",
   ];
 
-  return routes.map((route) => ({ url: canonicalUrl(route) }));
+  const lastModified = new Date();
+
+  return routes.map((route) => ({ url: canonicalUrl(route), lastModified }));
 }

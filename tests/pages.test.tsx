@@ -42,15 +42,15 @@ describe("homepage", () => {
     );
   });
 
-  it("keeps the core decision path and honest work-enquiry route visible in the hero", () => {
+  it("keeps the core decision path and a route into the services page visible in the hero", () => {
     const html = renderToStaticMarkup(<Home />);
 
     expect(html).toContain("DATA");
     expect(html).toContain("MODEL");
     expect(html).toContain("DECISION");
     expect(html).toContain("HANDOVER");
-    expect(html).toContain('href="/contact#work-enquiries"');
-    expect(html).toContain("FASTWORK / WORK WITH ME");
+    expect(html).toContain('href="/services"');
+    expect(html).toContain("How to work with me");
   });
 
   it("offers a keyboard-accessible project index for intentional navigation", () => {
@@ -111,5 +111,19 @@ describe("work routes", () => {
     expect(html).toContain(project.impact);
     expect(html).toContain(project.repository);
     expect(metadata.title).toBe(`${project.name} — Work`);
+  });
+
+  it("ends every case study with a forward path, not a dead end", async () => {
+    const project = projects[0];
+    const page = await ProjectPage({ params: Promise.resolve({ slug: project.slug }) });
+    const html = renderToStaticMarkup(page);
+
+    expect(html).toContain('href="/contact#work-enquiries"');
+    expect(html).toContain('aria-label="More projects"');
+    const siblingLinks = projects.filter((item) => item.slug !== project.slug);
+    expect(
+      siblingLinks.some((item) => html.includes(`/work/${item.slug}`)),
+    ).toBe(true);
+    expect(html).toContain('application/ld+json');
   });
 });

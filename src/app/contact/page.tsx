@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 
+import { ObfuscatedEmail } from "@/components/contact/obfuscated-email";
+import { contact } from "@/content/contact";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Approved ways to inspect Q's work and, once supplied, connect through Fastwork.",
+    "Ways to inspect Q's work and start a work enquiry — GitHub, email, and Fastwork when a profile URL is available.",
   path: "/contact",
 });
+
+const firstMessageHints = [
+  "The problem you want solved, in your own words.",
+  "What data you have (files, exports, a database) and roughly how much.",
+  "A rough timeline and whether this is a one-off or ongoing.",
+];
 
 export default function ContactPage() {
   return (
@@ -18,8 +26,9 @@ export default function ContactPage() {
           <h1>Contact</h1>
         </div>
         <p className="page-intro__note">
-          Start with the public work record. No contact form, tracking script or
-          unapproved private address is included in this static site.
+          Start with the public work record, then get in touch. No contact form,
+          tracking script or unapproved private address is included in this static
+          site.
         </p>
       </header>
 
@@ -30,25 +39,62 @@ export default function ContactPage() {
           <p>Inspect public repositories, implementation records and current project scope.</p>
           <a
             className="contact-route__action"
-            href="https://github.com/adulsaa-q"
+            href={contact.githubUrl}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             github.com/adulsaa-q
           </a>
         </article>
 
-        <article id="work-enquiries" className="contact-route contact-route--pending">
+        <article id="work-enquiries" className="contact-route">
           <span className="section-index">02 / WORK ENQUIRIES</span>
-          <h2>Fastwork</h2>
+          <h2>Email</h2>
           <p>
-            The approved profile URL has not been supplied. This is intentionally not
-            an active link.
+            The most direct route for a project enquiry. Working hours are{" "}
+            {contact.timezone}.
           </p>
-          <span className="contact-route__action" aria-disabled="true">
-            Link pending approval
-          </span>
+          <ObfuscatedEmail className="contact-route__action" />
         </article>
+
+        {contact.fastworkUrl ? (
+          <article className="contact-route">
+            <span className="section-index">03 / FASTWORK</span>
+            <h2>Fastwork</h2>
+            <p>Scope, milestones and payment handled through the Fastwork platform.</p>
+            <a
+              className="contact-route__action"
+              href={contact.fastworkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View the Fastwork profile
+            </a>
+          </article>
+        ) : (
+          <article className="contact-route contact-route--pending">
+            <span className="section-index">03 / FASTWORK</span>
+            <h2>Fastwork</h2>
+            <p>
+              The approved profile URL has not been supplied yet. This is
+              intentionally not an active link.
+            </p>
+            <span className="contact-route__action" aria-disabled="true">
+              Link pending approval
+            </span>
+          </article>
+        )}
+      </section>
+
+      <section className="contact-brief" aria-labelledby="contact-brief-title">
+        <span className="section-index">Note</span>
+        <h2 id="contact-brief-title">What helps in a first message</h2>
+        <p>A short, specific note gets a faster and more useful reply.</p>
+        <ul className="detail-list">
+          {firstMessageHints.map((hint) => (
+            <li key={hint}>{hint}</li>
+          ))}
+        </ul>
       </section>
     </main>
   );

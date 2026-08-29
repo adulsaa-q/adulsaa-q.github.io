@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <rect width="120" height="120" fill="#fdfdfd"/>
+  <circle cx="60" cy="60" r="60" fill="#111111"/>
   <circle
-    cx="54"
-    cy="54"
-    r="32"
+    cx="57"
+    cy="57"
+    r="27"
     fill="none"
-    stroke="#0e0e0e"
+    stroke="#fdfdfd"
     stroke-width="12"
     stroke-linecap="round"
-    stroke-dasharray="170 45"
-    transform="rotate(-38 54 54)"
+    stroke-dasharray="140 42"
+    transform="rotate(-40 57 57)"
   />
   <path
-    d="M76 77L103 104"
+    d="M74 74L96 96"
     fill="none"
     stroke="#c75543"
     stroke-width="12"

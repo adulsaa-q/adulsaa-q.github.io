@@ -51,7 +51,7 @@ describe("canonical URL strategy", () => {
   it("lists all stable and project routes in the sitemap", () => {
     const urls = sitemap().map(({ url }) => url);
 
-    for (const route of ["/", "/work", "/archive", "/about", "/contact"]) {
+    for (const route of ["/", "/work", "/services", "/archive", "/about", "/contact"]) {
       expect(urls).toContain(canonicalUrl(route));
     }
     projects.forEach(({ slug }) => {

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ProjectIndex } from "@/components/project/project-index";
 import { projects } from "@/content/projects";
 import { withBasePath } from "@/lib/base-path";
+import { textLang } from "@/lib/i18n";
 import type { Project } from "@/types/project";
 
 const featuredProjects = projects.slice(0, 2);
@@ -112,8 +113,8 @@ export default function Home() {
             <Link className="text-link" href="/work">
               View the full work index
             </Link>
-            <Link className="text-link text-link--muted" href="/contact#work-enquiries">
-              FASTWORK / WORK WITH ME
+            <Link className="text-link text-link--muted" href="/services">
+              How to work with me
             </Link>
           </div>
         </div>
@@ -147,7 +148,7 @@ export default function Home() {
           >
             <div className="project-entry__content">
               <p className="project-kicker">
-                {String(index + 1).padStart(2, "0")} / {project.year}
+                {String(index + 1).padStart(2, "0")} / {project.kind}
               </p>
               {project.evidence.some((item) => item.class === "SIMULATED") ? (
                 <span className="scope-label" data-scope-label="simulated">
@@ -155,7 +156,9 @@ export default function Home() {
                 </span>
               ) : null}
               <h3>{project.name}</h3>
-              <p className="project-entry__title">{project.displayTitle}</p>
+              <p className="project-entry__title" lang={textLang(project.displayTitle)}>
+                {project.displayTitle}
+              </p>
               <p className="project-entry__summary">{project.summary}</p>
               <div className="project-impact">
                 <span>Operational impact</span>

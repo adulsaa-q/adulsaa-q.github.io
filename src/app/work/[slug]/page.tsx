@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/seo/json-ld";
+import { ZoomableImage } from "@/components/project/zoomable-image";
 import { projects } from "@/content/projects";
-import { withBasePath } from "@/lib/base-path";
+import { textLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, creativeWorkSchema } from "@/lib/structured-data";
 import type { Artifact, Project } from "@/types/project";
 
 type ProjectPageProps = {
@@ -77,13 +79,12 @@ function ArtifactCard({ artifact, projectName }: { artifact: Artifact; projectNa
 
   return (
     <figure className="artifact-card">
-      <Image
-        src={withBasePath(artifact.src)}
+      <ZoomableImage
+        src={artifact.src}
         alt={artifact.alt}
         width={1920}
         height={1095}
         sizes="(max-width: 760px) 100vw, 45vw"
-        unoptimized
       />
       <figcaption>
         {projectName}: {artifact.caption}
@@ -100,17 +101,37 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const currentIndex = projects.findIndex((item) => item.slug === project.slug);
+  const previousProject =
+    projects[(currentIndex - 1 + projects.length) % projects.length];
+  const nextProject = projects[(currentIndex + 1) % projects.length];
+
   return (
     <main id="main-content" tabIndex={-1} className="page-shell">
+      <JsonLd
+        data={[
+          creativeWorkSchema(project),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+            { name: project.name, path: `/work/${project.slug}` },
+          ]),
+        ]}
+      />
       <header className="project-hero">
         <div>
-          <p className="eyebrow">Work / {project.year}</p>
+          <p className="eyebrow">Work / {project.kind}</p>
           <h1>{project.name}</h1>
         </div>
         <div className="project-hero__aside">
           <span className="scope-label">{project.status}</span>
-          <p>{project.displayTitle}</p>
-          <a className="text-link" href={project.repository}>
+          <p lang={textLang(project.displayTitle)}>{project.displayTitle}</p>
+          <a
+            className="text-link"
+            href={project.repository}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Source repository
           </a>
         </div>
@@ -175,7 +196,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <li className="evidence-item" key={`${item.class}-${item.sourcePath}`}>
               <span className="evidence-class">{item.class.replaceAll("_", " ")}</span>
               <div>
-                <a href={item.sourceUrl}>{item.label}</a>
+                <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">
+                  {item.label}
+                </a>
                 <p>{item.sourcePath}</p>
                 {item.note ? <p>{item.note}</p> : null}
               </div>
@@ -186,14 +209,34 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <DetailSection index="06" title="Limitations">
         <ul className="detail-list">
-          {project.limitations.map((item) => <li key={item}>{item}</li>)}
+          {project.limitations.map((item) => (
+            <li key={item} lang={textLang(item)}>
+              {item}
+            </li>
+          ))}
         </ul>
       </DetailSection>
 
-      <div className="project-cta">
-        <p>Return to the complete project register.</p>
-        <Link className="text-link" href="/work">All work</Link>
+      <div className="project-cta__forward">
+        <p>Discuss a system like this.</p>
+        <Link className="text-link" href="/contact#work-enquiries">
+          Start a work enquiry
+        </Link>
+        <Link className="text-link text-link--muted" href="/work">
+          All work
+        </Link>
       </div>
+
+      <nav className="project-next-nav" aria-label="More projects">
+        <Link href={`/work/${previousProject.slug}`}>
+          <span>Previous</span>
+          <strong>{previousProject.name}</strong>
+        </Link>
+        <Link href={`/work/${nextProject.slug}`}>
+          <span>Next</span>
+          <strong>{nextProject.name}</strong>
+        </Link>
+      </nav>
     </main>
   );
 }

@@ -1,20 +1,24 @@
-import "@fontsource/ibm-plex-mono/400.css";
-import "@fontsource/ibm-plex-mono/600.css";
-import "@fontsource/ibm-plex-mono/700.css";
-import "@fontsource/ibm-plex-sans-thai/400.css";
-import "@fontsource/ibm-plex-sans-thai/500.css";
-import "@fontsource/ibm-plex-sans-thai/600.css";
-import "@fontsource/ibm-plex-sans-thai/700.css";
-import "@fontsource/ibm-plex-sans/400.css";
-import "@fontsource/ibm-plex-sans/500.css";
-import "@fontsource/ibm-plex-sans/600.css";
-import "@fontsource/ibm-plex-sans/700.css";
+// Subset to the scripts the site actually uses (Latin + Thai) and to the
+// weights referenced in globals.css (400 / 600 / 700). Full multi-subset
+// imports previously shipped ~55 font files; this ships ~13.
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-600.css";
+import "@fontsource/ibm-plex-mono/latin-700.css";
+import "@fontsource/ibm-plex-sans/latin-400.css";
+import "@fontsource/ibm-plex-sans/latin-600.css";
+import "@fontsource/ibm-plex-sans/latin-700.css";
+import "@fontsource/ibm-plex-sans/latin-ext-400.css";
+import "@fontsource/ibm-plex-sans-thai/thai-400.css";
+import "@fontsource/ibm-plex-sans-thai/thai-600.css";
+import "@fontsource/ibm-plex-sans-thai/thai-700.css";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { SiteHeader } from "@/components/layout/site-header";
+import { JsonLd } from "@/components/seo/json-ld";
 import { socialImage } from "@/lib/metadata";
 import { canonicalUrl } from "@/lib/site-url";
+import { personSchema, websiteSchema } from "@/lib/structured-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -62,6 +66,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <JsonLd data={[personSchema(), websiteSchema()]} />
         <SiteHeader />
         {children}
         <footer className="site-footer">
