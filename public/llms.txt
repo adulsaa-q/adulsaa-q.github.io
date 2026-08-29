@@ -1,0 +1,51 @@
+# Q — Data, BI & Automation Systems
+
+> Q (Adul Sa-a) builds inspectable data, business-intelligence and automation
+> systems. This portfolio presents public GitHub work as evidence-led case
+> studies: every material claim links to code, tests or a committed artifact,
+> and simulated, reconstructed or README-reported material is labelled as such.
+
+Site: https://adulsaa-q.github.io/
+Source of record: https://github.com/adulsaa-q
+Contact: work enquiries via https://adulsaa-q.github.io/contact/
+
+## What Q does
+
+- Dashboard and decision reporting (Power BI, Power Query/M, DAX)
+- Data pipelines and operational automation (Python, PostgreSQL, ETL)
+- AI research and workflow systems with visible sources and authority limits
+
+## Projects
+
+- Multi-Channel E-commerce Sales Pipeline — Power Query/M + Power BI model that
+  aligns Shopee, Lazada and advertising exports into one reporting layer.
+  Evidence: verified code (Power Query, DAX register), committed dashboard
+  images. Sample data is synthetic/anonymised; no client outcome is claimed.
+  https://github.com/adulsaa-q/ecommerce-sales-pipeline
+
+- Shopee Thailand Analytics — SQL analysis modules and a documented Power BI/DAX
+  model for sales, customers, campaigns and delivery. Uses a simulated
+  marketplace dataset; README-reported figures are not independently reproduced.
+  https://github.com/adulsaa-q/shopee-thailand-analytics
+
+- Finance ETL Pipeline — Python pipeline design that extracts KBank e-statements,
+  validates transactions and loads PostgreSQL idempotently with audit records.
+  Evidence: verified code and a unit/integration test suite. KBank-specific
+  parser scope; no live-credential run is demonstrated.
+  https://github.com/adulsaa-q/finance-etl-pipeline
+
+- TIMELIMIT — Electron/TypeScript offline desktop widget for long-term
+  deadlines, using timestamp-based time calculation and atomic local
+  persistence. Evidence: verified code, five Vitest files (27 cases),
+  committed UI screenshots. Portfolio code, not a hardened release.
+  https://github.com/adulsaa-q/timelimit
+
+## Evidence classes used on this site
+
+VERIFIED_CODE, VERIFIED_TEST, VERIFIED_ARTIFACT, README_REPORTED, SIMULATED,
+EXPERIMENTAL, PLANNED, UNKNOWN.
+
+## Not claimed anywhere on this site
+
+Named clients, revenue or ROI figures, production usage, user counts,
+testimonials, certifications, or security guarantees.

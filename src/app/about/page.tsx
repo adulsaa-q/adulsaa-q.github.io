@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -142,6 +143,16 @@ export default function AboutPage() {
           ))}
         </ol>
       </section>
+
+      <div className="project-cta__forward">
+        <p>See these capabilities as bounded services.</p>
+        <Link className="text-link" href="/services">
+          Services
+        </Link>
+        <Link className="text-link text-link--muted" href="/contact#work-enquiries">
+          Start a work enquiry
+        </Link>
+      </div>
     </main>
   );
 }

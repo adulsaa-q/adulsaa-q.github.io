@@ -45,7 +45,8 @@ export interface Project {
   slug: string;
   name: string;
   displayTitle: string;
-  year?: string;
+  /** Short descriptor shown in the page eyebrow, e.g. "Case study", "Desktop application". */
+  kind: string;
   status: ProjectStatus;
   summary: string;
   context: string;

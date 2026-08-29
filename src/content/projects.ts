@@ -7,7 +7,7 @@ export const projects: Project[] = [
     slug: "ecommerce-sales-pipeline",
     name: "Multi-Channel E-commerce Sales Pipeline",
     displayTitle: "หนึ่ง dashboard จาก marketplace exports ที่ไม่เหมือนกัน",
-    year: "Case study",
+    kind: "Case study",
     status: "FEATURED",
     summary:
       "Power Query/M pipeline and Power BI model for aligning Shopee, Lazada and advertising exports into one inspectable reporting layer.",
@@ -88,6 +88,20 @@ export const projects: Project[] = [
         caption: "Committed project artifact. Figures are demonstration data.",
         reconstructed: false,
       },
+      {
+        type: "SCREENSHOT",
+        src: "/images/ecommerce/data-model-overview-2.png",
+        alt: "Dashboard overview page with elapsed-day revenue and ad-spend comparison tiles, a daily sales line chart for Shopee and Lazada, a top-five product bar chart and a platform comparison bar.",
+        caption: "Overview page: equal elapsed-day comparison, daily sales and product mix. Demonstration data.",
+        reconstructed: false,
+      },
+      {
+        type: "SCREENSHOT",
+        src: "/images/ecommerce/data-model-overview-5.png",
+        alt: "Dashboard detail page with an hourly order performance combo chart, a platform share donut and a day-of-week by hour order heatmap table.",
+        caption: "Detail page: hourly and day-of-week order patterns by platform. Demonstration data.",
+        reconstructed: false,
+      },
     ],
     services: ["Power BI reporting", "Power Query data cleaning", "E-commerce reporting"],
     repository: "https://github.com/adulsaa-q/ecommerce-sales-pipeline",
@@ -96,7 +110,7 @@ export const projects: Project[] = [
     slug: "shopee-thailand-analytics",
     name: "Shopee Thailand Analytics",
     displayTitle: "Marketplace analytics for sales, customers, campaigns and delivery",
-    year: "2022–2025 simulated case",
+    kind: "Simulated case study",
     status: "FEATURED",
     summary:
       "SQL analysis modules and a documented Power BI/DAX model for examining sales, customer behavior, campaigns and delivery performance.",
@@ -165,6 +179,13 @@ export const projects: Project[] = [
         reconstructed: false,
       },
       {
+        type: "SCREENSHOT",
+        src: "/images/shopee/page2_customers.png",
+        alt: "Customer analytics page with unique-customer, repeat-rate and revenue-per-customer tiles, a buyer-segment donut chart, a Thailand customer map and total revenue by segment.",
+        caption: "Customer segmentation and retention view. Simulated case-study data, not client results.",
+        reconstructed: false,
+      },
+      {
         type: "SCHEMA",
         src: "/images/shopee/data_model.png",
         alt: "Power BI data model screenshot for the simulated Shopee analytics case study.",
@@ -179,7 +200,7 @@ export const projects: Project[] = [
     slug: "finance-etl-pipeline",
     name: "Finance ETL Pipeline",
     displayTitle: "From e-statement PDF to an auditable data pipeline",
-    year: "Pipeline case study",
+    kind: "Pipeline case study",
     status: "FEATURED",
     summary:
       "A Python pipeline design for extracting KBank e-statements, validating transactions, loading PostgreSQL idempotently and preserving operational audit records.",
@@ -274,7 +295,7 @@ export const projects: Project[] = [
     slug: "timelimit",
     name: "TIMELIMIT",
     displayTitle: "Offline-first desktop deadline instrument",
-    year: "Desktop application",
+    kind: "Desktop application",
     status: "FEATURED",
     summary:
       "An Electron/TypeScript desktop widget that makes long-term deadlines visible through timestamp-based time calculation, deduction rules and local persistence.",

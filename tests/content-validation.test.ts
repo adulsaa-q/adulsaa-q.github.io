@@ -7,6 +7,7 @@ const baseProject: Project = {
   slug: "sample",
   name: "Sample",
   displayTitle: "Sample project",
+  kind: "Case study",
   status: "FEATURED",
   summary: "A bounded project summary.",
   context: "A verifiable context.",

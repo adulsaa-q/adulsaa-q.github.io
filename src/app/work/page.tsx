@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { projects } from "@/content/projects";
+import { textLang } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
@@ -32,7 +33,7 @@ export default function WorkPage() {
             </span>
             <h2>
               {project.name}
-              <span>{project.displayTitle}</span>
+              <span lang={textLang(project.displayTitle)}>{project.displayTitle}</span>
             </h2>
             <div className="work-card__info">
               <p className="work-card__summary">{project.summary}</p>
@@ -40,7 +41,7 @@ export default function WorkPage() {
                 <span className="scope-label">{project.evidence.some((item) => item.class === "SIMULATED") ? "SIMULATED" : "EVIDENCE LED"}</span>
                 <p>{project.services.join(" / ")}</p>
                 <p><strong>Impact:</strong> {project.impact}</p>
-                <p>{project.limitations[0]}</p>
+                <p lang={textLang(project.limitations[0])}>{project.limitations[0]}</p>
               </div>
             </div>
             <div className="work-card__actions">

@@ -56,4 +56,20 @@ describe("global design system", () => {
     expect(css).not.toMatch(/backdrop-filter/i);
     expect(css).not.toMatch(/filter:\s*blur/i);
   });
+
+  it("defines every line token it references", () => {
+    const referenced = new Set(
+      [...css.matchAll(/var\((--line-[a-z]+)\)/g)].map((match) => match[1]),
+    );
+    for (const token of referenced) {
+      expect(css).toContain(`${token}:`);
+    }
+  });
+
+  it("styles the contact, archive and not-found pages instead of leaving them unstyled", () => {
+    expect(css).toMatch(/\.contact-route\s*\{[\s\S]*?border-bottom:\s*1px solid var\(--line-primary\)/);
+    expect(css).toMatch(/\.archive-row\s*\{[\s\S]*?border-bottom:\s*1px solid var\(--line-primary\)/);
+    expect(css).toMatch(/\.not-found-page\s*\{[\s\S]*?padding-block/);
+    expect(css).toMatch(/\.source-link\s*\{[\s\S]*?font-family:\s*var\(--font-mono\)/);
+  });
 });
