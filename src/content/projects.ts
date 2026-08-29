@@ -5,7 +5,7 @@ import { validateProjects } from "@/lib/content-validation";
 export const projects: Project[] = [
   {
     slug: "ecommerce-sales-pipeline",
-    name: "Multi-Channel E-commerce Sales Pipeline",
+    name: "Multi‑Channel E‑commerce Sales Pipeline",
     displayTitle: "หนึ่ง dashboard จาก marketplace exports ที่ไม่เหมือนกัน",
     kind: "Case study",
     status: "FEATURED",

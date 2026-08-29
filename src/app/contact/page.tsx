@@ -87,11 +87,9 @@ export default function ContactPage() {
       </section>
 
       <section className="contact-brief" aria-labelledby="contact-brief-title">
-        <div className="section-heading">
-          <span className="section-index">NOTE</span>
-          <h2 id="contact-brief-title">What helps in a first message</h2>
-          <p>A short, specific note gets a faster and more useful reply.</p>
-        </div>
+        <span className="section-index">Note</span>
+        <h2 id="contact-brief-title">What helps in a first message</h2>
+        <p>A short, specific note gets a faster and more useful reply.</p>
         <ul className="detail-list">
           {firstMessageHints.map((hint) => (
             <li key={hint}>{hint}</li>

@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
   <title id="title">Q — Data, BI and Automation Systems</title>
-  <desc id="description">Neutral editorial social card with a vermilion Q, black typography and technical rules on a near-white field.</desc>
+  <desc id="description">Editorial social card: the circular Orbit Q mark, black typography and technical rules on a near-white field.</desc>
   <rect width="1200" height="630" fill="#fdfdfd"/>
-  <rect x="56" y="54" width="104" height="104" fill="#e7472e" stroke="#0e0e0e" stroke-width="3"/>
-  <text x="108" y="130" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" text-anchor="middle">Q</text>
+
+  <g transform="translate(56 54)">
+    <circle cx="52" cy="52" r="51" fill="#f7f7f5" stroke="#0e0e0e" stroke-opacity="0.18" stroke-width="2"/>
+    <circle cx="49" cy="49" r="24" fill="none" stroke="#0e0e0e" stroke-width="10" stroke-linecap="round" stroke-dasharray="120 38" transform="rotate(-40 49 49)"/>
+    <path d="M64 64L82 82" fill="none" stroke="#c75543" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
   <line x1="56" y1="194" x2="1144" y2="194" stroke="#0e0e0e" stroke-width="2"/>
-  <text x="56" y="264" fill="#e7472e" font-family="Courier New, monospace" font-size="22" font-weight="700" letter-spacing="3">WORK / SYSTEM / EVIDENCE</text>
+  <text x="56" y="264" fill="#c75543" font-family="Courier New, monospace" font-size="22" font-weight="700" letter-spacing="3">WORK / SYSTEM / EVIDENCE</text>
   <text x="56" y="356" fill="#0e0e0e" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" letter-spacing="-2">Data, BI &amp;</text>
   <text x="56" y="432" fill="#0e0e0e" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" letter-spacing="-2">Automation Systems</text>
   <line x1="56" y1="512" x2="1144" y2="512" stroke="#e5e5e3" stroke-width="2"/>

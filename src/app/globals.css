@@ -181,10 +181,9 @@ button {
 }
 
 .brand-mark {
-  width: 2.45rem;
-  height: 2.45rem;
+  width: 2.6rem;
+  height: 2.6rem;
   flex: 0 0 auto;
-  overflow: visible;
   color: var(--text-primary);
 }
 
@@ -293,9 +292,10 @@ button {
   display: grid;
   min-height: min(34rem, calc(100svh - 10rem));
   grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.42fr);
-  align-items: end;
+  align-content: center;
+  align-items: start;
   gap: clamp(2rem, 4vw, 4.5rem);
-  padding-block: clamp(3.25rem, 6vw, 5.5rem) clamp(2.5rem, 4vw, 4rem);
+  padding-block: clamp(3rem, 6vw, 5rem);
 }
 
 .hero__copy {
@@ -321,28 +321,29 @@ button {
 .page-intro h1,
 .project-hero h1 {
   margin: 0;
-  font-size: clamp(3rem, 5.8vw, 6rem);
+  font-size: clamp(2.6rem, 4.6vw, 4.4rem);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .hero__aside {
   display: grid;
-  align-content: end;
-  gap: 1.5rem;
-  padding-bottom: 0.5rem;
+  align-content: start;
+  gap: 1.25rem;
 }
 
 .hero__aside p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
 }
 
 .hero__aside p:first-child {
   color: var(--text-primary);
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
   font-weight: 700;
 }
 
@@ -428,7 +429,7 @@ button {
 .technology-register ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem 1rem;
+  gap: 0.4rem 0.75rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -441,28 +442,33 @@ button {
 }
 
 .technology-register li:not(:last-child)::after {
-  margin-left: 1rem;
-  color: var(--signal-primary);
-  content: "+";
+  margin-left: 0.75rem;
+  color: var(--line-strong);
+  content: "·";
 }
 
 .section-heading {
   display: grid;
-  grid-template-columns: 5rem minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: clamp(3rem, 7vw, 6rem);
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 0.35rem 1rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.section-heading .section-index {
+  padding-top: 0.5rem;
 }
 
 .section-heading h2 {
   margin: 0;
-  font-size: clamp(2.2rem, 5vw, 5.5rem);
-  letter-spacing: -0.05em;
-  line-height: 0.95;
+  font-size: clamp(1.9rem, 3.4vw, 3.2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
 }
 
 .section-heading p {
-  margin: 0;
+  grid-column: 2;
+  max-width: 42rem;
+  margin: 0.5rem 0 0;
   color: var(--text-secondary);
 }
 
@@ -572,9 +578,11 @@ button {
 .project-entry h3,
 .work-card h2 {
   margin: 0;
-  font-size: clamp(2rem, 4.5vw, 4.75rem);
-  letter-spacing: -0.045em;
-  line-height: 0.95;
+  font-size: clamp(1.8rem, 3vw, 3.1rem);
+  letter-spacing: -0.035em;
+  line-height: 1.03;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .project-entry__title {
@@ -772,9 +780,9 @@ button {
 
 .working-method__heading h2 {
   margin: 0.75rem 0 0;
-  font-size: clamp(2rem, 4vw, 4rem);
-  letter-spacing: -0.045em;
-  line-height: 1;
+  font-size: clamp(1.75rem, 3vw, 2.9rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 .working-method__copy {
@@ -911,7 +919,7 @@ button {
 }
 
 .page-intro h1 {
-  font-size: clamp(4rem, 10vw, 9rem);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
 }
 
 .page-intro__note {
@@ -926,40 +934,46 @@ button {
 
 .work-card {
   display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr) minmax(15rem, 0.55fr) auto;
-  align-items: center;
-  gap: clamp(1rem, 4vw, 4rem);
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  grid-template-columns: 3rem minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.75rem clamp(1.5rem, 4vw, 3.5rem);
+  padding-block: clamp(2.25rem, 4vw, 3.5rem);
   border-bottom: 1px solid var(--line-primary);
 }
 
 .work-card__number {
-  align-self: start;
+  padding-top: 0.4rem;
   color: var(--signal-primary);
 }
 
+.work-card__main {
+  max-width: 46rem;
+}
+
 .work-card h2 {
-  font-size: clamp(1.8rem, 3.7vw, 3.8rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.5rem);
 }
 
 .work-card h2 span {
   display: block;
-  margin-top: 0.65rem;
+  margin-top: 0.5rem;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .work-card__summary {
-  margin: 0;
+  margin: 1rem 0 0;
   color: var(--text-secondary);
 }
 
 .work-card__details {
-  display: grid;
-  gap: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
   margin-top: 1.25rem;
   padding-top: 1rem;
   border-top: 1px solid var(--line-primary);
@@ -970,6 +984,10 @@ button {
   color: var(--text-secondary);
   font-family: var(--font-mono);
   font-size: 0.72rem;
+}
+
+.work-card__details p:last-child {
+  flex-basis: 100%;
 }
 
 .work-card__actions {
@@ -1006,8 +1024,10 @@ button {
 }
 
 .project-hero h1 {
-  max-width: 65rem;
-  font-size: clamp(3rem, 7vw, 7.5rem);
+  max-width: 22ch;
+  font-size: clamp(2.4rem, 4.6vw, 4.5rem);
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .project-hero__aside {
@@ -1242,7 +1262,6 @@ button {
 
 .contact-register {
   display: grid;
-  padding-block: 0 var(--section-space);
   border-top: 1px solid var(--line-primary);
 }
 
@@ -1255,9 +1274,9 @@ button {
 
 .contact-route h2 {
   margin: 0;
-  font-size: clamp(1.8rem, 3.7vw, 3.8rem);
-  letter-spacing: -0.045em;
-  line-height: 0.95;
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
 .contact-route p {
@@ -1282,12 +1301,24 @@ button {
 }
 
 .contact-brief {
-  padding-block: var(--section-space);
-  border-top: 1px solid var(--line-strong);
+  padding-block: clamp(3rem, 6vw, 5rem);
 }
 
-.contact-brief .section-heading {
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+.contact-brief .section-index {
+  display: block;
+  color: var(--text-secondary);
+}
+
+.contact-brief h2 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.contact-brief > p {
+  margin: 0 0 1.5rem;
+  color: var(--text-secondary);
 }
 
 /* Archive */
@@ -1451,7 +1482,7 @@ button {
   letter-spacing: -0.035em;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .archive-row {
     grid-template-columns: 1fr;
   }
@@ -1593,17 +1624,15 @@ button {
   }
 
   .work-card {
-    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
-  }
-
-  .work-card__info {
-    grid-column: 2 / -1;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
   }
 
   .work-card__actions {
     grid-column: 2 / -1;
-    grid-template-columns: auto auto;
+    grid-auto-flow: column;
+    justify-content: start;
     align-items: center;
+    margin-top: 1.25rem;
   }
 
   .project-body__label {
@@ -1627,15 +1656,15 @@ button {
   }
 
   .hero h1 {
-    font-size: clamp(2.75rem, 15vw, 4.2rem);
+    font-size: clamp(2.2rem, 10vw, 3.1rem);
+  }
+
+  .page-intro h1 {
+    font-size: clamp(2.2rem, 12vw, 3rem);
   }
 
   .work-card {
     grid-template-columns: 2rem minmax(0, 1fr);
-  }
-
-  .work-card__link {
-    grid-column: 2;
   }
 }
 

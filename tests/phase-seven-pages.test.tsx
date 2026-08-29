@@ -53,14 +53,13 @@ describe("about page", () => {
 });
 
 describe("contact page", () => {
-  it("offers GitHub, an email route and a clearly nonfunctional Fastwork placeholder", () => {
+  it("offers GitHub, an email route and the approved Fastwork profile", () => {
     const html = renderToStaticMarkup(<ContactPage />);
 
     expect(html).toContain('href="https://github.com/adulsaa-q"');
     expect(html).toContain('rel="noopener noreferrer"');
-    expect(html).toContain('aria-disabled="true"');
-    expect(html).toContain("Link pending approval");
-    expect(html).not.toMatch(/href="[^"]*fastwork/i);
+    expect(html).toMatch(/href="https:\/\/fastwork\.co\/user\/adulsaa\.q"/);
+    expect(html).not.toContain("Link pending approval");
   });
 
   it("does not expose a plain-text email address in the server HTML", () => {

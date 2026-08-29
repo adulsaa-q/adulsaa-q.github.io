@@ -8,7 +8,7 @@ export const contact = {
   emailUser: "adulsaa.q",
   emailDomain: "gmail.com",
   /** Set to an approved Fastwork profile URL to activate the link. */
-  fastworkUrl: "",
+  fastworkUrl: "https://fastwork.co/user/adulsaa.q",
   /** Timezone Q works from, for scheduling expectations. */
   timezone: "Asia/Bangkok (GMT+7)",
 } as const;

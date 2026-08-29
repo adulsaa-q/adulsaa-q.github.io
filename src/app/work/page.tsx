@@ -31,16 +31,22 @@ export default function WorkPage() {
             <span className="work-card__number">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h2>
-              {project.name}
-              <span lang={textLang(project.displayTitle)}>{project.displayTitle}</span>
-            </h2>
-            <div className="work-card__info">
+            <div className="work-card__main">
+              <h2>
+                {project.name}
+                <span lang={textLang(project.displayTitle)}>{project.displayTitle}</span>
+              </h2>
               <p className="work-card__summary">{project.summary}</p>
               <div className="work-card__details">
-                <span className="scope-label">{project.evidence.some((item) => item.class === "SIMULATED") ? "SIMULATED" : "EVIDENCE LED"}</span>
+                <span className="scope-label">
+                  {project.evidence.some((item) => item.class === "SIMULATED")
+                    ? "SIMULATED"
+                    : "EVIDENCE LED"}
+                </span>
                 <p>{project.services.join(" / ")}</p>
-                <p><strong>Impact:</strong> {project.impact}</p>
+                <p>
+                  <strong>Impact:</strong> {project.impact}
+                </p>
                 <p lang={textLang(project.limitations[0])}>{project.limitations[0]}</p>
               </div>
             </div>
@@ -52,7 +58,12 @@ export default function WorkPage() {
               >
                 <span aria-hidden="true">↗</span>
               </Link>
-              <a className="source-link" href={project.repository} target="_blank" rel="noreferrer">
+              <a
+                className="source-link"
+                href={project.repository}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub source
               </a>
             </div>

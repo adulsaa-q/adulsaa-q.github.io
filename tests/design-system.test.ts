@@ -32,8 +32,12 @@ describe("global design system", () => {
 
   it("keeps the desktop hero breathable rather than viewport-filling", () => {
     expect(css).toContain("min-height: min(34rem, calc(100svh - 10rem))");
-    expect(css).toContain("font-size: clamp(3rem, 5.8vw, 6rem)");
-    expect(css).toContain("line-height: 1");
+    // Display headings are clamped to a calm ceiling, not a viewport-scaled shout.
+    const heroClamp = css.match(/\.hero h1,[\s\S]*?font-size:\s*clamp\(([^)]+)\)/);
+    expect(heroClamp).not.toBeNull();
+    const max = heroClamp![1].split(",").at(-1)!.trim();
+    expect(parseFloat(max)).toBeLessThanOrEqual(5);
+    expect(max.endsWith("rem")).toBe(true);
   });
 
   it("does not paint every navigation item with a primary-color underline", () => {
