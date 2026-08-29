@@ -46,7 +46,7 @@ export function ZoomableImage({ src, alt, width, height, sizes }: ZoomableImageP
       <dialog ref={dialogRef} className="image-dialog" onClick={() => dialogRef.current?.close()}>
         {/* Full-size inspection view, loaded only when the dialog opens. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={resolved} alt={alt} />
+        <img src={resolved} alt={alt} loading="lazy" decoding="async" />
         <form method="dialog">
           <button type="submit" aria-label="Close enlarged image">
             Close
