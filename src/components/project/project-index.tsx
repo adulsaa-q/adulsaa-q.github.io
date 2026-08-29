@@ -13,8 +13,9 @@ export function ProjectIndex({ projects }: ProjectIndexProps) {
 
   function focusProject(slug: string) {
     setActiveSlug(slug);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     document.getElementById(`project-${slug}`)?.scrollIntoView({
-      behavior: "smooth",
+      behavior: prefersReducedMotion ? "auto" : "smooth",
       block: "center",
     });
   }
