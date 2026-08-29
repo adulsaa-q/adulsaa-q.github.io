@@ -1,60 +1,53 @@
-# Deploying to Cloudflare Pages
+# Cloudflare Pages
 
-Cloudflare Pages hosts the same static export as GitHub Pages, for free, and adds
-two things GitHub Pages cannot:
+**Status: live.** The site deploys to Cloudflare Pages and GitHub Pages on every
+push to `main`.
 
-- real security response headers (`public/_headers` — CSP, `X-Frame-Options`, …)
-- privacy-friendly Web Analytics (no cookies, no consent banner)
+| URL | Security headers | Notes |
+|---|---|---|
+| <https://adulsaa-q.pages.dev> | yes (`public/_headers`) | Cloudflare Pages, project `adulsaa-q` |
+| <https://adulsaa-q.github.io> | no (platform limit) | GitHub Pages, unchanged |
 
-Nothing in the repo needs to change to try it. GitHub Pages keeps working in
-parallel.
+Canonical tags, OG URLs and the sitemap still point at `adulsaa-q.github.io`
+(`defaultSiteUrl` in `src/lib/site-url.ts`). Change that string if you want
+`pages.dev` or a custom domain to become the public URL.
 
-## One-time setup (about 5 minutes, done in the browser)
+## How the deploy works
 
-1. Create a free account at <https://dash.cloudflare.com/sign-up>.
-2. In the dashboard: **Compute (Workers & Pages)** → **Create** → **Pages** →
-   **Connect to Git**.
-3. Authorise Cloudflare to see GitHub, then pick **`adulsaa-q/adulsaa-q.github.io`**.
-4. Build settings:
-   | Field | Value |
-   |---|---|
-   | Framework preset | `Next.js (Static HTML Export)` |
-   | Build command | `npm run build` |
-   | Build output directory | `out` |
-   | Root directory | *(leave blank)* |
-   | Environment variable | `NODE_VERSION` = `22` |
-5. **Save and Deploy.** After ~2 minutes the site is live at
-   `https://adulsaa-q.pages.dev` (or a name you choose in **Settings → Build**).
+`.github/workflows/deploy-pages.yml` → `build` job → after `npm run build` and
+`check:links`, a step runs:
 
-Every push to `main` now deploys to both GitHub Pages and Cloudflare Pages.
+```
+npx wrangler@4 pages deploy out --project-name=adulsaa-q --branch=main
+```
+
+Auth comes from two repo secrets (Settings → Secrets and variables → Actions):
+
+- `CLOUDFLARE_API_TOKEN` — scoped to **Account → Cloudflare Pages → Edit** only
+- `CLOUDFLARE_ACCOUNT_ID`
 
 ## Verify the headers
 
 ```bash
-curl -sI https://adulsaa-q.pages.dev/ | grep -iE 'content-security-policy|x-frame-options|referrer-policy'
+curl -sI https://adulsaa-q.pages.dev/ | grep -iE 'content-security-policy|x-frame-options|referrer-policy|permissions-policy'
 ```
 
-All three should appear. (On `adulsaa-q.github.io` they will not — that is expected.)
+## Rotating the API token
 
-## Turn on Web Analytics (optional, when you want it)
+1. <https://dash.cloudflare.com/profile/api-tokens> → roll or delete the token.
+2. Create a replacement with the same **Cloudflare Pages: Edit** scope.
+3. `gh secret set CLOUDFLARE_API_TOKEN --repo adulsaa-q/adulsaa-q.github.io`
+   (paste the new value), or update it in the GitHub UI.
 
-1. Dashboard → **Analytics & Logs** → **Web Analytics** → **Add a site** →
-   pick the Pages project. Cloudflare injects the beacon automatically for
-   `*.pages.dev` — no code change.
-2. If you later use a custom domain not proxied by Cloudflare, it gives you a
-   `<script>` snippet; add it in `src/app/layout.tsx` and extend the CSP in
-   `public/_headers` per the comment at the top of that file.
+## Web Analytics (optional — not enabled)
 
-## Which URL is "the" site?
+Cloudflare dashboard → **Analytics & Logs → Web Analytics → Add a site** → pick
+the `adulsaa-q` Pages project. Cloudflare injects the beacon automatically for
+`*.pages.dev` — no code change, no cookies, no consent banner. It only reports
+traffic to the `pages.dev` URL, not `github.io`.
 
-Decide once and keep it consistent:
+## Custom domain (optional — not set up)
 
-- **Keep `adulsaa-q.github.io` as the public URL** and treat `*.pages.dev` as a
-  staging/preview with headers — no code change needed. Simplest.
-- **Switch to `*.pages.dev`** — update `defaultSiteUrl` in `src/lib/site-url.ts`,
-  rebuild (canonical tags, OG URLs and the sitemap follow automatically), and
-  update the GitHub, Fastwork and `sameAs` links to point at the new URL.
-- **Custom domain later** — add it in Cloudflare Pages → **Custom domains**,
-  point DNS, then update `defaultSiteUrl`. Enable DNSSEC + registrar lock.
-
-Until you decide, everything stays pointed at `adulsaa-q.github.io`.
+Cloudflare Pages → project `adulsaa-q` → **Custom domains** → add the domain and
+follow the DNS steps. Then set `defaultSiteUrl` to the new origin, rebuild, and
+update the GitHub / Fastwork / `sameAs` links. Enable DNSSEC + registrar lock.
