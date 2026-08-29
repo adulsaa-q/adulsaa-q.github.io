@@ -8,6 +8,17 @@ import type { Project } from "@/types/project";
 
 const featuredProjects = projects.slice(0, 2);
 
+const verifiedTechnologies = [
+  "Power BI",
+  "Power Query/M",
+  "DAX",
+  "SQL",
+  "PostgreSQL",
+  "Python",
+  "TypeScript",
+  "GitHub Actions",
+] as const;
+
 const presentationBySlug: Record<Project["slug"], string> = {
   "ecommerce-sales-pipeline": "dashboard-plate",
   "shopee-thailand-analytics": "schema-led",
@@ -94,6 +105,15 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="technology-register" aria-label="Verified technology register">
+        <p className="technology-register__label">Verified stack</p>
+        <ul>
+          {verifiedTechnologies.map((technology) => (
+            <li key={technology}>{technology}</li>
+          ))}
+        </ul>
       </section>
 
       <section className="work-showcase" aria-labelledby="selected-work">

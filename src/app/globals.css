@@ -354,6 +354,45 @@ button {
   padding-block: var(--section-space);
 }
 
+.technology-register {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.2fr) minmax(0, 0.8fr);
+  gap: 1.5rem;
+  padding-block: 1.15rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.technology-register__label {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.technology-register ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.technology-register li {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.technology-register li:not(:last-child)::after {
+  margin-left: 1rem;
+  color: var(--signal-primary);
+  content: "+";
+}
+
 .section-heading {
   display: grid;
   grid-template-columns: 5rem minmax(0, 1fr) auto;
@@ -1039,6 +1078,11 @@ button {
 
   .hero__system-map li:nth-child(-n + 2) {
     border-bottom: 1px solid var(--line-primary);
+  }
+
+  .technology-register {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
   }
 
   .section-heading {

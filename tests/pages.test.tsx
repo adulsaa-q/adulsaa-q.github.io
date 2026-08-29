@@ -26,6 +26,15 @@ describe("homepage", () => {
     projects.slice(0, 2).forEach((project) => expect(html).toContain(project.name));
   });
 
+  it("keeps an evidence-only technology register compactly visible on home", () => {
+    const html = renderToStaticMarkup(<Home />);
+
+    expect(html).toContain('aria-label="Verified technology register"');
+    ["Power BI", "Power Query/M", "SQL", "PostgreSQL", "Python", "TypeScript", "GitHub Actions"].forEach(
+      (technology) => expect(html).toContain(technology),
+    );
+  });
+
   it("keeps the core decision path and honest work-enquiry route visible in the hero", () => {
     const html = renderToStaticMarkup(<Home />);
 
