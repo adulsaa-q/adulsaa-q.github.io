@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+
 import { describe, expect, it } from "vitest";
 
 import nextConfig from "../next.config";
@@ -17,6 +19,10 @@ describe("static export configuration", () => {
   it("emits static metadata routes for GitHub Pages", () => {
     expect(sitemapDynamic).toBe("force-static");
     expect(robotsDynamic).toBe("force-static");
+  });
+
+  it("ships the selected Orbit Q identity as a scalable site icon", () => {
+    expect(existsSync("src/app/icon.svg")).toBe(true);
   });
 
   it("normalizes an optional project-page base path", () => {
