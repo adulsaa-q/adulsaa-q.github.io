@@ -38,7 +38,7 @@ export default function ContactPage() {
           </a>
         </article>
 
-        <article className="contact-route contact-route--pending">
+        <article id="work-enquiries" className="contact-route contact-route--pending">
           <span className="section-index">02 / WORK ENQUIRIES</span>
           <h2>Fastwork</h2>
           <p>

@@ -26,6 +26,17 @@ describe("homepage", () => {
     projects.slice(0, 2).forEach((project) => expect(html).toContain(project.name));
   });
 
+  it("keeps the core decision path and honest work-enquiry route visible in the hero", () => {
+    const html = renderToStaticMarkup(<Home />);
+
+    expect(html).toContain("DATA");
+    expect(html).toContain("MODEL");
+    expect(html).toContain("DECISION");
+    expect(html).toContain("HANDOVER");
+    expect(html).toContain('href="/contact#work-enquiries"');
+    expect(html).toContain("Discuss focused work");
+  });
+
   it("offers a keyboard-accessible project index for intentional navigation", () => {
     const html = renderToStaticMarkup(<Home />);
 

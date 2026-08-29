@@ -79,9 +79,20 @@ export default function Home() {
             Selected work across reporting models, data pipelines and focused internal
             tools—shown with evidence, boundaries and the decisions behind them.
           </p>
-          <Link className="text-link" href="/work">
-            View the full work index
-          </Link>
+          <ol className="hero__system-map" aria-label="From source data to handover">
+            <li>DATA</li>
+            <li>MODEL</li>
+            <li>DECISION</li>
+            <li>HANDOVER</li>
+          </ol>
+          <div className="hero__actions">
+            <Link className="text-link" href="/work">
+              View the full work index
+            </Link>
+            <Link className="text-link text-link--muted" href="/contact#work-enquiries">
+              Discuss focused work
+            </Link>
+          </div>
         </div>
       </section>
 
