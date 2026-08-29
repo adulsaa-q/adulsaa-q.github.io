@@ -48,3 +48,7 @@ AGENTS.md
 CLAUDE.md
 /.hermes/
 /.claude/
+
+# local secrets — never commit
+cf.*
+*.rtf
