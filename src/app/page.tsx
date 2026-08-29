@@ -101,7 +101,7 @@ export default function Home() {
               View the full work index
             </Link>
             <Link className="text-link text-link--muted" href="/contact#work-enquiries">
-              Discuss focused work
+              FASTWORK / WORK WITH ME
             </Link>
           </div>
         </div>
@@ -150,9 +150,19 @@ export default function Home() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <Link className="text-link" href={`/work/${project.slug}`}>
-                Inspect project
-              </Link>
+              <ul className="project-services" aria-label={`${project.name} services`}>
+                {project.services.map((service) => (
+                  <li key={service}>{service}</li>
+                ))}
+              </ul>
+              <div className="project-entry__links">
+                <Link className="text-link" href={`/work/${project.slug}`}>
+                  Inspect project
+                </Link>
+                <a className="text-link text-link--muted" href={project.repository} target="_blank" rel="noreferrer">
+                  GitHub source
+                </a>
+              </div>
             </div>
             <ProjectVisual project={project} />
           </article>

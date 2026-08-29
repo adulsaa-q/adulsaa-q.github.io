@@ -22,6 +22,10 @@ describe("homepage", () => {
     expect(html).not.toContain('data-presentation="offline-instrument"');
     expect(html).toContain('href="/work"');
     expect(html).toContain("Explore all work");
+    expect(html).toContain("GitHub source");
+    expect(html).toContain(projects[0].repository);
+    expect(html).toContain(projects[1].repository);
+    expect(html).toContain("Power BI reporting");
 
     projects.slice(0, 2).forEach((project) => expect(html).toContain(project.name));
   });
@@ -43,7 +47,7 @@ describe("homepage", () => {
     expect(html).toContain("DECISION");
     expect(html).toContain("HANDOVER");
     expect(html).toContain('href="/contact#work-enquiries"');
-    expect(html).toContain("Discuss focused work");
+    expect(html).toContain("FASTWORK / WORK WITH ME");
   });
 
   it("offers a keyboard-accessible project index for intentional navigation", () => {
@@ -77,6 +81,9 @@ describe("work routes", () => {
     projects.forEach((project) => {
       expect(html).toContain(project.name);
       expect(html).toContain(`/work/${project.slug}`);
+      expect(html).toContain(project.repository);
+      expect(html).toContain(project.services[0]);
+      expect(html).toContain(project.status === "FEATURED" && project.evidence.some((item) => item.class === "SIMULATED") ? "SIMULATED" : "EVIDENCE LED");
     });
   });
 

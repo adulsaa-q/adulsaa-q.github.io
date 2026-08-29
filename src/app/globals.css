@@ -882,6 +882,27 @@ button {
   color: var(--text-secondary);
 }
 
+.work-card__details {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-primary);
+}
+
+.work-card__details p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.work-card__actions {
+  display: grid;
+  justify-items: start;
+  gap: 0.85rem;
+}
+
 .work-card__link {
   display: grid;
   width: 3.5rem;
@@ -1226,8 +1247,14 @@ button {
     grid-template-columns: 2.5rem minmax(0, 1fr) auto;
   }
 
-  .work-card__summary {
+  .work-card__info {
     grid-column: 2 / -1;
+  }
+
+  .work-card__actions {
+    grid-column: 2 / -1;
+    grid-template-columns: auto auto;
+    align-items: center;
   }
 
   .project-body__label {

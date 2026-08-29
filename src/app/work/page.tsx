@@ -34,14 +34,26 @@ export default function WorkPage() {
               {project.name}
               <span>{project.displayTitle}</span>
             </h2>
-            <p className="work-card__summary">{project.summary}</p>
-            <Link
-              className="work-card__link"
-              href={`/work/${project.slug}`}
-              aria-label={`View ${project.name}`}
-            >
-              <span aria-hidden="true">↗</span>
-            </Link>
+            <div className="work-card__info">
+              <p className="work-card__summary">{project.summary}</p>
+              <div className="work-card__details">
+                <span className="scope-label">{project.evidence.some((item) => item.class === "SIMULATED") ? "SIMULATED" : "EVIDENCE LED"}</span>
+                <p>{project.services.join(" / ")}</p>
+                <p>{project.limitations[0]}</p>
+              </div>
+            </div>
+            <div className="work-card__actions">
+              <Link
+                className="work-card__link"
+                href={`/work/${project.slug}`}
+                aria-label={`View ${project.name}`}
+              >
+                <span aria-hidden="true">↗</span>
+              </Link>
+              <a className="source-link" href={project.repository} target="_blank" rel="noreferrer">
+                GitHub source
+              </a>
+            </div>
           </article>
         ))}
       </section>
