@@ -915,6 +915,19 @@ Two passes on branch `audit/master-portfolio-evolution`.
 
 No dependencies were added (one removed). No content claim was weakened or fabricated. No external service, analytics vendor, domain, or DNS change was made.
 
+### Pass 3 — visual QA fixes (headless-Chrome screenshots at 390 / 834 / 1280)
+
+After Q reviewed the deployed look and flagged oversized text, broken alignment, and a dated square logo:
+
+21. **Typography scale brought down** — hero `clamp(2.6–4.4rem)` (was `3–6rem`), page titles `5.5rem` max (was `9rem`), section headings `3.2rem` max (was `5.5rem`); project / work-card / contact / method headings all reduced. Display headings get `overflow-wrap: break-word` + `hyphens: none`; "Multi‑Channel E‑commerce" uses non-breaking hyphens so it never splits mid-word.
+22. **`.section-heading` realigned** — was a 3-column grid that pushed the description to the far right edge; now a left-aligned index + heading + description block.
+23. **Responsive breakpoint 760 → 900px** — fixes the cramped double-nested grids on `/services` and `/about` at tablet widths (the 768–900px dead zone the audit called out).
+24. **`/work` index rebuilt** — number + one content column + right-aligned action, `align-items: start` (the big title no longer floats in the middle of a tall row).
+25. **Hero vertical rhythm** — `align-content: center` + `align-items: start` removes the large empty band above the headline on desktop.
+26. **Circular brand mark** — the Orbit Q mark now sits in a circular disc with a hairline in the header, matching an updated circular favicon (dark disc) and OG card (the OG card no longer uses a boxed "Q" initial). Verified-stack separators changed from red `+` to a muted middot.
+27. **Fastwork URL wired** — `https://fastwork.co/user/adulsaa.q` in `src/content/contact.ts`; `/contact` renders the live link.
+28. **`.gitignore`** — added `/.hermes` and `/.claude` local working directories.
+
 ---
 
 ## Deferred Changes
@@ -922,7 +935,7 @@ No dependencies were added (one removed). No content claim was weakened or fabri
 | Item | Why deferred | Owner decision needed |
 |---|---|---|
 | Analytics vendor | Q chose "later — keep as plan". Recommend GoatCounter (cookieless, free) when ready | Yes — when ready |
-| Fastwork URL | Config slot ready (`src/content/contact.ts` → `fastworkUrl`); paste the approved URL to activate | Yes — provide URL |
+| Fastwork URL | **Done** — `https://fastwork.co/user/adulsaa.q` wired in; `/contact` link is live | — |
 | Homepage repositioning to a narrow audience | Q chose to **stay broad**; `/services` and the hero were built broad accordingly | No (decided: stay broad) |
 | Custom domain + Cloudflare (+ real security headers) | Purchase + DNS — requires authorization. Migration checklist in the Implementation Plan | Yes |
 | Contact form / structured brief intake | Only if Q wants more than email; needs a provider (Web3Forms) or Cloudflare Function | Yes — if wanted |
