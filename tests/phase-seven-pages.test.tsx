@@ -44,6 +44,10 @@ describe("about page", () => {
     expect(html).toContain("Data Pipeline &amp; Operational Automation");
     expect(html).toContain("AI Research &amp; Workflow Systems");
     expect(html).toContain("Not included");
+    expect(html).toContain("DISCOVER");
+    expect(html).toContain("DEFINE");
+    expect(html).toContain("BUILD");
+    expect(html).toContain("VERIFY &amp; HANDOVER");
     expect(html).not.toMatch(/years of experience|worked at|clients include|award/i);
   });
 });

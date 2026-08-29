@@ -48,6 +48,13 @@ const capabilities = [
   },
 ];
 
+const processStages = [
+  ["01", "DISCOVER", "Redacted sample data, source fields and the decision to support."],
+  ["02", "DEFINE", "Scope, expected outputs, ownership and failure boundaries."],
+  ["03", "BUILD", "A working prototype with documented transformations and controls."],
+  ["04", "VERIFY & HANDOVER", "Tests, evidence check, limitations and handover documentation."],
+] as const;
+
 export default function AboutPage() {
   return (
     <main id="main-content" className="page-shell">
@@ -117,6 +124,23 @@ export default function AboutPage() {
             </dl>
           </article>
         ))}
+      </section>
+
+      <section className="process-register" aria-labelledby="process-title">
+        <div className="section-heading">
+          <span className="section-index">PROCESS / 01–04</span>
+          <h2 id="process-title">A bounded path to handover.</h2>
+          <p>Each stage leaves a usable record behind.</p>
+        </div>
+        <ol className="process-register__steps">
+          {processStages.map(([index, title, description]) => (
+            <li key={index}>
+              <span className="process-register__index">{index}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </li>
+          ))}
+        </ol>
       </section>
     </main>
   );
