@@ -11,6 +11,8 @@ type ZoomableImageProps = {
   width: number;
   height: number;
   sizes: string;
+  /** Load immediately instead of lazily — for prominent, near-the-top images. */
+  eager?: boolean;
 };
 
 /**
@@ -19,7 +21,14 @@ type ZoomableImageProps = {
  * while letting the visitor inspect the detail. Native <dialog> handles focus
  * trapping and Escape.
  */
-export function ZoomableImage({ src, alt, width, height, sizes }: ZoomableImageProps) {
+export function ZoomableImage({
+  src,
+  alt,
+  width,
+  height,
+  sizes,
+  eager = false,
+}: ZoomableImageProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const resolved = withBasePath(src);
 
@@ -37,6 +46,7 @@ export function ZoomableImage({ src, alt, width, height, sizes }: ZoomableImageP
           width={width}
           height={height}
           sizes={sizes}
+          loading={eager ? "eager" : "lazy"}
           unoptimized
         />
         <span aria-hidden="true" className="zoomable-image__hint">

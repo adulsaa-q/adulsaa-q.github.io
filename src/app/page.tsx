@@ -59,6 +59,7 @@ function ProjectVisual({ project }: { project: Project }) {
           width={project.slug === "timelimit" ? 413 : 1920}
           height={project.slug === "timelimit" ? 255 : 1095}
           sizes="(max-width: 760px) 100vw, 58vw"
+          loading="eager"
           unoptimized
         />
         <figcaption>{artifact.caption}</figcaption>

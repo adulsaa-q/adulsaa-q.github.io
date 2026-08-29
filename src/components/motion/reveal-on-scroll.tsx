@@ -2,25 +2,24 @@
 
 import { useEffect } from "react";
 
+// Supporting elements only — never the primary content blocks (project
+// entries, work cards, case-study body), which must never depend on JS to
+// be visible.
 const SELECTOR = [
-  ".pipeline-diagram",
-  ".work-showcase .project-entry",
-  ".principles .principle",
-  ".project-body",
-  ".project-lead-artifact",
-  ".capability-record",
+  ".pipeline-node",
+  ".stat",
+  ".principle",
   ".process-register__steps li",
+  ".capability-record dl > div",
   ".archive-row",
   ".contact-route",
-  ".work-card",
-  ".site-footer__grid",
 ].join(",");
 
 /**
- * Progressive enhancement: sections rise and fade in as they enter the
- * viewport. Adds the animation class from JS (so no-JS / failed-JS keeps
- * everything visible) and does nothing at all under prefers-reduced-motion.
- * Elements already on screen at load are shown immediately, no transition.
+ * Progressive enhancement: supporting elements fade in as they enter view.
+ * The animation class is added from JS (no-JS keeps everything visible), a
+ * safety timeout reveals anything the observer misses, and the whole thing
+ * is inert under prefers-reduced-motion.
  */
 export function RevealOnScroll() {
   useEffect(() => {
@@ -29,6 +28,15 @@ export function RevealOnScroll() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       return;
+    }
+
+    const elements: HTMLElement[] = [];
+    for (const el of document.querySelectorAll<HTMLElement>(SELECTOR)) {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        continue; // visible on load — leave it alone
+      }
+      el.classList.add("reveal");
+      elements.push(el);
     }
 
     const observer = new IntersectionObserver(
@@ -40,18 +48,19 @@ export function RevealOnScroll() {
           }
         }
       },
-      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -5% 0px", threshold: 0.1 },
     );
+    elements.forEach((el) => observer.observe(el));
 
-    for (const el of document.querySelectorAll<HTMLElement>(SELECTOR)) {
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) {
-        continue; // visible on load — leave it alone
-      }
-      el.classList.add("reveal");
-      observer.observe(el);
-    }
+    // Safety net: never leave anything hidden.
+    const failSafe = window.setTimeout(() => {
+      for (const el of elements) el.classList.add("is-revealed");
+    }, 3000);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(failSafe);
+    };
   }, []);
 
   return null;

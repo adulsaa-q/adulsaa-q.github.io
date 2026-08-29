@@ -7,15 +7,12 @@ import { primaryNavigation } from "@/content/navigation";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="site-footer__grid">
-        <div className="site-footer__brand">
-          <p className="site-footer__mark">Orbit Q</p>
-          <p>Data, BI &amp; automation systems. A static, evidence-led work record.</p>
-        </div>
+      <div className="site-footer__row">
+        <Link href="/" className="site-footer__mark" aria-label="Q, home">
+          Orbit Q
+        </Link>
 
-        <nav className="site-footer__nav" aria-label="Footer navigation">
-          <span>Site</span>
-          <Link href="/">Home</Link>
+        <nav className="site-footer__links" aria-label="Footer navigation">
           {primaryNavigation.map((item) => (
             <Link href={item.href} key={item.href}>
               {item.label}
@@ -23,23 +20,22 @@ export function SiteFooter() {
           ))}
         </nav>
 
-        <div className="site-footer__contact">
-          <span>Contact</span>
+        <div className="site-footer__links">
           <a href={contact.githubUrl} target="_blank" rel="noopener noreferrer">
-            github.com/adulsaa-q
+            GitHub
           </a>
           <ObfuscatedEmail />
           {contact.fastworkUrl ? (
             <a href={contact.fastworkUrl} target="_blank" rel="noopener noreferrer">
-              Fastwork profile
+              Fastwork
             </a>
           ) : null}
         </div>
       </div>
 
       <div className="site-footer__base">
-        <p>© {new Date().getFullYear()} Q / Adul Sa-a</p>
-        <p lang="en">Built with Next.js, deployed static. No trackers.</p>
+        <p>© {new Date().getFullYear()} Q / Adul Sa-a — evidence-led work record</p>
+        <p lang="en">Static build. No trackers.</p>
       </div>
     </footer>
   );

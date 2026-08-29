@@ -149,6 +149,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             width={1920}
             height={1095}
             sizes="(max-width: 900px) 100vw, 82vw"
+            eager
           />
           <figcaption>{leadArtifact.caption}</figcaption>
         </figure>
