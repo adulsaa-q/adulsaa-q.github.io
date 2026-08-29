@@ -41,6 +41,10 @@ describe("global design system", () => {
     expect(css).toMatch(/\.desktop-navigation a:hover\s*\{[\s\S]*?border-bottom-color:\s*var\(--text-primary\)/);
   });
 
+  it("keeps the mobile menu trigger large enough for touch", () => {
+    expect(css).toMatch(/\.menu-trigger\s*\{[\s\S]*?min-height:\s*2\.75rem/);
+  });
+
   it("uses hairline grid records for capability information rather than an unstructured text wall", () => {
     expect(css).toMatch(/\.capability-register\s*\{[\s\S]*?border-top:\s*1px solid var\(--line-strong\)/);
     expect(css).toMatch(/\.capability-record\s*\{[\s\S]*?display:\s*grid[\s\S]*?border-bottom:\s*1px solid var\(--line-primary\)/);

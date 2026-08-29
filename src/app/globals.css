@@ -154,6 +154,12 @@ button {
   text-decoration: none;
 }
 
+.menu-trigger {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding-inline: 0.5rem;
+}
+
 .desktop-navigation a {
   padding: 0.75rem 0;
   border-bottom: 1px solid transparent;
