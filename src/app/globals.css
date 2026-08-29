@@ -290,12 +290,12 @@ button {
 
 .hero {
   display: grid;
-  min-height: min(34rem, calc(100svh - 10rem));
+  min-height: min(24rem, calc(100svh - 12rem));
   grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.42fr);
   align-content: center;
   align-items: start;
   gap: clamp(2rem, 4vw, 4.5rem);
-  padding-block: clamp(3rem, 6vw, 5rem);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
 }
 
 .hero__copy {
@@ -347,30 +347,60 @@ button {
   font-weight: 700;
 }
 
-.hero__system-map {
+.pipeline-diagram {
+  margin: 0;
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-block: 1px solid var(--line-primary);
+}
+
+.pipeline-diagram__track {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0;
-  padding: 0;
-  border-block: 1px solid var(--line-primary);
-  list-style: none;
 }
 
-.hero__system-map li {
+.pipeline-node {
   position: relative;
-  padding: 0.7rem 0.5rem 0.7rem 0;
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  padding-right: 1.75rem;
 }
 
-.hero__system-map li:not(:last-child)::after {
+.pipeline-node:not(:first-child) {
+  padding-left: clamp(1rem, 2vw, 1.75rem);
+  border-left: 1px solid var(--line-primary);
+}
+
+.pipeline-node:nth-child(2) {
+  border-left-color: var(--signal-primary);
+}
+
+.pipeline-node__index {
+  color: var(--signal-primary);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.pipeline-node__label {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.pipeline-node__note {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.pipeline-node__link {
   position: absolute;
+  top: 0;
   right: 0.5rem;
   color: var(--signal-primary);
-  content: "→";
+  font-weight: 700;
 }
 
 .hero__actions {
@@ -405,7 +435,7 @@ button {
 
 .work-showcase {
   border-top: 1px solid var(--line-strong);
-  padding-block: var(--section-space);
+  padding-block: clamp(3rem, 6vw, 5rem);
 }
 
 .technology-register {
@@ -548,10 +578,9 @@ button {
 .project-entry {
   position: relative;
   display: grid;
-  min-height: 29rem;
-  grid-template-columns: minmax(17rem, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  padding-block: clamp(3rem, 5.5vw, 5.5rem);
+  grid-template-columns: minmax(16rem, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-block: clamp(2.5rem, 4vw, 4rem);
   border-top: 1px solid var(--line-primary);
 }
 
@@ -747,8 +776,7 @@ button {
 }
 
 .principle {
-  min-height: 18rem;
-  padding: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
   background: var(--surface-primary);
 }
 
@@ -809,23 +837,26 @@ button {
 
 .capability-record {
   display: grid;
-  grid-template-columns: minmax(15rem, 0.32fr) minmax(0, 0.68fr);
-  gap: clamp(2rem, 7vw, 7rem);
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(12rem, 0.3fr) minmax(0, 0.7fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-block: clamp(2.25rem, 4vw, 3.5rem);
   border-bottom: 1px solid var(--line-primary);
 }
 
 .capability-record__title {
+  position: sticky;
+  top: 1.5rem;
   display: grid;
   align-content: start;
-  gap: 0.75rem;
+  align-self: start;
+  gap: 0.5rem;
 }
 
 .capability-record__title h3 {
   margin: 0;
-  font-size: clamp(1.7rem, 3vw, 3rem);
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .capability-record dl {
@@ -1017,10 +1048,28 @@ button {
 
 .project-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
-  gap: clamp(3rem, 8vw, 8rem);
-  padding-block: clamp(5rem, 10vw, 9rem);
+  grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.6fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
   border-bottom: 1px solid var(--line-strong);
+}
+
+.project-lead-artifact {
+  margin: 0;
+  padding-block: clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line-primary);
+}
+
+.project-lead-artifact .zoomable-image {
+  border: 1px solid var(--line-strong);
+  background: var(--surface-secondary);
+}
+
+.project-lead-artifact figcaption {
+  margin-top: 0.85rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
 }
 
 .project-hero h1 {
@@ -1046,22 +1095,29 @@ button {
 
 .project-body {
   display: grid;
-  grid-template-columns: minmax(13rem, 0.32fr) minmax(0, 0.68fr);
-  gap: clamp(2rem, 8vw, 9rem);
-  padding-block: var(--section-space);
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
   border-bottom: 1px solid var(--line-primary);
 }
 
 .project-body__label {
   position: sticky;
-  top: 2rem;
+  top: 1.5rem;
   align-self: start;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.project-body__label .section-index {
+  font-size: 0.66rem;
 }
 
 .project-body__label h2 {
-  margin: 0.5rem 0 0;
-  font-size: clamp(1.7rem, 3vw, 3rem);
-  letter-spacing: -0.04em;
+  margin: 0;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
 .project-body__content {
@@ -1070,13 +1126,13 @@ button {
 
 .project-body__content > p:first-child {
   margin-top: 0;
-  font-size: clamp(1.3rem, 2.3vw, 2rem);
-  line-height: 1.35;
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  line-height: 1.4;
 }
 
 .project-body__content h3 {
-  margin: 3rem 0 1rem;
-  font-size: 1rem;
+  margin: 2.25rem 0 0.85rem;
+  font-size: 0.95rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -1242,19 +1298,84 @@ button {
 }
 
 .site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding-block: 2rem;
+  margin-top: var(--section-space);
   border-top: 1px solid var(--line-strong);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.site-footer__brand p {
+  margin: 0;
+  max-width: 24rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.site-footer__mark {
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.site-footer__nav,
+.site-footer__contact {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+}
+
+.site-footer__nav span,
+.site-footer__contact span {
+  margin-bottom: 0.35rem;
   color: var(--text-secondary);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.site-footer__nav a,
+.site-footer__contact a {
+  width: fit-content;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.site-footer__nav a:hover,
+.site-footer__contact a:hover {
+  border-bottom-color: var(--text-primary);
+}
+
+.site-footer__contact a {
+  overflow-wrap: anywhere;
+}
+
+.site-footer__base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--line-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   letter-spacing: 0.04em;
 }
 
-.site-footer p {
+.site-footer__base p {
   margin: 0;
 }
 
@@ -1519,16 +1640,26 @@ button {
     max-width: 35rem;
   }
 
-  .hero__system-map {
+  .capability-record__title {
+    position: static;
+  }
+
+  .pipeline-diagram__track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 0;
   }
 
-  .hero__system-map li:nth-child(2)::after {
-    content: none;
+  .pipeline-node:nth-child(2) {
+    border-left-color: var(--line-primary);
   }
 
-  .hero__system-map li:nth-child(-n + 2) {
-    border-bottom: 1px solid var(--line-primary);
+  .pipeline-node:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .pipeline-node:nth-child(2) .pipeline-node__link {
+    display: none;
   }
 
   .technology-register {
@@ -1643,10 +1774,23 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .site-footer,
   .project-cta__forward {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 440px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1668,9 +1812,28 @@ button {
   }
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s var(--motion-ease),
+    transform 0.55s var(--motion-ease);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   *,

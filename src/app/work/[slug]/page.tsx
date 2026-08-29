@@ -105,6 +105,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const previousProject =
     projects[(currentIndex - 1 + projects.length) % projects.length];
   const nextProject = projects[(currentIndex + 1) % projects.length];
+  const leadArtifact = project.artifacts.find((item) => item.src);
+  const gridArtifacts = leadArtifact
+    ? project.artifacts.filter((item) => item !== leadArtifact)
+    : project.artifacts;
 
   return (
     <main id="main-content" tabIndex={-1} className="page-shell">
@@ -136,6 +140,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </a>
         </div>
       </header>
+
+      {leadArtifact?.src ? (
+        <figure className="project-lead-artifact">
+          <ZoomableImage
+            src={leadArtifact.src}
+            alt={leadArtifact.alt}
+            width={1920}
+            height={1095}
+            sizes="(max-width: 900px) 100vw, 82vw"
+          />
+          <figcaption>{leadArtifact.caption}</figcaption>
+        </figure>
+      ) : null}
 
       <DetailSection index="01" title="Context">
         <p>{project.context}</p>
@@ -175,15 +192,30 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </DetailSection>
 
       <DetailSection index="04" title="Artifacts">
-        <div className="artifact-grid">
-          {project.artifacts.map((artifact) => (
-            <ArtifactCard
-              artifact={artifact}
-              projectName={project.name}
-              key={`${artifact.type}-${artifact.caption}`}
-            />
-          ))}
-        </div>
+        {gridArtifacts.length > 0 ? (
+          <div className="artifact-grid">
+            {gridArtifacts.map((artifact) => (
+              <ArtifactCard
+                artifact={artifact}
+                projectName={project.name}
+                key={`${artifact.type}-${artifact.caption}`}
+              />
+            ))}
+          </div>
+        ) : (
+          <p>
+            The artifact above is the committed evidence for this project. More
+            screenshots and files are in the{" "}
+            <a
+              href={project.repository}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              public repository
+            </a>
+            .
+          </p>
+        )}
       </DetailSection>
 
       <DetailSection index="05" title="Evidence">

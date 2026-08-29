@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { PipelineDiagram } from "@/components/diagram/pipeline-diagram";
 import { ProjectIndex } from "@/components/project/project-index";
 import { projects } from "@/content/projects";
 import { withBasePath } from "@/lib/base-path";
@@ -103,12 +104,6 @@ export default function Home() {
             Selected work across reporting models, data pipelines and focused internal
             tools—shown with evidence, boundaries and the decisions behind them.
           </p>
-          <ol className="hero__system-map" aria-label="From source data to handover">
-            <li>DATA</li>
-            <li>MODEL</li>
-            <li>DECISION</li>
-            <li>HANDOVER</li>
-          </ol>
           <div className="hero__actions">
             <Link className="text-link" href="/work">
               View the full work index
@@ -119,6 +114,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PipelineDiagram />
 
       <section className="technology-register" aria-label="Verified technology register">
         <p className="technology-register__label">Verified stack</p>

@@ -31,7 +31,10 @@ describe("global design system", () => {
   });
 
   it("keeps the desktop hero breathable rather than viewport-filling", () => {
-    expect(css).toContain("min-height: min(34rem, calc(100svh - 10rem))");
+    // A bounded min-height, not a full-viewport hero.
+    const heroMin = css.match(/\.hero\s*\{[\s\S]*?min-height:\s*min\((\d+)rem,/);
+    expect(heroMin).not.toBeNull();
+    expect(Number(heroMin![1])).toBeLessThanOrEqual(34);
     // Display headings are clamped to a calm ceiling, not a viewport-scaled shout.
     const heroClamp = css.match(/\.hero h1,[\s\S]*?font-size:\s*clamp\(([^)]+)\)/);
     expect(heroClamp).not.toBeNull();

@@ -14,7 +14,9 @@ import "@fontsource/ibm-plex-sans-thai/thai-700.css";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { JsonLd } from "@/components/seo/json-ld";
 import { socialImage } from "@/lib/metadata";
 import { canonicalUrl } from "@/lib/site-url";
@@ -76,10 +78,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <SiteHeader />
         {children}
-        <footer className="site-footer">
-          <p>Q / Data, BI &amp; Automation Systems</p>
-          <p lang="en">Built as a static, evidence-led work record.</p>
-        </footer>
+        <SiteFooter />
+        <RevealOnScroll />
       </body>
     </html>
   );
