@@ -84,7 +84,6 @@ function ArtifactCard({ artifact, projectName }: { artifact: Artifact; projectNa
         alt={artifact.alt}
         width={1920}
         height={1095}
-        sizes="(max-width: 760px) 100vw, 45vw"
       />
       <figcaption>
         {projectName}: {artifact.caption}
@@ -148,7 +147,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             alt={leadArtifact.alt}
             width={1920}
             height={1095}
-            sizes="(max-width: 900px) 100vw, 82vw"
             eager
           />
           <figcaption>{leadArtifact.caption}</figcaption>

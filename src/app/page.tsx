@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { PipelineDiagram } from "@/components/diagram/pipeline-diagram";
@@ -53,14 +52,13 @@ function ProjectVisual({ project }: { project: Project }) {
   return (
     <div className="project-visual">
       <figure>
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={withBasePath(artifact.src)}
           alt={artifact.alt}
           width={project.slug === "timelimit" ? 413 : 1920}
           height={project.slug === "timelimit" ? 255 : 1095}
-          sizes="(max-width: 760px) 100vw, 58vw"
-          loading="eager"
-          unoptimized
+          decoding="async"
         />
         <figcaption>{artifact.caption}</figcaption>
       </figure>

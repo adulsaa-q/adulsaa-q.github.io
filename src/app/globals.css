@@ -1310,6 +1310,12 @@ button {
   cursor: zoom-in;
 }
 
+.zoomable-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .zoomable-image__hint {
   position: absolute;
   right: 0.5rem;

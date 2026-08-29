@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 
 import { withBasePath } from "@/lib/base-path";
@@ -10,25 +9,17 @@ type ZoomableImageProps = {
   alt: string;
   width: number;
   height: number;
-  sizes: string;
   /** Load immediately instead of lazily — for prominent, near-the-top images. */
   eager?: boolean;
 };
 
 /**
  * A committed screenshot that opens full-size in a native <dialog> on click.
- * Dashboards are unreadable at card width; this keeps the initial render light
- * while letting the visitor inspect the detail. Native <dialog> handles focus
- * trapping and Escape.
+ * Dashboards are unreadable at card width; this lets the visitor inspect the
+ * detail. Native <dialog> handles focus trapping and Escape. Plain <img> —
+ * the static export sets images.unoptimized, so next/image adds nothing.
  */
-export function ZoomableImage({
-  src,
-  alt,
-  width,
-  height,
-  sizes,
-  eager = false,
-}: ZoomableImageProps) {
+export function ZoomableImage({ src, alt, width, height, eager = false }: ZoomableImageProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const resolved = withBasePath(src);
 
@@ -40,20 +31,24 @@ export function ZoomableImage({
         onClick={() => dialogRef.current?.showModal()}
         aria-label={`Enlarge image: ${alt}`}
       >
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={resolved}
           alt={alt}
           width={width}
           height={height}
-          sizes={sizes}
           loading={eager ? "eager" : "lazy"}
-          unoptimized
+          decoding="async"
         />
         <span aria-hidden="true" className="zoomable-image__hint">
           Enlarge
         </span>
       </button>
-      <dialog ref={dialogRef} className="image-dialog" onClick={() => dialogRef.current?.close()}>
+      <dialog
+        ref={dialogRef}
+        className="image-dialog"
+        onClick={() => dialogRef.current?.close()}
+      >
         {/* Full-size inspection view, loaded only when the dialog opens. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={resolved} alt={alt} loading="lazy" decoding="async" />
