@@ -37,7 +37,7 @@ export function SiteHeader() {
                 strokeWidth="12"
               />
             </svg>
-            <span>Data, BI &amp; Automation Systems</span>
+            <span>Orbit Q / Data, BI &amp; Automation Systems</span>
           </Link>
 
           <nav className="desktop-navigation" aria-label="Primary navigation">

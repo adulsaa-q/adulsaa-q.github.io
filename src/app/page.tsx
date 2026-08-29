@@ -14,9 +14,21 @@ const verifiedTechnologies = [
   "DAX",
   "SQL",
   "PostgreSQL",
+  "Supabase",
   "Python",
+  "SQLite",
+  "Gmail IMAP",
+  "PDF parsing",
+  "Google Sheets API",
   "TypeScript",
+  "Electron",
+  "Vite",
+  "Vitest",
   "GitHub Actions",
+  "SQLAlchemy",
+  "Obsidian",
+  "Gemini",
+  "OpenRouter",
 ] as const;
 
 const presentationBySlug: Record<Project["slug"], string> = {
