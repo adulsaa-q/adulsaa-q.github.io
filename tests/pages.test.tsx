@@ -36,10 +36,18 @@ describe("homepage", () => {
   it("keeps an evidence-only technology register compactly visible on home", () => {
     const html = renderToStaticMarkup(<Home />);
 
-    expect(html).toContain('aria-label="Verified technology register"');
+    expect(html).toContain('aria-label="Verified technology stack"');
     ["Power BI", "Power Query/M", "SQL", "PostgreSQL", "Python", "TypeScript", "GitHub Actions"].forEach(
       (technology) => expect(html).toContain(technology),
     );
+  });
+
+  it("shows an honest at-a-glance ledger with no fabricated business metrics", () => {
+    const html = renderToStaticMarkup(<Home />);
+
+    expect(html).toContain('aria-label="Portfolio at a glance"');
+    expect(html).toContain("displayed claims linked to their source");
+    expect(html).not.toMatch(/\b(revenue|ROI|users?|clients?)\s*(increased|grew|\+?\d)/i);
   });
 
   it("keeps the core decision path and a route into the services page visible in the hero", () => {

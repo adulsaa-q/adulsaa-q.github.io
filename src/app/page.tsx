@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PipelineDiagram } from "@/components/diagram/pipeline-diagram";
+import { StatStrip } from "@/components/home/stat-strip";
+import { TechMarquee } from "@/components/home/tech-marquee";
 import { ProjectIndex } from "@/components/project/project-index";
 import { projects } from "@/content/projects";
 import { withBasePath } from "@/lib/base-path";
@@ -9,29 +11,6 @@ import { textLang } from "@/lib/i18n";
 import type { Project } from "@/types/project";
 
 const featuredProjects = projects.slice(0, 2);
-
-const verifiedTechnologies = [
-  "Power BI",
-  "Power Query/M",
-  "DAX",
-  "SQL",
-  "PostgreSQL",
-  "Supabase",
-  "Python",
-  "SQLite",
-  "Gmail IMAP",
-  "PDF parsing",
-  "Google Sheets API",
-  "TypeScript",
-  "Electron",
-  "Vite",
-  "Vitest",
-  "GitHub Actions",
-  "SQLAlchemy",
-  "Obsidian",
-  "Gemini",
-  "OpenRouter",
-] as const;
 
 const presentationBySlug: Record<Project["slug"], string> = {
   "ecommerce-sales-pipeline": "dashboard-plate",
@@ -117,14 +96,9 @@ export default function Home() {
 
       <PipelineDiagram />
 
-      <section className="technology-register" aria-label="Verified technology register">
-        <p className="technology-register__label">Verified stack</p>
-        <ul>
-          {verifiedTechnologies.map((technology) => (
-            <li key={technology}>{technology}</li>
-          ))}
-        </ul>
-      </section>
+      <StatStrip />
+
+      <TechMarquee />
 
       <section className="work-showcase" aria-labelledby="selected-work">
         <div className="section-heading">
