@@ -15,6 +15,12 @@ describe("global design system", () => {
     expect(css).toContain("--motion-ease: cubic-bezier(0.16, 1, 0.3, 1)");
   });
 
+  it("uses the specified bilingual IBM Plex typography rather than a generic system fallback", () => {
+    expect(css).toContain('--font-sans: "IBM Plex Sans Thai", "IBM Plex Sans", sans-serif');
+    expect(css).toContain('--font-mono: "IBM Plex Mono", monospace');
+    expect(css).not.toContain('--font-sans: Arial');
+  });
+
   it("disables non-essential motion when reduced motion is requested", () => {
     expect(css).toMatch(/@media\s*\(prefers-reduced-motion:\s*reduce\)/);
     expect(css).toContain("scroll-behavior: auto");
@@ -24,15 +30,21 @@ describe("global design system", () => {
     expect(css).toMatch(/\.desktop-navigation\s*\{[\s\S]*?display:\s*flex[\s\S]*?gap:\s*1\.25rem/);
   });
 
-  it("keeps the desktop hero editorial rather than viewport-filling", () => {
-    expect(css).toContain("min-height: min(40rem, calc(100vh - 8rem))");
-    expect(css).toContain("font-size: clamp(3rem, 7vw, 7.2rem)");
-    expect(css).toContain("line-height: 0.96");
+  it("keeps the desktop hero breathable rather than viewport-filling", () => {
+    expect(css).toContain("min-height: min(34rem, calc(100svh - 10rem))");
+    expect(css).toContain("font-size: clamp(3rem, 5.8vw, 6rem)");
+    expect(css).toContain("line-height: 1");
   });
 
   it("does not paint every navigation item with a primary-color underline", () => {
     expect(css).toMatch(/\.desktop-navigation a\s*\{[\s\S]*?border-bottom:\s*1px solid transparent/);
     expect(css).toMatch(/\.desktop-navigation a:hover\s*\{[\s\S]*?border-bottom-color:\s*var\(--text-primary\)/);
+  });
+
+  it("uses hairline grid records for capability information rather than an unstructured text wall", () => {
+    expect(css).toMatch(/\.capability-register\s*\{[\s\S]*?border-top:\s*1px solid var\(--line-strong\)/);
+    expect(css).toMatch(/\.capability-record\s*\{[\s\S]*?display:\s*grid[\s\S]*?border-bottom:\s*1px solid var\(--line-primary\)/);
+    expect(css).toMatch(/\.capability-record dl > div\s*\{[\s\S]*?border-top:\s*1px solid var\(--line-primary\)/);
   });
 
   it("does not introduce prohibited gradient or glass styling", () => {

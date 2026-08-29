@@ -10,28 +10,42 @@ import ProjectPage, {
 import { projects } from "@/content/projects";
 
 describe("homepage", () => {
-  it("renders four distinct evidence-led project entries", () => {
+  it("curates two featured entries while pointing to the complete work index", () => {
     const html = renderToStaticMarkup(<Home />);
 
     expect(html).toContain('id="main-content"');
     expect(html).toContain("I turn messy operational data into systems people can actually use.");
-    expect(html.match(/data-project-entry=/g)).toHaveLength(4);
+    expect(html.match(/data-project-entry=/g)).toHaveLength(2);
     expect(html).toContain('data-presentation="dashboard-plate"');
     expect(html).toContain('data-presentation="schema-led"');
-    expect(html).toContain('data-presentation="system-flow"');
-    expect(html).toContain('data-presentation="offline-instrument"');
+    expect(html).not.toContain('data-presentation="system-flow"');
+    expect(html).not.toContain('data-presentation="offline-instrument"');
+    expect(html).toContain('href="/work"');
+    expect(html).toContain("Explore all work");
 
-    projects.forEach((project) => expect(html).toContain(project.name));
+    projects.slice(0, 2).forEach((project) => expect(html).toContain(project.name));
   });
 
-  it("uses real local artifacts and explicit simulated labels", () => {
+  it("offers a keyboard-accessible project index for intentional navigation", () => {
+    const html = renderToStaticMarkup(<Home />);
+
+    expect(html).toContain('aria-label="Selected project navigator"');
+    expect(html).toContain("Browse systems");
+    projects.slice(0, 2).forEach((project, index) => {
+      expect(html).toContain(`id="project-${project.slug}"`);
+      expect(html).toContain(`aria-controls="project-${project.slug}"`);
+      expect(html).toContain(String(index + 1).padStart(2, "0"));
+    });
+  });
+
+  it("keeps local artifacts and explicit simulated labels on the featured work", () => {
     const html = renderToStaticMarkup(<Home />);
 
     expect(html).toContain("/images/ecommerce/data-model-overview-1.png");
     expect(html).toContain("/images/shopee/page1_sales.png");
-    expect(html).toContain("/images/timelimit/timelimit-widget.png");
+    expect(html).not.toContain("/images/timelimit/timelimit-widget.png");
     expect(html.match(/data-scope-label="simulated"/g)).toHaveLength(2);
-    expect(html).toContain("RECONSTRUCTED FROM IMPLEMENTATION");
+    expect(html).not.toContain("RECONSTRUCTED FROM IMPLEMENTATION");
     expect(html).not.toContain("300,000");
   });
 });

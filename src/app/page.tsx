@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { ProjectIndex } from "@/components/project/project-index";
 import { projects } from "@/content/projects";
 import { withBasePath } from "@/lib/base-path";
 import type { Project } from "@/types/project";
+
+const featuredProjects = projects.slice(0, 2);
 
 const presentationBySlug: Record<Project["slug"], string> = {
   "ecommerce-sales-pipeline": "dashboard-plate",
@@ -84,13 +87,16 @@ export default function Home() {
 
       <section className="work-showcase" aria-labelledby="selected-work">
         <div className="section-heading">
-          <span className="section-index">01–04</span>
+          <span className="section-index">01–02</span>
           <h2 id="selected-work">Selected systems</h2>
-          <p>Four projects. Different constraints. Inspectable claims.</p>
+          <p>Two entry points. Full evidence register on the work index.</p>
         </div>
 
-        {projects.map((project, index) => (
+        <ProjectIndex projects={featuredProjects} />
+
+        {featuredProjects.map((project, index) => (
           <article
+            id={`project-${project.slug}`}
             className="project-entry"
             data-project-entry={project.slug}
             data-presentation={presentationBySlug[project.slug]}
@@ -120,6 +126,13 @@ export default function Home() {
             <ProjectVisual project={project} />
           </article>
         ))}
+
+        <div className="work-showcase__all">
+          <p>More systems, experimental work and their evidence boundaries are kept in the full index.</p>
+          <Link className="text-link" href="/work">
+            Explore all work
+          </Link>
+        </div>
       </section>
 
       <section className="principles" aria-label="Working principles">
