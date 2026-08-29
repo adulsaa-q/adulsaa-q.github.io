@@ -1,0 +1,14 @@
+# Response headers for Cloudflare Pages (and Netlify). GitHub Pages ignores this file.
+# If Cloudflare Web Analytics is added later, append to the CSP:
+#   script-src ... https://static.cloudflareinsights.com
+#   connect-src ... https://cloudflareinsights.com
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
