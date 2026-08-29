@@ -11,6 +11,7 @@ const baseProject: Project = {
   summary: "A bounded project summary.",
   context: "A verifiable context.",
   problem: "A concrete problem.",
+  impact: "A measurable operational improvement target.",
   constraints: ["No production claim."],
   input: ["Synthetic CSV export."],
   system: ["Validated transformation."],

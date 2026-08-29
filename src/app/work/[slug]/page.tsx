@@ -120,6 +120,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <p>{project.context}</p>
         <h3>Problem</h3>
         <p>{project.problem}</p>
+        <h3>Operational impact</h3>
+        <p>{project.impact}</p>
         <h3>Constraints</h3>
         <ul className="detail-list">
           {project.constraints.map((item) => <li key={item}>{item}</li>)}

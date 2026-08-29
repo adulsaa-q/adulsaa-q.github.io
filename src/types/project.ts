@@ -50,6 +50,7 @@ export interface Project {
   summary: string;
   context: string;
   problem: string;
+  impact: string;
   constraints: string[];
   input: string[];
   system: string[];

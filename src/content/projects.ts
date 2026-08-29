@@ -15,6 +15,8 @@ export const projects: Project[] = [
       "Marketplace sales and advertising exports arrive with incompatible columns, status labels, fee fields and reporting periods.",
     problem:
       "A reporting view needs comparable platform, order and marketing data without treating incomplete months as completed periods.",
+    impact:
+      "Creates one comparable reporting layer so a team can inspect channel performance, payout and advertising signals without stitching exports by hand.",
     constraints: [
       "Repository assets use synthetic/anonymized demonstration data.",
       "The public repository does not include a Power BI PBIX file, live API integration or scheduled refresh proof.",
@@ -102,6 +104,8 @@ export const projects: Project[] = [
       "A simulated Shopee Thailand marketplace dataset is used as a portfolio case to explore executive-level commercial and operational questions.",
     problem:
       "Operational marketplace records need a legible model for connecting sales trends, customer retention, campaign activity and courier performance.",
+    impact:
+      "Turns separate commercial and logistics questions into a shared analytical model for clearer review of sales, retention, campaigns and delivery.",
     constraints: [
       "The README describes a simulated 300,000-order case; this is not Shopee internal/client data.",
       "The public repository has no committed PBIX, automated tests, CI workflow or licence file.",
@@ -183,6 +187,8 @@ export const projects: Project[] = [
       "Spreadsheet-based processes can create incompatible layouts and weak traceability when repeated scripts write directly to reporting surfaces.",
     problem:
       "A financial-data workflow needs a database source of truth, repeatable parsing, explicit validation tiers and a recoverable audit trail.",
+    impact:
+      "Creates a repeatable path from statement input to validated, traceable records, reducing ambiguity when financial-data loads are retried or reviewed.",
     constraints: [
       "Current parser scope is KBank PDF statements plus a basic generic fallback.",
       "Statements, transaction data, email content and error payloads are sensitive and are never displayed on this portfolio.",
@@ -276,6 +282,8 @@ export const projects: Project[] = [
       "A long commitment can lose urgency when it has no visible, daily accountability mechanism.",
     problem:
       "The deadline tool needs to preserve correct remaining-time behavior across sleep/resume, calendar boundaries and local state changes.",
+    impact:
+      "Keeps a long-term deadline visible and derived from the current timestamp, so local users can review remaining time without relying on a drifting counter.",
     constraints: [
       "The project is portfolio code, not a signed or hardened production release.",
       "The app is local/offline; it does not demonstrate external SaaS/API integration.",

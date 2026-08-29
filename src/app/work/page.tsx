@@ -39,6 +39,7 @@ export default function WorkPage() {
               <div className="work-card__details">
                 <span className="scope-label">{project.evidence.some((item) => item.class === "SIMULATED") ? "SIMULATED" : "EVIDENCE LED"}</span>
                 <p>{project.services.join(" / ")}</p>
+                <p><strong>Impact:</strong> {project.impact}</p>
                 <p>{project.limitations[0]}</p>
               </div>
             </div>

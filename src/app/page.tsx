@@ -157,6 +157,10 @@ export default function Home() {
               <h3>{project.name}</h3>
               <p className="project-entry__title">{project.displayTitle}</p>
               <p className="project-entry__summary">{project.summary}</p>
+              <div className="project-impact">
+                <span>Operational impact</span>
+                <p>{project.impact}</p>
+              </div>
               <ul className="project-meta" aria-label={`${project.name} technologies`}>
                 {project.stack.slice(0, 4).map((item) => (
                   <li key={item}>{item}</li>

@@ -27,6 +27,8 @@ describe("homepage", () => {
     expect(html).toContain(projects[0].repository);
     expect(html).toContain(projects[1].repository);
     expect(html).toContain("Power BI reporting");
+    expect(html).toContain("Operational impact");
+    expect(html).toContain(projects[0].impact);
 
     projects.slice(0, 2).forEach((project) => expect(html).toContain(project.name));
   });
@@ -105,6 +107,8 @@ describe("work routes", () => {
     expect(html).toContain(project.name);
     expect(html).toContain("Evidence");
     expect(html).toContain("Limitations");
+    expect(html).toContain("Operational impact");
+    expect(html).toContain(project.impact);
     expect(html).toContain(project.repository);
     expect(metadata.title).toBe(`${project.name} — Work`);
   });
