@@ -42,11 +42,14 @@ describe("homepage", () => {
     );
   });
 
-  it("shows an honest at-a-glance ledger with no fabricated business metrics", () => {
+  it("shows an honest at-a-glance ledger counted from the content, not fabricated", () => {
     const html = renderToStaticMarkup(<Home />);
+    const evidenceLinks = projects.reduce((n, p) => n + p.evidence.length, 0);
 
     expect(html).toContain('aria-label="Portfolio at a glance"');
-    expect(html).toContain("displayed claims linked to their source");
+    expect(html).toContain("evidence links to code, tests and artifacts");
+    expect(html).toContain(`<dt>${evidenceLinks}</dt>`);
+    expect(html).toContain("trackers, cookies or third-party scripts");
     expect(html).not.toMatch(/\b(revenue|ROI|users?|clients?)\s*(increased|grew|\+?\d)/i);
   });
 
