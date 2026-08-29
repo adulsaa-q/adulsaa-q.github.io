@@ -11,7 +11,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ContactPage() {
   return (
-    <main id="main-content" className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <header className="page-intro contact-intro">
         <div>
           <p className="eyebrow">Source / ways to work together</p>

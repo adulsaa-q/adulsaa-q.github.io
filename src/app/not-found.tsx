@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main id="main-content" className="page-shell not-found-page">
+    <main id="main-content" tabIndex={-1} className="page-shell not-found-page">
       <p className="not-found-page__code">404 / RECORD NOT FOUND</p>
       <h1>This record is not in the archive.</h1>
       <p>

@@ -101,7 +101,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main id="main-content" className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <header className="project-hero">
         <div>
           <p className="eyebrow">Work / {project.year}</p>

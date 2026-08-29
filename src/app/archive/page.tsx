@@ -12,7 +12,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ArchivePage() {
   return (
-    <main id="main-content" className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <header className="page-intro archive-intro">
         <div>
           <p className="eyebrow">Smaller systems / experiments</p>

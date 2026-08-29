@@ -14,6 +14,7 @@ describe("homepage", () => {
     const html = renderToStaticMarkup(<Home />);
 
     expect(html).toContain('id="main-content"');
+    expect(html).toContain('tabindex="-1"');
     expect(html).toContain("I turn messy operational data into systems people can actually use.");
     expect(html.match(/data-project-entry=/g)).toHaveLength(2);
     expect(html).toContain('data-presentation="dashboard-plate"');

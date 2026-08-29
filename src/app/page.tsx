@@ -76,7 +76,7 @@ function ProjectVisual({ project }: { project: Project }) {
 
 export default function Home() {
   return (
-    <main id="main-content" className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <section className="hero" aria-labelledby="home-title">
         <div className="hero__copy">
           <p className="eyebrow">Data systems / BI / automation</p>

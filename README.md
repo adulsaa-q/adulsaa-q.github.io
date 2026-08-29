@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Q Portfolio
 
-## Getting Started
+Evidence-led portfolio for Q / Data, BI & Automation Systems.
 
-First, run the development server:
+Live site: <https://adulsaa-q.github.io/>
+
+The site presents public GitHub work as inspectable case studies. It uses explicit evidence classes, visible limitations, and synthetic or reconstructed labels where the public repositories do not prove live business outcomes.
+
+## Local development
+
+Requirements: Node.js 20 or newer.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verification
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm test
+npm run lint
+npm run typecheck
+npm run build
+```
 
-## Learn More
+The build creates a static export in `out/`. The production workflow runs the same checks before deploying to GitHub Pages.
 
-To learn more about Next.js, take a look at the following resources:
+## Static deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Deployment is configured in `.github/workflows/deploy-pages.yml` and publishes the `out/` export to the root GitHub Pages site.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For a project-page preview, set an optional build-time base path:
 
-## Deploy on Vercel
+```bash
+NEXT_PUBLIC_BASE_PATH=/portfolio npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The default root deployment does not use a base path. Images are intentionally unoptimized so the static export works on GitHub Pages.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content model
+
+Project records live in `src/content/projects.ts`. Build-time validation checks evidence classes, source URLs, repository links, limitations for simulated or experimental work, and accessible artifact text.
+
+When adding a project:
+
+- link every displayed evidence item to its public source;
+- label simulated, experimental, reconstructed, or README-reported material honestly;
+- include alt text and captions for public artifacts;
+- do not add client results, live integrations, credentials, personal data, or security claims that the source cannot prove;
+- keep the Fastwork URL as a placeholder until an approved profile URL is available.
+
+## Brand and accessibility
+
+The Orbit Q mark is implemented as SVG in the header and `src/app/icon.svg`. The site uses local IBM Plex fonts, keyboard-visible focus states, a keyboard-accessible mobile menu, reduced-motion handling, and a focusable skip-link target.
+
+## Routes
+
+- `/` curated homepage
+- `/work/` full project index
+- `/work/[slug]/` detailed case studies
+- `/archive/` secondary and experimental work
+- `/about/` working method, capabilities, and process
+- `/contact/` approved contact routes and pending Fastwork placeholder

@@ -12,7 +12,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function WorkPage() {
   return (
-    <main id="main-content" className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <header className="page-intro">
         <div>
           <p className="eyebrow">Project register / 2026</p>

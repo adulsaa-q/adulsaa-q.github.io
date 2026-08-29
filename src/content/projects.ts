@@ -1,5 +1,7 @@
 import type { Project } from "@/types/project";
 
+import { validateProjects } from "@/lib/content-validation";
+
 export const projects: Project[] = [
   {
     slug: "ecommerce-sales-pipeline",
@@ -337,3 +339,9 @@ export const projects: Project[] = [
     repository: "https://github.com/adulsaa-q/timelimit",
   },
 ];
+
+const validationErrors = validateProjects(projects);
+
+if (validationErrors.length > 0) {
+  throw new Error(`Invalid portfolio content:\n${validationErrors.join("\n")}`);
+}

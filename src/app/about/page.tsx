@@ -57,7 +57,7 @@ const processStages = [
 
 export default function AboutPage() {
   return (
-    <main id="main-content" className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <header className="page-intro about-intro">
         <div>
           <p className="eyebrow">Working philosophy / capability boundaries</p>
