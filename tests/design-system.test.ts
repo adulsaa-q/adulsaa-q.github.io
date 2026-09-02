@@ -5,12 +5,14 @@ const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "ut
 
 describe("global design system", () => {
   it("defines the authoritative semantic color, layout and motion tokens", () => {
-    expect(css).toContain("--surface-primary: #fdfdfd");
-    expect(css).toContain("--surface-secondary: #f7f7f5");
-    expect(css).toContain("--surface-inverse: #111111");
-    expect(css).toContain("--text-primary: #0e0e0e");
-    expect(css).toContain("--signal-primary: #c75543");
-    expect(css).toContain("--signal-information: #2155d6");
+    expect(css).toContain("--surface-primary: oklch(");
+    expect(css).toContain("--surface-secondary: oklch(");
+    expect(css).toContain("--surface-inverse: oklch(");
+    expect(css).toContain("--text-primary: oklch(");
+    expect(css).toContain("--signal-primary: oklch(");
+    expect(css).toContain("--signal-information: oklch(");
+    expect(css).toContain(':root[data-theme="dark"]');
+    expect(css).toContain("@media (prefers-color-scheme: dark)");
     expect(css).toContain("--content-max: 82rem");
     expect(css).toContain("--motion-ease: cubic-bezier(0.16, 1, 0.3, 1)");
   });
@@ -58,10 +60,12 @@ describe("global design system", () => {
     expect(css).toMatch(/\.capability-record dl > div\s*\{[\s\S]*?border-top:\s*1px solid var\(--line-primary\)/);
   });
 
-  it("does not introduce prohibited gradient or glass styling", () => {
+  it("does not introduce prohibited gradient, glass or authored RGB/hex styling", () => {
     expect(css).not.toMatch(/gradient\s*\(/i);
     expect(css).not.toMatch(/backdrop-filter/i);
     expect(css).not.toMatch(/filter:\s*blur/i);
+    expect(css).not.toMatch(/#[0-9a-f]{3,8}\b/i);
+    expect(css).not.toMatch(/(?:rgb|hsl)a?\s*\(/i);
   });
 
   it("defines every line token it references", () => {

@@ -59,4 +59,15 @@ describe("site header", () => {
     expect(trigger.getAttribute("aria-expanded")).toBe("false");
     expect(document.activeElement).toBe(trigger);
   });
+
+  it("provides a persistent, labelled theme control", async () => {
+    const user = userEvent.setup();
+    render(<SiteHeader />);
+
+    const toggle = screen.getByRole("button", { name: "Switch to dark theme" });
+    await user.click(toggle);
+
+    expect(document.documentElement.dataset.theme).toBe("dark");
+    expect(screen.getByRole("button", { name: "Switch to light theme" })).toBeTruthy();
+  });
 });

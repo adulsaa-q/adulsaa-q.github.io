@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { MobileNavigation } from "@/components/navigation/mobile-navigation";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { primaryNavigation } from "@/content/navigation";
 
 export function SiteHeader() {
@@ -56,6 +57,8 @@ export function SiteHeader() {
               </Link>
             ))}
           </nav>
+
+          <ThemeToggle />
 
           <MobileNavigation />
         </div>

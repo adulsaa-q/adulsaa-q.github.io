@@ -67,9 +67,9 @@ function ArtifactCard({ artifact, projectName }: { artifact: Artifact; projectNa
         <p className="artifact-label">RECONSTRUCTED FROM IMPLEMENTATION</p>
         <div className="system-flow">
           <div className="system-node"><small>Input</small><strong>Source</strong></div>
-          <span className="flow-arrow" aria-hidden="true">→</span>
+          <span className="flow-arrow" aria-hidden="true" />
           <div className="system-node"><small>Logic</small><strong>System</strong></div>
-          <span className="flow-arrow" aria-hidden="true">→</span>
+          <span className="flow-arrow" aria-hidden="true" />
           <div className="system-node"><small>Record</small><strong>Output</strong></div>
         </div>
         <figcaption>{artifact.caption}</figcaption>

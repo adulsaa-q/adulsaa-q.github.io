@@ -30,12 +30,12 @@ function ProjectVisual({ project }: { project: Project }) {
             <small>01 / input</small>
             <strong>Statement PDF</strong>
           </div>
-          <span className="flow-arrow" aria-hidden="true">→</span>
+          <span className="flow-arrow" aria-hidden="true" />
           <div className="system-node">
             <small>02 / control</small>
             <strong>Parse + validate</strong>
           </div>
-          <span className="flow-arrow" aria-hidden="true">→</span>
+          <span className="flow-arrow" aria-hidden="true" />
           <div className="system-node">
             <small>03 / record</small>
             <strong>PostgreSQL audit</strong>

@@ -19,9 +19,7 @@ export function PipelineDiagram() {
             <span className="pipeline-node__label">{stage.key}</span>
             <span className="pipeline-node__note">{stage.note}</span>
             {index < stages.length - 1 ? (
-              <span className="pipeline-node__link" aria-hidden="true">
-                →
-              </span>
+              <span className="pipeline-node__link" aria-hidden="true" />
             ) : null}
           </div>
         ))}
