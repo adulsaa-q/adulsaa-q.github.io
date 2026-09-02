@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="oklch(0.12 0.02 240)">
+  <meta name="description" content="Queue operations dashboard for Q service counters.">
+  <title>Queue / Live Operations</title>
+  <script>
+    tailwind = {
+      config: {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['IBM Plex Sans Thai', 'ui-sans-serif', 'sans-serif'], mono: ['ui-monospace', 'SFMono-Regular', 'monospace'] }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap');
+
+    :root {
+      --surface-bg: oklch(0.985 0.012 240);
+      --surface-alt: oklch(0.955 0.016 240);
+      --surface-float: oklch(1 0 0 / 0.66);
+      --surface-inverse: oklch(0.19 0.025 240);
+      --content-primary: oklch(0.2 0.025 240);
+      --content-secondary: oklch(0.43 0.025 240);
+      --content-tertiary: oklch(0.59 0.02 240);
+      --border-color: oklch(0.86 0.018 240);
+      --border-strong: oklch(0.71 0.025 240);
+      --brand-primary: oklch(0.46 0.14 260);
+      --brand-accent: oklch(0.59 0.16 45);
+      --status-live: oklch(0.55 0.14 155);
+      --status-warn: oklch(0.6 0.15 68);
+      --status-muted: oklch(0.58 0.02 240);
+      --focus-ring: oklch(0.52 0.17 260 / 0.42);
+      --grid-line: oklch(0.28 0.02 240 / 0.055);
+    }
+
+    :root.dark {
+      --surface-bg: oklch(0.12 0.02 240);
+      --surface-alt: oklch(0.16 0.025 240);
+      --surface-float: oklch(0.2 0.025 240 / 0.75);
+      --surface-inverse: oklch(0.96 0.012 240);
+      --content-primary: oklch(0.96 0.012 240);
+      --content-secondary: oklch(0.77 0.018 240);
+      --content-tertiary: oklch(0.53 0.02 240);
+      --border-color: oklch(0.28 0.024 240);
+      --border-strong: oklch(0.4 0.026 240);
+      --brand-primary: oklch(0.7 0.13 260);
+      --brand-accent: oklch(0.72 0.14 62);
+      --status-live: oklch(0.73 0.15 155);
+      --status-warn: oklch(0.78 0.15 74);
+      --status-muted: oklch(0.6 0.025 240);
+      --focus-ring: oklch(0.75 0.14 260 / 0.5);
+      --grid-line: oklch(0.9 0.012 240 / 0.055);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root:not(.dark) { color-scheme: light; }
+    }
+    :root.dark { color-scheme: dark; }
+
+    * { box-sizing: border-box; }
+    html { background: var(--surface-bg); }
+    body {
+      min-width: 320px;
+      margin: 0;
+      background-color: var(--surface-bg);
+      color: var(--content-primary);
+      font-family: 'IBM Plex Sans Thai', ui-sans-serif, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color .35s ease, color .35s ease;
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 3px; }
+    .page-shell { background: color-mix(in oklch, var(--surface-bg) 92%, transparent); }
+    .hairline { border-color: var(--border-color); }
+    .eyebrow, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .eyebrow { font-size: clamp(.66rem, .2vw + .58rem, .76rem); letter-spacing: .16em; text-transform: uppercase; }
+    .display-title { font-size: clamp(2.25rem, 5vw + .5rem, 5.5rem); line-height: .98; letter-spacing: -.055em; }
+    .section-title { font-size: clamp(1.25rem, 1.2vw + .95rem, 1.8rem); line-height: 1.1; letter-spacing: -.035em; }
+    .body-copy { font-size: clamp(.88rem, .22vw + .82rem, 1rem); }
+    .glass-bento {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: var(--surface-float);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .glass-bento::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(520px circle at var(--mouse-x, 100%) var(--mouse-y, 0%), oklch(0.8 0.14 65 / .11), transparent 38%);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .glass-bento:hover::before, .glass-bento:focus-within::before { opacity: 1; }
+    .queue-grid:has(.queue-card:hover) .queue-card:not(:hover),
+    .queue-grid:has(.queue-card:focus-within) .queue-card:not(:focus-within) { opacity: .34; filter: grayscale(75%); }
+    .queue-card { transition: opacity .4s ease, filter .4s ease, transform .4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color .3s ease; }
+    .queue-card:hover, .queue-card:focus-within { transform: translateY(-3px); border-color: var(--brand-accent); }
+    .magnetic-btn {
+      position: relative;
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-bg);
+      color: var(--content-primary);
+      padding: .68rem 1rem;
+      font: inherit;
+      font-size: .78rem;
+      font-weight: 600;
+      transition: transform .3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color .3s ease, color .3s ease, background-color .3s ease;
+    }
+    .magnetic-btn::before { content: ''; position: absolute; inset: 0; background: var(--content-primary); transform: translateY(102%); transition: transform .4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .magnetic-btn > * { position: relative; z-index: 1; }
+    .magnetic-btn:hover { border-color: var(--content-primary); color: var(--surface-bg); }
+    .magnetic-btn:hover::before, .magnetic-btn:focus-visible::before { transform: translateY(0); }
+    .status-dot { width: .5rem; height: .5rem; border-radius: 999px; background: var(--status-live); box-shadow: 0 0 0 4px oklch(0.7 0.14 155 / .12); }
+    .status-dot.warn { background: var(--status-warn); box-shadow: 0 0 0 4px oklch(0.7 0.14 68 / .12); }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+    .queue-container { container-type: inline-size; }
+    @container (min-width: 620px) { .queue-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @container (min-width: 980px) { .queue-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 639px) { .mobile-stack { flex-direction: column; align-items: flex-start; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      .queue-card:hover, .queue-card:focus-within { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell min-h-screen">
+    <header class="sticky top-0 z-20 border-b hairline bg-[color:var(--surface-bg)]/90 backdrop-blur-md">
+      <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-5 py-4 sm:px-8 lg:px-12">
+        <a href="#main-content" class="flex items-center gap-3" aria-label="Queue dashboard home">
+          <span class="flex h-9 w-9 items-center justify-center border hairline bg-[color:var(--content-primary)] text-[color:var(--surface-bg)] font-semibold tracking-[-.08em]">Q.</span>
+          <span><span class="block text-sm font-semibold tracking-[-.03em]">Queue Web</span><span class="mono block text-[.62rem] uppercase tracking-[.16em] text-[color:var(--content-tertiary)]">Operations / 01</span></span>
+        </a>
+        <div class="flex items-center gap-3 sm:gap-5">
+          <div class="hidden items-center gap-2 sm:flex"><span class="status-dot" aria-hidden="true"></span><span class="mono text-[.7rem] uppercase tracking-[.14em] text-[color:var(--content-secondary)]">System live</span></div>
+          <span class="hidden h-5 w-px bg-[color:var(--border-color)] sm:block" aria-hidden="true"></span>
+          <button id="theme-toggle" type="button" class="flex min-h-11 items-center gap-2 border hairline px-3 text-[.75rem] font-medium text-[color:var(--content-secondary)] transition-colors hover:bg-[color:var(--surface-alt)]" aria-label="Switch color theme" aria-pressed="true">
+            <svg id="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M3 12h2m14 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>
+            <span class="hidden sm:inline">Theme</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="mx-auto max-w-[1440px] px-5 pb-20 pt-10 sm:px-8 sm:pt-14 lg:px-12 lg:pt-20">
+      <section class="grid grid-cols-1 gap-10 border-b hairline pb-10 lg:grid-cols-12 lg:gap-8 lg:pb-14" aria-labelledby="page-title">
+        <div class="lg:col-span-8">
+          <p class="eyebrow mb-5 text-[color:var(--brand-accent)]">Live queue management</p>
+          <h1 id="page-title" class="display-title max-w-4xl font-semibold">The next<br><span class="text-[color:var(--content-secondary)]">right move.</span></h1>
+        </div>
+        <div class="flex flex-col justify-end lg:col-span-4 lg:pb-1">
+          <p class="body-copy max-w-sm leading-relaxed text-[color:var(--content-secondary)]">A calm, shared view of who is waiting, where attention is needed, and what your team can call next.</p>
+          <div class="mt-6 flex items-center gap-3 text-[.72rem] text-[color:var(--content-tertiary)]"><span class="mono tabular-nums">LAST SYNC 09:42:18</span><span class="h-px w-8 bg-[color:var(--border-strong)]" aria-hidden="true"></span><span class="mono">BKK / UTC+7</span></div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-2 border-b hairline sm:grid-cols-4" aria-label="Queue summary">
+        <div class="border-r hairline py-6 pr-4 sm:py-8"><p class="eyebrow text-[color:var(--content-tertiary)]">Waiting now</p><p class="mt-2 tabular-nums text-[clamp(1.8rem,3vw,3rem)] font-semibold tracking-[-.05em]">18</p><p class="mt-1 text-xs text-[color:var(--content-secondary)]">across 04 counters</p></div>
+        <div class="border-r hairline py-6 pl-4 sm:py-8 sm:pl-6"><p class="eyebrow text-[color:var(--content-tertiary)]">Avg. wait</p><p class="mt-2 tabular-nums text-[clamp(1.8rem,3vw,3rem)] font-semibold tracking-[-.05em]">06:24</p><p class="mt-1 text-xs text-[color:var(--content-secondary)]">↓ 12% vs. yesterday</p></div>
+        <div class="border-r hairline py-6 pr-4 sm:py-8 sm:pl-6"><p class="eyebrow text-[color:var(--content-tertiary)]">Served today</p><p class="mt-2 tabular-nums text-[clamp(1.8rem,3vw,3rem)] font-semibold tracking-[-.05em]">126</p><p class="mt-1 text-xs text-[color:var(--content-secondary)]">since 08:00</p></div>
+        <div class="py-6 pl-4 sm:py-8 sm:pl-6"><p class="eyebrow text-[color:var(--content-tertiary)]">Open counters</p><p class="mt-2 tabular-nums text-[clamp(1.8rem,3vw,3rem)] font-semibold tracking-[-.05em]">04<span class="text-[color:var(--content-tertiary)]">/05</span></p><p class="mt-1 text-xs text-[color:var(--content-secondary)]">one in break</p></div>
+      </section>
+
+      <section class="pt-10 sm:pt-14" aria-labelledby="queues-title">
+        <div class="mobile-stack mb-6 flex items-end justify-between gap-5"><div><p class="eyebrow mb-3 text-[color:var(--brand-accent)]">01 / Active lines</p><h2 id="queues-title" class="section-title font-semibold">Choose a queue to call</h2></div><p class="mono text-[.7rem] uppercase tracking-[.14em] text-[color:var(--content-tertiary)]">Hover to focus · Select to act</p></div>
+        <div class="queue-container">
+          <div id="queue-wrapper" class="queue-grid grid gap-4" aria-label="Active queue cards">
+            <article class="queue-card glass-bento group flex min-h-[300px] flex-col justify-between p-5 sm:p-6" tabindex="0" data-spotlight>
+              <div class="relative z-10 flex items-start justify-between"><span class="eyebrow text-[color:var(--content-tertiary)]">Service / A01</span><span class="flex items-center gap-2 text-xs text-[color:var(--status-live)]"><span class="status-dot" aria-hidden="true"></span>Open</span></div>
+              <div class="relative z-10 mt-12"><p class="eyebrow mb-2 text-[color:var(--content-secondary)]">Now serving</p><p class="tabular-nums text-[clamp(4rem,9vw,7rem)] font-semibold leading-none tracking-[-.08em]">A-104</p><p class="mt-3 text-sm text-[color:var(--content-secondary)]">General enquiries <span class="text-[color:var(--content-tertiary)]">·</span> 04 waiting</p></div>
+              <div class="relative z-10 mt-8 flex items-center justify-between border-t hairline pt-4"><span class="mono tabular-nums text-xs text-[color:var(--content-tertiary)]">EST. 04 MIN</span><button type="button" class="magnetic-btn call-button" data-queue="A-104" aria-label="Call queue number A-104"><span>Call A-104</span><span aria-hidden="true">↗</span></button></div>
+            </article>
+
+            <article class="queue-card glass-bento group flex min-h-[300px] flex-col justify-between p-5 sm:p-6" tabindex="0" data-spotlight>
+              <div class="relative z-10 flex items-start justify-between"><span class="eyebrow text-[color:var(--content-tertiary)]">Service / B02</span><span class="flex items-center gap-2 text-xs text-[color:var(--status-live)]"><span class="status-dot" aria-hidden="true"></span>Open</span></div>
+              <div class="relative z-10 mt-12"><p class="eyebrow mb-2 text-[color:var(--content-secondary)]">Now serving</p><p class="tabular-nums text-[clamp(4rem,9vw,7rem)] font-semibold leading-none tracking-[-.08em]">B-087</p><p class="mt-3 text-sm text-[color:var(--content-secondary)]">Payments & billing <span class="text-[color:var(--content-tertiary)]">·</span> 06 waiting</p></div>
+              <div class="relative z-10 mt-8 flex items-center justify-between border-t hairline pt-4"><span class="mono tabular-nums text-xs text-[color:var(--content-tertiary)]">EST. 08 MIN</span><button type="button" class="magnetic-btn call-button" data-queue="B-087" aria-label="Call queue number B-087"><span>Call B-087</span><span aria-hidden="true">↗</span></button></div>
+            </article>
+
+            <article class="queue-card glass-bento group flex min-h-[300px] flex-col justify-between p-5 sm:p-6" tabindex="0" data-spotlight>
+              <div class="relative z-10 flex items-start justify-between"><span class="eyebrow text-[color:var(--content-tertiary)]">Service / C03</span><span class="flex items-center gap-2 text-xs text-[color:var(--status-warn)]"><span class="status-dot warn" aria-hidden="true"></span>Busy</span></div>
+              <div class="relative z-10 mt-12"><p class="eyebrow mb-2 text-[color:var(--content-secondary)]">Now serving</p><p class="tabular-nums text-[clamp(4rem,9vw,7rem)] font-semibold leading-none tracking-[-.08em]">C-219</p><p class="mt-3 text-sm text-[color:var(--content-secondary)]">Technical support <span class="text-[color:var(--content-tertiary)]">·</span> 05 waiting</p></div>
+              <div class="relative z-10 mt-8 flex items-center justify-between border-t hairline pt-4"><span class="mono tabular-nums text-xs text-[color:var(--content-tertiary)]">EST. 06 MIN</span><button type="button" class="magnetic-btn call-button" data-queue="C-219" aria-label="Call queue number C-219"><span>Call C-219</span><span aria-hidden="true">↗</span></button></div>
+            </article>
+
+            <article class="queue-card glass-bento group flex min-h-[300px] flex-col justify-between p-5 sm:p-6" tabindex="0" data-spotlight>
+              <div class="relative z-10 flex items-start justify-between"><span class="eyebrow text-[color:var(--content-tertiary)]">Service / D04</span><span class="flex items-center gap-2 text-xs text-[color:var(--status-live)]"><span class="status-dot" aria-hidden="true"></span>Open</span></div>
+              <div class="relative z-10 mt-12"><p class="eyebrow mb-2 text-[color:var(--content-secondary)]">Now serving</p><p class="tabular-nums text-[clamp(4rem,9vw,7rem)] font-semibold leading-none tracking-[-.08em]">D-042</p><p class="mt-3 text-sm text-[color:var(--content-secondary)]">New registrations <span class="text-[color:var(--content-tertiary)]">·</span> 03 waiting</p></div>
+              <div class="relative z-10 mt-8 flex items-center justify-between border-t hairline pt-4"><span class="mono tabular-nums text-xs text-[color:var(--content-tertiary)]">EST. 03 MIN</span><button type="button" class="magnetic-btn call-button" data-queue="D-042" aria-label="Call queue number D-042"><span>Call D-042</span><span aria-hidden="true">↗</span></button></div>
+            </article>
+
+            <article class="queue-card glass-bento group flex min-h-[300px] flex-col justify-between p-5 opacity-70 sm:p-6" tabindex="0" data-spotlight>
+              <div class="relative z-10 flex items-start justify-between"><span class="eyebrow text-[color:var(--content-tertiary)]">Service / E05</span><span class="flex items-center gap-2 text-xs text-[color:var(--status-muted)]"><span class="h-2 w-2 rounded-full bg-[color:var(--status-muted)]" aria-hidden="true"></span>Break</span></div>
+              <div class="relative z-10 mt-12"><p class="eyebrow mb-2 text-[color:var(--content-secondary)]">Last served</p><p class="tabular-nums text-[clamp(4rem,9vw,7rem)] font-semibold leading-none tracking-[-.08em]">E-031</p><p class="mt-3 text-sm text-[color:var(--content-secondary)]">Document checks <span class="text-[color:var(--content-tertiary)]">·</span> paused</p></div>
+              <div class="relative z-10 mt-8 flex items-center justify-between border-t hairline pt-4"><span class="mono text-xs text-[color:var(--content-tertiary)]">RETURNS 10:00</span><button type="button" class="magnetic-btn" disabled aria-label="Counter E05 is on break"><span>On break</span></button></div>
+            </article>
+
+            <aside class="glass-bento flex min-h-[300px] flex-col justify-between p-5 sm:p-6" aria-labelledby="shift-title">
+              <div class="relative z-10"><p class="eyebrow mb-3 text-[color:var(--brand-accent)]">Shift note</p><h3 id="shift-title" class="section-title max-w-xs font-semibold">Keep the line moving.</h3><p class="body-copy mt-4 max-w-sm leading-relaxed text-[color:var(--content-secondary)]">Call the next number only when your counter is ready. A clear signal keeps the room calm.</p></div>
+              <div class="relative z-10 mt-8 border-t hairline pt-4"><div class="flex items-center justify-between"><span class="mono text-[.68rem] uppercase tracking-[.14em] text-[color:var(--content-tertiary)]">Team status</span><span class="text-xs text-[color:var(--status-live)]">All systems nominal</span></div><div class="mt-4 h-1 bg-[color:var(--surface-alt)]"><div class="h-full w-[82%] bg-[color:var(--brand-accent)]"></div></div></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-14 flex flex-col justify-between gap-4 border-t hairline pt-5 text-xs text-[color:var(--content-tertiary)] sm:flex-row"><span class="mono">QUEUE WEB / INTERNAL OPERATIONS</span><span>Need help? Contact the floor lead.</span></footer>
+    </main>
+  </div>
+
+  <div id="live-region" class="sr-only" aria-live="polite"></div>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      const storedTheme = localStorage.getItem('queue-theme');
+      if (storedTheme) root.classList.toggle('dark', storedTheme === 'dark');
+      const syncThemeLabel = () => toggle.setAttribute('aria-pressed', root.classList.contains('dark') ? 'true' : 'false');
+      syncThemeLabel();
+      toggle.addEventListener('click', () => { const dark = !root.classList.contains('dark'); root.classList.toggle('dark', dark); localStorage.setItem('queue-theme', dark ? 'dark' : 'light'); syncThemeLabel(); });
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      document.querySelectorAll('[data-spotlight]').forEach(card => card.addEventListener('pointermove', event => { if (reducedMotion.matches) return; const rect = card.getBoundingClientRect(); card.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); card.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`); }));
+      document.querySelectorAll('.call-button').forEach(button => {
+        button.addEventListener('pointermove', event => { if (reducedMotion.matches) return; const rect = button.getBoundingClientRect(); button.style.transform = `translate(${(event.clientX - (rect.left + rect.width / 2)) * .08}px, ${(event.clientY - (rect.top + rect.height / 2)) * .08}px)`; });
+        button.addEventListener('pointerleave', () => { button.style.transform = ''; });
+        button.addEventListener('click', () => { const queue = button.dataset.queue; document.getElementById('live-region').textContent = `Queue ${queue} called.`; button.querySelector('span').textContent = 'Called'; setTimeout(() => { button.querySelector('span').textContent = `Call ${queue}`; }, 1800); });
+      });
+    })();
+  </script>
+</body>
+</html>
