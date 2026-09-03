@@ -60,10 +60,23 @@ describe("global design system", () => {
     expect(css).toMatch(/\.capability-record dl > div\s*\{[\s\S]*?border-top:\s*1px solid var\(--line-primary\)/);
   });
 
-  it("does not introduce prohibited gradient, glass or authored RGB/hex styling", () => {
-    expect(css).not.toMatch(/gradient\s*\(/i);
-    expect(css).not.toMatch(/backdrop-filter/i);
-    expect(css).not.toMatch(/filter:\s*blur/i);
+  it("keeps gradient, glass and glow effects deliberate: token-driven and non-decorative-only", () => {
+    // The 2026-09 direction allows gradient/blur/glass, scoped to a few named
+    // moments (hero glow, nav glass, project-visual spotlight) — not scattered
+    // everywhere, and always mixed from the brand's own signal tokens rather
+    // than an arbitrary hex/rgb value. See docs/BRAND.md "Bold surfaces".
+    // Non-greedy up to the declaration's closing `;`, not the gradient's own
+    // first `)` — a radial-gradient's `at var(--spot-x, 50%)` argument closes
+    // its own paren well before the token reference the gradient ends on.
+    const gradientCalls = [...css.matchAll(/gradient\([\s\S]*?;/gi)];
+    expect(gradientCalls.length).toBeGreaterThan(0);
+    for (const [call] of gradientCalls) {
+      expect(call).toMatch(/var\(--(signal|surface|text|line)-/);
+    }
+    expect(css).toMatch(/backdrop-filter:\s*blur\(/);
+  });
+
+  it("keeps authored colors on the oklch token system — no raw hex or rgb/hsl literals", () => {
     expect(css).not.toMatch(/#[0-9a-f]{3,8}\b/i);
     expect(css).not.toMatch(/(?:rgb|hsl)a?\s*\(/i);
   });

@@ -70,9 +70,35 @@ browser defaults.
 ## Rules & surfaces
 
 - Borders are `1px` hairlines. Radius is small (`--radius-small: 0.35rem`) or none.
-- **No** gradients, `backdrop-filter`, `filter: blur`, glows, or glass. Enforced
-  by `tests/design-system.test.ts`.
 - Cards are a hairline border on `--surface-raised` or `--surface-secondary`.
+
+### Bold surfaces (2026-09)
+
+Gradient, glass and glow are now allowed, but scoped to a few named moments —
+not a scattered effect on every card. Each one must mix from the existing
+`--signal-*` / `--surface-*` tokens (never a raw hex/rgb value dropped in for
+"just this one gradient"), so the bolder surfaces still read as this brand,
+not a generic component-library demo. `tests/design-system.test.ts` enforces
+both halves: gradients/blur/glass must be present, and every `gradient()` call
+must reference a token.
+
+Current named moments — extend this list before adding a new one elsewhere:
+
+- **Nav glass** — `.site-header` is `backdrop-filter: blur(...)` over a
+  translucent `color-mix(in oklch, var(--surface-primary) …, transparent)`.
+  Functional glass: it separates the sticky bar from content scrolling under it.
+- **Hero glow** — `.hero::before`, a soft blurred two-color radial gradient
+  (`--signal-primary` + `--signal-information`) behind the copy, `z-index: -1`,
+  `pointer-events: none`. Ambient, not a spotlight — text stays solid and at
+  full contrast on top of it.
+- **Eyebrow gradient** — the `::before` dash in front of every eyebrow label
+  is a two-stop gradient across the same two signal hues instead of a flat
+  `currentColor`, so the "bold" direction is legible even in a single glance
+  at the smallest recurring mark on the page.
+- **Project-visual spotlight** — a cursor-tracked radial glow on hover/focus
+  over each case-study artifact plate (`SpotlightCards`, mouse position → CSS
+  custom properties `--spot-x`/`--spot-y`). Decoration only: the plate is
+  fully legible with the effect off (no-JS, touch, reduced motion).
 
 ## Iconography
 

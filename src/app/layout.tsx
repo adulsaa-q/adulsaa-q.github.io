@@ -17,6 +17,7 @@ import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
+import { SpotlightCards } from "@/components/motion/spotlight-cards";
 import { JsonLd } from "@/components/seo/json-ld";
 import { socialImage } from "@/lib/metadata";
 import { canonicalUrl } from "@/lib/site-url";
@@ -88,6 +89,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <SiteFooter />
         <RevealOnScroll />
+        <SpotlightCards />
       </body>
     </html>
   );
