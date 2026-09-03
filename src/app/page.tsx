@@ -79,23 +79,15 @@ export default function Home() {
         <div className="hero__copy">
           <p className="eyebrow">Data systems / BI / automation</p>
           <h1 id="home-title">
-            Evidence for better decisions
+            I turn messy operational data into systems people can actually use.
           </h1>
-          <p className="hero__headline-thai" lang="th">
-            เปลี่ยนข้อมูลที่ยุ่งยาก ให้เป็นระบบที่อธิบายและใช้งานได้จริง
-          </p>
         </div>
         <div className="hero__aside">
+          <p lang="th">เปลี่ยนข้อมูลกระจัดกระจาย ให้เป็นระบบที่ตรวจสอบและใช้งานได้จริง</p>
           <p>
-            I turn messy operational data into systems people can actually use.
+            Selected work across reporting models, data pipelines and focused internal
+            tools—shown with evidence, boundaries and the decisions behind them.
           </p>
-          <p className="hero__aside-detail">
-            The work is shown with evidence, boundaries and the decisions behind it.
-          </p>
-          <div className="hero__aside-meta" aria-label="Portfolio orientation">
-            <span>Q / Adul Sa-a</span>
-            <span>Thailand · open to focused systems work</span>
-          </div>
           <div className="hero__actions">
             <Link className="text-link" href="/work">
               View the full work index
@@ -104,23 +96,6 @@ export default function Home() {
               How to work with me
             </Link>
           </div>
-        </div>
-        <div className="hero__proof" aria-label="Featured proof artifact">
-          <div className="hero__proof-head">
-            <span>Proof plate / 01</span>
-            <span>Committed artifact</span>
-          </div>
-          <figure>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={withBasePath("/images/ecommerce/data-model-overview-1.png")}
-              alt="Power BI e-commerce dashboard showing marketplace filters, reporting KPIs and charts."
-              width={1920}
-              height={1095}
-              decoding="async"
-            />
-            <figcaption>Multi-channel sales pipeline / synthetic demonstration data</figcaption>
-          </figure>
         </div>
       </section>
 
