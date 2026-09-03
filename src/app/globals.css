@@ -36,6 +36,9 @@ textarea {
 
 :root {
   color-scheme: light;
+  accent-color: var(--signal-information);
+  caret-color: var(--signal-information);
+  scrollbar-color: var(--line-strong) transparent;
   --surface-primary: oklch(0.985 0.008 90);
   --surface-secondary: oklch(0.955 0.012 88);
   --surface-raised: oklch(0.998 0.004 90);
@@ -73,6 +76,9 @@ textarea {
 
 :root[data-theme="dark"] {
   color-scheme: dark;
+  accent-color: var(--signal-information);
+  caret-color: var(--signal-information);
+  scrollbar-color: var(--line-strong) transparent;
   --surface-primary: oklch(0.16 0.018 250);
   --surface-secondary: oklch(0.205 0.022 250);
   --surface-raised: oklch(0.235 0.022 250);
@@ -92,6 +98,9 @@ textarea {
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
+    accent-color: var(--signal-information);
+    caret-color: var(--signal-information);
+    scrollbar-color: var(--line-strong) transparent;
     --surface-primary: oklch(0.16 0.018 250);
     --surface-secondary: oklch(0.205 0.022 250);
     --surface-raised: oklch(0.235 0.022 250);
@@ -1974,6 +1983,22 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+
+  /* ::view-transition-* are generated top-layer pseudo-elements the universal
+     selector above does not reach; theme-toggle.tsx skips startViewTransition
+     under this same query, but this is the belt-and-braces CSS-only guard. */
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* One authored moment: the theme swap cross-fades instead of snapping.
+   Feature-detected in theme-toggle.tsx; this just tunes the duration. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--motion-base);
 }
 
 /* Portfolio system refinement: a restrained 12-column editorial frame. */
@@ -2126,5 +2151,432 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .project-entry {
     transition: none;
+  }
+}
+
+/* Q / proof bridge direction — the artifact is the hero, the rules are the depth. */
+:root {
+  --signal-primary: oklch(0.53 0.17 35);
+  --signal-information: oklch(0.48 0.16 255);
+  --surface-ink: oklch(0.22 0.022 250);
+  --text-on-ink: oklch(0.965 0.008 90);
+}
+
+:root[data-theme="dark"] {
+  --signal-primary: oklch(0.76 0.16 45);
+  --signal-information: oklch(0.76 0.13 245);
+  --surface-ink: oklch(0.12 0.018 250);
+}
+
+body {
+  font-feature-settings: "kern", "liga";
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: color-mix(in oklch, var(--surface-primary) 94%, transparent);
+}
+
+.site-header__inner {
+  min-height: 4.5rem;
+}
+
+.brand-mark {
+  width: 2.45rem;
+  height: 2.45rem;
+}
+
+.wordmark span:last-child {
+  max-width: 24ch;
+  color: var(--text-secondary);
+}
+
+.wordmark {
+  min-height: 2.75rem;
+}
+
+.hero {
+  position: relative;
+  min-height: auto;
+  align-items: end;
+  padding-block: clamp(3.5rem, 7vw, 7rem) clamp(2.5rem, 5vw, 4.5rem);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.hero::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--line-primary);
+  content: "";
+}
+
+.hero__copy {
+  grid-column: 1 / span 7;
+  padding-right: clamp(1rem, 4vw, 4rem);
+}
+
+.eyebrow {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--signal-primary);
+}
+
+.hero h1 {
+  /* 10ch, not 8ch: the longest word in the current headline ("decisions",
+     9ch) must fit whole, or overflow-wrap breaks it mid-word onto its own
+     orphan line. text-wrap: balance then distributes what's left evenly. */
+  max-width: 10ch;
+  font-size: clamp(3.4rem, 8vw, 7.2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.hero__headline-thai {
+  max-width: 30ch;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--text-secondary);
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+}
+
+.hero__aside {
+  grid-column: 9 / span 4;
+  padding-top: 0;
+  padding-bottom: clamp(8rem, 13vw, 12rem);
+}
+
+.hero__aside p {
+  max-width: 34ch;
+}
+
+.hero__aside-meta,
+.hero__proof-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero__aside-meta {
+  padding-block: 0.85rem;
+  border-block: 1px solid var(--line-primary);
+}
+
+.hero__actions {
+  gap: 0.85rem 1.5rem;
+}
+
+.hero__proof {
+  position: relative;
+  grid-column: 6 / -1;
+  grid-row: 2;
+  margin-top: clamp(2rem, 5vw, 5rem);
+  padding: clamp(0.75rem, 1.5vw, 1.25rem);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-secondary);
+}
+
+.hero__proof::before {
+  position: absolute;
+  inset: 0.55rem -0.55rem -0.55rem 0.55rem;
+  z-index: -1;
+  border: 1px solid var(--line-primary);
+  content: "";
+}
+
+.hero__proof-head {
+  padding-bottom: 0.75rem;
+}
+
+.hero__proof figure {
+  margin: 0;
+}
+
+.hero__proof img {
+  width: 100%;
+  border: 1px solid var(--line-primary);
+}
+
+.hero__proof figcaption {
+  padding-top: 0.75rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.pipeline-diagram {
+  position: relative;
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  background: var(--surface-ink);
+  color: var(--text-on-ink);
+}
+
+.pipeline-diagram::before {
+  position: absolute;
+  top: 50%;
+  right: var(--gutter);
+  left: var(--gutter);
+  border-top: 1px solid var(--line-strong);
+  content: "";
+}
+
+.pipeline-diagram__track {
+  position: relative;
+  z-index: 1;
+}
+
+.pipeline-node {
+  min-height: 6.5rem;
+  padding-block: 0.25rem;
+}
+
+.pipeline-node:not(:first-child) {
+  border-left-color: color-mix(in oklch, var(--text-on-ink) 25%, transparent);
+}
+
+.pipeline-node:nth-child(2) {
+  border-left-color: var(--signal-primary);
+}
+
+.pipeline-node__note {
+  color: color-mix(in oklch, var(--text-on-ink) 70%, transparent);
+}
+
+.pipeline-node__link {
+  top: 0.4rem;
+}
+
+.stat-strip {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.stat dt {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.tech-marquee {
+  gap: 1rem;
+  padding-block: 1.4rem;
+}
+
+.tech-marquee__track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  animation: none;
+}
+
+.tech-marquee__track li {
+  border-bottom: 1px solid var(--line-primary);
+  padding-bottom: 0.35rem;
+}
+
+.tech-marquee__track li::before {
+  margin-right: 0.65rem;
+}
+
+.project-entry {
+  min-height: min(48rem, 75svh);
+  align-items: center;
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+.project-entry:nth-of-type(even) {
+  background: var(--surface-secondary);
+}
+
+.project-entry__content {
+  padding-block: 1rem;
+}
+
+.project-entry h3 {
+  max-width: 14ch;
+  font-size: clamp(2.2rem, 3.25vw, 3.35rem);
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.hero__actions .text-link,
+.project-entry__links .text-link,
+.work-showcase__all .text-link {
+  min-height: 2.75rem;
+}
+
+.project-entry__summary {
+  max-width: 34ch;
+}
+
+.project-visual {
+  min-height: 0;
+  padding: clamp(0.8rem, 2vw, 1.4rem);
+  background: var(--surface-primary);
+}
+
+.project-visual::before {
+  position: absolute;
+  inset: 0.6rem -0.6rem -0.6rem 0.6rem;
+  z-index: -1;
+  border: 1px solid var(--line-primary);
+  content: "";
+}
+
+.project-visual__plate-grid {
+  display: grid;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.project-visual__plate {
+  margin: 0;
+}
+
+.project-visual__plate--lead {
+  position: relative;
+  z-index: 1;
+  margin-inline: clamp(0rem, 3vw, 3rem);
+}
+
+.project-visual__plate img {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+}
+
+.project-visual__plate figcaption {
+  max-width: 60ch;
+  margin-top: 0.65rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+}
+
+.project-visual__plate + .project-visual__plate {
+  max-width: 76%;
+  margin-left: auto;
+}
+
+.principles {
+  margin-top: var(--section-space);
+}
+
+.principle {
+  min-height: 18rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.principle h2 {
+  margin-top: 3rem;
+}
+
+@media (max-width: 58rem) {
+  .hero__copy,
+  .hero__aside,
+  .hero__proof {
+    grid-column: 1 / -1;
+  }
+
+  .hero__aside {
+    max-width: 38rem;
+    padding-top: 2rem;
+    padding-bottom: 0;
+  }
+
+  .hero__proof {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 44rem) {
+  .hero {
+    padding-block: 3rem 4rem;
+  }
+
+  .hero h1 {
+    max-width: 12ch;
+    font-size: clamp(3.3rem, 17vw, 5rem);
+  }
+
+  .hero__proof {
+    margin-inline: 0.25rem 0.6rem;
+  }
+
+  .pipeline-diagram {
+    padding-block: 1.25rem;
+  }
+
+  .pipeline-diagram::before {
+    display: none;
+  }
+
+  .pipeline-diagram__track {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .pipeline-node,
+  .pipeline-node:not(:first-child) {
+    min-height: auto;
+    padding: 0.85rem 0 0.85rem 1rem;
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .pipeline-node:nth-child(2) {
+    border-left-color: var(--signal-primary);
+  }
+
+  .pipeline-node__link {
+    display: none;
+  }
+
+  .stat-strip dl {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1rem;
+  }
+
+  .stat:not(:first-child) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .stat dt {
+    font-size: clamp(2.25rem, 12vw, 3.2rem);
+  }
+
+  .project-entry,
+  .project-entry:nth-of-type(even) {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding-block: 3.5rem 4.5rem;
+  }
+
+  .project-entry:nth-of-type(even) .project-entry__content {
+    order: initial;
+  }
+
+  .project-entry h3 {
+    max-width: 14ch;
+  }
+
+  .project-visual__plate--lead {
+    margin-inline: 0;
+  }
+
+  .project-visual__plate + .project-visual__plate {
+    max-width: 88%;
+  }
+
+  .work-showcase__all {
+    padding-block: 2.5rem;
   }
 }
