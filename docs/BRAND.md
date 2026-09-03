@@ -21,20 +21,32 @@ One page. The goal is consistency with personality, not a design-system project.
 
 ## Colour tokens (`:root` in `globals.css`)
 
-| Token | Value | Use |
+Values are `oklch()`, not hex — perceptual lightness keeps the light and dark
+ladders balanced when a hue changes, and dark mode is a deliberate second
+ladder (lower chroma, shifted lightness), not an inversion of the light one.
+Both are defined explicitly in `globals.css`; the table below is light-mode.
+
+| Token | Value (light) | Use |
 |---|---|---|
-| `--surface-primary` | `#fdfdfd` | page background |
-| `--surface-secondary` | `#f7f7f5` | insets, visuals |
-| `--surface-raised` | `#ffffff` | cards, chips |
-| `--surface-inverse` | `#111111` | mobile menu, hints |
-| `--text-primary` | `#0e0e0e` | body |
-| `--text-secondary` | `#555555` | supporting copy |
-| `--line-soft` / `--line-primary` / `--line-strong` | `#efeee9` / `#e9e8e4` / `#c9c8c2` | hairline rules by weight |
-| `--signal-primary` | `#c75543` | one accent — indices, arrows, scope labels |
-| `--signal-information` | `#2155d6` | links, focus ring, evidence-class labels |
-| `--signal-positive` | `#26705b` | reserved (rare) |
+| `--surface-primary` | `oklch(0.985 0.008 90)` | page background |
+| `--surface-secondary` | `oklch(0.955 0.012 88)` | insets, visuals |
+| `--surface-raised` | `oklch(0.998 0.004 90)` | cards, chips |
+| `--surface-inverse` | `oklch(0.19 0.018 250)` | mobile menu, hints, the pipeline diagram |
+| `--text-primary` | `oklch(0.19 0.018 250)` | body |
+| `--text-secondary` | `oklch(0.43 0.018 250)` | supporting copy |
+| `--line-soft` / `--line-primary` / `--line-strong` | `oklch(0.92 0.012 88)` / `oklch(0.86 0.016 88)` / `oklch(0.67 0.022 84)` | hairline rules by weight |
+| `--signal-primary` | `oklch(0.55 0.16 32)` | one accent — indices, arrows, scope labels |
+| `--signal-information` | `oklch(0.48 0.16 255)` | links, focus ring, evidence-class labels, caret/selection/scrollbar |
+| `--signal-positive` | `oklch(0.48 0.105 155)` | reserved (rare) |
 
 One accent (`--signal-primary`) does most of the work. Do not introduce a fourth hue.
+
+The theme is a three-state contract, threaded through `:root`,
+`:root[data-theme="dark"]`, and `@media (prefers-color-scheme: dark)`: an
+explicit toggle click sets `data-theme` and wins outright; with no explicit
+choice, the OS preference decides. `caret-color`, `accent-color`, and
+`scrollbar-color` are themed from these same tokens rather than left to
+browser defaults.
 
 ## Type
 
@@ -74,7 +86,9 @@ One accent (`--signal-primary`) does most of the work. Do not introduce a fourth
 
 ## Motion
 
-- Only: link-arrow nudge, card hover translate, dialog open, smooth scroll.
+- Only: link-arrow nudge, card hover translate, dialog open, smooth scroll,
+  and one native View Transition on the theme toggle (`::view-transition-old/
+  new(root)`, feature-detected in `theme-toggle.tsx`).
 - `--motion-fast: 160ms`, `--motion-ease: cubic-bezier(0.16, 1, 0.3, 1)`.
 - Everything is disabled under `prefers-reduced-motion: reduce`.
 

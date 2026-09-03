@@ -17,14 +17,29 @@ export function ThemeToggle() {
 
   function toggleTheme() {
     const next: Theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    try {
-      window.localStorage.setItem("q-theme", next);
-    } catch {
-      // Private browsing and restricted embeds may deny storage; the session
-      // theme still applies through the document attribute.
+
+    const apply = () => {
+      document.documentElement.dataset.theme = next;
+      try {
+        window.localStorage.setItem("q-theme", next);
+      } catch {
+        // Private browsing and restricted embeds may deny storage; the session
+        // theme still applies through the document attribute.
+      }
+      setTheme(next);
+    };
+
+    // One authored moment, not a snap: cross-fade the swap where supported.
+    // Reduced motion gets the plain instant update — same as the no-JS path.
+    // (matchMedia is absent in the jsdom test environment, hence the guard.)
+    const reduceMotion =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (document.startViewTransition && !reduceMotion) {
+      document.startViewTransition(apply);
+    } else {
+      apply();
     }
-    setTheme(next);
   }
 
   return (
