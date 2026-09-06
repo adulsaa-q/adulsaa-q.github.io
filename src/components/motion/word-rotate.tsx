@@ -22,6 +22,7 @@ export function WordRotate({
     // Respect reduced motion: stay on first word
     if (
       typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       return;

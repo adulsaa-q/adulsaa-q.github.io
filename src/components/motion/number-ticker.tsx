@@ -26,6 +26,7 @@ export function NumberTicker({
   useEffect(() => {
     const isReducedMotion =
       typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const el = elementRef.current;

@@ -148,6 +148,7 @@ export function SchemaGraphViewer() {
   });
 
   const generatedMarkdown = `---
+type: database_table
 table: ${activeTable.name}
 schema: ${activeTable.schema}
 estimated_records: ${activeTable.recordEstimate}
@@ -232,8 +233,8 @@ ${activeTable.columns
       {/* Main Interactive Stage */}
       <div className="schema-graph-viewer__stage">
         {/* Visual Graph Canvas (SVG) */}
-        <div className="schema-graph-canvas" aria-hidden="true">
-          <svg className="schema-graph-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <div className="schema-graph-canvas">
+          <svg className="schema-graph-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             <defs>
               <linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="var(--signal-primary)" stopOpacity="0.8" />

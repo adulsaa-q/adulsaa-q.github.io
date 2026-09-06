@@ -29,6 +29,7 @@ export function TextScramble({
     // Honor reduced motion
     if (
       typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       setDisplayText(text);
