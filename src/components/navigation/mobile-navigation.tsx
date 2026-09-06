@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { primaryNavigation } from "@/content/navigation";
@@ -8,6 +9,7 @@ import { primaryNavigation } from "@/content/navigation";
 const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export function MobileNavigation() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -86,14 +88,31 @@ export function MobileNavigation() {
             </button>
           </div>
           <nav aria-label="Mobile navigation">
-            <Link href="/" onClick={closeMenu}>
+            <Link
+              href="/"
+              onClick={closeMenu}
+              aria-current={pathname === "/" ? "page" : undefined}
+              className={pathname === "/" ? "is-active" : undefined}
+            >
               Home
             </Link>
-            {primaryNavigation.map((item) => (
-              <Link href={item.href} key={item.href} onClick={closeMenu}>
-                {item.label}
-              </Link>
-            ))}
+            {primaryNavigation.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (Boolean(pathname) && pathname !== "/" && pathname.startsWith(item.href));
+
+              return (
+                <Link
+                  href={item.href}
+                  key={item.href}
+                  onClick={closeMenu}
+                  aria-current={isActive ? "page" : undefined}
+                  className={isActive ? "is-active" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       ) : null}
