@@ -129,7 +129,11 @@ export default function Home() {
               </p>
               <p className="project-entry__summary">{project.summary}</p>
               {projectMetrics[project.slug] && (
-                <div className="project-metrics-strip" aria-label={`${project.name} architecture highlights`}>
+                <div
+                  className="project-metrics-strip"
+                  role="group"
+                  aria-label={`${project.name} architecture highlights`}
+                >
                   {projectMetrics[project.slug].map((m) => (
                     <div className="project-metric-pill" key={m.label}>
                       <span className="project-metric-pill__label">{m.label}</span>

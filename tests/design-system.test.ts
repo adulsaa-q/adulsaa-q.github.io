@@ -81,9 +81,9 @@ describe("global design system", () => {
     expect(css).not.toMatch(/(?:rgb|hsl)a?\s*\(/i);
   });
 
-  it("defines every line token it references", () => {
+  it("defines every line and semantic token it references", () => {
     const referenced = new Set(
-      [...css.matchAll(/var\((--line-[a-z]+)\)/g)].map((match) => match[1]),
+      [...css.matchAll(/var\((--(?:line|surface|text|signal)-[a-z]+)\)/g)].map((match) => match[1]),
     );
     for (const token of referenced) {
       expect(css).toContain(`${token}:`);
