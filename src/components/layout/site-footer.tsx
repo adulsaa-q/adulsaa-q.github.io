@@ -2,19 +2,24 @@ import Link from "next/link";
 
 import { ObfuscatedEmail } from "@/components/contact/obfuscated-email";
 import { contact } from "@/content/contact";
-import { primaryNavigation } from "@/content/navigation";
+import { primaryNavigation, secondaryNavigation } from "@/content/navigation";
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer__row">
         <Link href="/" className="site-footer__mark" aria-label="Q, home">
-          Orbit Q
+          Q // Systems
         </Link>
 
         <nav className="site-footer__links" aria-label="Footer navigation">
           {primaryNavigation.map((item) => (
             <Link href={item.href} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
+          {secondaryNavigation.map((item) => (
+            <Link href={item.href} key={item.href} className="site-footer__secondary-link">
               {item.label}
             </Link>
           ))}

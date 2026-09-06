@@ -6,6 +6,8 @@ import AboutPage from "@/app/about/page";
 import ArchivePage from "@/app/archive/page";
 import ContactPage from "@/app/contact/page";
 import Home from "@/app/page";
+import LabPage from "@/app/lab/page";
+import MethodPage from "@/app/method/page";
 import NotFound from "@/app/not-found";
 import ServicesPage from "@/app/services/page";
 import WorkPage from "@/app/work/page";
@@ -19,6 +21,8 @@ async function markup(node: ReactElement | Promise<ReactElement>) {
 const staticPages: [string, ReactElement][] = [
   ["home", <Home key="h" />],
   ["work", <WorkPage key="w" />],
+  ["method", <MethodPage key="m" />],
+  ["lab", <LabPage key="l" />],
   ["services", <ServicesPage key="s" />],
   ["archive", <ArchivePage key="a" />],
   ["about", <AboutPage key="ab" />],
