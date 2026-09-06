@@ -1,11 +1,13 @@
 import Link from "next/link";
 
 import { ArtifactCarousel } from "@/components/project/artifact-carousel";
+import { HeroProofToken } from "@/components/home/hero-proof-token";
 import { HeroDataPreview } from "@/components/home/hero-preview";
 import { PipelineDiagram } from "@/components/diagram/pipeline-diagram";
 import { StatStrip } from "@/components/home/stat-strip";
 import { TechMarquee } from "@/components/home/tech-marquee";
 import { ProjectIndex } from "@/components/project/project-index";
+import { LabRegister } from "@/components/home/lab-register";
 import { projects } from "@/content/projects";
 import { textLang } from "@/lib/i18n";
 import type { Project } from "@/types/project";
@@ -70,16 +72,19 @@ function ProjectVisual({ project }: { project: Project }) {
 export default function Home() {
   return (
     <main id="main-content" tabIndex={-1} className="page-shell">
-      <section className="hero" aria-labelledby="home-title">
+      {/* SECTION 01 — HERO (DENSITY: QUIET) */}
+      <section className="hero hero--v2" aria-labelledby="home-title">
         <div className="hero__copy">
           <div className="hero__status-badge">
             <span className="status-indicator" aria-hidden="true" />
-            <span>Data, BI &amp; Automation Systems · Bangkok (GMT+7)</span>
+            <span>Q // Data, BI &amp; Automation Systems</span>
           </div>
           <h1 id="home-title">
             I turn messy operational data into systems people can actually use.
           </h1>
-          <p className="hero__thai-lead" lang="th">เปลี่ยนข้อมูลกระจัดกระจาย ให้เป็นระบบที่ตรวจสอบและใช้งานได้จริง</p>
+          <p className="hero__thai-lead" lang="th">
+            เปลี่ยนข้อมูลที่กระจัดกระจาย ให้กลายเป็นระบบที่เข้าใจ ตรวจสอบ และนำไปใช้ตัดสินใจได้จริง
+          </p>
           <p className="hero__lead">
             Selected work across reporting models, data pipelines and focused internal
             tools—shown with evidence, boundaries and the decisions behind them.
@@ -94,12 +99,25 @@ export default function Home() {
           </div>
         </div>
 
-        <HeroDataPreview />
+        <HeroProofToken />
       </section>
 
+      {/* SECTION 02 — OBSERVE THE SYSTEM (DENSITY: RICH — SIGNATURE EXPERIENCE) */}
+      <section className="observe-section" aria-labelledby="observe-heading">
+        <div className="section-heading">
+          <span className="section-index">01</span>
+          <h2 id="observe-heading">Observe the system</h2>
+          <p>From fragmented input to an inspectable decision model.</p>
+        </div>
+        <div id="observe-system" tabIndex={-1}>
+          <HeroDataPreview />
+        </div>
+      </section>
+
+      {/* SECTION 03 — SELECTED SYSTEMS (DENSITY: MEDIUM → RICH) */}
       <section className="work-showcase" aria-labelledby="selected-work">
         <div className="section-heading">
-          <span className="section-index">01–02</span>
+          <span className="section-index">02</span>
           <h2 id="selected-work">Selected systems</h2>
           <p>Two entry points. Full evidence register on the work index.</p>
         </div>
@@ -177,33 +195,119 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SECTION 04 — PRINCIPLE (DENSITY: QUIET — VISUAL RESET) */}
+      <section className="principles-section" aria-labelledby="principles-heading">
+        <div className="section-heading">
+          <span className="section-index">03</span>
+          <h2 id="principles-heading">Working principles</h2>
+          <p className="principle-lead">
+            A dashboard is not the product. The product is the chain of decisions that makes the number trustworthy.
+          </p>
+        </div>
+
+        <div className="principles-grid" role="region" aria-label="Working principles breakdown">
+          <article className="principle-card">
+            <span className="principle-card__num">01 / Trace</span>
+            <h3>Start with the source.</h3>
+            <p>Each material claim points back to code, tests, documentation or a committed artifact.</p>
+          </article>
+          <article className="principle-card">
+            <span className="principle-card__num">02 / Model</span>
+            <h3>Make the system legible.</h3>
+            <p>Inputs, transformations, decisions and outputs are separated so the work can be inspected.</p>
+          </article>
+          <article className="principle-card">
+            <span className="principle-card__num">03 / Bound</span>
+            <h3>State what is not proven.</h3>
+            <p>Simulation, reconstruction and implementation limits remain visible instead of becoming marketing claims.</p>
+          </article>
+        </div>
+      </section>
+
+      {/* SECTION 05 — SYSTEM LIFECYCLE (DENSITY: RICH) */}
       <section className="architecture-discipline" aria-labelledby="architecture-heading">
         <div className="section-heading">
-          <span className="section-index">SYSTEM</span>
+          <span className="section-index">04</span>
           <h2 id="architecture-heading">System architecture &amp; lifecycle</h2>
           <p>Every implementation follows an inspectable four-stage path from raw inputs to audited handover.</p>
         </div>
         <PipelineDiagram />
         <TechMarquee />
-        <StatStrip />
       </section>
 
-      <section className="principles" aria-label="Working principles">
-        <article className="principle">
-          <span>01 / Trace</span>
-          <h2>Start with the source.</h2>
-          <p>Each material claim points back to code, tests, documentation or a committed artifact.</p>
-        </article>
-        <article className="principle">
-          <span>02 / Model</span>
-          <h2>Make the system legible.</h2>
-          <p>Inputs, transformations, decisions and outputs are separated so the work can be inspected.</p>
-        </article>
-        <article className="principle">
-          <span>03 / Bound</span>
-          <h2>State what is not proven.</h2>
-          <p>Simulation, reconstruction and implementation limits remain visible instead of becoming marketing claims.</p>
-        </article>
+      {/* SECTION 06 — VERIFIED PRACTICE (DENSITY: MEDIUM) */}
+      <section className="verified-practice-section" aria-labelledby="practice-heading">
+        <div className="section-heading">
+          <span className="section-index">05</span>
+          <h2 id="practice-heading">Verified practice</h2>
+          <p>Honest at-a-glance ledger counted from the repository and build, not marketing claims.</p>
+        </div>
+        <StatStrip />
+        <div className="telemetry-datasheet" role="region" aria-label="System build datasheet">
+          <div className="datasheet-item">
+            <span className="datasheet-label">TEST SUITES</span>
+            <strong className="datasheet-value">15 / 15 PASS</strong>
+            <small className="datasheet-note">83 automated Vitest specifications</small>
+          </div>
+          <div className="datasheet-item">
+            <span className="datasheet-label">TYPESCRIPT</span>
+            <strong className="datasheet-value">0 ERRORS</strong>
+            <small className="datasheet-note">Strict type safety &amp; contracts</small>
+          </div>
+          <div className="datasheet-item">
+            <span className="datasheet-label">STATIC ROUTES</span>
+            <strong className="datasheet-value">18 / 18 COMPILED</strong>
+            <small className="datasheet-note">Zero server runtime attack surface</small>
+          </div>
+          <div className="datasheet-item">
+            <span className="datasheet-label">INTEGRITY CHECK</span>
+            <strong className="datasheet-value">0 BROKEN LINKS</strong>
+            <small className="datasheet-note">Automated crawler verified</small>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 07 — FROM THE LAB (DENSITY: MEDIUM) */}
+      <section className="home-lab-section" aria-labelledby="lab-heading">
+        <div className="section-heading">
+          <span className="section-index">06</span>
+          <h2 id="lab-heading">From the lab</h2>
+          <p>Active prototypes, schema exploration utilities, and internal systems.</p>
+        </div>
+        <LabRegister />
+      </section>
+
+      {/* SECTION 08 — CONTACT (DENSITY: QUIET) */}
+      <section className="home-contact-section" aria-labelledby="contact-heading">
+        <div className="section-heading">
+          <span className="section-index">07</span>
+          <h2 id="contact-heading">Start a conversation</h2>
+          <p>Have a messy system? Show me the data, workflow, or decision that currently hurts.</p>
+        </div>
+        <div className="home-contact__content">
+          <div className="home-contact__channels">
+            <a className="contact-card" href="mailto:adulsaa.q@gmail.com">
+              <span className="contact-card__label">EMAIL DIRECT</span>
+              <strong className="contact-card__value">adulsaa.q@gmail.com</strong>
+              <small className="contact-card__sub">Bangkok (GMT+7) · Mon–Fri response</small>
+            </a>
+            <a className="contact-card" href="https://github.com/adulsaa-q" target="_blank" rel="noopener noreferrer">
+              <span className="contact-card__label">CODE &amp; AUDITS</span>
+              <strong className="contact-card__value">github.com/adulsaa-q</strong>
+              <small className="contact-card__sub">Repositories, issues &amp; tests</small>
+            </a>
+            <a className="contact-card" href="https://fastwork.co/user/adulsaa.q" target="_blank" rel="noopener noreferrer">
+              <span className="contact-card__label">FREELANCE CONTRACT</span>
+              <strong className="contact-card__value">fastwork.co/user/adulsaa.q</strong>
+              <small className="contact-card__sub">Escrow protection &amp; milestones</small>
+            </a>
+          </div>
+          <div className="home-contact__footer">
+            <Link className="text-link" href="/services">
+              Review service boundaries &amp; engagement models →
+            </Link>
+          </div>
+        </div>
       </section>
     </main>
   );

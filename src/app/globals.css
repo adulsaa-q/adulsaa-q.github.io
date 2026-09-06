@@ -4175,3 +4175,452 @@ body {
   }
 }
 
+/* ==========================================================================
+   HOMEPAGE V2: RECOMPOSED OBSERVABLE SYSTEM (Direction B)
+   ========================================================================== */
+
+/* Hero V2 — Quiet Editorial Hierarchy */
+.hero--v2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.85fr);
+  align-items: start;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+}
+
+.hero--v2 .hero__copy {
+  align-items: flex-start;
+  text-align: left;
+  margin-inline: 0;
+  max-width: 100%;
+}
+
+.hero__kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--signal-primary);
+  margin-bottom: 0.85rem;
+}
+
+.hero--v2 h1 {
+  text-align: left;
+  line-height: 1.15;
+}
+
+.hero--v2 .hero__thai-lead {
+  text-align: left;
+  margin: 1rem 0 0.5rem;
+  line-height: 1.5;
+}
+
+.hero--v2 .hero__lead {
+  text-align: left;
+  margin: 0.5rem 0 1.75rem;
+  max-width: 36rem;
+}
+
+.hero--v2 .hero__actions {
+  justify-content: flex-start;
+}
+
+/* Hero Proof Token (Compact Systems Blueprint) */
+.hero-proof-token {
+  border: 1px solid var(--line-primary);
+  border-radius: var(--radius-lg);
+  background: var(--surface-primary);
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 12px 32px -10px oklch(0 0 0 / 0.06), 0 1px 3px 0 oklch(0 0 0 / 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: border-color var(--motion-base) var(--motion-ease);
+}
+
+.hero-proof-token:hover {
+  border-color: color-mix(in oklch, var(--signal-primary) 35%, var(--line-primary));
+}
+
+.proof-token__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.proof-token__badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--signal-primary);
+}
+
+.proof-token__status {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+
+.proof-token__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.proof-token__step {
+  display: grid;
+  grid-template-columns: 5.2rem auto 1fr;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.proof-token__step-meta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+}
+
+.proof-token__step-num {
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.proof-token__step-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.proof-token__step-arrow {
+  color: var(--signal-primary);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.proof-token__step-desc {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.proof-token__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.proof-token__tz {
+  font-weight: 600;
+}
+
+.proof-token__anchor {
+  color: var(--signal-information);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--motion-fast) var(--motion-ease);
+}
+
+.proof-token__anchor:hover {
+  text-decoration: underline;
+  color: var(--text-primary);
+}
+
+/* Section 01: Observe the System (Rich Signature Experience) */
+.observe-section {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+  border-top: 1px solid var(--line-primary);
+}
+
+.observe-section .hero-preview {
+  margin-top: 1.5rem;
+  max-width: 100%;
+}
+
+/* Section 03: Principles (Quiet Visual Reset) */
+.principles-section {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+  border-top: 1px solid var(--line-primary);
+}
+
+.principle-lead {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-block: 0.5rem 2.5rem;
+  max-width: 48ch;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.principle-card {
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--line-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.principle-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--signal-primary);
+}
+
+.principle-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.principle-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Section 05: Verified Practice & Datasheet */
+.verified-practice-section {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+  border-top: 1px solid var(--line-primary);
+}
+
+.telemetry-datasheet {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1.15rem 1.35rem;
+  background: var(--surface-secondary);
+  border: 1px solid var(--line-primary);
+  border-radius: var(--radius-md);
+}
+
+.datasheet-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.datasheet-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.datasheet-value {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.datasheet-note {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+/* Section 06: From the Lab */
+.home-lab-section {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+  border-top: 1px solid var(--line-primary);
+}
+
+.lab-register {
+  margin-top: 1.5rem;
+}
+
+.lab-register__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.lab-register__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--line-primary);
+  border-radius: var(--radius-md);
+  background: var(--surface-primary);
+  transition: border-color var(--motion-fast) var(--motion-ease);
+}
+
+.lab-register__item:hover {
+  border-color: var(--signal-primary);
+}
+
+.lab-register__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lab-badge {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+}
+
+.lab-badge--archive {
+  color: var(--text-secondary);
+  background: color-mix(in oklch, var(--line-primary) 60%, var(--surface-primary));
+}
+
+.lab-badge--experimental {
+  color: var(--signal-primary);
+  background: color-mix(in oklch, var(--signal-primary) 10%, var(--surface-primary));
+}
+
+.lab-register__source-link {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--signal-information);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lab-register__source-link:hover {
+  text-decoration: underline;
+}
+
+.lab-register__title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.lab-register__summary {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.lab-register__boundary {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.lab-boundary-label {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-right: 0.35rem;
+}
+
+.lab-register__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Section 07: Home Contact (Quiet Restraint) */
+.home-contact-section {
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  border-top: 1px solid var(--line-primary);
+}
+
+.home-contact__channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--line-primary);
+  border-radius: var(--radius-md);
+  background: var(--surface-secondary);
+  text-decoration: none;
+  transition: all var(--motion-fast) var(--motion-ease);
+}
+
+.contact-card:hover {
+  border-color: var(--text-primary);
+  background: var(--surface-primary);
+  transform: translateY(-1px);
+}
+
+.contact-card__label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--signal-primary);
+}
+
+.contact-card__value {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+.contact-card__sub {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.home-contact__footer {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 64rem) {
+  .hero--v2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .proof-token__step {
+    grid-template-columns: auto auto 1fr;
+  }
+}
+
+
