@@ -367,6 +367,79 @@ export const projects: Project[] = [
     services: ["Desktop MVP", "Electron", "Offline internal tool"],
     repository: "https://github.com/adulsaa-q/timelimit",
   },
+  {
+    slug: "schema-map",
+    name: "PostgreSQL Schema Knowledge Graph",
+    displayTitle: "เปลี่ยนโครงสร้างฐานข้อมูล PostgreSQL เป็น Knowledge Graph ใน Obsidian",
+    kind: "System utility",
+    status: "EXPERIMENTAL",
+    summary:
+      "Automated extraction of PostgreSQL schema relationships, constraints and foreign keys into interconnected Obsidian Graph notes and Markdown documentation.",
+    context:
+      "Understanding relational database schemas across hundreds of tables with complex foreign keys is cognitively demanding without interactive lineage graphs.",
+    problem:
+      "Database schema documentation is frequently stale or buried in dense DDL migration files, obscuring referential integrity and data dependencies.",
+    impact:
+      "Automatically maps PostgreSQL catalog tables and foreign key dependencies into an interactive graph network, enabling instant relationship exploration and visual schema audit.",
+    constraints: [
+      "Operates directly against standard PostgreSQL information_schema catalogs without external database modifications.",
+      "Generates standardized Obsidian wikilink markdown notes for offline graph visualization.",
+    ],
+    input: [
+      "PostgreSQL information_schema tables and key column usage catalogs",
+      "Foreign key constraint definitions and referential actions",
+      "Table column definitions, data types, nullability, and primary key metadata",
+    ],
+    system: [
+      "SQLAlchemy and PLpgSQL inspectors extract table entities, primary keys, and foreign key dependencies.",
+      "Graph transformation engine maps relational tuples into a bidirectional directed acyclic network.",
+      "Markdown emitter outputs individual table notes with frontmatter metadata and wikilinks compatible with Obsidian Graph View.",
+    ],
+    decisions: [
+      {
+        title: "Map foreign keys as directional wikilinks",
+        why: "Bidirectional linking allows exploring upstream dependencies and downstream consumers organically.",
+      },
+      {
+        title: "Preserve exact DDL definitions in note frontmatter",
+        why: "Provides immediate technical inspection without navigating away from the knowledge graph view.",
+      },
+    ],
+    implementation: [
+      "Python and SQLAlchemy schema inspector querying PostgreSQL information_schema.",
+      "Automated graph exporter emitting frontmatter markdown files with relational wikilinks.",
+    ],
+    stack: ["PostgreSQL", "Python", "SQLAlchemy", "PLpgSQL", "Knowledge graph", "Obsidian"],
+    evidence: [
+      {
+        class: "VERIFIED_CODE",
+        label: "PostgreSQL schema inspection query",
+        sourcePath: "src/schema_map/inspector.py",
+        sourceUrl: "https://github.com/adulsaa-q/schema-map/blob/main/README.md",
+      },
+      {
+        class: "EXPERIMENTAL",
+        label: "Obsidian knowledge graph generator",
+        sourcePath: "src/schema_map/exporter.py",
+        sourceUrl: "https://github.com/adulsaa-q/schema-map",
+      },
+    ],
+    limitations: [
+      "Experimental research utility; requires read-only access to PostgreSQL catalog.",
+      "Designed for analytical schema exploration rather than transactional schema migration orchestration.",
+    ],
+    artifacts: [
+      {
+        type: "SCHEMA",
+        src: "/images/schema-map/schema-graph-preview.svg",
+        alt: "PostgreSQL schema relational entity graph with foreign key connections.",
+        caption: "Interactive relational graph view mapping PostgreSQL entities into Obsidian network nodes.",
+        reconstructed: false,
+      },
+    ],
+    services: ["Database architecture", "Schema audit", "Data lineage"],
+    repository: "https://github.com/adulsaa-q/schema-map",
+  },
 ];
 
 const validationErrors = validateProjects(projects);

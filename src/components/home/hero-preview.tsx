@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { withBasePath } from "@/lib/base-path";
+import { SchemaGraphViewer } from "@/components/project/schema-graph-viewer";
 
-type TabKey = "dashboard" | "schema" | "pipeline";
+type TabKey = "dashboard" | "schema" | "graph" | "pipeline";
 type ChannelKey = "all" | "shopee" | "lazada";
 
 interface ChannelConfig {
@@ -67,7 +68,8 @@ export function HeroDataPreview() {
       }
       if (e.key === "1") setActiveTab("dashboard");
       if (e.key === "2") setActiveTab("schema");
-      if (e.key === "3") setActiveTab("pipeline");
+      if (e.key === "3") setActiveTab("graph");
+      if (e.key === "4") setActiveTab("pipeline");
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -142,11 +144,20 @@ export function HeroDataPreview() {
             <button
               type="button"
               role="tab"
+              aria-selected={activeTab === "graph"}
+              className={`app-tab ${activeTab === "graph" ? "app-tab--active" : ""}`}
+              onClick={() => setActiveTab("graph")}
+            >
+              03 / PostgreSQL Graph
+            </button>
+            <button
+              type="button"
+              role="tab"
               aria-selected={activeTab === "pipeline"}
               className={`app-tab ${activeTab === "pipeline" ? "app-tab--active" : ""}`}
               onClick={() => setActiveTab("pipeline")}
             >
-              03 / ETL Pipeline
+              04 / ETL Pipeline
             </button>
           </div>
         </div>
@@ -156,11 +167,18 @@ export function HeroDataPreview() {
           <div className="preview-query-bar">
             <div className="preview-query-bar__spec">
               <span className="query-badge">
-                {activeTab === "dashboard" ? "SQL QUERY" : activeTab === "schema" ? "SCHEMA SPEC" : "ETL FLOW"}
+                {activeTab === "dashboard"
+                  ? "SQL QUERY"
+                  : activeTab === "schema"
+                  ? "STAR SCHEMA"
+                  : activeTab === "graph"
+                  ? "PG KNOWLEDGE GRAPH"
+                  : "ETL FLOW"}
               </span>
               <code className="query-code">
                 {activeTab === "dashboard" && activeChannelConfig.query}
                 {activeTab === "schema" && "fact_orders ──(1:N)──> dim_date, dim_platform, dim_product [0 many-to-many bridges]"}
+                {activeTab === "graph" && "information_schema.key_column_usage ➔ extract foreign keys ➔ Obsidian Knowledge Graph"}
                 {activeTab === "pipeline" && "extract(pdf) ➔ validate(pydantic_v2) ➔ upsert(postgresql) [idempotent audit]"}
               </code>
             </div>
@@ -354,6 +372,12 @@ export function HeroDataPreview() {
                   View DAX &amp; Power Query specs →
                 </Link>
               </div>
+            </div>
+          )}
+
+          {activeTab === "graph" && (
+            <div className="preview-pane preview-pane--graph">
+              <SchemaGraphViewer />
             </div>
           )}
 

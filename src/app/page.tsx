@@ -8,6 +8,8 @@ import { StatStrip } from "@/components/home/stat-strip";
 import { TechMarquee } from "@/components/home/tech-marquee";
 import { ProjectIndex } from "@/components/project/project-index";
 import { LabRegister } from "@/components/home/lab-register";
+import { TextScramble } from "@/components/motion/text-scramble";
+import { WordRotate } from "@/components/motion/word-rotate";
 import { projects } from "@/content/projects";
 import { textLang } from "@/lib/i18n";
 import type { Project } from "@/types/project";
@@ -85,6 +87,17 @@ export default function Home() {
           <p className="hero__thai-lead" lang="th">
             เปลี่ยนข้อมูลที่กระจัดกระจาย ให้กลายเป็นระบบที่เข้าใจ ตรวจสอบ และนำไปใช้ตัดสินใจได้จริง
           </p>
+          <div className="hero__rotating-focus" aria-label="Specialized data architecture domains">
+            <span className="focus-label">Specialized in:</span>{" "}
+            <WordRotate
+              words={[
+                "Multi-Channel Star Schema Models",
+                "PostgreSQL Relational Knowledge Graphs",
+                "Audited Financial ETL Pipelines",
+                "Power BI Semantic DAX Models",
+              ]}
+            />
+          </div>
           <p className="hero__lead">
             Selected work across reporting models, data pipelines and focused internal
             tools—shown with evidence, boundaries and the decisions behind them.
@@ -105,7 +118,9 @@ export default function Home() {
       {/* SECTION 02 — OBSERVE THE SYSTEM (DENSITY: RICH — SIGNATURE EXPERIENCE) */}
       <section className="observe-section" aria-labelledby="observe-heading">
         <div className="section-heading">
-          <span className="section-index">01</span>
+          <span className="section-index">
+            <TextScramble text="01" />
+          </span>
           <h2 id="observe-heading">Observe the system</h2>
           <p>From fragmented input to an inspectable decision model.</p>
         </div>
@@ -117,7 +132,9 @@ export default function Home() {
       {/* SECTION 03 — SELECTED SYSTEMS (DENSITY: MEDIUM → RICH) */}
       <section className="work-showcase" aria-labelledby="selected-work">
         <div className="section-heading">
-          <span className="section-index">02</span>
+          <span className="section-index">
+            <TextScramble text="02" />
+          </span>
           <h2 id="selected-work">Selected systems</h2>
           <p>Two entry points. Full evidence register on the work index.</p>
         </div>
@@ -198,7 +215,9 @@ export default function Home() {
       {/* SECTION 04 — PRINCIPLE (DENSITY: QUIET — VISUAL RESET) */}
       <section className="principles-section" aria-labelledby="principles-heading">
         <div className="section-heading">
-          <span className="section-index">03</span>
+          <span className="section-index">
+            <TextScramble text="03" />
+          </span>
           <h2 id="principles-heading">Working principles</h2>
           <p className="principle-lead">
             A dashboard is not the product. The product is the chain of decisions that makes the number trustworthy.
@@ -227,7 +246,9 @@ export default function Home() {
       {/* SECTION 05 — SYSTEM LIFECYCLE (DENSITY: RICH) */}
       <section className="architecture-discipline" aria-labelledby="architecture-heading">
         <div className="section-heading">
-          <span className="section-index">04</span>
+          <span className="section-index">
+            <TextScramble text="04" />
+          </span>
           <h2 id="architecture-heading">System architecture &amp; lifecycle</h2>
           <p>Every implementation follows an inspectable four-stage path from raw inputs to audited handover.</p>
         </div>
@@ -238,7 +259,9 @@ export default function Home() {
       {/* SECTION 06 — VERIFIED PRACTICE (DENSITY: MEDIUM) */}
       <section className="verified-practice-section" aria-labelledby="practice-heading">
         <div className="section-heading">
-          <span className="section-index">05</span>
+          <span className="section-index">
+            <TextScramble text="05" />
+          </span>
           <h2 id="practice-heading">Verified practice</h2>
           <p>Honest at-a-glance ledger counted from the repository and build, not marketing claims.</p>
         </div>
@@ -256,7 +279,7 @@ export default function Home() {
           </div>
           <div className="datasheet-item">
             <span className="datasheet-label">STATIC ROUTES</span>
-            <strong className="datasheet-value">18 / 18 COMPILED</strong>
+            <strong className="datasheet-value">19 / 19 COMPILED</strong>
             <small className="datasheet-note">Zero server runtime attack surface</small>
           </div>
           <div className="datasheet-item">
@@ -270,7 +293,9 @@ export default function Home() {
       {/* SECTION 07 — FROM THE LAB (DENSITY: MEDIUM) */}
       <section className="home-lab-section" aria-labelledby="lab-heading">
         <div className="section-heading">
-          <span className="section-index">06</span>
+          <span className="section-index">
+            <TextScramble text="06" />
+          </span>
           <h2 id="lab-heading">From the lab</h2>
           <p>Active prototypes, schema exploration utilities, and internal systems.</p>
         </div>
@@ -280,7 +305,9 @@ export default function Home() {
       {/* SECTION 08 — CONTACT (DENSITY: QUIET) */}
       <section className="home-contact-section" aria-labelledby="contact-heading">
         <div className="section-heading">
-          <span className="section-index">07</span>
+          <span className="section-index">
+            <TextScramble text="07" />
+          </span>
           <h2 id="contact-heading">Start a conversation</h2>
           <p>Have a messy system? Show me the data, workflow, or decision that currently hurts.</p>
         </div>

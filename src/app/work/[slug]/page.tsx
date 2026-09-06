@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/seo/json-ld";
 import { ArtifactCarousel } from "@/components/project/artifact-carousel";
+import { SchemaGraphViewer } from "@/components/project/schema-graph-viewer";
 import { StarSchemaViewer } from "@/components/project/star-schema-viewer";
 import { ZoomableImage } from "@/components/project/zoomable-image";
 import { projects } from "@/content/projects";
@@ -167,7 +168,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <DetailSection index="02" title="System">
         <p>{project.summary}</p>
-        <StarSchemaViewer projectSlug={project.slug} />
+        {project.slug === "schema-map" ? (
+          <SchemaGraphViewer />
+        ) : (
+          <StarSchemaViewer projectSlug={project.slug} />
+        )}
         <h3>Inputs</h3>
         <ul className="detail-list">
           {project.input.map((item) => <li key={item}>{item}</li>)}
