@@ -18,27 +18,27 @@ export const archiveRecords: ArchiveRecord[] = [
     repository: "https://github.com/adulsaa-q/schema-map",
   },
   {
-    name: "AI Command Center",
+    name: "fastwork-status",
     status: "ARCHIVE",
-    summary: "Governance and evidence templates for agent workflows.",
+    summary: "Operational service status board and response-time monitoring prototype.",
     limitation:
-      "External integrations are configuration placeholders; no test metrics, run metrics or product screenshots are claimed.",
-    repository: "https://github.com/adulsaa-q/ai-command-center",
+      "Service-level status only; does not expose internal worker logs, credentials, or control actions.",
+    repository: "https://github.com/adulsaa-q/fastwork-status",
   },
   {
-    name: "AIE Pulse Meridian",
+    name: "kbank-finance-pipeline",
     status: "EXPERIMENTAL",
-    summary: "Market-monitoring and HTML report prototype.",
+    summary: "KBank statement transaction extraction and ledger reconciliation toolkit.",
     limitation:
-      "Historical samples and live sources may drift; this experimental record is not investment advice.",
-    repository: "https://github.com/adulsaa-q/AIE-Pulse-Meridian",
+      "Format-dependent parser; altered banking layout formats require updated parsing patterns.",
+    repository: "https://github.com/adulsaa-q/kbank-finance-pipeline",
   },
   {
-    name: "AI Brand Visibility Tracker",
+    name: "housemark",
     status: "EXPERIMENTAL",
-    summary: "Gemini-grounded brand-mention research prototype.",
+    summary: "Deterministic frontend engineering standard and code craftsmanship rulebook.",
     limitation:
-      "CSV, notebook and README metrics need reconciliation; raw first-position/string-match is not semantic ranking.",
-    repository: "https://github.com/adulsaa-q/ai_brand_tracker",
+      "Technical floor standard; does not dictate company brand guidelines or visual art direction.",
+    repository: "https://github.com/adulsaa-q/housemark",
   },
 ];

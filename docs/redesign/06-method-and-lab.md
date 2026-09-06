@@ -20,7 +20,7 @@ The `/method` route unifies the architectural philosophy with concrete, bounded 
 3. **Bounded Engagement Models:**
    - **Model 01:** *Dashboard & Reporting Systems* (Marketplace/finance exports, conformed dimensional models, DAX registers).
    - **Model 02:** *Data Pipelines & Operational Automation* (Spreadsheet replacement, validation tiers, idempotent database loading).
-   - **Model 03:** *AI Research & Workflow Systems* (Grounded research, explicit review points, strictly non-autonomous boundaries).
+   - **Model 03:** *Analytics Engineering & Data Modeling* (SQL analysis modules, conformed star schemas, data dictionaries).
 4. **4-Stage Delivery Lifecycle:**
    - `01 DISCOVER`: Audit sample data and operational decision points.
    - `02 DEFINE`: Establish dimensional schema, validation tiers, and test criteria.
@@ -35,9 +35,9 @@ Rebranding `/archive` into `/lab` elevates experimental prototypes into a living
 
 ### Registered Prototypes:
 1. **`schema-map`:** PostgreSQL metadata to Markdown/Obsidian relationship map.
-2. **`AI Command Center`:** Governance and evidence templates for agent workflows.
-3. **`AIE Pulse Meridian`:** Market-monitoring and HTML report prototype.
-4. **`AI Brand Visibility Tracker`:** Gemini-grounded brand-mention research prototype.
+2. **`fastwork-status`:** Operational service status board and response-time monitoring prototype.
+3. **`kbank-finance-pipeline`:** KBank statement transaction extraction and ledger reconciliation toolkit.
+4. **`housemark`:** Deterministic frontend engineering standard and code craftsmanship rulebook.
 
 Each record explicitly documents:
 - Prototype status badge (`ARCHIVE` vs `EXPERIMENTAL`).

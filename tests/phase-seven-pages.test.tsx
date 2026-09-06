@@ -14,9 +14,9 @@ describe("archive page", () => {
     expect(archiveRecords).toHaveLength(4);
     expect(archiveRecords.map(({ name }) => name)).toEqual([
       "schema-map",
-      "AI Command Center",
-      "AIE Pulse Meridian",
-      "AI Brand Visibility Tracker",
+      "fastwork-status",
+      "kbank-finance-pipeline",
+      "housemark",
     ]);
     archiveRecords.forEach((record) => {
       expect(html).toContain(record.name);
@@ -30,8 +30,8 @@ describe("archive page", () => {
     const html = renderToStaticMarkup(<ArchivePage />);
 
     expect(html.match(/data-status="EXPERIMENTAL"/g)).toHaveLength(2);
-    expect(html).toContain("not investment advice");
-    expect(html).toContain("not semantic ranking");
+    expect(html).toContain("banking layout formats");
+    expect(html).toContain("brand guidelines");
   });
 });
 
@@ -42,7 +42,7 @@ describe("about page", () => {
     expect(html).toContain("Start with the operational source");
     expect(html).toContain("Dashboard &amp; Decision Reporting");
     expect(html).toContain("Data Pipeline &amp; Operational Automation");
-    expect(html).toContain("AI Research &amp; Workflow Systems");
+    expect(html).toContain("Analytics Engineering &amp; Data Modeling");
     expect(html).toContain("Not included");
     expect(html).toContain("DISCOVER");
     expect(html).toContain("DEFINE");

@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Services",
   description:
-    "Three bounded ways to work with Q: dashboard and reporting systems, data pipelines and operational automation, and AI research and workflow systems.",
+    "Three bounded ways to work with Q: dashboard and reporting systems, data pipelines and operational automation, and analytics engineering and data modeling.",
   path: "/services",
 });
 
@@ -80,7 +80,7 @@ export default function ServicesPage() {
                     </Link>
                   ) : (
                     <Link className="text-link" href="/archive">
-                      Experimental AI work in the archive
+                      Experimental systems in the archive
                     </Link>
                   )}
                 </dd>

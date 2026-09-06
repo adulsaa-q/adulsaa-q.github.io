@@ -1059,6 +1059,31 @@ button {
   gap: 0.35rem;
 }
 
+.project-visual__status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.45rem;
+  background: color-mix(in oklch, var(--signal-information) 10%, var(--surface-primary));
+  border: 1px solid color-mix(in oklch, var(--signal-information) 25%, var(--line-primary));
+  border-radius: 4px;
+}
+
+.project-visual__status-dot {
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: var(--signal-information);
+}
+
+.project-visual__status-tag {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--signal-information);
+}
+
 .project-visual__window-title {
   min-width: 0;
   flex: 1 1 auto;
@@ -3558,7 +3583,8 @@ body {
   margin-top: 0.5rem;
 }
 
-.app-window {
+.app-window,
+.telemetry-hud {
   border: 1px solid var(--line-primary);
   border-radius: var(--radius-lg);
   background: var(--surface-primary);
@@ -3567,58 +3593,116 @@ body {
   transition: border-color var(--motion-base) var(--motion-ease), box-shadow var(--motion-base) var(--motion-ease);
 }
 
-.app-window:hover {
+.app-window:hover,
+.telemetry-hud:hover {
   border-color: color-mix(in oklch, var(--signal-primary) 40%, var(--line-strong));
   box-shadow: 0 20px 44px -12px oklch(0 0 0 / 0.1), 0 3px 8px 0 oklch(0 0 0 / 0.04);
 }
 
-.app-window__header {
+.app-window__header,
+.telemetry-hud__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 0.75rem 1rem;
-  padding: 0.65rem 1rem;
+  padding: 0.75rem 1.15rem;
   background: var(--surface-secondary);
   border-bottom: 1px solid var(--line-primary);
 }
 
-.app-window__dots {
+.telemetry-hud__system-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.telemetry-live-dot {
+  position: relative;
+  width: 0.65rem;
+  height: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.telemetry-live-dot__core {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--signal-positive);
+}
+
+.telemetry-live-dot__ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--signal-positive) 40%, transparent);
+  animation: pulse-ring 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.telemetry-hud__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.telemetry-hud__title-row {
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
 
-.dot {
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-}
-
-.dot--red {
-  background: oklch(0.65 0.22 28);
-}
-
-.dot--yellow {
-  background: oklch(0.8 0.17 85);
-}
-
-.dot--green {
-  background: oklch(0.72 0.19 145);
-}
-
-.app-window__title {
+.telemetry-hud__name {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.telemetry-hud__divider {
+  color: var(--text-secondary);
+  font-size: 0.65rem;
+}
+
+.telemetry-hud__status {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--signal-positive);
+  letter-spacing: 0.05em;
+}
+
+.telemetry-hud__spec {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
   font-weight: 500;
   color: var(--text-secondary);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
+.telemetry-hud__tabs,
 .app-window__tabs {
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  padding: 2px;
+  padding: 3px;
   background: color-mix(in oklch, var(--line-primary) 50%, var(--surface-secondary));
   border-radius: 6px;
   border: 1px solid var(--line-soft);
@@ -3763,6 +3847,70 @@ body {
 .schema-table-card--highlighted {
   border-color: var(--signal-primary);
   box-shadow: 0 0 14px color-mix(in oklch, var(--signal-primary) 22%, transparent);
+}
+
+.query-action-btn--simulate {
+  color: var(--signal-information);
+  border-color: color-mix(in oklch, var(--signal-information) 40%, var(--line-primary));
+}
+
+.query-action-btn--simulate:hover {
+  background: color-mix(in oklch, var(--signal-information) 10%, var(--surface-primary));
+  border-color: var(--signal-information);
+  color: var(--signal-information);
+}
+
+/* Channel Slicer toolbar */
+.preview-channel-slicer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  padding: 0.4rem 0.65rem;
+  background: color-mix(in oklch, var(--surface-secondary) 80%, var(--surface-primary));
+  border: 1px dashed var(--line-primary);
+  border-radius: 6px;
+}
+
+.slicer-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+}
+
+.slicer-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.slicer-btn {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid var(--line-soft);
+  background: var(--surface-primary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--motion-ease);
+}
+
+.slicer-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--line-strong);
+}
+
+.slicer-btn--active {
+  background: color-mix(in oklch, var(--signal-primary) 12%, var(--surface-primary));
+  border-color: var(--signal-primary);
+  color: var(--signal-primary);
+  font-weight: 700;
 }
 
 .preview-kpi-bar {

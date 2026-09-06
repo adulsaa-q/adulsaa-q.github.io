@@ -117,10 +117,9 @@ export function ArtifactCarousel({
       <div className="project-visual__window">
         {/* Window Top Bar */}
         <div className="project-visual__window-bar">
-          <div className="project-visual__dots" aria-hidden="true">
-            <span className="dot dot--red" />
-            <span className="dot dot--yellow" />
-            <span className="dot dot--green" />
+          <div className="project-visual__status-badge" aria-hidden="true">
+            <span className="project-visual__status-dot" />
+            <span className="project-visual__status-tag">SEMANTIC MODEL</span>
           </div>
 
           <span className="project-visual__window-title" title={displayTitle}>

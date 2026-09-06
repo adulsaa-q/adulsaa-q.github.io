@@ -37,15 +37,15 @@ const capabilities = [
   },
   {
     index: "03",
-    title: "AI Research & Workflow Systems",
+    title: "Analytics Engineering & Data Modeling",
     solves:
-      "Research or agent workflows that need visible sources, authority limits and evidence handling.",
+      "Structured SQL analysis modules, dimensional star schemas, and auditable metrics across datasets.",
     deliverables:
-      "A constrained prototype, source register, workflow rules and explicit review points.",
-    inputs: "Research question, permitted sources, evaluation criteria and acceptable failure boundaries.",
+      "Conformed dimensional models, tested SQL modules, documented measure registers, and relationship mapping.",
+    inputs: "Table schemas, calculation specifications, business definitions, and reporting requirements.",
     boundary:
-      "Generated output remains reviewable work product, not verified truth or autonomous authority.",
-    notIncluded: "Broad AI transformation, guaranteed accuracy or unsupervised high-stakes decisions.",
+      "Analytics models require accessible database tables and confirmed domain rules; they reflect source data quality.",
+    notIncluded: "Unverified data sources, arbitrary manual spreadsheet stitching, or ungrounded business assumptions.",
   },
 ];
 

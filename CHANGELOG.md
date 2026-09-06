@@ -16,7 +16,7 @@ Execution of the comprehensive autonomous redesign based on `PRECISION × ENGINE
 - **Design Substrate:** Standardized mathematical OKLCH semantic token system in `globals.css` with zero raw hex literals and 19.4:1 AAA contrast ratio.
 - **Navigation Pillars:** Consolidated top-level navigation into 4 unambiguous pillars: `WORK`, `METHOD`, `LAB`, `CONTACT`.
 - **Method Page (`/method`):** Unified architectural philosophy, 3 bounded capability offers, and 4-stage delivery lifecycle (`Discover`, `Define`, `Build`, `Verify & Handover`).
-- **Systems Laboratory (`/lab`):** Rebranded and upgraded experimental prototypes repository (`schema-map`, `AI Command Center`, `AIE Pulse Meridian`, `AI Brand Visibility Tracker`).
+- **Systems Laboratory (`/lab`):** Rebranded and upgraded experimental prototypes repository (`schema-map`, `fastwork-status`, `kbank-finance-pipeline`, `housemark`).
 - **Interactive BI Artifact Carousel (`ArtifactCarousel`):**
   - WAI-ARIA APG Tabs with roving keyboard navigation (`ArrowLeft`, `ArrowRight`, `Home`, `End`).
   - Native HTML5 `<dialog>` modal deep-zoom inspection with focus trapping and `Escape` key restoration.

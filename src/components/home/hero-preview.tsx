@@ -5,9 +5,55 @@ import Link from "next/link";
 import { withBasePath } from "@/lib/base-path";
 
 type TabKey = "dashboard" | "schema" | "pipeline";
+type ChannelKey = "all" | "shopee" | "lazada";
+
+interface ChannelConfig {
+  label: string;
+  query: string;
+  kpis: [
+    { label: string; value: string; note: string },
+    { label: string; value: string; note: string },
+    { label: string; value: string; note: string },
+  ];
+  note: string;
+}
+
+const channelConfigs: Record<ChannelKey, ChannelConfig> = {
+  all: {
+    label: "All Channels",
+    query: "SELECT date_trunc('month', date) AS month, sum(gross_gmv) AS gmv, sum(net_payout) AS payout FROM fact_orders GROUP BY 1",
+    kpis: [
+      { label: "Consolidated GMV", value: "฿12.4M", note: "Shopee + Lazada (+18.4% YoY)" },
+      { label: "Elapsed-Day AOV", value: "฿1,280", note: "Equal elapsed window" },
+      { label: "Blended ROAS", value: "4.82x", note: "CPAS + On-platform ads" },
+    ],
+    note: "Unified cross-platform view reconciling disparate Shopee & Lazada exports",
+  },
+  shopee: {
+    label: "Shopee TH",
+    query: "SELECT date_trunc('month', date) AS month, sum(gross_gmv) AS gmv, sum(net_payout) AS payout FROM fact_orders WHERE platform = 'Shopee' GROUP BY 1",
+    kpis: [
+      { label: "Consolidated GMV", value: "฿7.8M", note: "Shopee Mall & Marketplace (+22.1% YoY)" },
+      { label: "Elapsed-Day AOV", value: "฿1,340", note: "18-day elapsed window" },
+      { label: "Blended ROAS", value: "5.10x", note: "Shopee Ads + AMS affiliate" },
+    ],
+    note: "Shopee Seller Center order exports normalized via Power Query M",
+  },
+  lazada: {
+    label: "Lazada TH",
+    query: "SELECT date_trunc('month', date) AS month, sum(gross_gmv) AS gmv, sum(net_payout) AS payout FROM fact_orders WHERE platform = 'Lazada' GROUP BY 1",
+    kpis: [
+      { label: "Consolidated GMV", value: "฿4.6M", note: "LazMall & Marketplace (+12.8% YoY)" },
+      { label: "Elapsed-Day AOV", value: "฿1,190", note: "18-day elapsed window" },
+      { label: "Blended ROAS", value: "4.45x", note: "Sponsored Solutions + CPAS" },
+    ],
+    note: "Lazada CSV/Excel order exports mapped to unified dimensional model",
+  },
+};
 
 export function HeroDataPreview() {
   const [activeTab, setActiveTab] = useState<TabKey>("dashboard");
+  const [selectedChannel, setSelectedChannel] = useState<ChannelKey>("all");
   const [copied, setCopied] = useState(false);
   const [highlightedEntity, setHighlightedEntity] = useState<string | null>(null);
   const [isSimulating, setIsSimulating] = useState(false);
@@ -29,7 +75,7 @@ export function HeroDataPreview() {
 
   // Copy SQL query to clipboard
   function handleCopySQL() {
-    const query = "SELECT date_trunc('month', date) AS month, sum(gross_gmv) AS gmv, sum(net_payout) AS payout FROM fact_orders GROUP BY 1";
+    const query = channelConfigs[selectedChannel].query;
     try {
       navigator.clipboard.writeText(query);
       setCopied(true);
@@ -52,20 +98,29 @@ export function HeroDataPreview() {
     }, 2400);
   }
 
+  const activeChannelConfig = channelConfigs[selectedChannel];
+
   return (
     <div className="hero-preview" aria-label="Interactive systems preview">
-      <div className="app-window">
-        <div className="app-window__header">
-          <div className="app-window__dots" aria-hidden="true">
-            <span className="dot dot--red" />
-            <span className="dot dot--yellow" />
-            <span className="dot dot--green" />
+      <div className="app-window telemetry-hud">
+        {/* Modern Observability HUD Header */}
+        <div className="telemetry-hud__header">
+          <div className="telemetry-hud__system-info">
+            <div className="telemetry-live-dot" aria-hidden="true">
+              <span className="telemetry-live-dot__ping" />
+              <span className="telemetry-live-dot__core" />
+            </div>
+            <div className="telemetry-hud__meta">
+              <div className="telemetry-hud__title-row">
+                <span className="telemetry-hud__name">OBSERVABILITY HUD</span>
+                <span className="telemetry-hud__divider" aria-hidden="true">/</span>
+                <span className="telemetry-hud__status">ONLINE · 12ms</span>
+              </div>
+              <span className="telemetry-hud__spec">POSTGRESQL 16 · STAR SCHEMA · POWER BI DAX</span>
+            </div>
           </div>
-          <div className="app-window__meta">
-            <span className="app-window__title">evidence-workspace // q-analytics</span>
-            <span className="keyboard-hint" aria-hidden="true">Keys [1, 2, 3]</span>
-          </div>
-          <div className="app-window__tabs" role="tablist" aria-label="System views">
+
+          <div className="telemetry-hud__tabs" role="tablist" aria-label="System views">
             <button
               type="button"
               role="tab"
@@ -97,13 +152,14 @@ export function HeroDataPreview() {
         </div>
 
         <div className="app-window__body">
+          {/* Query & Slicer Bar */}
           <div className="preview-query-bar">
             <div className="preview-query-bar__spec">
               <span className="query-badge">
                 {activeTab === "dashboard" ? "SQL QUERY" : activeTab === "schema" ? "SCHEMA SPEC" : "ETL FLOW"}
               </span>
               <code className="query-code">
-                {activeTab === "dashboard" && "SELECT date_trunc('month', date) AS month, sum(gross_gmv) AS gmv, sum(net_payout) AS payout FROM fact_orders GROUP BY 1"}
+                {activeTab === "dashboard" && activeChannelConfig.query}
                 {activeTab === "schema" && "fact_orders ──(1:N)──> dim_date, dim_platform, dim_product [0 many-to-many bridges]"}
                 {activeTab === "pipeline" && "extract(pdf) ➔ validate(pydantic_v2) ➔ upsert(postgresql) [idempotent audit]"}
               </code>
@@ -124,7 +180,7 @@ export function HeroDataPreview() {
                 <button
                   type="button"
                   onClick={triggerSimulation}
-                  className="query-action-btn"
+                  className="query-action-btn query-action-btn--simulate"
                   disabled={isSimulating}
                   aria-label="Simulate pipeline run"
                 >
@@ -141,22 +197,46 @@ export function HeroDataPreview() {
 
           {activeTab === "dashboard" && (
             <div className="preview-pane preview-pane--dashboard">
+              {/* Interactive Channel Slicer */}
+              <div className="preview-channel-slicer" role="group" aria-label="Filter channel data scope">
+                <span className="slicer-label">CHANNEL SCOPE:</span>
+                <div className="slicer-buttons">
+                  <button
+                    type="button"
+                    className={`slicer-btn ${selectedChannel === "all" ? "slicer-btn--active" : ""}`}
+                    onClick={() => setSelectedChannel("all")}
+                    aria-pressed={selectedChannel === "all"}
+                  >
+                    All Channels (Consolidated)
+                  </button>
+                  <button
+                    type="button"
+                    className={`slicer-btn ${selectedChannel === "shopee" ? "slicer-btn--active" : ""}`}
+                    onClick={() => setSelectedChannel("shopee")}
+                    aria-pressed={selectedChannel === "shopee"}
+                  >
+                    Shopee TH
+                  </button>
+                  <button
+                    type="button"
+                    className={`slicer-btn ${selectedChannel === "lazada" ? "slicer-btn--active" : ""}`}
+                    onClick={() => setSelectedChannel("lazada")}
+                    aria-pressed={selectedChannel === "lazada"}
+                  >
+                    Lazada TH
+                  </button>
+                </div>
+              </div>
+
+              {/* Dynamic KPI Bar */}
               <div className="preview-kpi-bar">
-                <div className="preview-kpi">
-                  <span className="preview-kpi__label">Consolidated Revenue</span>
-                  <strong className="preview-kpi__value">฿12.4M</strong>
-                  <small className="preview-kpi__note">Shopee + Lazada (+18.4% YoY)</small>
-                </div>
-                <div className="preview-kpi">
-                  <span className="preview-kpi__label">Elapsed-Day AOV</span>
-                  <strong className="preview-kpi__value">฿1,280</strong>
-                  <small className="preview-kpi__note">Equal elapsed window</small>
-                </div>
-                <div className="preview-kpi">
-                  <span className="preview-kpi__label">Blended ROAS</span>
-                  <strong className="preview-kpi__value">4.82x</strong>
-                  <small className="preview-kpi__note">CPAS + On-platform ads</small>
-                </div>
+                {activeChannelConfig.kpis.map((kpi) => (
+                  <div className="preview-kpi" key={kpi.label}>
+                    <span className="preview-kpi__label">{kpi.label}</span>
+                    <strong className="preview-kpi__value">{kpi.value}</strong>
+                    <small className="preview-kpi__note">{kpi.note}</small>
+                  </div>
+                ))}
               </div>
 
               <figure className="preview-image-frame">

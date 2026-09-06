@@ -29,8 +29,8 @@ const techCatalog: TechItem[] = [
   { name: "Vitest", category: "engineering", role: "Fast unit and regression test runner (100% test pass record)" },
   { name: "GitHub Actions", category: "engineering", role: "Automated CI/CD workflows, static generation, and deployment" },
   { name: "Obsidian", category: "engineering", role: "Knowledge base graph and architecture documentation system" },
-  { name: "Gemini", category: "engineering", role: "LLM-assisted text classification and transaction intent parsing" },
-  { name: "OpenRouter", category: "engineering", role: "Unified multi-model API access for automated classification" },
+  { name: "Pydantic", category: "automation", role: "Schema-level data validation and multi-tier data sanitization" },
+  { name: "Docker", category: "engineering", role: "Containerized pipeline execution and reproducible local environments" },
 ];
 
 export function TechMarquee() {

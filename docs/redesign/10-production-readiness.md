@@ -31,7 +31,7 @@ All 18 generated static routes are verified:
 5. `/work/finance-etl-pipeline/` (Python KBank e-statement PDF pipeline, PostgreSQL audit log)
 6. `/work/timelimit/` (Offline desktop utility, native Cocoa mechanics)
 7. `/method/` (Architecture philosophy, 3 bounded capability offers, 4-stage delivery lifecycle)
-8. `/lab/` (Systems laboratory: schema-map, AI Command Center, AIE Pulse Meridian, AI Brand Tracker)
+8. `/lab/` (Systems laboratory: schema-map, fastwork-status, kbank-finance-pipeline, housemark)
 9. `/contact/` (Direct contact routes, email obfuscation, engagement guidance)
 10. `/services/` (Preserved backwards-compatible route)
 11. `/about/` (Preserved backwards-compatible route)

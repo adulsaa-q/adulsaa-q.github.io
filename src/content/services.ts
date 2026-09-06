@@ -58,20 +58,21 @@ export const services: Service[] = [
   },
   {
     index: "03",
-    slug: "ai-workflows",
-    title: "AI research & workflow systems",
+    slug: "analytics-engineering",
+    title: "Analytics engineering & data modeling",
     forWho:
-      "Teams that want a research or agent workflow with visible sources and explicit authority limits.",
+      "Teams needing structured SQL analysis modules, conformed star schemas, and auditable metrics across datasets.",
     problem:
-      "Generated output is treated as fact when it should be reviewable work product with a traceable source register.",
+      "Disorganized queries and siloed spreadsheets create conflicting metrics and unrepeatable reporting.",
     inputs:
-      "The research question, permitted sources, evaluation criteria and acceptable failure boundaries.",
+      "Table schemas, calculation specifications, business definitions, and reporting requirements.",
     deliverables: [
-      "A constrained prototype with a source register",
-      "Workflow rules and explicit review points",
-      "A written statement of what the system does not decide",
+      "Conformed dimensional models (Facts & Dimensions)",
+      "Tested SQL analysis modules and documented measure registers",
+      "Data dictionary and schema relationship mapping",
     ],
     boundary:
-      "Generated output remains reviewable work product, not verified truth or autonomous authority.",
+      "Analytics models require accessible database tables and confirmed domain rules; they reflect source data quality.",
+    caseStudySlug: "shopee-thailand-analytics",
   },
 ];
