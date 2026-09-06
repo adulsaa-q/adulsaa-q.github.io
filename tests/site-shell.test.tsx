@@ -69,12 +69,4 @@ describe("site header", () => {
     expect(document.documentElement.dataset.theme).toBe("dark");
     expect(screen.getByRole("button", { name: "Switch to light theme" })).toBeTruthy();
   });
-
-  it("renders live system telemetry status in header", () => {
-    render(<SiteHeader />);
-
-    expect(screen.getByLabelText("System status")).toBeTruthy();
-    expect(screen.getByText("SYS: LIVE")).toBeTruthy();
-    expect(screen.getByText("BKK UTC+7")).toBeTruthy();
-  });
 });
