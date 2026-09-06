@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { HeroDataPreview } from "@/components/home/hero-preview";
 import { PipelineDiagram } from "@/components/diagram/pipeline-diagram";
 import { StatStrip } from "@/components/home/stat-strip";
 import { TechMarquee } from "@/components/home/tech-marquee";
@@ -47,26 +48,43 @@ function ProjectVisual({ project }: { project: Project }) {
     );
   }
 
-  if (artifacts.length === 0) {
+  const leadArtifact = artifacts[0];
+  if (!leadArtifact) {
     return null;
   }
 
+  const windowTitle =
+    project.slug === "ecommerce-sales-pipeline"
+      ? "models/ecommerce_sales_model.pbix"
+      : project.slug === "shopee-thailand-analytics"
+      ? "reports/shopee_multi_shop_analytics.pbix"
+      : "artifacts/system_artifact";
+
   return (
     <div className="project-visual">
-      <div className="project-visual__plate-grid">
-        {artifacts.slice(0, 2).map((artifact, index) => (
-          <figure className={index === 0 ? "project-visual__plate project-visual__plate--lead" : "project-visual__plate"} key={artifact.src}>
+      <div className="project-visual__window">
+        <div className="project-visual__window-bar">
+          <div className="project-visual__dots" aria-hidden="true">
+            <span className="dot dot--red" />
+            <span className="dot dot--yellow" />
+            <span className="dot dot--green" />
+          </div>
+          <span className="project-visual__window-title">{windowTitle}</span>
+          <span className="project-visual__window-badge">VERIFIED ARTIFACT</span>
+        </div>
+        <div className="project-visual__plate-grid">
+          <figure className="project-visual__plate project-visual__plate--lead" key={leadArtifact.src}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={withBasePath(artifact.src)}
-              alt={artifact.alt}
+              src={withBasePath(leadArtifact.src)}
+              alt={leadArtifact.alt}
               width={project.slug === "timelimit" ? 413 : 1920}
               height={project.slug === "timelimit" ? 255 : 1095}
               decoding="async"
             />
-            <figcaption>{artifact.caption}</figcaption>
+            <figcaption>{leadArtifact.caption}</figcaption>
           </figure>
-        ))}
+        </div>
       </div>
     </div>
   );
@@ -77,33 +95,30 @@ export default function Home() {
     <main id="main-content" tabIndex={-1} className="page-shell">
       <section className="hero" aria-labelledby="home-title">
         <div className="hero__copy">
-          <p className="eyebrow">Data systems / BI / automation</p>
+          <div className="hero__status-badge">
+            <span className="status-indicator" aria-hidden="true" />
+            <span>Data, BI &amp; Automation Systems · Bangkok (GMT+7)</span>
+          </div>
           <h1 id="home-title">
             I turn messy operational data into systems people can actually use.
           </h1>
-        </div>
-        <div className="hero__aside">
-          <p lang="th">เปลี่ยนข้อมูลกระจัดกระจาย ให้เป็นระบบที่ตรวจสอบและใช้งานได้จริง</p>
-          <p>
+          <p className="hero__thai-lead" lang="th">เปลี่ยนข้อมูลกระจัดกระจาย ให้เป็นระบบที่ตรวจสอบและใช้งานได้จริง</p>
+          <p className="hero__lead">
             Selected work across reporting models, data pipelines and focused internal
             tools—shown with evidence, boundaries and the decisions behind them.
           </p>
           <div className="hero__actions">
-            <Link className="text-link" href="/work">
-              View the full work index
+            <Link className="hero-btn-primary" href="/work">
+              Explore Selected Systems →
             </Link>
-            <Link className="text-link text-link--muted" href="/services">
+            <Link className="hero-btn-secondary" href="/services">
               How to work with me
             </Link>
           </div>
         </div>
+
+        <HeroDataPreview />
       </section>
-
-      <PipelineDiagram />
-
-      <StatStrip />
-
-      <TechMarquee />
 
       <section className="work-showcase" aria-labelledby="selected-work">
         <div className="section-heading">
@@ -169,6 +184,17 @@ export default function Home() {
             Explore all work
           </Link>
         </div>
+      </section>
+
+      <section className="architecture-discipline" aria-labelledby="architecture-heading">
+        <div className="section-heading">
+          <span className="section-index">SYSTEM</span>
+          <h2 id="architecture-heading">System architecture &amp; lifecycle</h2>
+          <p>Every implementation follows an inspectable four-stage path from raw inputs to audited handover.</p>
+        </div>
+        <PipelineDiagram />
+        <TechMarquee />
+        <StatStrip />
       </section>
 
       <section className="principles" aria-label="Working principles">
