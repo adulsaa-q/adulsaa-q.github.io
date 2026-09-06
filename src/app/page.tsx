@@ -1,16 +1,29 @@
 import Link from "next/link";
 
+import { ArtifactCarousel } from "@/components/project/artifact-carousel";
 import { HeroDataPreview } from "@/components/home/hero-preview";
 import { PipelineDiagram } from "@/components/diagram/pipeline-diagram";
 import { StatStrip } from "@/components/home/stat-strip";
 import { TechMarquee } from "@/components/home/tech-marquee";
 import { ProjectIndex } from "@/components/project/project-index";
 import { projects } from "@/content/projects";
-import { withBasePath } from "@/lib/base-path";
 import { textLang } from "@/lib/i18n";
 import type { Project } from "@/types/project";
 
 const featuredProjects = projects.slice(0, 2);
+
+const projectMetrics: Record<string, Array<{ label: string; value: string }>> = {
+  "ecommerce-sales-pipeline": [
+    { label: "Data Ingestion", value: "Shopee · Lazada · CPAS" },
+    { label: "Reconciliation", value: "Equal Elapsed-Day Window" },
+    { label: "Architecture", value: "Unified Star Schema" },
+  ],
+  "shopee-thailand-analytics": [
+    { label: "Dataset Scope", value: "Multi-Module Case Study" },
+    { label: "SQL Engines", value: "Sales · Cohort · Logistics" },
+    { label: "Semantic Model", value: "DAX Measures Register" },
+  ],
+};
 
 const presentationBySlug: Record<Project["slug"], string> = {
   "ecommerce-sales-pipeline": "dashboard-plate",
@@ -20,10 +33,6 @@ const presentationBySlug: Record<Project["slug"], string> = {
 };
 
 function ProjectVisual({ project }: { project: Project }) {
-  const artifacts = project.artifacts.filter(
-    (item): item is (typeof project.artifacts)[number] & { src: string } => Boolean(item.src),
-  );
-
   if (project.slug === "finance-etl-pipeline") {
     return (
       <div className="project-visual" aria-label="Finance ETL system flow">
@@ -48,45 +57,13 @@ function ProjectVisual({ project }: { project: Project }) {
     );
   }
 
-  const leadArtifact = artifacts[0];
-  if (!leadArtifact) {
-    return null;
-  }
-
-  const windowTitle =
-    project.slug === "ecommerce-sales-pipeline"
-      ? "models/ecommerce_sales_model.pbix"
-      : project.slug === "shopee-thailand-analytics"
-      ? "reports/shopee_multi_shop_analytics.pbix"
-      : "artifacts/system_artifact";
-
   return (
-    <div className="project-visual">
-      <div className="project-visual__window">
-        <div className="project-visual__window-bar">
-          <div className="project-visual__dots" aria-hidden="true">
-            <span className="dot dot--red" />
-            <span className="dot dot--yellow" />
-            <span className="dot dot--green" />
-          </div>
-          <span className="project-visual__window-title">{windowTitle}</span>
-          <span className="project-visual__window-badge">VERIFIED ARTIFACT</span>
-        </div>
-        <div className="project-visual__plate-grid">
-          <figure className="project-visual__plate project-visual__plate--lead" key={leadArtifact.src}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={withBasePath(leadArtifact.src)}
-              alt={leadArtifact.alt}
-              width={project.slug === "timelimit" ? 413 : 1920}
-              height={project.slug === "timelimit" ? 255 : 1095}
-              decoding="async"
-            />
-            <figcaption>{leadArtifact.caption}</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
+    <ArtifactCarousel
+      projectSlug={project.slug}
+      projectName={project.name}
+      artifacts={project.artifacts}
+      eager={project.slug === "ecommerce-sales-pipeline"}
+    />
   );
 }
 
@@ -151,6 +128,16 @@ export default function Home() {
                 {project.displayTitle}
               </p>
               <p className="project-entry__summary">{project.summary}</p>
+              {projectMetrics[project.slug] && (
+                <div className="project-metrics-strip" aria-label={`${project.name} architecture highlights`}>
+                  {projectMetrics[project.slug].map((m) => (
+                    <div className="project-metric-pill" key={m.label}>
+                      <span className="project-metric-pill__label">{m.label}</span>
+                      <span className="project-metric-pill__value">{m.value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               <div className="project-impact">
                 <span>Operational impact</span>
                 <p>{project.impact}</p>

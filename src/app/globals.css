@@ -1060,6 +1060,233 @@ button {
   background: var(--surface-primary);
 }
 
+/* Artifact Carousel & Interactive Inspector */
+.artifact-carousel {
+  outline: none;
+}
+
+.artifact-carousel__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.artifact-carousel__pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.artifact-carousel__nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.artifact-carousel__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  border: 1px solid var(--line-primary);
+  border-radius: 4px;
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--motion-ease);
+}
+
+.artifact-carousel__nav-btn:hover {
+  border-color: var(--signal-primary);
+  color: var(--signal-primary);
+  background: color-mix(in oklch, var(--signal-primary) 6%, var(--surface-primary));
+}
+
+.artifact-carousel__zoom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--line-primary);
+  border-radius: 4px;
+  background: var(--surface-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--motion-ease);
+}
+
+.artifact-carousel__zoom-btn:hover {
+  border-color: var(--signal-primary);
+  color: var(--signal-primary);
+}
+
+.artifact-carousel__tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--surface-secondary);
+  border-bottom: 1px solid var(--line-soft);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.artifact-carousel__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.artifact-carousel__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--motion-ease);
+}
+
+.artifact-carousel__tab:hover {
+  color: var(--text-primary);
+  background: color-mix(in oklch, var(--surface-primary) 60%, var(--surface-secondary));
+}
+
+.artifact-carousel__tab--active {
+  color: var(--text-primary);
+  background: var(--surface-primary);
+  border-color: var(--line-primary);
+  box-shadow: 0 1px 3px 0 oklch(0 0 0 / 0.04);
+}
+
+.artifact-carousel__tab-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  transition: background var(--motion-fast) var(--motion-ease);
+}
+
+.artifact-carousel__tab--active .artifact-carousel__tab-dot {
+  background: var(--signal-primary);
+}
+
+.artifact-carousel__image-btn {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.artifact-carousel__hover-hint {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: oklch(0 0 0 / 0.72);
+  color: oklch(1 0 0);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: all var(--motion-fast) var(--motion-ease);
+  pointer-events: none;
+}
+
+.artifact-carousel__image-btn:hover .artifact-carousel__hover-hint,
+.artifact-carousel__image-btn:focus-visible .artifact-carousel__hover-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.artifact-carousel__caption {
+  padding: 0.65rem 0.85rem;
+  border-top: 1px solid var(--line-soft);
+  background: var(--surface-primary);
+}
+
+.artifact-carousel__caption-lead {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.artifact-carousel__caption-tag {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--signal-primary);
+  background: color-mix(in oklch, var(--signal-primary) 8%, var(--surface-primary));
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}
+
+.artifact-carousel__caption-text {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Bento Metrics Strip for Selected Systems */
+.project-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
+  margin-block: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  background: var(--surface-secondary);
+}
+
+.project-metric-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.project-metric-pill__label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.project-metric-pill__value {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
 [data-presentation="schema-led"] .project-visual {
   background: var(--surface-inverse);
 }

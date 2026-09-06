@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/seo/json-ld";
+import { ArtifactCarousel } from "@/components/project/artifact-carousel";
 import { ZoomableImage } from "@/components/project/zoomable-image";
 import { projects } from "@/content/projects";
 import { textLang } from "@/lib/i18n";
@@ -141,16 +142,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </header>
 
       {leadArtifact?.src ? (
-        <figure className="project-lead-artifact">
-          <ZoomableImage
-            src={leadArtifact.src}
-            alt={leadArtifact.alt}
-            width={1920}
-            height={1095}
+        <div className="project-lead-artifact">
+          <ArtifactCarousel
+            projectSlug={project.slug}
+            projectName={project.name}
+            artifacts={project.artifacts}
             eager
           />
-          <figcaption>{leadArtifact.caption}</figcaption>
-        </figure>
+        </div>
       ) : null}
 
       <DetailSection index="01" title="Context">
