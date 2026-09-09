@@ -49,6 +49,7 @@ jobs:
           include-hidden-files: true
 
   browser-qa:
+    timeout-minutes: 10
     needs: build
     runs-on: ubuntu-latest
     strategy:
@@ -97,6 +98,7 @@ jobs:
           path: qa-results
 
   safari-qa:
+    timeout-minutes: 10
     needs: build
     runs-on: macos-latest
     steps:

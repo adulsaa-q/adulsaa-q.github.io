@@ -292,3 +292,7 @@ Undated QA badges → dated, reproducible audit evidence.
 10. Make supported-browser and deployed performance checks explicit release gates.
 
 Final sitemap-driven scan: **26 route/theme combinations, 312 width checks, zero axe violations, zero document overflow, zero page errors, zero failed resource responses** after the schema-map fixes. Browser: Chrome 152.0.7977.84. This supersedes the initial incomplete 12-route scan and the intermediate schema-map failures. Method’s unstyled lifecycle was also moved onto the existing ordered process component rather than introducing another layout pattern.
+
+## Release verification follow-through
+
+The first supported-host release run ([34324806613](https://github.com/adulsaa-q/adulsaa-q.github.io/actions/runs/34324806613)) passed the build and Chromium checks, but correctly blocked deployment on schema Primary Key badge contrast in Firefox 155, WebKit 26.6 and Safari 26.6.2. The badges now use primary text over their tinted background and a larger label size. Native Safari measurement also waits for font layout and the authored theme transition to settle before measuring contrast. Final release evidence follows below once the corrected revision passes.

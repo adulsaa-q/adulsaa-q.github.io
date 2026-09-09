@@ -26,7 +26,16 @@ const widths = [320, 360, 375, 390, 430, 768, 834, 1024, 1280, 1440, 1728, 1920]
 const results = [];
 const errors = [];
 const failed = [];
+const consoleMessages = [];
 page.on("pageerror", error => errors.push(error.message));
+page.on("console", message => {
+  if (["warning", "error"].includes(message.type())) consoleMessages.push({ type: message.type(), text: message.text(), location: message.location() });
+});
+page.on("requestfailed", request => {
+  const error = request.failure()?.errorText || "Unknown network error";
+  // Navigation may cancel speculative route prefetches; those are not failed assets.
+  if (!/ERR_ABORTED|NS_BINDING_ABORTED|cancelled/i.test(error)) failed.push({ url: request.url(), error });
+});
 page.on("response", response => {
   if (response.status() >= 400) failed.push({ url: response.url(), status: response.status() });
 });
@@ -57,8 +66,8 @@ try {
       }
     }
   }
-  await writeFile(path.join(output, "browser.json"), JSON.stringify({ base, engine, browser: browser.version(), results, errors, failed }, null, 2));
-  process.exitCode = errors.length || failed.length || results.some(result => result.violations.length || result.responsive.some(size => size.overflow)) ? 1 : 0;
+  await writeFile(path.join(output, "browser.json"), JSON.stringify({ base, engine, browser: browser.version(), results, errors, failed, consoleMessages }, null, 2));
+  process.exitCode = errors.length || failed.length || consoleMessages.some(message => message.type === "error") || results.some(result => result.violations.length || result.responsive.some(size => size.overflow)) ? 1 : 0;
   console.log(`${results.length} route/theme combinations checked; results: ${output}`);
 } finally {
   await browser.close();

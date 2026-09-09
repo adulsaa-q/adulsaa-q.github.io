@@ -3022,7 +3022,7 @@ body {
 }
 
 .schema-col-badge {
-  font-size: 0.55rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   padding: 0.1rem 0.25rem;
   border-radius: 2px;
@@ -3032,12 +3032,12 @@ body {
 
 .schema-col-badge.is-pk {
   background: color-mix(in oklch, var(--signal-primary) 20%, transparent);
-  color: var(--signal-primary);
+  color: var(--text-primary);
 }
 
 .schema-col-badge.is-fk {
   background: color-mix(in oklch, var(--signal-information) 20%, transparent);
-  color: var(--signal-information);
+  color: var(--text-primary);
 }
 
 .schema-col-name {

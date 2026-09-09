@@ -29,8 +29,10 @@ try {
       await command(`${prefix}/window/rect`, { width: 1440, height: 900 });
       await command(`${prefix}/url`, { url: new URL(route, base).href });
       await execute(`document.documentElement.dataset.theme=${JSON.stringify(theme)};`);
+      // Wait for font layout and the authored 220ms theme transition before measuring contrast.
+      await command(`${prefix}/execute/async`, { script: "const done = arguments[0]; document.fonts.ready.then(() => setTimeout(done, 350));", args: [] });
       await execute(axe);
-      const violations = await command(`${prefix}/execute/async`, { script: 'const done = arguments[0]; axe.run(document, {runOnly:{type:"tag",values:["wcag2a","wcag2aa","wcag21aa","wcag22aa"]}}).then(result => done(result.violations.map(item => ({id:item.id,impact:item.impact,targets:item.nodes.map(node=>node.target)})))).catch(error=>done([{error:String(error)}]));', args: [] });
+      const violations = await command(`${prefix}/execute/async`, { script: 'const done = arguments[0]; axe.run(document, {runOnly:{type:"tag",values:["wcag2a","wcag2aa","wcag21aa","wcag22aa"]}}).then(result => done(result.violations.map(item => ({id:item.id,impact:item.impact,targets:item.nodes.map(node=>node.target),details:item.nodes.map(node=>node.failureSummary)})))).catch(error=>done([{error:String(error)}]));', args: [] });
       const responsive = [];
       for (const width of [390, 768, 1024, 1440]) {
         await command(`${prefix}/window/rect`, { width, height: 900 });
