@@ -37,4 +37,4 @@ Run Lighthouse alone, not alongside builds or browser sweeps. Python's static se
 
 `evidence/verification.json` records the lab snapshots, including the noisy runs, rather than selecting only the best score. `browser.json` holds the repeatable final route/theme/width sweep. `interactions.json` records the separate keyboard/touch/navigation assertions. `metadata.json` records titles, canonicals, JSON-LD, and image/fragment checks. Baseline source links and response headers are retained in the baseline capture.
 
-A passing axe scan is not full accessibility conformance. Follow the remaining manual and deployed checks listed in AUDIT.md.
+CI browser results are in `ci-*.json`; the final release and its workflow URL are recorded in `verification.json`. The native Safari job uses the hosted macOS SafariDriver, following [Apple’s WebDriver setup](https://developer.apple.com/documentation/safari-developer-tools/macos-enabling-webdriver). A passing axe scan is not full accessibility conformance; coverage limits remain listed in AUDIT.md.

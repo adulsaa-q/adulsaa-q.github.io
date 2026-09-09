@@ -3,28 +3,28 @@
 > next build
 
 ▲ Next.js 16.3.3 (Turbopack)
-(node:91794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:20794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✓ Running next.config.ts took 42ms
+✓ Running next.config.ts took 185ms
 
   Creating an optimized production build ...
-(node:91794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:20794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✓ Compiled successfully in 1327ms
+✓ Compiled successfully in 2.5s
   Running TypeScript ...
-  Finished TypeScript in 3.5s ...
+  Finished TypeScript in 4.5s ...
   Collecting page data using 3 workers ...
-(node:91802) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:20800) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:91803) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:20801) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:91804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:20802) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-  Generating static pages using 3 workers (0/19) ...
-  Generating static pages using 3 workers (4/19) 
-  Generating static pages using 3 workers (9/19) 
-  Generating static pages using 3 workers (14/19) 
-✓ Generating static pages using 3 workers (19/19) in 612ms
+  Generating static pages using 3 workers (0/21) ...
+  Generating static pages using 3 workers (5/21)
+  Generating static pages using 3 workers (10/21)
+  Generating static pages using 3 workers (15/21)
+✓ Generating static pages using 3 workers (21/21) in 761ms
   Finalizing page optimization ...
 
 Route (app)
@@ -44,7 +44,7 @@ Route (app)
   ├ ● /work/ecommerce-sales-pipeline
   ├ ● /work/shopee-thailand-analytics
   ├ ● /work/finance-etl-pipeline
-  └ ● [+2 more paths]
+  └ ● [+4 more paths]
 
 
 ○  (Static)  prerendered as static content

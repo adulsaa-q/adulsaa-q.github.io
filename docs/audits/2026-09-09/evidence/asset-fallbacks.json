@@ -1,0 +1,16 @@
+[
+  {
+    "fault": "fonts",
+    "overflow": false,
+    "identity": true,
+    "email": true,
+    "errors": []
+  },
+  {
+    "fault": "images",
+    "overflow": false,
+    "identity": true,
+    "email": true,
+    "errors": []
+  }
+]

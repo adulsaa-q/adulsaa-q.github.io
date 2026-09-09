@@ -23,15 +23,15 @@
       "metrics": {
         "largest-contentful-paint": {
           "value": 1640.549,
-          "display": "1.6 s"
+          "display": "1.6\u00a0s"
         },
         "first-contentful-paint": {
           "value": 1499.549,
-          "display": "1.5 s"
+          "display": "1.5\u00a0s"
         },
         "total-blocking-time": {
           "value": 1137.5,
-          "display": "1,140 ms"
+          "display": "1,140\u00a0ms"
         },
         "cumulative-layout-shift": {
           "value": 0.0487552189936178,
@@ -39,7 +39,7 @@
         },
         "total-byte-weight": {
           "value": 392988,
-          "display": "Total size was 384 KiB"
+          "display": "Total size was 384\u00a0KiB"
         }
       }
     },
@@ -65,15 +65,15 @@
       "metrics": {
         "largest-contentful-paint": {
           "value": 7353.0273,
-          "display": "7.4 s"
+          "display": "7.4\u00a0s"
         },
         "first-contentful-paint": {
           "value": 2890.0545999999995,
-          "display": "2.9 s"
+          "display": "2.9\u00a0s"
         },
         "total-blocking-time": {
           "value": 96,
-          "display": "100 ms"
+          "display": "100\u00a0ms"
         },
         "cumulative-layout-shift": {
           "value": 0.05310435945691062,
@@ -81,7 +81,7 @@
         },
         "total-byte-weight": {
           "value": 1491662,
-          "display": "Total size was 1,457 KiB"
+          "display": "Total size was 1,457\u00a0KiB"
         }
       }
     },
@@ -107,15 +107,15 @@
       "metrics": {
         "largest-contentful-paint": {
           "value": 4826.246625,
-          "display": "4.8 s"
+          "display": "4.8\u00a0s"
         },
         "first-contentful-paint": {
           "value": 2106.89595,
-          "display": "2.1 s"
+          "display": "2.1\u00a0s"
         },
         "total-blocking-time": {
           "value": 149.9999999999991,
-          "display": "150 ms"
+          "display": "150\u00a0ms"
         },
         "cumulative-layout-shift": {
           "value": 0.004906293333493108,
@@ -123,7 +123,7 @@
         },
         "total-byte-weight": {
           "value": 2479628,
-          "display": "Total size was 2,422 KiB"
+          "display": "Total size was 2,422\u00a0KiB"
         }
       }
     },
@@ -149,15 +149,15 @@
       "metrics": {
         "largest-contentful-paint": {
           "value": 6825.5343,
-          "display": "6.8 s"
+          "display": "6.8\u00a0s"
         },
         "first-contentful-paint": {
           "value": 2900.7124000000003,
-          "display": "2.9 s"
+          "display": "2.9\u00a0s"
         },
         "total-blocking-time": {
           "value": 409,
-          "display": "410 ms"
+          "display": "410\u00a0ms"
         },
         "cumulative-layout-shift": {
           "value": 0.00490597798861195,
@@ -165,7 +165,7 @@
         },
         "total-byte-weight": {
           "value": 1011078,
-          "display": "Total size was 987 KiB"
+          "display": "Total size was 987\u00a0KiB"
         }
       }
     },
@@ -191,15 +191,15 @@
       "metrics": {
         "largest-contentful-paint": {
           "value": 3787.08675,
-          "display": "3.8 s"
+          "display": "3.8\u00a0s"
         },
         "first-contentful-paint": {
           "value": 2170.5388,
-          "display": "2.2 s"
+          "display": "2.2\u00a0s"
         },
         "total-blocking-time": {
           "value": 100,
-          "display": "100 ms"
+          "display": "100\u00a0ms"
         },
         "cumulative-layout-shift": {
           "value": 0.00490597798861195,
@@ -207,7 +207,7 @@
         },
         "total-byte-weight": {
           "value": 493355,
-          "display": "Total size was 482 KiB"
+          "display": "Total size was 482\u00a0KiB"
         }
       }
     },
@@ -225,15 +225,15 @@
       "metrics": {
         "largest-contentful-paint": {
           "value": 3825.6791249999997,
-          "display": "3.8 s"
+          "display": "3.8\u00a0s"
         },
         "first-contentful-paint": {
           "value": 2157.919,
-          "display": "2.2 s"
+          "display": "2.2\u00a0s"
         },
         "total-blocking-time": {
           "value": 126,
-          "display": "130 ms"
+          "display": "130\u00a0ms"
         },
         "cumulative-layout-shift": {
           "value": 0.00490597798861195,
@@ -241,7 +241,7 @@
         },
         "total-byte-weight": {
           "value": 493404,
-          "display": "Total size was 482 KiB"
+          "display": "Total size was 482\u00a0KiB"
         }
       }
     },
@@ -259,15 +259,15 @@
       "metrics": {
         "largest-contentful-paint": {
           "value": 3680.4658,
-          "display": "3.7 s"
+          "display": "3.7\u00a0s"
         },
         "first-contentful-paint": {
           "value": 2011.4658,
-          "display": "2.0 s"
+          "display": "2.0\u00a0s"
         },
         "total-blocking-time": {
           "value": 170.816775,
-          "display": "170 ms"
+          "display": "170\u00a0ms"
         },
         "cumulative-layout-shift": {
           "value": 0.0004239095234254447,
@@ -275,7 +275,91 @@
         },
         "total-byte-weight": {
           "value": 453114,
-          "display": "Total size was 442 KiB"
+          "display": "Total size was 442\u00a0KiB"
+        }
+      }
+    },
+    "lighthouse-live-after-redesign": {
+      "url": "https://adulsaa-q.pages.dev/",
+      "time": "2026-09-09T15:14:26.370Z",
+      "lighthouse": "13.4.1",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+        "benchmarkIndex": 1270,
+        "credits": {
+          "axe-core": "4.13.0"
+        }
+      },
+      "categories": {
+        "performance": 0.97,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1,
+        "agentic-browsing": 0.67
+      },
+      "metrics": {
+        "largest-contentful-paint": {
+          "value": 2311.227,
+          "display": "2.3\u00a0s"
+        },
+        "first-contentful-paint": {
+          "value": 1711.2269999999999,
+          "display": "1.7\u00a0s"
+        },
+        "total-blocking-time": {
+          "value": 108.5,
+          "display": "110\u00a0ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        },
+        "total-byte-weight": {
+          "value": 389009,
+          "display": "Total size was 380\u00a0KiB"
+        }
+      }
+    },
+    "lighthouse-live-release": {
+      "url": "https://adulsaa-q.pages.dev/",
+      "time": "2026-09-09T15:29:59.146Z",
+      "lighthouse": "13.4.1",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+        "benchmarkIndex": 1393.5,
+        "credits": {
+          "axe-core": "4.13.0"
+        }
+      },
+      "categories": {
+        "performance": 0.97,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1,
+        "agentic-browsing": 0.67
+      },
+      "metrics": {
+        "largest-contentful-paint": {
+          "value": 2303.4610000000002,
+          "display": "2.3\u00a0s"
+        },
+        "first-contentful-paint": {
+          "value": 1703.461,
+          "display": "1.7\u00a0s"
+        },
+        "total-blocking-time": {
+          "value": 100,
+          "display": "100\u00a0ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.0004239095234254447,
+          "display": "0"
+        },
+        "total-byte-weight": {
+          "value": 388923,
+          "display": "Total size was 380\u00a0KiB"
         }
       }
     }
@@ -284,13 +368,13 @@
     "build": "passed",
     "tests": {
       "files": 17,
-      "tests": 88,
+      "tests": 89,
       "baselineTests": 90
     },
     "lint": "passed",
     "typecheck": "passed",
     "internalLinks": {
-      "htmlFiles": 16,
+      "htmlFiles": 18,
       "broken": 0
     },
     "npmAudit": {
@@ -302,20 +386,49 @@
       "total": 0
     },
     "browser": {
-      "version": "152.0.7977.84",
-      "routes": 13,
+      "localChrome": "152.0.7977.84",
+      "ciChromium": "153.0.8010.12",
+      "ciFirefox": "155.0",
+      "ciWebKit": "26.6",
+      "nativeSafari": "26.6.2",
+      "routes": 15,
       "themes": 2,
-      "widths": 12,
-      "overflowChecks": 312,
+      "ciRouteThemeCombinations": 120,
+      "ciWidthChecks": 1200,
       "violations": 0,
       "pageErrors": 0,
-      "failedResponses": 0
+      "failedResponses": 0,
+      "consoleWarnings": 0
     }
   },
   "limitations": [
-    "No deployment performed",
-    "Safari/Firefox current and physical iOS not tested",
-    "No real-user p75 INP or LCP data",
-    "Lighthouse host/server/concurrency differ; not causal before/after proof"
-  ]
+    "Physical Android/iOS, VoiceOver task sessions and native 200% browser zoom not tested; responsive reflow and mobile engine emulation were tested.",
+    "No real-user p75 INP or LCP data; public PageSpeed API returned quota-exceeded, so field status remains unknown.",
+    "Lighthouse snapshots vary by host, server and timing; lab snapshots do not establish field Core Web Vitals.",
+    "GitHub runner annotations flag Node 20 metadata in existing pinned Actions; the runners force Node 24 and all build/QA/deploy jobs passed."
+  ],
+  "release": {
+    "applicationCommit": "87db26ebc172ab4b3f21adec0e8ebe408762aa2a",
+    "workflow": "https://github.com/adulsaa-q/adulsaa-q.github.io/actions/runs/34370059921",
+    "result": "success",
+    "targets": [
+      "Cloudflare Pages",
+      "GitHub Pages (legacy redirect host)"
+    ],
+    "githubRepositoriesReviewed": 12,
+    "caseStudies": 7,
+    "sourcePathsChecked": 25,
+    "liveChecks": {
+      "checkedAt": "2026-09-09T15:30:54.498Z",
+      "routes": 15,
+      "notFoundStatus": 404,
+      "requestOrigins": [
+        "https://adulsaa-q.pages.dev"
+      ],
+      "pageErrors": 0,
+      "consoleMessages": 0,
+      "metadataAndJsonLd": "passed",
+      "securityHeaders": "passed"
+    }
+  }
 }

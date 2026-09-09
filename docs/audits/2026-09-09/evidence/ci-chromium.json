@@ -1,7 +1,7 @@
 {
-  "base": "https://adulsaa-q.pages.dev",
+  "base": "http://localhost:4173",
   "engine": "chromium",
-  "browser": "152.0.7977.84",
+  "browser": "153.0.8010.12",
   "results": [
     {
       "route": "/",

@@ -1,7 +1,7 @@
 {
-  "base": "https://adulsaa-q.pages.dev",
-  "engine": "chromium",
-  "browser": "152.0.7977.84",
+  "base": "http://localhost:4173",
+  "engine": "firefox",
+  "browser": "155.0",
   "results": [
     {
       "route": "/",
@@ -846,7 +846,7 @@
     {
       "route": "/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -902,7 +902,7 @@
     {
       "route": "/work/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -958,7 +958,7 @@
     {
       "route": "/work/ecommerce-sales-pipeline/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1014,7 +1014,7 @@
     {
       "route": "/work/shopee-thailand-analytics/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1070,7 +1070,7 @@
     {
       "route": "/work/finance-etl-pipeline/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1126,7 +1126,7 @@
     {
       "route": "/work/timelimit/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1182,7 +1182,7 @@
     {
       "route": "/work/schema-map/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1238,7 +1238,7 @@
     {
       "route": "/work/ai-brand-tracker/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1294,7 +1294,7 @@
     {
       "route": "/work/ai-command-center/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1350,7 +1350,7 @@
     {
       "route": "/method/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1406,7 +1406,7 @@
     {
       "route": "/lab/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1462,7 +1462,7 @@
     {
       "route": "/services/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1518,7 +1518,7 @@
     {
       "route": "/archive/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1574,7 +1574,7 @@
     {
       "route": "/about/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1630,7 +1630,7 @@
     {
       "route": "/contact/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {

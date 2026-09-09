@@ -1,0 +1,1214 @@
+{
+  "base": "https://adulsaa-q.pages.dev",
+  "checkedAt": "2026-09-09T15:30:54.498Z",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "title": "Adul Sa-a / Q — Data, BI & Automation",
+      "description": "Q turns messy operational data into inspectable systems people can use — งานข้อมูล BI และ automation ที่อธิบายระบบ หลักฐาน และข้อจำกัดอย่างตรงไปตรงมา",
+      "canonical": "https://adulsaa-q.pages.dev/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/work/",
+      "status": 200,
+      "title": "Work — Q",
+      "description": "Reporting, data pipelines, internal tools and AI workflows by Q, with source code and implementation decisions.",
+      "canonical": "https://adulsaa-q.pages.dev/work/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/work/ecommerce-sales-pipeline/",
+      "status": 200,
+      "title": "Multi‑Channel E‑commerce Sales Pipeline — Work — Q",
+      "description": "Power Query/M pipeline and Power BI model for aligning Shopee, Lazada and advertising exports into one inspectable reporting layer.",
+      "canonical": "https://adulsaa-q.pages.dev/work/ecommerce-sales-pipeline/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ],
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Multi‑Channel E‑commerce Sales Pipeline",
+            "headline": "หนึ่ง dashboard จาก marketplace exports ที่ไม่เหมือนกัน",
+            "description": "Power Query/M pipeline and Power BI model for aligning Shopee, Lazada and advertising exports into one inspectable reporting layer.",
+            "url": "https://adulsaa-q.pages.dev/work/ecommerce-sales-pipeline/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "keywords": "Power Query/M, Power BI, DAX, CSV, Excel, Star schema",
+            "about": [
+              "Power BI reporting",
+              "Power Query data cleaning",
+              "E-commerce reporting"
+            ],
+            "isBasedOn": "https://github.com/adulsaa-q/ecommerce-sales-pipeline",
+            "creator": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            },
+            "isAccessibleForFree": true
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://adulsaa-q.pages.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://adulsaa-q.pages.dev/work/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Multi‑Channel E‑commerce Sales Pipeline",
+                "item": "https://adulsaa-q.pages.dev/work/ecommerce-sales-pipeline/"
+              }
+            ]
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/work/shopee-thailand-analytics/",
+      "status": 200,
+      "title": "Shopee Thailand Analytics — Work — Q",
+      "description": "SQL analysis modules and a documented Power BI/DAX model for examining sales, customer behavior, campaigns and delivery performance.",
+      "canonical": "https://adulsaa-q.pages.dev/work/shopee-thailand-analytics/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ],
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Shopee Thailand Analytics",
+            "headline": "Marketplace analytics for sales, customers, campaigns and delivery",
+            "description": "SQL analysis modules and a documented Power BI/DAX model for examining sales, customer behavior, campaigns and delivery performance.",
+            "url": "https://adulsaa-q.pages.dev/work/shopee-thailand-analytics/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "keywords": "SQL, Power BI, DAX, Star schema, Kaggle simulated dataset",
+            "about": [
+              "SQL analytics",
+              "Power BI dashboard",
+              "E-commerce sales analysis"
+            ],
+            "isBasedOn": "https://github.com/adulsaa-q/shopee-thailand-analytics",
+            "creator": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            },
+            "isAccessibleForFree": true
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://adulsaa-q.pages.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://adulsaa-q.pages.dev/work/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Shopee Thailand Analytics",
+                "item": "https://adulsaa-q.pages.dev/work/shopee-thailand-analytics/"
+              }
+            ]
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/work/finance-etl-pipeline/",
+      "status": 200,
+      "title": "Finance ETL Pipeline — Work — Q",
+      "description": "A Python pipeline design for extracting KBank e-statements, validating transactions, loading PostgreSQL idempotently and preserving operational audit records.",
+      "canonical": "https://adulsaa-q.pages.dev/work/finance-etl-pipeline/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ],
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Finance ETL Pipeline",
+            "headline": "From e-statement PDF to an auditable data pipeline",
+            "description": "A Python pipeline design for extracting KBank e-statements, validating transactions, loading PostgreSQL idempotently and preserving operational audit records.",
+            "url": "https://adulsaa-q.pages.dev/work/finance-etl-pipeline/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "keywords": "Python, Pydantic, psycopg 3, pdfplumber, pandas, PostgreSQL, Supabase, Gmail IMAP, Google Sheets API, pytest, GitHub Actions",
+            "about": [
+              "Python ETL",
+              "PostgreSQL data pipeline",
+              "Operational reporting automation"
+            ],
+            "isBasedOn": "https://github.com/adulsaa-q/finance-etl-pipeline",
+            "creator": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            },
+            "isAccessibleForFree": true
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://adulsaa-q.pages.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://adulsaa-q.pages.dev/work/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Finance ETL Pipeline",
+                "item": "https://adulsaa-q.pages.dev/work/finance-etl-pipeline/"
+              }
+            ]
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/work/timelimit/",
+      "status": 200,
+      "title": "TIMELIMIT — Work — Q",
+      "description": "An Electron/TypeScript desktop widget that makes long-term deadlines visible through timestamp-based time calculation, deduction rules and local persistence.",
+      "canonical": "https://adulsaa-q.pages.dev/work/timelimit/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ],
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "TIMELIMIT",
+            "headline": "Offline-first desktop deadline instrument",
+            "description": "An Electron/TypeScript desktop widget that makes long-term deadlines visible through timestamp-based time calculation, deduction rules and local persistence.",
+            "url": "https://adulsaa-q.pages.dev/work/timelimit/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "keywords": "Electron, TypeScript, Vite, Vitest, electron-builder, HTML, CSS",
+            "about": [
+              "Desktop MVP",
+              "Electron",
+              "Offline internal tool"
+            ],
+            "isBasedOn": "https://github.com/adulsaa-q/timelimit",
+            "creator": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            },
+            "isAccessibleForFree": true
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://adulsaa-q.pages.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://adulsaa-q.pages.dev/work/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "TIMELIMIT",
+                "item": "https://adulsaa-q.pages.dev/work/timelimit/"
+              }
+            ]
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/work/schema-map/",
+      "status": 200,
+      "title": "PostgreSQL Schema Knowledge Graph — Work — Q",
+      "description": "Automated extraction of PostgreSQL schema relationships, constraints and foreign keys into interconnected Obsidian Graph notes and Markdown documentation.",
+      "canonical": "https://adulsaa-q.pages.dev/work/schema-map/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ],
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "PostgreSQL Schema Knowledge Graph",
+            "headline": "เปลี่ยนโครงสร้างฐานข้อมูล PostgreSQL เป็น Knowledge Graph ใน Obsidian",
+            "description": "Automated extraction of PostgreSQL schema relationships, constraints and foreign keys into interconnected Obsidian Graph notes and Markdown documentation.",
+            "url": "https://adulsaa-q.pages.dev/work/schema-map/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "keywords": "PostgreSQL, Python, SQLAlchemy, PLpgSQL, Knowledge graph, Obsidian",
+            "about": [
+              "Database architecture",
+              "Schema audit",
+              "Data lineage"
+            ],
+            "isBasedOn": "https://github.com/adulsaa-q/schema-map",
+            "creator": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            },
+            "isAccessibleForFree": true
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://adulsaa-q.pages.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://adulsaa-q.pages.dev/work/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "PostgreSQL Schema Knowledge Graph",
+                "item": "https://adulsaa-q.pages.dev/work/schema-map/"
+              }
+            ]
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/work/ai-brand-tracker/",
+      "status": 200,
+      "title": "Thailand AI Market Intelligence — Work — Q",
+      "description": "A Python/FastAPI application that collects brand observations, stores their provenance in DuckDB, and compares results by answer surface.",
+      "canonical": "https://adulsaa-q.pages.dev/work/ai-brand-tracker/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ],
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Thailand AI Market Intelligence",
+            "headline": "วัดการมองเห็นแบรนด์ โดยแยกคำตอบ AI ออกจากอันดับผลค้นหา",
+            "description": "A Python/FastAPI application that collects brand observations, stores their provenance in DuckDB, and compares results by answer surface.",
+            "url": "https://adulsaa-q.pages.dev/work/ai-brand-tracker/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "keywords": "Python, FastAPI, DuckDB, Pydantic, Provider APIs",
+            "about": [
+              "Analytics applications",
+              "API integration",
+              "Data modeling"
+            ],
+            "isBasedOn": "https://github.com/adulsaa-q/ai_brand_tracker",
+            "creator": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            },
+            "isAccessibleForFree": true
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://adulsaa-q.pages.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://adulsaa-q.pages.dev/work/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Thailand AI Market Intelligence",
+                "item": "https://adulsaa-q.pages.dev/work/ai-brand-tracker/"
+              }
+            ]
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/work/ai-command-center/",
+      "status": 200,
+      "title": "AI Command Center — Work — Q",
+      "description": "A documented operating model with workspace templates, a SQLite record schema and small Python utilities for coordinating AI-assisted engineering.",
+      "canonical": "https://adulsaa-q.pages.dev/work/ai-command-center/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ],
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "AI Command Center",
+            "headline": "กำหนดขอบเขตงาน ความจำ และการส่งต่องานสำหรับ AI coding workflows",
+            "description": "A documented operating model with workspace templates, a SQLite record schema and small Python utilities for coordinating AI-assisted engineering.",
+            "url": "https://adulsaa-q.pages.dev/work/ai-command-center/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "keywords": "Markdown, SQLite, Python, Git",
+            "about": [
+              "Engineering workflow design",
+              "Technical documentation",
+              "Internal tooling"
+            ],
+            "isBasedOn": "https://github.com/adulsaa-q/ai-command-center",
+            "creator": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            },
+            "isAccessibleForFree": true
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://adulsaa-q.pages.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://adulsaa-q.pages.dev/work/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "AI Command Center",
+                "item": "https://adulsaa-q.pages.dev/work/ai-command-center/"
+              }
+            ]
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/method/",
+      "status": 200,
+      "title": "Method — Q",
+      "description": "How Q approaches data systems, three bounded engagement models, and the explicit limits of what can be built.",
+      "canonical": "https://adulsaa-q.pages.dev/method/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/lab/",
+      "status": 200,
+      "title": "Lab — Q",
+      "description": "Active prototypes, schema exploration tools, and experimental systems engineered by Q.",
+      "canonical": "https://adulsaa-q.pages.dev/lab/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/services/",
+      "status": 200,
+      "title": "Services — Q",
+      "description": "Three bounded ways to work with Q: dashboard and reporting systems, data pipelines and operational automation, and analytics engineering and data modeling.",
+      "canonical": "https://adulsaa-q.pages.dev/services/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/archive/",
+      "status": 200,
+      "title": "Archive — Q",
+      "description": "Smaller and experimental systems by Q, recorded with explicit scope and limitations.",
+      "canonical": "https://adulsaa-q.pages.dev/archive/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/about/",
+      "status": 200,
+      "title": "About — Q",
+      "description": "Q's working philosophy and bounded capabilities across reporting, data pipelines and research workflows.",
+      "canonical": "https://adulsaa-q.pages.dev/about/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    },
+    {
+      "route": "/contact/",
+      "status": 200,
+      "title": "Contact — Q",
+      "description": "Ways to inspect Q's work and start a work enquiry — GitHub, email, and Fastwork when a profile URL is available.",
+      "canonical": "https://adulsaa-q.pages.dev/contact/",
+      "h1": 1,
+      "lang": "en",
+      "og": "https://adulsaa-q.pages.dev/og/q-portfolio.png",
+      "schema": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Adul Sa-a",
+            "alternateName": "Q",
+            "jobTitle": "Data, BI and automation systems",
+            "url": "https://adulsaa-q.pages.dev/",
+            "sameAs": [
+              "https://github.com/adulsaa-q"
+            ],
+            "knowsAbout": [
+              "Business intelligence",
+              "Power BI",
+              "Power Query",
+              "DAX",
+              "SQL",
+              "PostgreSQL",
+              "Data pipelines",
+              "ETL",
+              "Python",
+              "Workflow automation",
+              "Dimensional modeling"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Adul Sa-a / Q — Data, BI & Automation",
+            "url": "https://adulsaa-q.pages.dev/",
+            "inLanguage": [
+              "th-TH",
+              "en"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Adul Sa-a",
+              "url": "https://adulsaa-q.pages.dev/"
+            }
+          }
+        ]
+      ],
+      "missingImages": [],
+      "missingFragments": []
+    }
+  ],
+  "requestOrigins": [
+    "https://adulsaa-q.pages.dev"
+  ],
+  "errors": [],
+  "warnings": [],
+  "headers": {
+    "access-control-allow-origin": "*",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "cf-ray": "a3873ca2bd499102-BKK",
+    "content-encoding": "br",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; object-src 'none'; upgrade-insecure-requests",
+    "content-type": "text/html; charset=utf-8",
+    "cross-origin-opener-policy": "same-origin",
+    "date": "Wed, 09 Sep 2026 15:30:54 GMT",
+    "etag": "W/\"7362318307cf21d3525dc15d38264f91\"",
+    "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "permissions-policy": "geolocation=(), camera=(), microphone=(), browsing-topics=()",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=9fyOj%2Bm6n%2FU2RjKPd%2FGReantCmr4K0By5UVoz2aUuWdhJv4tklXHgkepoyhLc8%2Bq5a4%2BRseKYB4SScuEecj8FB4voBdDqHZF%2FAx5fOpNBEqwKPV7xs2IZDdDLb7L0S4ZNq0MRxsK\"}]}",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+  },
+  "notFoundStatus": 404
+}

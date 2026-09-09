@@ -2,4 +2,4 @@
 > q-portfolio@0.1.0 check:links
 > node scripts/check-links.mjs
 
-check-links: 16 pages, no broken internal links.
+check-links: 18 pages, no broken internal links.

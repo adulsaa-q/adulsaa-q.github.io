@@ -1,0 +1,839 @@
+{
+  "base": "http://localhost:4173",
+  "capabilities": {
+    "safari:platformVersion": "26.6.2",
+    "safari:automaticInspection": false,
+    "webkit:WebRTC": {
+      "DisableICECandidateFiltering": false,
+      "DisableInsecureMediaCapture": false
+    },
+    "webkit:alwaysAllowAutoplay": false,
+    "browserVersion": "26.6.2",
+    "strictFileInteractability": false,
+    "browserName": "Safari",
+    "safari:useSimulator": false,
+    "safari:automaticProfiling": false,
+    "setWindowRect": true,
+    "acceptInsecureCerts": false,
+    "safari:platformBuildVersion": "25G83",
+    "safari:experimentalWebSocketUrl": false,
+    "platformName": "macOS",
+    "safari:diagnose": false
+  },
+  "results": [
+    {
+      "route": "/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ecommerce-sales-pipeline/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/shopee-thailand-analytics/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/finance-etl-pipeline/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/timelimit/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/schema-map/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ai-brand-tracker/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ai-command-center/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/method/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/lab/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/services/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/archive/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/about/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/contact/",
+      "theme": "light",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ecommerce-sales-pipeline/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/shopee-thailand-analytics/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/finance-etl-pipeline/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/timelimit/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/schema-map/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ai-brand-tracker/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ai-command-center/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/method/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/lab/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/services/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/archive/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/about/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/contact/",
+      "theme": "dark",
+      "violations": [],
+      "responsive": [
+        {
+          "width": 390,
+          "requestedWidth": 390,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "requestedWidth": 768,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "requestedWidth": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "requestedWidth": 1440,
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    "Native dialog open and close",
+    "Native email contact present"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "engine": "chromium",
-  "version": "152.0.7977.84",
+  "version": "153.0.8010.12",
   "checks": [
     "System theme, system changes, explicit preference persists on refresh",
     "Touch menu, focus trap, Escape, focus restoration, inert background",

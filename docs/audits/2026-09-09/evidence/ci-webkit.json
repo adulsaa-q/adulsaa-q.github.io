@@ -1,7 +1,7 @@
 {
-  "base": "https://adulsaa-q.pages.dev",
-  "engine": "chromium",
-  "browser": "152.0.7977.84",
+  "base": "http://localhost:4173",
+  "engine": "webkit",
+  "browser": "26.6",
   "results": [
     {
       "route": "/",
@@ -1070,7 +1070,7 @@
     {
       "route": "/work/finance-etl-pipeline/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1126,7 +1126,7 @@
     {
       "route": "/work/timelimit/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1182,7 +1182,7 @@
     {
       "route": "/work/schema-map/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1238,7 +1238,7 @@
     {
       "route": "/work/ai-brand-tracker/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1294,7 +1294,7 @@
     {
       "route": "/work/ai-command-center/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1406,7 +1406,7 @@
     {
       "route": "/lab/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {
@@ -1518,7 +1518,7 @@
     {
       "route": "/archive/",
       "theme": "dark",
-      "status": 200,
+      "status": 304,
       "violations": [],
       "responsive": [
         {

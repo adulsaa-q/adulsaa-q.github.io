@@ -1,6 +1,6 @@
 # Q portfolio — production audit and implemented direction
 
-Audit date: 9 September 2026. Live baseline: https://adulsaa-q.pages.dev/. Implementation: this repository and the live Cloudflare static export. The initial redesign and cross-browser fixes were deployed successfully; the final GitHub-source expansion and release evidence are documented below.
+Audit date: 9 September 2026. Live baseline: https://adulsaa-q.pages.dev/. Implementation: this repository and the live Cloudflare static export. The final GitHub-source expansion passed all four browser jobs and was deployed successfully. Release: `87db26e`, [verified pipeline](https://github.com/adulsaa-q/adulsaa-q.github.io/actions/runs/34370059921).
 
 ## Executive Verdict
 
@@ -89,19 +89,21 @@ No P0 outage, exposed credential, or broken primary route was found in the inspe
 | Route | Assessment and action |
 |---|---|
 | `/` | Most important redesign. Replaced rotating specialisms, proof token, faux telemetry, repeated architecture section, stats, and lab cards with curated editorial narrative. Actual work is now in the opening desktop frame. Two detailed previews retain case-study and source routes. |
-| `/work/` | Correct place for all five projects. Preserved catalog, scope labels, technology/service information, and detail paths. Five projects do not justify adding more filtering. |
+| `/work/` | Now holds all seven cases, including the GitHub application/framework additions. Plain scope labels replace the misleading quality counter; summaries and source links take priority over catalog statistics. Seven projects do not justify more filtering. |
 | `/work/ecommerce-sales-pipeline/` | Best reporting entry. Preserve equal elapsed-day reasoning and synthetic/anonymized disclosure. Introduce problem and implementation before screenshots. Public PBIX/API/refresh claims remain explicitly absent. Original export warning should be fixed in the source project when a genuine new export exists, never painted over. |
 | `/work/shopee-thailand-analytics/` | Good complementary SQL/modeling case. Preserve simulation labels, SQL and DAX source paths, and schema exploration. Keep revenue/order counts inside their simulated context. Needs future evidence of reproducible analytical outputs, not invented customer impact. |
 | `/work/finance-etl-pipeline/` | Useful automation breadth. Reconstructed flow remains labelled. Contribution and input constraints now precede deeper technical sections. Reliability statements must stay tied to actual implementation and tests. |
 | `/work/timelimit/` | Demonstrates focused product engineering beyond BI. Retain as a secondary Work entry. Fixed one-image viewer semantics. Avoid promoting it above the data work in the primary positioning. |
-| `/work/schema-map/` | Fifth case study discovered in final sitemap reconciliation. PostgreSQL metadata/Obsidian graph demonstration; retain experimental boundaries and diagram inspection. Final QA now discovers routes from the sitemap to prevent this coverage gap. |
+| `/work/schema-map/` | Source review corrected nonexistent file paths, metadata-only access claims and artifact attribution. Uses the actual exporter, Pagila notes and Obsidian screenshot; portfolio interaction remains explicitly illustrative. Sitemap-driven QA prevents omitted-route coverage. |
+| `/work/ai-brand-tracker/` | Added from public implementation: provider provenance, DuckDB persistence and answer-surface separation. Source screenshot and its overreaching market wording are clearly qualified; no production-adoption claim. |
+| `/work/ai-command-center/` | Added as an engineering framework. Source excerpt and actual utilities support the story; policy is distinguished from security enforcement and atomic locking. |
 | `/services/` | The canonical engagement page. Elevated to primary navigation. Preserve input requirements, deliverables, relevant case studies, and boundaries; avoid price or availability claims unsupported by owner information. |
 | `/method/` | Now owns approach and delivery lifecycle. Removed duplicated service catalog and linked to Services. Preserved traceability principles and handover emphasis. |
 | `/about/` | Replaced defensive “About the work” introduction and repeated catalog with Q’s name, Bangkok context, working philosophy, and collaboration expectations grounded in existing content. No employers, tenure, awards, or credentials invented. |
 | `/contact/` | Replaced implementation-facing intro, enabled server-rendered mailto. Existing first-message guidance is useful and retained. Email, GitHub, Fastwork remain available. |
 | `/lab/` | Retains experiment descriptions; no longer implies progression into client systems. Unavailable source visibly labelled. Description explains relationship to Archive. |
 | `/archive/` | Retained as compact reference view of the same four records. This is not proof the projects are all historical or inactive. Kept out of primary navigation; future consolidation with Lab remains optional, with redirects if pursued. |
-| 404 | Existing recovery links to Home and Work retained. Export file checked; actual Cloudflare missing-route response needs final deployed verification. |
+| 404 | Existing recovery links to Home and Work retained. Export and actual Cloudflare missing-route response checked; custom page returns HTTP 404 with recovery links. |
 
 ## Information architecture
 
@@ -198,10 +200,10 @@ All seven snapshots scored 100 for Lighthouse accessibility, best practices, and
 | Production build | Passed before and after; static export retained |
 | Unit/component contracts | 90 baseline; 89 after updating homepage contracts, adding clipboard-failure coverage and a verified-source-path regression test; all pass |
 | Lint / TypeScript | Passed after changes |
-| Internal links/assets | 16 exported HTML files checked; no unresolved references |
-| Live route availability | All 13 content routes HTTP 200 |
+| Internal links/assets | 18 exported HTML files checked; no unresolved references |
+| Live route availability | All final 15 content routes returned HTTP 200 after deployment |
 | External references | 23 initial unique links checked; 22 returned 200, one KBank 404 labelled unavailable; four schema-map-route external URLs also returned 200 |
-| Width sweep | Initial baseline 12 routes; final revision 13 routes × 12 widths in two themes, without document overflow |
+| Width sweep | Final CI: 15 routes × 2 themes × 12 widths on three engines, plus 4 native Safari widths; 1,200 checks with no overflow |
 | axe light/dark | Initial 12-route scans passed. Full inventory exposed schema preview focus and dimmed-node contrast failures; both fixed and rescanned |
 | Desktop Chrome | Automated navigation, screenshots, runtime capture |
 | Android-equivalent | Chromium touch/mobile viewport exercised; not physical Android |
@@ -218,7 +220,7 @@ All seven snapshots scored 100 for Lighthouse accessibility, best practices, and
 | Slow connection | Lighthouse simulated mobile throttling; no field INP measurement |
 | Header deployment | HSTS and existing security headers verified on live Cloudflare response; custom 404 verified in final release record |
 
-See `evidence/verification.json` for final numerical results and tool versions. Local Python hosting does not apply Cloudflare compression or `_headers`; local and live Lighthouse runs must not be treated as interchangeable. Runs are lab snapshots, not statistically stable benchmarks.
+See `evidence/verification.json` for final numerical results and tool versions; `live-release.json` contains the final deployed metadata, JSON-LD, response headers and request-origin checks. Local Python hosting does not apply Cloudflare compression or `_headers`; local and live Lighthouse runs must not be treated as interchangeable. Runs are lab snapshots, not statistically stable benchmarks.
 
 ## Prioritized backlog
 
@@ -291,7 +293,7 @@ Undated QA badges → dated, reproducible audit evidence.
 9. Complete theme and modal behavior, not just their appearance.
 10. Make supported-browser and deployed performance checks explicit release gates.
 
-Final sitemap-driven scan: **26 route/theme combinations, 312 width checks, zero axe violations, zero document overflow, zero page errors, zero failed resource responses** after the schema-map fixes. Browser: Chrome 152.0.7977.84. This supersedes the initial incomplete 12-route scan and the intermediate schema-map failures. Method’s unstyled lifecycle was also moved onto the existing ordered process component rather than introducing another layout pattern.
+Initial completed redesign scan: **26 route/theme combinations, 312 width checks, zero axe violations, zero document overflow, zero page errors, zero failed resource responses** after the schema-map fixes. The expanded final release below supersedes these counts. Browser: Chrome 152.0.7977.84. This supersedes the initial incomplete 12-route scan and the intermediate schema-map failures. Method’s unstyled lifecycle was also moved onto the existing ordered process component rather than introducing another layout pattern.
 
 ## Release verification follow-through
 
@@ -304,3 +306,15 @@ Q identified [his GitHub profile](https://github.com/adulsaa-q) as the primary b
 The source review also corrected a pre-existing P1 trust failure in Schema Map: two claimed implementation paths did not exist, and an authored SVG was presented as a committed screenshot. The page now links `schema_to_obsidian.py`, generated Pagila notes and the actual Obsidian capture. Metadata-only access, acyclic-graph and DDL-frontmatter assertions were corrected to match source behavior. All **25 evidence paths** now exist in their public repository trees. See [the repository-by-repository review](GITHUB-REVIEW.md) and its pinned revision evidence.
 
 The Work index no longer counts “Evidence-Led” projects as a quality proxy. It uses plain scope labels and gives visitors readable project summaries, implementation value, constraints and source links. No other GitHub repository was modified.
+
+## Final release result
+
+Application revision **87db26e** passed build, 89 tests, lint, TypeScript, internal links and all browser jobs before publishing to Cloudflare and the legacy GitHub Pages host. CI tested **120 route/theme combinations and 1,200 viewport checks** across Chromium, Firefox, WebKit and native Safari, with no reported axe violations or document overflow. The three Playwright runs also recorded zero page errors, failed resource responses and console messages; touch/keyboard/theme/dialog/navigation assertions passed. Native Safari separately exercised dialog open/close and contact presence.
+
+The isolated final live Lighthouse snapshot: **Performance 97, Accessibility 100, Best Practices 100, SEO 100; LCP 2.30 s, TBT 100 ms, CLS 0.0004, transfer 380 KiB**. Compare baseline Performance 76, TBT 1,140 ms, CLS 0.049. Baseline LCP was already good at 1.6 s; the richer image-led opening is slower on that metric but remains within the 2.5 s lab target. This is not an assertion that every metric improved or that field p75 Core Web Vitals pass. The public PageSpeed field-data request hit quota limits.
+
+Injected image/font failures preserved identity, contact, reflow and runtime stability in Chromium. Remaining coverage limits are physical devices, assistive-technology task sessions and native browser zoom; they are not silently counted as passes. The Actions runner emitted deprecation annotations for legacy Node 20 action metadata while running those pinned actions under Node 24; every job succeeded. Updating those action pins is routine maintenance, with no observed application failure.
+
+Complete before/after metrics, browser reports, source-path checks, source revisions and screenshots are under `evidence/`. The repository contains no changed credentials, trackers, fabricated client results or edits to Q's other public project repositories.
+
+Post-deployment verification also passed on all **15 live routes**: unique titles/descriptions, canonical URLs, one H1, parseable JSON-LD, image/fragment checks, custom HTTP 404, and the expected security headers. The live browser sweep added **30 route/theme combinations and 360 width checks**, with zero axe violations, document overflow, page errors, failed resources or console messages. All six live interaction groups passed. Recorded page requests were confined to the portfolio origin; no third-party tracker requests were observed.
