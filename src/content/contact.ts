@@ -4,7 +4,7 @@
  */
 export const contact = {
   githubUrl: "https://github.com/adulsaa-q",
-  /** Split so the address is not a plain-text `mailto:` string in the HTML source. */
+  /** One address shared by every public contact link. */
   emailUser: "adulsaa.q",
   emailDomain: "gmail.com",
   /** Set to an approved Fastwork profile URL to activate the link. */

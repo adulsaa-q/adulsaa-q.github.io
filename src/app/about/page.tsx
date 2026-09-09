@@ -10,63 +10,18 @@ export const metadata: Metadata = createPageMetadata({
   path: "/about",
 });
 
-const capabilities = [
-  {
-    index: "01",
-    title: "Dashboard & Decision Reporting",
-    solves:
-      "Operational exports that do not yet provide one consistent view for reporting decisions.",
-    deliverables:
-      "A cleaned reporting layer, documented model, measures and a focused dashboard or handover register.",
-    inputs: "Representative exports, field definitions, reporting questions and data-owner context.",
-    boundary:
-      "A dashboard cannot repair missing source history or prove a business outcome on its own.",
-    notIncluded: "Invented performance claims, undeclared live integrations or guaranteed ROI.",
-  },
-  {
-    index: "02",
-    title: "Data Pipeline & Operational Automation",
-    solves:
-      "Repeated data handling that needs explicit validation, recoverable runs and an inspectable source of truth.",
-    deliverables:
-      "A bounded transformation pipeline, validation rules, audit records, tests and handover documentation.",
-    inputs: "Sample inputs, expected outputs, failure cases, access constraints and ownership rules.",
-    boundary:
-      "Automation scope depends on stable inputs, permitted access and agreed exception handling.",
-    notIncluded: "Company-wide automation, undeclared production hardening or replacing human review.",
-  },
-  {
-    index: "03",
-    title: "Analytics Engineering & Data Modeling",
-    solves:
-      "Structured SQL analysis modules, dimensional star schemas, and auditable metrics across datasets.",
-    deliverables:
-      "Conformed dimensional models, tested SQL modules, documented measure registers, and relationship mapping.",
-    inputs: "Table schemas, calculation specifications, business definitions, and reporting requirements.",
-    boundary:
-      "Analytics models require accessible database tables and confirmed domain rules; they reflect source data quality.",
-    notIncluded: "Unverified data sources, arbitrary manual spreadsheet stitching, or ungrounded business assumptions.",
-  },
-];
-
-const processStages = [
-  ["01", "DISCOVER", "Redacted sample data, source fields and the decision to support."],
-  ["02", "DEFINE", "Scope, expected outputs, ownership and failure boundaries."],
-  ["03", "BUILD", "A working prototype with documented transformations and controls."],
-  ["04", "VERIFY & HANDOVER", "Tests, evidence check, limitations and handover documentation."],
-] as const;
-
 export default function AboutPage() {
   return (
     <main id="main-content" tabIndex={-1} className="page-shell">
       <header className="page-intro about-intro">
         <div>
-          <p className="eyebrow">Working philosophy / capability boundaries</p>
-          <h1>About the work</h1>
+          <p className="eyebrow">Adul Sa-a / Q</p>
+          <h1>The person behind the systems</h1>
         </div>
         <p className="page-intro__note">
-          This page describes how Q approaches systems and what the current body of
-          work supports. It does not substitute an unverified biography for evidence.
+          I’m Q, a data, BI, and automation builder based in Bangkok. I connect
+          source data, reporting models, and repeatable workflows so the work is
+          easier to understand and maintain.
         </p>
       </header>
 
@@ -88,64 +43,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="capability-register" aria-labelledby="capabilities-title">
-        <div className="section-heading">
-          <span className="section-index">01–03</span>
-          <h2 id="capabilities-title">Capability register</h2>
-          <p>Narrow by design. Each boundary is part of the offer.</p>
+      <section className="working-method" aria-labelledby="collaboration-title">
+        <div className="working-method__heading">
+          <span className="section-index">COLLABORATION</span>
+          <h2 id="collaboration-title">A useful starting point.</h2>
         </div>
-
-        {capabilities.map((capability) => (
-          <article className="capability-record" key={capability.index}>
-            <div className="capability-record__title">
-              <span className="section-index">{capability.index}</span>
-              <h3>{capability.title}</h3>
-            </div>
-            <dl>
-              <div>
-                <dt>What it solves</dt>
-                <dd>{capability.solves}</dd>
-              </div>
-              <div>
-                <dt>What may be delivered</dt>
-                <dd>{capability.deliverables}</dd>
-              </div>
-              <div>
-                <dt>Inputs needed</dt>
-                <dd>{capability.inputs}</dd>
-              </div>
-              <div>
-                <dt>Boundary</dt>
-                <dd>{capability.boundary}</dd>
-              </div>
-              <div>
-                <dt>Not included</dt>
-                <dd>{capability.notIncluded}</dd>
-              </div>
-            </dl>
-          </article>
-        ))}
-      </section>
-
-      <section className="process-register" aria-labelledby="process-title">
-        <div className="section-heading">
-          <span className="section-index">PROCESS / 01–04</span>
-          <h2 id="process-title">A bounded path to handover.</h2>
-          <p>Each stage leaves a usable record behind.</p>
+        <div className="working-method__copy">
+          <p>Bring a reporting question, a recurring task, or a sample of the data that is getting in the way. We can use that to discuss scope, constraints, and what a useful result would look like.</p>
+          <p>I work from Bangkok (UTC+7). My public projects include demonstrations and experiments; each case study distinguishes the implementation from what has not been verified.</p>
+          <Link className="text-link" href="/method">Read my working method</Link>
         </div>
-        <ol className="process-register__steps">
-          {processStages.map(([index, title, description]) => (
-            <li key={index}>
-              <span className="process-register__index">{index}</span>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </li>
-          ))}
-        </ol>
       </section>
 
       <div className="project-cta__forward">
-        <p>See these capabilities as bounded services.</p>
+        <p>Explore the services and discuss a project.</p>
         <Link className="text-link" href="/services">
           Services
         </Link>

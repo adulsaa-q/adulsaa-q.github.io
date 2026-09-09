@@ -22,7 +22,8 @@ describe("structured data", () => {
     const schema = personSchema();
 
     expect(schema["@type"]).toBe("Person");
-    expect(schema.name).toBe("Q");
+    expect(schema.name).toBe("Adul Sa-a");
+    expect(schema.alternateName).toBe("Q");
     expect(schema.sameAs).toContain("https://github.com/adulsaa-q");
     assertNoFabricatedTrustSignals(schema);
   });
@@ -42,7 +43,7 @@ describe("structured data", () => {
       expect(schema["@type"]).toBe("CreativeWork");
       expect(schema.name).toBe(project.name);
       expect(schema.description).toBe(project.summary);
-      expect(schema.codeRepository).toBe(project.repository);
+      expect(schema.isBasedOn).toBe(project.repository);
       expect(schema.url).toBe(`https://adulsaa-q.pages.dev/work/${project.slug}/`);
       assertNoFabricatedTrustSignals(schema);
     });

@@ -1,0 +1,65 @@
+{
+  "checks": [
+    "System dark theme on first visit",
+    "System theme changes followed",
+    "Explicit dark preference persists on refresh",
+    "Touch menu, focus trap, Escape, restoration, inert background",
+    "Hero image modal opens and escapes",
+    "Carousel keyboard selection",
+    "Carousel modal returns focus",
+    "Client navigation and browser back/forward",
+    "Forced colors screenshot",
+    "No-JS identity, email and 640px reflow"
+  ],
+  "dark": [
+    {
+      "route": "/",
+      "violations": []
+    },
+    {
+      "route": "/work/",
+      "violations": []
+    },
+    {
+      "route": "/services/",
+      "violations": []
+    },
+    {
+      "route": "/method/",
+      "violations": []
+    },
+    {
+      "route": "/lab/",
+      "violations": []
+    },
+    {
+      "route": "/archive/",
+      "violations": []
+    },
+    {
+      "route": "/about/",
+      "violations": []
+    },
+    {
+      "route": "/contact/",
+      "violations": []
+    },
+    {
+      "route": "/work/ecommerce-sales-pipeline/",
+      "violations": []
+    },
+    {
+      "route": "/work/shopee-thailand-analytics/",
+      "violations": []
+    },
+    {
+      "route": "/work/finance-etl-pipeline/",
+      "violations": []
+    },
+    {
+      "route": "/work/timelimit/",
+      "violations": []
+    }
+  ],
+  "errors": []
+}

@@ -2,11 +2,11 @@
 
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { SchemaGraphViewer } from "@/components/project/schema-graph-viewer";
 
-afterEach(cleanup);
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 
 describe("SchemaGraphViewer Component", () => {
   it("renders with proper accessibility landmarks and controls", () => {
@@ -17,24 +17,24 @@ describe("SchemaGraphViewer Component", () => {
         name: "PostgreSQL schema to Obsidian knowledge graph visualizer",
       }),
     ).toBeTruthy();
-    expect(screen.getByRole("tablist", { name: "Graph display mode" })).toBeTruthy();
-    expect(screen.getByRole("tab", { name: "Relational ERD" })).toBeTruthy();
-    expect(screen.getByRole("tab", { name: "Obsidian Graph View" })).toBeTruthy();
+    expect(screen.getByRole("group", { name: "Graph display mode" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Relational ERD" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Obsidian Graph View" })).toBeTruthy();
   });
 
   it("allows switching between Relational ERD and Obsidian Graph View modes", async () => {
     const user = userEvent.setup();
     render(<SchemaGraphViewer />);
 
-    const erdTab = screen.getByRole("tab", { name: "Relational ERD" });
-    const obsidianTab = screen.getByRole("tab", { name: "Obsidian Graph View" });
+    const erdTab = screen.getByRole("button", { name: "Relational ERD" });
+    const obsidianTab = screen.getByRole("button", { name: "Obsidian Graph View" });
 
-    expect(erdTab.getAttribute("aria-selected")).toBe("true");
-    expect(obsidianTab.getAttribute("aria-selected")).toBe("false");
+    expect(erdTab.getAttribute("aria-pressed")).toBe("true");
+    expect(obsidianTab.getAttribute("aria-pressed")).toBe("false");
 
     await user.click(obsidianTab);
-    expect(obsidianTab.getAttribute("aria-selected")).toBe("true");
-    expect(erdTab.getAttribute("aria-selected")).toBe("false");
+    expect(obsidianTab.getAttribute("aria-pressed")).toBe("true");
+    expect(erdTab.getAttribute("aria-pressed")).toBe("false");
   });
 
   it("selects a table and displays foreign keys and column schemas", async () => {
@@ -60,4 +60,14 @@ describe("SchemaGraphViewer Component", () => {
     expect(screen.getByText(/type: database_table/i)).toBeTruthy();
     expect(screen.getByRole("button", { name: "Copy markdown" })).toBeTruthy();
   });
+  it("does not report copy success when the clipboard rejects the write", async () => {
+    const user = userEvent.setup();
+    vi.spyOn(navigator.clipboard, "writeText").mockRejectedValue(new Error("Permission denied"));
+    render(<SchemaGraphViewer />);
+    await user.click(screen.getByRole("button", { name: "Copy markdown" }));
+    expect(await screen.findByText("Copy unavailable. Select the text below to copy it manually.")).toBeTruthy();
+    expect(screen.queryByText("Markdown copied.")).toBeNull();
+    expect(screen.getByRole("region", { name: "Generated Markdown preview" }).getAttribute("tabindex")).toBe("0");
+  });
+
 });

@@ -21,8 +21,8 @@ export default function LabPage() {
         </div>
         <p className="page-intro__note">
           Active prototypes, schema exploration utilities, and research systems.
-          These tools test data boundaries and modeling concepts before entering client
-          systems.
+          These are experiments, not claims of client deployment. The Archive
+          provides a compact source index of the same projects.
         </p>
       </header>
 
@@ -41,26 +41,26 @@ export default function LabPage() {
               </div>
             </div>
             <div className="archive-row__action">
-              <a
+{record.sourceUnavailable ? <span className="source-unavailable">Public source unavailable</span> : (              <a
                 className="source-link"
                 href={record.repository}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Inspect repository ↗
-              </a>
+              </a>)}
             </div>
           </article>
         ))}
       </section>
 
       <div className="project-cta__forward">
-        <p>Looking for client-ready reporting systems?</p>
+        <p>Explore the reporting case studies.</p>
         <Link className="text-link" href="/work">
           Explore Selected Systems
         </Link>
         <Link className="text-link text-link--muted" href="/method">
-          Review engagement models
+          Read the working method
         </Link>
       </div>
     </main>

@@ -1,0 +1,1464 @@
+{
+  "base": "http://localhost:4173",
+  "browser": "152.0.7977.84",
+  "results": [
+    {
+      "route": "/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ecommerce-sales-pipeline/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/shopee-thailand-analytics/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/finance-etl-pipeline/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/timelimit/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/schema-map/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/method/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/lab/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/services/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/archive/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/about/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/contact/",
+      "theme": "light",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ecommerce-sales-pipeline/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/shopee-thailand-analytics/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/finance-etl-pipeline/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/timelimit/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/schema-map/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/method/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/lab/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/services/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/archive/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/about/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/contact/",
+      "theme": "dark",
+      "status": 200,
+      "violations": [],
+      "responsive": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failed": []
+}

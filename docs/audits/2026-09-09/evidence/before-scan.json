@@ -1,0 +1,654 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/services/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/method/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/lab/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/archive/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/about/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/contact/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/ecommerce-sales-pipeline/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/shopee-thailand-analytics/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/finance-etl-pipeline/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "route": "/work/timelimit/",
+      "axe": [],
+      "widths": [
+        {
+          "width": 320,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 430,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 834,
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "overflow": false
+        },
+        {
+          "width": 1280,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 1728,
+          "overflow": false
+        },
+        {
+          "width": 1920,
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failed": []
+}

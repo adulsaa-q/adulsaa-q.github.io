@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { projects } from "@/content/projects";
-import { services } from "@/content/services";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
@@ -11,10 +9,6 @@ export const metadata: Metadata = createPageMetadata({
     "How Q approaches data systems, three bounded engagement models, and the explicit limits of what can be built.",
   path: "/method",
 });
-
-function projectName(slug: string) {
-  return projects.find((project) => project.slug === slug)?.name ?? "the work index";
-}
 
 const processStages = [
   { index: "01", name: "DISCOVER", description: "Audit sample data, field definitions, and the operational decision to support." },
@@ -32,8 +26,8 @@ export default function MethodPage() {
           <h1>Method</h1>
         </div>
         <p className="page-intro__note">
-          How Q approaches data systems, the three bounded ways to engage, and the
-          explicit limits of what can be built.
+          How I move from source data to a maintainable system: understand the
+          question, agree the scope, build, and verify.
         </p>
       </header>
 
@@ -75,82 +69,27 @@ export default function MethodPage() {
         </article>
       </section>
 
-      {/* Capability Register (The 3 Engagement Models) */}
-      <section className="capability-register" aria-labelledby="engagement-models-title">
-        <div className="section-heading">
-          <span className="section-index">01–03</span>
-          <h2 id="engagement-models-title">Bounded engagement models</h2>
-          <p>Narrow by design. Each boundary is an essential specification of the offer.</p>
-        </div>
-
-        {services.map((service) => (
-          <article className="capability-record" key={service.slug}>
-            <div className="capability-record__title">
-              <span className="section-index">{service.index}</span>
-              <h3>{service.title}</h3>
-            </div>
-            <dl>
-              <div>
-                <dt>Who this is for</dt>
-                <dd>{service.forWho}</dd>
-              </div>
-              <div>
-                <dt>The problem</dt>
-                <dd>{service.problem}</dd>
-              </div>
-              <div>
-                <dt>What you provide</dt>
-                <dd>{service.inputs}</dd>
-              </div>
-              <div>
-                <dt>What is delivered</dt>
-                <dd>
-                  <ul className="detail-list detail-list--tight">
-                    {service.deliverables.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </dd>
-              </div>
-              <div>
-                <dt>Where it stops</dt>
-                <dd>{service.boundary}</dd>
-              </div>
-              <div>
-                <dt>Demonstrated in</dt>
-                <dd>
-                  {service.caseStudySlug ? (
-                    <Link className="text-link" href={`/work/${service.caseStudySlug}`}>
-                      {projectName(service.caseStudySlug)}
-                    </Link>
-                  ) : (
-                    <Link className="text-link" href="/lab">
-                      Systems Laboratory
-                    </Link>
-                  )}
-                </dd>
-              </div>
-            </dl>
-          </article>
-        ))}
-      </section>
+      <div className="project-cta__forward">
+        <p>Looking for deliverables, inputs, and project scope?</p>
+        <Link className="text-link" href="/services">Explore services</Link>
+      </div>
 
       {/* 4-Stage Delivery Lifecycle */}
-      <section className="process-stages" aria-labelledby="lifecycle-title">
+      <section className="process-register" aria-labelledby="lifecycle-title">
         <div className="section-heading">
           <span className="section-index">PROCESS</span>
           <h2 id="lifecycle-title">Delivery lifecycle</h2>
           <p>From initial audit to verified handover.</p>
         </div>
-        <div className="stage-grid">
+        <ol className="process-register__steps">
           {processStages.map((stage) => (
-            <article className="stage-card" key={stage.index}>
-              <span className="stage-card__number">{stage.index}</span>
+            <li key={stage.index}>
+              <span className="process-register__index">{stage.index}</span>
               <h3>{stage.name}</h3>
               <p>{stage.description}</p>
-            </article>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
       {/* Forward Action */}

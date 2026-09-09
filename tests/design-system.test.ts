@@ -3,6 +3,8 @@ import { describe, expect, it } from "vitest";
 
 const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
 
+const homeCss = readFileSync(new URL("../src/app/home.module.css", import.meta.url), "utf8");
+
 describe("global design system", () => {
   it("defines the authoritative semantic color, layout and motion tokens", () => {
     expect(css).toContain("--surface-primary: oklch(");
@@ -33,12 +35,8 @@ describe("global design system", () => {
   });
 
   it("keeps the desktop hero breathable rather than viewport-filling", () => {
-    // A bounded min-height, not a full-viewport hero.
-    const heroMin = css.match(/\.hero\s*\{[\s\S]*?min-height:\s*min\((\d+)rem,/);
-    expect(heroMin).not.toBeNull();
-    expect(Number(heroMin![1])).toBeLessThanOrEqual(34);
-    // Display headings are clamped to a calm ceiling, not a viewport-scaled shout.
-    const heroClamp = css.match(/\.hero h1,[\s\S]*?font-size:\s*clamp\(([^)]+)\)/);
+    expect(homeCss).not.toMatch(/(?:min-)?height:\s*100(?:s|d)?vh/);
+    const heroClamp = homeCss.match(/\.hero h1\s*\{[\s\S]*?font-size:\s*clamp\(([^)]+)\)/);
     expect(heroClamp).not.toBeNull();
     const max = heroClamp![1].split(",").at(-1)!.trim();
     expect(parseFloat(max)).toBeLessThanOrEqual(5);
@@ -61,15 +59,9 @@ describe("global design system", () => {
   });
 
   it("keeps gradient, glass and glow effects deliberate: token-driven and non-decorative-only", () => {
-    // The 2026-09 direction allows gradient/blur/glass, scoped to a few named
-    // moments (hero glow, nav glass, project-visual spotlight) — not scattered
-    // everywhere, and always mixed from the brand's own signal tokens rather
-    // than an arbitrary hex/rgb value. See docs/BRAND.md "Bold surfaces".
-    // Non-greedy up to the declaration's closing `;`, not the gradient's own
-    // first `)` — a radial-gradient's `at var(--spot-x, 50%)` argument closes
-    // its own paren well before the token reference the gradient ends on.
+    // Any retained surface treatment must use shared semantic colors.
     const gradientCalls = [...css.matchAll(/gradient\([\s\S]*?;/gi)];
-    expect(gradientCalls.length).toBeGreaterThan(0);
+    // Gradients are permitted only when driven by the shared palette; none are required.
     for (const [call] of gradientCalls) {
       expect(call).toMatch(/var\(--(signal|surface|text|line)-/);
     }

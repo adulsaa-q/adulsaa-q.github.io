@@ -1,0 +1,253 @@
+[
+  {
+    "route": "/method/",
+    "images": [],
+    "widths": [
+      {
+        "width": 320,
+        "overflow": false
+      },
+      {
+        "width": 360,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "overflow": false
+      },
+      {
+        "width": 834,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "overflow": false
+      },
+      {
+        "width": 1728,
+        "overflow": false
+      },
+      {
+        "width": 1920,
+        "overflow": false
+      }
+    ],
+    "violations": []
+  },
+  {
+    "route": "/work/ecommerce-sales-pipeline/",
+    "images": [
+      {
+        "src": "http://localhost:4173/images/optimized/ecommerce/data-model-overview-1-1280.webp",
+        "loaded": true
+      },
+      {
+        "src": "http://localhost:4173/images/optimized/ecommerce/data-model-overview-2-1280.webp",
+        "loaded": true
+      },
+      {
+        "src": "http://localhost:4173/images/optimized/ecommerce/data-model-overview-5-1280.webp",
+        "loaded": true
+      }
+    ],
+    "widths": [
+      {
+        "width": 320,
+        "overflow": false
+      },
+      {
+        "width": 360,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "overflow": false
+      },
+      {
+        "width": 834,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "overflow": false
+      },
+      {
+        "width": 1728,
+        "overflow": false
+      },
+      {
+        "width": 1920,
+        "overflow": false
+      }
+    ],
+    "violations": []
+  },
+  {
+    "route": "/work/shopee-thailand-analytics/",
+    "images": [
+      {
+        "src": "http://localhost:4173/images/optimized/shopee/page1_sales-640.webp",
+        "loaded": true
+      },
+      {
+        "src": "http://localhost:4173/images/optimized/shopee/page2_customers-640.webp",
+        "loaded": true
+      },
+      {
+        "src": "http://localhost:4173/images/optimized/shopee/data_model-640.webp",
+        "loaded": true
+      }
+    ],
+    "widths": [
+      {
+        "width": 320,
+        "overflow": false
+      },
+      {
+        "width": 360,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "overflow": false
+      },
+      {
+        "width": 834,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "overflow": false
+      },
+      {
+        "width": 1728,
+        "overflow": false
+      },
+      {
+        "width": 1920,
+        "overflow": false
+      }
+    ],
+    "violations": []
+  },
+  {
+    "route": "/work/schema-map/",
+    "images": [
+      {
+        "src": "http://localhost:4173/images/schema-map/schema-graph-preview.svg",
+        "loaded": true
+      }
+    ],
+    "widths": [
+      {
+        "width": 320,
+        "overflow": false
+      },
+      {
+        "width": 360,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "overflow": false
+      },
+      {
+        "width": 834,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "overflow": false
+      },
+      {
+        "width": 1728,
+        "overflow": false
+      },
+      {
+        "width": 1920,
+        "overflow": false
+      }
+    ],
+    "violations": []
+  }
+]

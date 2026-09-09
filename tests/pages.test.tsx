@@ -27,53 +27,21 @@ describe("homepage", () => {
     expect(html).toContain(projects[0].repository);
     expect(html).toContain(projects[1].repository);
     expect(html).toContain("Power BI reporting");
-    expect(html).toContain("Operational impact");
+    expect(html).toContain("What the system enables");
     expect(html).toContain(projects[0].impact);
 
     projects.slice(0, 2).forEach((project) => expect(html).toContain(project.name));
   });
 
-  it("keeps an evidence-only technology register compactly visible on home", () => {
+  it("makes identity, work and contact available in server-rendered HTML", () => {
     const html = renderToStaticMarkup(<Home />);
-
-    expect(html).toContain('aria-label="Verified technology stack"');
-    ["Power BI", "Power Query/M", "SQL", "PostgreSQL", "Python", "TypeScript", "GitHub Actions"].forEach(
-      (technology) => expect(html).toContain(technology),
-    );
-  });
-
-  it("shows an honest at-a-glance ledger counted from the content, not fabricated", () => {
-    const html = renderToStaticMarkup(<Home />);
-    const evidenceLinks = projects.reduce((n, p) => n + p.evidence.length, 0);
-
-    expect(html).toContain('aria-label="Portfolio at a glance"');
-    expect(html).toContain("evidence links to code, tests and artifacts");
-    expect(html).toContain(`<dt>${evidenceLinks}</dt>`);
-    expect(html).toContain("trackers, cookies or third-party scripts");
-    expect(html).not.toMatch(/\b(revenue|ROI|users?|clients?)\s*(increased|grew|\+?\d)/i);
-  });
-
-  it("keeps the core decision path and a route into the services page visible in the hero", () => {
-    const html = renderToStaticMarkup(<Home />);
-
-    expect(html).toContain("DATA");
-    expect(html).toContain("MODEL");
-    expect(html).toContain("DECISION");
-    expect(html).toContain("HANDOVER");
+    expect(html).toContain("Adul Sa-a / Q");
+    expect(html).toContain('href="#selected-work"');
+    expect(html).toContain('id="selected-work"');
+    expect(html).toContain('href="mailto:adulsaa.q@gmail.com"');
     expect(html).toContain('href="/services"');
-    expect(html).toContain("How to work with me");
-  });
-
-  it("offers a keyboard-accessible project index for intentional navigation", () => {
-    const html = renderToStaticMarkup(<Home />);
-
-    expect(html).toContain('aria-label="Selected project navigator"');
-    expect(html).toContain("Browse systems");
-    projects.slice(0, 2).forEach((project, index) => {
-      expect(html).toContain(`id="project-${project.slug}"`);
-      expect(html).toContain(`aria-controls="project-${project.slug}"`);
-      expect(html).toContain(String(index + 1).padStart(2, "0"));
-    });
+    expect(html).not.toContain("15 / 15 PASS");
+    expect(html).not.toContain("19 / 19 COMPILED");
   });
 
   it("keeps local artifacts and explicit simulated labels on the featured work", () => {
@@ -101,7 +69,7 @@ describe("work routes", () => {
     });
   });
 
-  it("statically enumerates exactly the four existing project slugs", async () => {
+  it("statically enumerates every content project slug", async () => {
     await expect(generateStaticParams()).resolves.toEqual(
       projects.map(({ slug }) => ({ slug })),
     );

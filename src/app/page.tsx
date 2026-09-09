@@ -1,340 +1,102 @@
 import Link from "next/link";
 
 import { ArtifactCarousel } from "@/components/project/artifact-carousel";
-import { HeroProofToken } from "@/components/home/hero-proof-token";
-import { HeroDataPreview } from "@/components/home/hero-preview";
-import { PipelineDiagram } from "@/components/diagram/pipeline-diagram";
-import { StatStrip } from "@/components/home/stat-strip";
-import { TechMarquee } from "@/components/home/tech-marquee";
-import { ProjectIndex } from "@/components/project/project-index";
-import { LabRegister } from "@/components/home/lab-register";
-import { TextScramble } from "@/components/motion/text-scramble";
-import { WordRotate } from "@/components/motion/word-rotate";
+import { ZoomableImage } from "@/components/project/zoomable-image";
+import { contact, contactEmail } from "@/content/contact";
 import { projects } from "@/content/projects";
 import { textLang } from "@/lib/i18n";
-import type { Project } from "@/types/project";
+import styles from "./home.module.css";
 
-const featuredProjects = projects.slice(0, 2);
-
-const projectMetrics: Record<string, Array<{ label: string; value: string }>> = {
-  "ecommerce-sales-pipeline": [
-    { label: "Data Ingestion", value: "Shopee · Lazada · CPAS" },
-    { label: "Reconciliation", value: "Equal Elapsed-Day Window" },
-    { label: "Architecture", value: "Unified Star Schema" },
-  ],
-  "shopee-thailand-analytics": [
-    { label: "Dataset Scope", value: "Multi-Module Case Study" },
-    { label: "SQL Engines", value: "Sales · Cohort · Logistics" },
-    { label: "Semantic Model", value: "DAX Measures Register" },
-  ],
-};
-
-const presentationBySlug: Record<Project["slug"], string> = {
-  "ecommerce-sales-pipeline": "dashboard-plate",
-  "shopee-thailand-analytics": "schema-led",
-  "finance-etl-pipeline": "system-flow",
-  timelimit: "offline-instrument",
-};
-
-function ProjectVisual({ project }: { project: Project }) {
-  if (project.slug === "finance-etl-pipeline") {
-    return (
-      <div className="project-visual" aria-label="Finance ETL system flow">
-        <p className="artifact-label">RECONSTRUCTED FROM IMPLEMENTATION</p>
-        <div className="system-flow">
-          <div className="system-node">
-            <small>01 / input</small>
-            <strong>Statement PDF</strong>
-          </div>
-          <span className="flow-arrow" aria-hidden="true" />
-          <div className="system-node">
-            <small>02 / control</small>
-            <strong>Parse + validate</strong>
-          </div>
-          <span className="flow-arrow" aria-hidden="true" />
-          <div className="system-node">
-            <small>03 / record</small>
-            <strong>PostgreSQL audit</strong>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <ArtifactCarousel
-      projectSlug={project.slug}
-      projectName={project.name}
-      artifacts={project.artifacts}
-      eager={project.slug === "ecommerce-sales-pipeline"}
-    />
-  );
-}
+const selected = projects.slice(0, 2);
+const services = [
+  { title: "Reporting people can use", text: "Bring scattered exports into a Power BI model with consistent measures and clear reporting views.", tools: "Power BI · Power Query · DAX" },
+  { title: "A stronger data foundation", text: "Connect tables, define the grain, and make SQL analysis traceable to the question it answers.", tools: "SQL · PostgreSQL · Data modeling" },
+  { title: "Less repetitive data work", text: "Turn recurring file handling into a pipeline with validation, failure handling, and a useful handover.", tools: "Python · ETL · Automation" },
+];
 
 export default function Home() {
+  const lead = selected[0].artifacts[1];
   return (
-    <main id="main-content" tabIndex={-1} className="page-shell">
-      {/* SECTION 01 — HERO (DENSITY: QUIET) */}
-      <section className="hero hero--v2" aria-labelledby="home-title">
-        <div className="hero__copy">
-          <div className="hero__status-badge">
-            <span className="status-indicator" aria-hidden="true" />
-            <span>Q // Data, BI &amp; Automation Systems</span>
+    <main id="main-content" tabIndex={-1} className={`page-shell ${styles.home}`}>
+      <section className={styles.hero} aria-labelledby="home-title">
+        <div className={styles.introduction}>
+          <p className={styles.eyebrow}>Adul Sa-a / Q <span>Data, BI &amp; Automation</span></p>
+          <h1 id="home-title">Clearer data.<br />Useful systems.</h1>
+          <p className={styles.lead}>I turn messy operational data into systems people can actually use.</p>
+          <p className={styles.description}>Power BI reporting, SQL models, and automation—from the source files to the decisions they support.</p>
+          <p className={styles.thai} lang="th">เปลี่ยนข้อมูลที่กระจัดกระจาย ให้เป็นระบบที่เข้าใจและนำไปใช้ได้จริง</p>
+          <div className={styles.actions}>
+            <Link className="hero-btn-primary" href="#selected-work">Explore selected work <span aria-hidden="true">↗</span></Link>
+            <Link className="text-link" href="/contact">Let’s talk</Link>
           </div>
-          <h1 id="home-title">
-            I turn messy operational data into systems people can actually use.
-          </h1>
-          <p className="hero__thai-lead" lang="th">
-            เปลี่ยนข้อมูลที่กระจัดกระจาย ให้กลายเป็นระบบที่เข้าใจ ตรวจสอบ และนำไปใช้ตัดสินใจได้จริง
-          </p>
-          <div className="hero__rotating-focus" aria-label="Specialized data architecture domains">
-            <span className="focus-label">Specialized in:</span>{" "}
-            <WordRotate
-              words={[
-                "Multi-Channel Star Schema Models",
-                "PostgreSQL Relational Knowledge Graphs",
-                "Audited Financial ETL Pipelines",
-                "Power BI Semantic DAX Models",
-              ]}
-            />
-          </div>
-          <p className="hero__lead">
-            Selected work across reporting models, data pipelines and focused internal
-            tools—shown with evidence, boundaries and the decisions behind them.
-          </p>
-          <div className="hero__actions">
-            <Link className="hero-btn-primary" href="/work">
-              Explore Selected Systems →
-            </Link>
-            <Link className="hero-btn-secondary" href="/services">
-              How to work with me
-            </Link>
-          </div>
+          <p className={styles.location}>Based in Bangkok · UTC+7</p>
         </div>
-
-        <HeroProofToken />
+        <figure className={styles.feature}>
+          <div className={styles.figureHeading}><span>Selected work / 01</span><span>Power BI</span></div>
+          {lead.src && <ZoomableImage src={lead.src} alt={lead.alt} width={1920} height={1095} eager />}
+          <figcaption>
+            <Link href="/work/ecommerce-sales-pipeline">From marketplace exports to one reporting model <span aria-hidden="true">↗</span></Link>
+            <p>Actual project artifact · Synthetic/anonymized demonstration data</p>
+          </figcaption>
+          <ol className={styles.flow} aria-label="Project workflow">
+            <li><span>01</span> Source exports</li><li><span>02</span> Shared model</li><li><span>03</span> Reporting</li>
+          </ol>
+        </figure>
       </section>
 
-      {/* SECTION 02 — OBSERVE THE SYSTEM (DENSITY: RICH — SIGNATURE EXPERIENCE) */}
-      <section className="observe-section" aria-labelledby="observe-heading">
-        <div className="section-heading">
-          <span className="section-index">
-            <TextScramble text="01" />
-          </span>
-          <h2 id="observe-heading">Observe the system</h2>
-          <p>From fragmented input to an inspectable decision model.</p>
+      <section className={styles.work} aria-labelledby="selected-work">
+        <div className={styles.sectionHeading}>
+          <p className={styles.eyebrow}>01 / Selected work</p>
+          <h2 id="selected-work">The work, and the thinking behind it.</h2>
+          <p>Two case studies with working artifacts, source code, and clear limits on what they demonstrate.</p>
         </div>
-        <div id="observe-system" tabIndex={-1}>
-          <HeroDataPreview />
-        </div>
-      </section>
-
-      {/* SECTION 03 — SELECTED SYSTEMS (DENSITY: MEDIUM → RICH) */}
-      <section className="work-showcase" aria-labelledby="selected-work">
-        <div className="section-heading">
-          <span className="section-index">
-            <TextScramble text="02" />
-          </span>
-          <h2 id="selected-work">Selected systems</h2>
-          <p>Two entry points. Full evidence register on the work index.</p>
-        </div>
-
-        <ProjectIndex projects={featuredProjects} />
-
-        {featuredProjects.map((project, index) => (
-          <article
-            id={`project-${project.slug}`}
-            className="project-entry"
-            data-project-entry={project.slug}
-            data-presentation={presentationBySlug[project.slug]}
-            key={project.slug}
-          >
-            <div className="project-entry__content">
-              <p className="project-kicker">
-                {String(index + 1).padStart(2, "0")} / {project.kind}
-              </p>
-              {project.evidence.some((item) => item.class === "SIMULATED") ? (
-                <span className="scope-label" data-scope-label="simulated">
-                  Simulated / demonstration scope
-                </span>
-              ) : null}
-              <h3>{project.name}</h3>
-              <p className="project-entry__title" lang={textLang(project.displayTitle)}>
-                {project.displayTitle}
-              </p>
-              <p className="project-entry__summary">{project.summary}</p>
-              {projectMetrics[project.slug] && (
-                <div
-                  className="project-metrics-strip"
-                  role="group"
-                  aria-label={`${project.name} architecture highlights`}
-                >
-                  {projectMetrics[project.slug].map((m) => (
-                    <div className="project-metric-pill" key={m.label}>
-                      <span className="project-metric-pill__label">{m.label}</span>
-                      <span className="project-metric-pill__value">{m.value}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-              <div className="project-impact">
-                <span>Operational impact</span>
-                <p>{project.impact}</p>
-              </div>
-              <ul className="project-meta" aria-label={`${project.name} technologies`}>
-                {project.stack.slice(0, 4).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <ul className="project-services" aria-label={`${project.name} services`}>
-                {project.services.map((service) => (
-                  <li key={service}>{service}</li>
-                ))}
-              </ul>
-              <div className="project-entry__links">
-                <Link className="text-link" href={`/work/${project.slug}`}>
-                  Inspect project
-                </Link>
-                <a className="text-link text-link--muted" href={project.repository} target="_blank" rel="noreferrer">
-                  GitHub source
-                </a>
+        {selected.map((project, index) => (
+          <article id={`project-${project.slug}`} data-project-entry={project.slug} data-presentation={index === 0 ? "dashboard-plate" : "schema-led"} className={styles.project} key={project.slug}>
+            <div className={styles.projectCopy}>
+              <p className={styles.eyebrow}>0{index + 1} / {project.kind}</p>
+              <h3>{index === 0 ? "One view across sales channels." : "A connected view of marketplace performance."}</h3>
+              <p className={styles.projectName}>{project.name}</p>
+              <p lang={textLang(project.displayTitle)}>{project.displayTitle}</p>
+              <p>{project.problem}</p>
+              <div className={styles.result}><h4>What the system enables</h4><p>{project.impact}</p></div>
+              <span className="scope-label" data-scope-label="simulated">Simulated / demonstration scope</span>
+              <div className={styles.actions}>
+                <Link className="text-link" href={`/work/${project.slug}`}>Read case study</Link>
+                <a className="text-link text-link--muted" href={project.repository} target="_blank" rel="noopener noreferrer">GitHub source</a>
               </div>
             </div>
-            <ProjectVisual project={project} />
+            <ArtifactCarousel projectSlug={project.slug} projectName={project.name} artifacts={project.artifacts} />
           </article>
         ))}
+        <div className={styles.sectionEnd}><p>More pipelines, internal tools, and implementation details.</p><Link className="text-link" href="/work">Explore all work</Link></div>
+      </section>
 
-        <div className="work-showcase__all">
-          <p>More systems, experimental work and their evidence boundaries are kept in the full index.</p>
-          <Link className="text-link" href="/work">
-            Explore all work
-          </Link>
+      <section className={styles.services} aria-labelledby="services-title">
+        <div className={styles.sectionHeading}>
+          <p className={styles.eyebrow}>02 / Ways to work together</p>
+          <h2 id="services-title">Start with the problem you need to solve.</h2>
+          <Link className="text-link" href="/services">How to work with me</Link>
+        </div>
+        <div className={styles.serviceGrid}>{services.map((service, index) => <article key={service.title}>
+          <span className={styles.eyebrow}>0{index + 1}</span><h3>{service.title}</h3><p>{service.text}</p><p className={styles.tools}>{service.tools}</p>
+        </article>)}</div>
+      </section>
+
+      <section className={styles.about} aria-labelledby="about-title">
+        <p className={styles.eyebrow}>03 / The person behind the work</p>
+        <div><h2 id="about-title">I’m Q. I care about what happens after the dashboard.</h2>
+          <p>Can someone explain the number? Find the source? Rerun the process when a file changes? Those questions shape how I build.</p>
+          <p>My work connects reporting, data modeling, and focused automation. I make the decisions visible so the next person can understand and maintain the system.</p>
+          <div className={styles.actions}><Link className="text-link" href="/about">More about me</Link><Link className="text-link text-link--muted" href="/method">How I approach a project</Link></div>
         </div>
       </section>
 
-      {/* SECTION 04 — PRINCIPLE (DENSITY: QUIET — VISUAL RESET) */}
-      <section className="principles-section" aria-labelledby="principles-heading">
-        <div className="section-heading">
-          <span className="section-index">
-            <TextScramble text="03" />
-          </span>
-          <h2 id="principles-heading">Working principles</h2>
-          <p className="principle-lead">
-            A dashboard is not the product. The product is the chain of decisions that makes the number trustworthy.
-          </p>
-        </div>
-
-        <div className="principles-grid" role="region" aria-label="Working principles breakdown">
-          <article className="principle-card">
-            <span className="principle-card__num">01 / Trace</span>
-            <h3>Start with the source.</h3>
-            <p>Each material claim points back to code, tests, documentation or a committed artifact.</p>
-          </article>
-          <article className="principle-card">
-            <span className="principle-card__num">02 / Model</span>
-            <h3>Make the system legible.</h3>
-            <p>Inputs, transformations, decisions and outputs are separated so the work can be inspected.</p>
-          </article>
-          <article className="principle-card">
-            <span className="principle-card__num">03 / Bound</span>
-            <h3>State what is not proven.</h3>
-            <p>Simulation, reconstruction and implementation limits remain visible instead of becoming marketing claims.</p>
-          </article>
-        </div>
-      </section>
-
-      {/* SECTION 05 — SYSTEM LIFECYCLE (DENSITY: RICH) */}
-      <section className="architecture-discipline" aria-labelledby="architecture-heading">
-        <div className="section-heading">
-          <span className="section-index">
-            <TextScramble text="04" />
-          </span>
-          <h2 id="architecture-heading">System architecture &amp; lifecycle</h2>
-          <p>Every implementation follows an inspectable four-stage path from raw inputs to audited handover.</p>
-        </div>
-        <PipelineDiagram />
-        <TechMarquee />
-      </section>
-
-      {/* SECTION 06 — VERIFIED PRACTICE (DENSITY: MEDIUM) */}
-      <section className="verified-practice-section" aria-labelledby="practice-heading">
-        <div className="section-heading">
-          <span className="section-index">
-            <TextScramble text="05" />
-          </span>
-          <h2 id="practice-heading">Verified practice</h2>
-          <p>Honest at-a-glance ledger counted from the repository and build, not marketing claims.</p>
-        </div>
-        <StatStrip />
-        <div className="telemetry-datasheet" role="region" aria-label="System build datasheet">
-          <div className="datasheet-item">
-            <span className="datasheet-label">TEST SUITES</span>
-            <strong className="datasheet-value">15 / 15 PASS</strong>
-            <small className="datasheet-note">83 automated Vitest specifications</small>
-          </div>
-          <div className="datasheet-item">
-            <span className="datasheet-label">TYPESCRIPT</span>
-            <strong className="datasheet-value">0 ERRORS</strong>
-            <small className="datasheet-note">Strict type safety &amp; contracts</small>
-          </div>
-          <div className="datasheet-item">
-            <span className="datasheet-label">STATIC ROUTES</span>
-            <strong className="datasheet-value">19 / 19 COMPILED</strong>
-            <small className="datasheet-note">Zero server runtime attack surface</small>
-          </div>
-          <div className="datasheet-item">
-            <span className="datasheet-label">INTEGRITY CHECK</span>
-            <strong className="datasheet-value">0 BROKEN LINKS</strong>
-            <small className="datasheet-note">Automated crawler verified</small>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 07 — FROM THE LAB (DENSITY: MEDIUM) */}
-      <section className="home-lab-section" aria-labelledby="lab-heading">
-        <div className="section-heading">
-          <span className="section-index">
-            <TextScramble text="06" />
-          </span>
-          <h2 id="lab-heading">From the lab</h2>
-          <p>Active prototypes, schema exploration utilities, and internal systems.</p>
-        </div>
-        <LabRegister />
-      </section>
-
-      {/* SECTION 08 — CONTACT (DENSITY: QUIET) */}
-      <section className="home-contact-section" aria-labelledby="contact-heading">
-        <div className="section-heading">
-          <span className="section-index">
-            <TextScramble text="07" />
-          </span>
-          <h2 id="contact-heading">Start a conversation</h2>
-          <p>Have a messy system? Show me the data, workflow, or decision that currently hurts.</p>
-        </div>
-        <div className="home-contact__content">
-          <div className="home-contact__channels">
-            <a className="contact-card" href="mailto:adulsaa.q@gmail.com">
-              <span className="contact-card__label">EMAIL DIRECT</span>
-              <strong className="contact-card__value">adulsaa.q@gmail.com</strong>
-              <small className="contact-card__sub">Bangkok (GMT+7) · Mon–Fri response</small>
-            </a>
-            <a className="contact-card" href="https://github.com/adulsaa-q" target="_blank" rel="noopener noreferrer">
-              <span className="contact-card__label">CODE &amp; AUDITS</span>
-              <strong className="contact-card__value">github.com/adulsaa-q</strong>
-              <small className="contact-card__sub">Repositories, issues &amp; tests</small>
-            </a>
-            <a className="contact-card" href="https://fastwork.co/user/adulsaa.q" target="_blank" rel="noopener noreferrer">
-              <span className="contact-card__label">FREELANCE CONTRACT</span>
-              <strong className="contact-card__value">fastwork.co/user/adulsaa.q</strong>
-              <small className="contact-card__sub">Escrow protection &amp; milestones</small>
-            </a>
-          </div>
-          <div className="home-contact__footer">
-            <Link className="text-link" href="/services">
-              Review service boundaries &amp; engagement models →
-            </Link>
-          </div>
-        </div>
+      <section className={styles.contact} aria-labelledby="contact-title">
+        <p className={styles.eyebrow}>04 / Contact</p>
+        <h2 id="contact-title">What would you like<br />your data to do better?</h2>
+        <p>For a project, a role, or a technical conversation, tell me what you’re working on.</p>
+        <a className={styles.email} href={`mailto:${contactEmail}`}>{contactEmail} <span aria-hidden="true">↗</span></a>
+        <div className={styles.actions}><a className="text-link" href={contact.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a><a className="text-link" href={contact.fastworkUrl} target="_blank" rel="noopener noreferrer">Fastwork</a><span className={styles.location}>Bangkok · UTC+7</span></div>
       </section>
     </main>
   );

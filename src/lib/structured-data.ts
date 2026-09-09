@@ -9,6 +9,7 @@ export function personSchema(): JsonLdObject {
     "@context": "https://schema.org",
     "@type": "Person",
     name: identity.name,
+    alternateName: identity.alternateName,
     jobTitle: identity.jobTitle,
     url: identity.url,
     sameAs: [...identity.sameAs],
@@ -38,7 +39,7 @@ export function creativeWorkSchema(project: Project): JsonLdObject {
     inLanguage: ["th-TH", "en"],
     keywords: project.stack.join(", "),
     about: project.services,
-    codeRepository: project.repository,
+    isBasedOn: project.repository,
     creator: { "@type": "Person", name: identity.name, url: identity.url },
     isAccessibleForFree: true,
   };

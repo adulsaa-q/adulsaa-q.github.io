@@ -4,10 +4,9 @@ import { describe, expect, it } from "vitest";
 import LabPage from "@/app/lab/page";
 import MethodPage from "@/app/method/page";
 import { archiveRecords } from "@/content/archive";
-import { services } from "@/content/services";
 
 describe("method page", () => {
-  it("renders philosophy, the core triad, 3 bounded models, and 4-stage lifecycle", () => {
+  it("renders philosophy and lifecycle, with a separate service discovery path", () => {
     const html = renderToStaticMarkup(<MethodPage />);
 
     expect(html).toContain('id="main-content"');
@@ -16,12 +15,7 @@ describe("method page", () => {
     expect(html).toContain("02 / MODEL");
     expect(html).toContain("03 / BOUND");
 
-    // 3 Bounded Engagement Models
-    services.forEach((service) => {
-      expect(html).toContain(service.title.replaceAll("&", "&amp;"));
-      expect(html).toContain(service.forWho);
-      expect(html).toContain(service.boundary);
-    });
+    expect(html).toContain('href="/services"');
 
     // 4 Delivery Lifecycle stages
     expect(html).toContain("DISCOVER");
@@ -46,7 +40,12 @@ describe("lab page", () => {
       expect(html).toContain(record.name);
       expect(html).toContain(record.summary);
       expect(html).toContain(record.limitation);
-      expect(html).toContain(record.repository);
+      if (record.sourceUnavailable) {
+        expect(html).not.toContain(`href="${record.repository}"`);
+        expect(html).toContain("Public source unavailable");
+      } else {
+        expect(html).toContain(record.repository);
+      }
     });
 
     // Recovery / forward links

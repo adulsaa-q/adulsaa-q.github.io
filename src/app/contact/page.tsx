@@ -22,19 +22,28 @@ export default function ContactPage() {
     <main id="main-content" tabIndex={-1} className="page-shell">
       <header className="page-intro contact-intro">
         <div>
-          <p className="eyebrow">Source / ways to work together</p>
+          <p className="eyebrow">Let’s work together</p>
           <h1>Contact</h1>
         </div>
         <p className="page-intro__note">
-          Start with the public work record, then get in touch. No contact form,
-          tracking script or unapproved private address is included in this static
-          site.
+          Tell me what you need to understand, improve, or automate. A short email
+          with the problem and your timeline is a good place to start.
         </p>
       </header>
 
       <section className="contact-register" aria-label="Contact routes">
+        <article id="work-enquiries" className="contact-route">
+          <span className="section-index">01 / WORK ENQUIRIES</span>
+          <h2>Email</h2>
+          <p>
+            The most direct route for a project enquiry. For scheduling, my timezone is{" "}
+            {contact.timezone}.
+          </p>
+          <ObfuscatedEmail className="contact-route__action" />
+        </article>
+
         <article className="contact-route">
-          <span className="section-index">01 / SOURCE</span>
+          <span className="section-index">02 / SOURCE</span>
           <h2>GitHub</h2>
           <p>Inspect public repositories, implementation records and current project scope.</p>
           <a
@@ -45,16 +54,6 @@ export default function ContactPage() {
           >
             github.com/adulsaa-q
           </a>
-        </article>
-
-        <article id="work-enquiries" className="contact-route">
-          <span className="section-index">02 / WORK ENQUIRIES</span>
-          <h2>Email</h2>
-          <p>
-            The most direct route for a project enquiry. Working hours are{" "}
-            {contact.timezone}.
-          </p>
-          <ObfuscatedEmail className="contact-route__action" />
         </article>
 
         {contact.fastworkUrl ? (

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 
+import { responsiveImage } from "@/lib/responsive-image";
 import { withBasePath } from "@/lib/base-path";
 import type { Artifact } from "@/types/project";
 
@@ -53,9 +54,9 @@ export function ArtifactCarousel({
 
   const defaultTitle =
     projectSlug === "ecommerce-sales-pipeline"
-      ? "models/ecommerce_sales_model.pbix"
+      ? "E-commerce reporting · Project artifacts"
       : projectSlug === "shopee-thailand-analytics"
-      ? "reports/shopee_multi_shop_analytics.pbix"
+      ? "Shopee analytics · Project artifacts"
       : "artifacts/system_artifact";
 
   const displayTitle = windowTitle || defaultTitle;
@@ -210,9 +211,10 @@ export function ArtifactCarousel({
         {/* Active Plate Display */}
         <div
           className="project-visual__plate-grid"
-          role="tabpanel"
+          role={totalCount > 1 ? "tabpanel" : "group"}
           id={`panel-${projectSlug}`}
-          aria-labelledby={`tab-${projectSlug}-${activeIndex}`}
+          aria-labelledby={totalCount > 1 ? `tab-${projectSlug}-${activeIndex}` : undefined}
+          aria-label={totalCount === 1 ? `${projectName} artifact` : undefined}
           tabIndex={0}
         >
           <figure className="project-visual__plate project-visual__plate--lead">
@@ -228,7 +230,9 @@ export function ArtifactCarousel({
                 alt={activeArtifact.alt}
                 width={projectSlug === "timelimit" ? 413 : 1920}
                 height={projectSlug === "timelimit" ? 255 : 1095}
+                {...responsiveImage(activeArtifact.src)}
                 loading={eager && activeIndex === 0 ? "eager" : "lazy"}
+                fetchPriority={eager && activeIndex === 0 ? "high" : undefined}
                 decoding="async"
               />
               <span className="artifact-carousel__hover-hint" aria-hidden="true">

@@ -143,6 +143,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </header>
 
+      <section className="case-summary" aria-label="Project at a glance">
+        <p>{project.problem}</p>
+        <p><strong>My implementation:</strong> {project.implementation.join(" ")}</p>
+        <p className="case-summary__scope">{project.constraints[0]}</p>
+      </section>
+
       {leadArtifact?.src ? (
         <div className="project-lead-artifact">
           <ArtifactCarousel

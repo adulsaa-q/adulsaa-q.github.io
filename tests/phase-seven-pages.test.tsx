@@ -22,7 +22,12 @@ describe("archive page", () => {
       expect(html).toContain(record.name);
       expect(html).toContain(record.summary);
       expect(html).toContain(record.limitation);
-      expect(html).toContain(record.repository);
+      if (record.sourceUnavailable) {
+        expect(html).not.toContain(`href="${record.repository}"`);
+        expect(html).toContain("Public source unavailable");
+      } else {
+        expect(html).toContain(record.repository);
+      }
     });
   });
 
@@ -36,18 +41,13 @@ describe("archive page", () => {
 });
 
 describe("about page", () => {
-  it("states working philosophy and narrow capability boundaries without biography", () => {
+  it("introduces Q and links to method and services without inventing credentials", () => {
     const html = renderToStaticMarkup(<AboutPage />);
-
+    expect(html).toContain("Adul Sa-a / Q");
+    expect(html).toContain("Bangkok");
     expect(html).toContain("Start with the operational source");
-    expect(html).toContain("Dashboard &amp; Decision Reporting");
-    expect(html).toContain("Data Pipeline &amp; Operational Automation");
-    expect(html).toContain("Analytics Engineering &amp; Data Modeling");
-    expect(html).toContain("Not included");
-    expect(html).toContain("DISCOVER");
-    expect(html).toContain("DEFINE");
-    expect(html).toContain("BUILD");
-    expect(html).toContain("VERIFY &amp; HANDOVER");
+    expect(html).toContain('href="/method"');
+    expect(html).toContain('href="/services"');
     expect(html).not.toMatch(/years of experience|worked at|clients include|award/i);
   });
 });
@@ -62,13 +62,10 @@ describe("contact page", () => {
     expect(html).not.toContain("Link pending approval");
   });
 
-  it("does not expose a plain-text email address in the server HTML", () => {
+  it("provides a working email link before hydration and without JavaScript", () => {
     const html = renderToStaticMarkup(<ContactPage />);
-
-    // The address is assembled client-side; server HTML shows an obfuscated form.
-    expect(html).not.toContain("mailto:");
-    expect(html).not.toContain("adulsaa.q@gmail.com");
-    expect(html).toContain("[at]");
+    expect(html).toContain('href="mailto:adulsaa.q@gmail.com"');
+    expect(html).not.toContain("[at]");
   });
 
   it("tells the visitor what to include in a first message", () => {

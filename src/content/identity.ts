@@ -6,7 +6,8 @@ import { canonicalUrl, defaultSiteUrl } from "@/lib/site-url";
  * outcome, rating or credential claim belongs in this file.
  */
 export const identity = {
-  name: "Q",
+  name: "Adul Sa-a",
+  alternateName: "Q",
   jobTitle: "Data, BI and automation systems",
   url: canonicalUrl("/"),
   siteName: "Q — Data, BI & Automation Systems",

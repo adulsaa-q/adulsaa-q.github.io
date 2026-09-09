@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 
+import { responsiveImage } from "@/lib/responsive-image";
 import { withBasePath } from "@/lib/base-path";
 
 type ZoomableImageProps = {
@@ -37,8 +38,10 @@ export function ZoomableImage({ src, alt, width, height, eager = false }: Zoomab
           alt={alt}
           width={width}
           height={height}
+          {...responsiveImage(src)}
           loading={eager ? "eager" : "lazy"}
-          decoding="async"
+          fetchPriority={eager ? "high" : undefined}
+          decoding={eager ? "sync" : "async"}
         />
         <span aria-hidden="true" className="zoomable-image__hint">
           Enlarge
@@ -47,6 +50,7 @@ export function ZoomableImage({ src, alt, width, height, eager = false }: Zoomab
       <dialog
         ref={dialogRef}
         className="image-dialog"
+        aria-label={`Enlarged image: ${alt}`}
         onClick={() => dialogRef.current?.close()}
       >
         {/* Full-size inspection view, loaded only when the dialog opens. */}

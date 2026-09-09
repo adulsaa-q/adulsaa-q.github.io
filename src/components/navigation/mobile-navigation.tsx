@@ -24,6 +24,11 @@ export function MobileNavigation() {
       return;
     }
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const background = Array.from(document.querySelectorAll<HTMLElement>("main, footer, .desktop-navigation, .wordmark, .theme-toggle"));
+    const previousInert = background.map((element) => element.inert);
+    background.forEach((element) => { element.inert = true; });
     const dialog = dialogRef.current;
     const focusableElements = dialog
       ? Array.from(dialog.querySelectorAll<HTMLElement>(focusableSelector))
@@ -55,7 +60,11 @@ export function MobileNavigation() {
     }
 
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      background.forEach((element, index) => { element.inert = previousInert[index]; });
+    };
   }, [isOpen]);
 
   return (

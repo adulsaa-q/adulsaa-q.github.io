@@ -17,8 +17,8 @@ describe("site header", () => {
     );
     for (const [name, href] of [
       ["Work", "/work"],
-      ["Method", "/method"],
-      ["Lab", "/lab"],
+      ["Services", "/services"],
+      ["About", "/about"],
       ["Contact", "/contact"],
     ] as const) {
       expect(screen.getAllByRole("link", { name })[0]?.getAttribute("href")).toBe(href);

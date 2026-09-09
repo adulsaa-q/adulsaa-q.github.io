@@ -1,0 +1,79 @@
+{
+  "/images/ecommerce/data-model-overview-1.png": {
+    "width": 1920,
+    "height": 1095,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/ecommerce/data-model-overview-1-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/ecommerce/data-model-overview-1-1280.webp"
+      }
+    ]
+  },
+  "/images/ecommerce/data-model-overview-2.png": {
+    "width": 1920,
+    "height": 1095,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/ecommerce/data-model-overview-2-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/ecommerce/data-model-overview-2-1280.webp"
+      }
+    ]
+  },
+  "/images/ecommerce/data-model-overview-5.png": {
+    "width": 1920,
+    "height": 1095,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/ecommerce/data-model-overview-5-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/ecommerce/data-model-overview-5-1280.webp"
+      }
+    ]
+  },
+  "/images/shopee/data_model.png": {
+    "width": 1208,
+    "height": 766,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/shopee/data_model-640.webp"
+      }
+    ]
+  },
+  "/images/shopee/page1_sales.png": {
+    "width": 1187,
+    "height": 657,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/shopee/page1_sales-640.webp"
+      }
+    ]
+  },
+  "/images/shopee/page2_customers.png": {
+    "width": 1189,
+    "height": 685,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/shopee/page2_customers-640.webp"
+      }
+    ]
+  },
+  "/images/timelimit/timelimit-widget.png": {
+    "width": 413,
+    "height": 255,
+    "variants": []
+  }
+}

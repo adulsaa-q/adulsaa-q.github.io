@@ -44,14 +44,14 @@ export default function ArchivePage() {
             </div>
             <p>{record.summary}</p>
             <p className="archive-row__limitation">{record.limitation}</p>
-            <a
+{record.sourceUnavailable ? <span className="source-unavailable">Public source unavailable</span> : (            <a
               className="source-link"
               href={record.repository}
               target="_blank"
               rel="noreferrer"
             >
               GitHub source
-            </a>
+            </a>)}
           </article>
         ))}
       </section>

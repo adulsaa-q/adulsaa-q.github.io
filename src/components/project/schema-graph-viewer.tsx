@@ -136,7 +136,7 @@ const EDGES: Edge[] = [
 export function SchemaGraphViewer() {
   const [activeTableId, setActiveTableId] = useState<string>("orders");
   const [viewMode, setViewMode] = useState<ViewMode>("erd");
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "success" | "error">("idle");
 
   const activeTable = TABLES.find((t) => t.id === activeTableId) ?? TABLES[1];
 
@@ -180,11 +180,14 @@ ${activeTable.columns
 \`\`\`
 `;
 
-  function copyMarkdown() {
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(generatedMarkdown);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+  async function copyMarkdown() {
+    setCopyStatus("idle");
+    try {
+      if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(generatedMarkdown);
+      setCopyStatus("success");
+    } catch {
+      setCopyStatus("error");
     }
   }
 
@@ -207,11 +210,10 @@ ${activeTable.columns
         </div>
 
         <div className="schema-graph-viewer__controls">
-          <div className="schema-graph-viewer__tabs" role="tablist" aria-label="Graph display mode">
+          <div className="schema-graph-viewer__tabs" role="group" aria-label="Graph display mode">
             <button
               type="button"
-              role="tab"
-              aria-selected={viewMode === "erd"}
+              aria-pressed={viewMode === "erd"}
               className={`schema-tab-btn${viewMode === "erd" ? " is-active" : ""}`}
               onClick={() => setViewMode("erd")}
             >
@@ -219,8 +221,7 @@ ${activeTable.columns
             </button>
             <button
               type="button"
-              role="tab"
-              aria-selected={viewMode === "obsidian"}
+              aria-pressed={viewMode === "obsidian"}
               className={`schema-tab-btn${viewMode === "obsidian" ? " is-active" : ""}`}
               onClick={() => setViewMode("obsidian")}
             >
@@ -229,6 +230,8 @@ ${activeTable.columns
           </div>
         </div>
       </div>
+
+      <p className="schema-demo-note">Illustrative schema and row estimates. This viewer is not connected to a live database.</p>
 
       {/* Main Interactive Stage */}
       <div className="schema-graph-viewer__stage">
@@ -299,7 +302,7 @@ ${activeTable.columns
                   left: `${table.x}%`,
                   top: `${table.y}%`,
                 }}
-                onClick={() => setActiveTableId(table.id)}
+                onClick={() => { setActiveTableId(table.id); setCopyStatus("idle"); }}
                 aria-label={`Inspect table ${table.name}`}
               >
                 {viewMode === "erd" ? (
@@ -351,14 +354,14 @@ ${activeTable.columns
                 Est. {activeTable.recordEstimate} rows
               </span>
             </div>
-            <h4 className="schema-inspector__table-name">
+            <h3 className="schema-inspector__table-name">
               <code>{activeTable.schema}.{activeTable.name}</code>
-            </h4>
+            </h3>
           </div>
 
           {/* Connected Foreign Keys */}
           <div className="schema-inspector__section">
-            <h5 className="schema-inspector__section-heading">Relational Foreign Keys</h5>
+            <h4 className="schema-inspector__section-heading">Relational Foreign Keys</h4>
             <ul className="schema-inspector__relations">
               {EDGES.filter((e) => e.from === activeTable.id).map((edge) => (
                 <li key={edge.to} className="relation-item relation-item--outgoing">
@@ -382,17 +385,18 @@ ${activeTable.columns
           {/* Obsidian Output Preview */}
           <div className="schema-inspector__section">
             <div className="schema-inspector__section-header">
-              <h5 className="schema-inspector__section-heading">Generated Obsidian Note</h5>
+              <h4 className="schema-inspector__section-heading">Generated Obsidian Note</h4>
               <button
                 type="button"
                 className="schema-copy-btn"
                 onClick={copyMarkdown}
                 aria-label="Copy markdown"
               >
-                {copied ? "Copied ✓" : "Copy Note"}
+                {copyStatus === "success" ? "Copied ✓" : "Copy Note"}
               </button>
             </div>
-            <pre className="schema-markdown-preview">
+            <p className="schema-copy-status" role="status">{copyStatus === "success" ? "Markdown copied." : copyStatus === "error" ? "Copy unavailable. Select the text below to copy it manually." : ""}</p>
+            <pre className="schema-markdown-preview" tabIndex={0} role="region" aria-label="Generated Markdown preview">
               <code>{generatedMarkdown}</code>
             </pre>
           </div>

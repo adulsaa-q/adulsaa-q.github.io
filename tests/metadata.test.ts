@@ -10,7 +10,7 @@ describe("root metadata", () => {
   it("describes the bilingual data, BI and automation portfolio", () => {
     expect(metadata).toMatchObject({
       title: {
-        default: "Q — Data, BI & Automation Systems",
+        default: "Adul Sa-a / Q — Data, BI & Automation",
         template: "%s — Q",
       },
     });

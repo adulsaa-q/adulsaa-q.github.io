@@ -9,7 +9,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer__row">
         <Link href="/" className="site-footer__mark" aria-label="Q, home">
-          Q // Systems
+          Adul Sa-a / Q
         </Link>
 
         <nav className="site-footer__links" aria-label="Footer navigation">
@@ -39,7 +39,7 @@ export function SiteFooter() {
       </div>
 
       <div className="site-footer__base">
-        <p>© {new Date().getFullYear()} Q / Adul Sa-a — evidence-led work record</p>
+        <p>© {new Date().getFullYear()} Q / Adul Sa-a — Data, BI &amp; Automation</p>
         <p lang="en">Static build. No trackers.</p>
       </div>
     </footer>

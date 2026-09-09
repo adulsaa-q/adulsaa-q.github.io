@@ -12,7 +12,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "check:links": "node scripts/check-links.mjs"
+    "check:links": "node scripts/check-links.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",
@@ -28,11 +29,12 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@vitest/coverage-v8": "^4.1.0",
+    "@vitest/coverage-v8": "^4.1.11",
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
     "jsdom": "^30.0.1",
+    "sharp": "^0.35.4",
     "typescript": "^5",
-    "vitest": "^4.1.0"
+    "vitest": "^4.1.11"
   }
 }

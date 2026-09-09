@@ -6,7 +6,7 @@ const socialImage = {
   url: canonicalUrl("/og/q-portfolio.png"),
   width: 1200,
   height: 630,
-  alt: "Q — Data, BI and Automation Systems",
+  alt: "Adul Sa-a / Q — Data, BI and Automation",
 };
 
 export function createPageMetadata({
@@ -31,7 +31,7 @@ export function createPageMetadata({
       description,
       type,
       url,
-      siteName: "Q — Data, BI & Automation Systems",
+      siteName: "Adul Sa-a / Q — Data, BI & Automation",
       locale: "th_TH",
       alternateLocale: ["en_US"],
       images: [socialImage],

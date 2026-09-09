@@ -1,127 +1,71 @@
-# Orbit Q — brand system
+# Adul Sa-a / Q — brand system
 
-One page. The goal is consistency with personality, not a design-system project.
+The portfolio introduces a person through useful systems and real work. The homepage
+is editorial: identity, selected work, ways to collaborate, working philosophy, contact.
+Source boundaries support the story and stay beside the artifacts they qualify.
 
-## Mark
+## Identity and mark
 
-- The Orbit Q mark is an open arc (a stroked circle with a gap, `stroke-dasharray`)
-  plus a short diagonal tail in `--signal-primary`. It reads as an orbit and a
-  "Q" at once.
-- Implemented as inline SVG in `src/components/layout/site-header.tsx` and as a
-  static file in `src/app/icon.svg` (and `public/og/q-portfolio.svg`).
-- Minimum size: 24px. Below that, drop the tail.
-- Never fill the arc, never add a container box, never recolour the arc away
-  from `currentColor`.
+Use **Adul Sa-a / Q** as the wordmark and **Data, BI & Automation** as the category.
+Orbit Q describes the retained Q symbol, not a second public-facing organization.
+The open arc and warm diagonal tail remain in the header, favicon and social card.
+Keep the arc in currentColor, the tail in the primary signal, and the mark legible at 24px.
+No invented studio scale, credentials, client logos, testimonials or production outcomes.
 
-## Wordmark
+## Colors and surfaces
 
-- Lockup: mark + `Orbit Q / Data, BI & Automation Systems`, mono, uppercase,
-  `letter-spacing: 0.08em`, `font-size: 0.72rem`, weight 700.
-- Below 440px the descriptor half is hidden; the mark + "Orbit Q" stays.
+`src/app/globals.css` is authoritative. Both theme palettes use semantic oklch tokens.
+Primary is white in light mode and deep blue-charcoal in dark mode. Secondary and raised
+surfaces separate artifacts from text. Warm rust is the primary signal; blue identifies
+links/information and focus. Keep all authored component colors on those tokens.
+Use 1px rules, a 2px accent rule for the selected artifact, and small 3/6/8px radii.
+Do not make every section a card. No hero glow or pointer-tracked spotlight.
+The sticky header retains a restrained blur to separate content beneath it.
+Explicit theme choice wins; otherwise follow the OS, including subsequent changes.
 
-## Colour tokens (`:root` in `globals.css`)
+## Typography and grid
 
-Values are `oklch()`, not hex — perceptual lightness keeps the light and dark
-ladders balanced when a hue changes, and dark mode is a deliberate second
-ladder (lower chroma, shifted lightness), not an inversion of the light one.
-Both are defined explicitly in `globals.css`; the table below is light-mode.
+Local IBM Plex Sans, Sans Thai and Mono; 400/600/700 weights. `fonts.css` preserves
+upstream unicode ranges and serves WOFF2. No third-party font requests.
+Thai runs use lang="th" and comfortable line height; use textLang for mixed content.
+Homepage display type is fluid 2.75–4.7rem, section type 1.875–3rem, body 1rem.
+Technical labels are secondary, never a substitute for readable explanations.
+Body measures stay around 45–68ch. Use `--content-max: 82rem`, `--gutter`, and the
+shared spacing tokens. Homepage composition lives in `home.module.css`.
+Two-column introduction and selected projects become single-column at 60rem;
+services and personal introduction stack at 40rem. Content order remains meaningful.
 
-| Token | Value (light) | Use |
-|---|---|---|
-| `--surface-primary` | `oklch(0.985 0.008 90)` | page background |
-| `--surface-secondary` | `oklch(0.955 0.012 88)` | insets, visuals |
-| `--surface-raised` | `oklch(0.998 0.004 90)` | cards, chips |
-| `--surface-inverse` | `oklch(0.19 0.018 250)` | mobile menu, hints, the pipeline diagram |
-| `--text-primary` | `oklch(0.19 0.018 250)` | body |
-| `--text-secondary` | `oklch(0.43 0.018 250)` | supporting copy |
-| `--line-soft` / `--line-primary` / `--line-strong` | `oklch(0.92 0.012 88)` / `oklch(0.86 0.016 88)` / `oklch(0.67 0.022 84)` | hairline rules by weight |
-| `--signal-primary` | `oklch(0.55 0.16 32)` | one accent — indices, arrows, scope labels |
-| `--signal-information` | `oklch(0.48 0.16 255)` | links, focus ring, evidence-class labels, caret/selection/scrollbar |
-| `--signal-positive` | `oklch(0.48 0.105 155)` | reserved (rare) |
+## Artifacts and diagrams
 
-One accent (`--signal-primary`) does most of the work. Do not introduce a fourth hue.
+Show real committed screenshots. Generate display WebP variants using
+`npm run images:optimize`; preserve source PNGs for enlargement. Reserve dimensions
+and provide srcset/sizes. The hero image loads eagerly; lower artifacts load lazily.
+Do not retouch source evidence or invent artifact filenames. Simulated data and
+reconstructed schema diagrams must remain visibly identified. Code and lineage
+follow the problem, contribution and constraints, with deeper inspection available.
+Use native dialogs with names, Escape dismissal and restored focus.
 
-The theme is a three-state contract, threaded through `:root`,
-`:root[data-theme="dark"]`, and `@media (prefers-color-scheme: dark)`: an
-explicit toggle click sets `data-theme` and wins outright; with no explicit
-choice, the OS preference decides. `caret-color`, `accent-color`, and
-`scrollbar-color` are themed from these same tokens rather than left to
-browser defaults.
+## Interaction and motion
 
-## Type
+Native links, buttons and dialogs first. Focus rings use the information signal;
+primary touch controls are at least 44px. Menu background becomes inert while open.
+Carousels support keyboard selection. Copy actions report actual success or failure.
+Motion tokens: 80/140/220ms with cubic-bezier(0.16, 1, 0.3, 1). Restrict movement to
+small interaction feedback and supported theme transitions. Content never depends
+on a reveal animation. Respect reduced motion and preserve nonanimated feedback.
 
-- Latin: **IBM Plex Sans**. Thai: **IBM Plex Sans Thai** (loaded first in the
-  stack, so Thai glyphs use it and Latin falls through to Plex Sans). Mono:
-  **IBM Plex Mono** for every micro-label.
-- Weights in use: 400 / 600 / 700 only. Do not add 300 or 500.
-- Scale steps (approximate, all `clamp()`): display `3–6rem` · section `2.2–5.5rem`
-  · sub `1.7–3rem` · lead `1.3–2rem` · body `1rem` · micro-label `0.7rem` mono.
-- Micro-labels: mono, uppercase, `letter-spacing: 0.1em`, weight 700, usually
-  `--signal-primary` or `--text-secondary`.
-- Thai gets `line-height: 1.7` (`:lang(th)` rule) so tone marks are not cramped.
-  Mark Thai fragments with `lang="th"` (`textLang()` helper).
+## Voice and navigation
 
-## Spacing
+Name the practical problem, then explain the system and its limits. Calm, precise,
+human language; first-person introduction; no repeated evidence vocabulary as filler.
+Primary navigation: Work, Services, About, Contact. Method, Lab and Archive are
+supporting footer paths. Contact is a direct email link, with existing public profiles.
+Do not invent availability promises, response times, business impact or experience.
 
-- Rhythm tokens: `--space-1 … --space-8` (0.5rem → clamp(4rem, 8vw, 7rem)).
-- Section gaps use `--section-space`; page inset uses `--gutter`.
-- Prefer a token over a new magic value when editing `globals.css`.
+## Validation
 
-## Rules & surfaces
-
-- Borders are `1px` hairlines. Radius is small (`--radius-small: 0.35rem`) or none.
-- Cards are a hairline border on `--surface-raised` or `--surface-secondary`.
-
-### Bold surfaces (2026-09)
-
-Gradient, glass and glow are now allowed, but scoped to a few named moments —
-not a scattered effect on every card. Each one must mix from the existing
-`--signal-*` / `--surface-*` tokens (never a raw hex/rgb value dropped in for
-"just this one gradient"), so the bolder surfaces still read as this brand,
-not a generic component-library demo. `tests/design-system.test.ts` enforces
-both halves: gradients/blur/glass must be present, and every `gradient()` call
-must reference a token.
-
-Current named moments — extend this list before adding a new one elsewhere:
-
-- **Nav glass** — `.site-header` is `backdrop-filter: blur(...)` over a
-  translucent `color-mix(in oklch, var(--surface-primary) …, transparent)`.
-  Functional glass: it separates the sticky bar from content scrolling under it.
-- **Hero glow** — `.hero::before`, a soft blurred two-color radial gradient
-  (`--signal-primary` + `--signal-information`) behind the copy, `z-index: -1`,
-  `pointer-events: none`. Ambient, not a spotlight — text stays solid and at
-  full contrast on top of it.
-- **Eyebrow gradient** — the `::before` dash in front of every eyebrow label
-  is a two-stop gradient across the same two signal hues instead of a flat
-  `currentColor`, so the "bold" direction is legible even in a single glance
-  at the smallest recurring mark on the page.
-- **Project-visual spotlight** — a cursor-tracked radial glow on hover/focus
-  over each case-study artifact plate (`SpotlightCards`, mouse position → CSS
-  custom properties `--spot-x`/`--spot-y`). Decoration only: the plate is
-  fully legible with the effect off (no-JS, touch, reduced motion).
-
-## Iconography
-
-- Text arrows only: `→` (flow), `↗` (external / detail), `←` (back). No icon set.
-
-## Diagrams
-
-- `system-flow` / `system-node`: boxed nodes, `1px` border, mono small labels,
-  `--signal-primary` arrows. Use for reconstructed data flows where no committed
-  screenshot exists; label them `RECONSTRUCTED FROM IMPLEMENTATION`.
-
-## Motion
-
-- Only: link-arrow nudge, card hover translate, dialog open, smooth scroll,
-  and one native View Transition on the theme toggle (`::view-transition-old/
-  new(root)`, feature-detected in `theme-toggle.tsx`).
-- `--motion-fast: 160ms`, `--motion-ease: cubic-bezier(0.16, 1, 0.3, 1)`.
-- Everything is disabled under `prefers-reduced-motion: reduce`.
-
-## Voice
-
-- Precise, calm, technical, evidence-first. Short sentences.
-- State the boundary as part of the offer ("Narrow by design.").
-- Never: "cutting-edge", "revolutionary", "AI-powered", "world-class", invented
-  metrics, client names, or outcome claims the source cannot prove.
-- Thai should read as Thai, not translated English.
+Unit/content tests, lint, types, static build and internal links precede browser QA.
+The deployment workflow gates publication on Chromium, Firefox and WebKit route,
+contrast, responsive, keyboard, touch, theme and dialog checks. Automated axe results
+are evidence, not a claim of full WCAG conformance. See the dated audit for measured
+performance and coverage limits; never place stale test counts in the product UI.

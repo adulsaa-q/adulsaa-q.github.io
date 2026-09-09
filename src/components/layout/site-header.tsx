@@ -47,7 +47,7 @@ export function SiteHeader() {
                 strokeWidth="11"
               />
             </svg>
-            <span>Orbit Q / Data, BI &amp; Automation Systems</span>
+            <span>Adul Sa-a / Q</span>
           </Link>
 
           <div className="site-header__actions">

@@ -34,7 +34,7 @@ export default function ServicesPage() {
       <section className="capability-register" aria-labelledby="services-title">
         <div className="section-heading">
           <span className="section-index">01–03</span>
-          <h2 id="services-title">What you can hire this for</h2>
+          <h2 id="services-title">What I can help you build</h2>
           <p>Narrow by design. The boundary is part of the offer.</p>
         </div>
 

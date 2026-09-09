@@ -6,6 +6,8 @@ export interface ArchiveRecord {
   summary: string;
   limitation: string;
   repository: string;
+  /** Public availability checked during the September 2026 audit. */
+  sourceUnavailable?: boolean;
 }
 
 export const archiveRecords: ArchiveRecord[] = [
@@ -27,6 +29,7 @@ export const archiveRecords: ArchiveRecord[] = [
   },
   {
     name: "kbank-finance-pipeline",
+    sourceUnavailable: true,
     status: "EXPERIMENTAL",
     summary: "KBank statement transaction extraction and ledger reconciliation toolkit.",
     limitation:
