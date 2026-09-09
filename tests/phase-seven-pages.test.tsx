@@ -8,15 +8,15 @@ import NotFound from "@/app/not-found";
 import { archiveRecords } from "@/content/archive";
 
 describe("archive page", () => {
-  it("renders exactly the four archive-only records verified in Phase 0", () => {
+  it("renders the secondary source records with accurate availability", () => {
     const html = renderToStaticMarkup(<ArchivePage />);
 
     expect(archiveRecords).toHaveLength(4);
     expect(archiveRecords.map(({ name }) => name)).toEqual([
-      "schema-map",
       "fastwork-status",
       "kbank-finance-pipeline",
       "housemark",
+      "AIE-Pulse-Meridian",
     ]);
     archiveRecords.forEach((record) => {
       expect(html).toContain(record.name);
@@ -35,7 +35,7 @@ describe("archive page", () => {
     const html = renderToStaticMarkup(<ArchivePage />);
 
     expect(html.match(/data-status="EXPERIMENTAL"/g)).toHaveLength(2);
-    expect(html).toContain("banking layout formats");
+    expect(html).toContain("could not be verified");
     expect(html).toContain("brand guidelines");
   });
 });

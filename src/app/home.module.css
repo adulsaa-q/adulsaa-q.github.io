@@ -50,3 +50,5 @@
 .email:hover { color: var(--signal-primary); }
 @media (max-width: 60rem) { .hero { grid-template-columns: 1fr; } .introduction { max-width: 40rem; } .hero h1 { font-size: clamp(2.75rem, 8vw, 4.7rem); } .feature { max-width: 42rem; width: 100%; } .project { grid-template-columns: 1fr; } .projectCopy { max-width: 42rem; } }
 @media (max-width: 40rem) { .serviceGrid, .about { grid-template-columns: 1fr; } .hero { padding-top: var(--space-2xl); } .actions { gap: var(--space-md); } .figureHeading { margin-bottom: var(--space-md); } .about { gap: var(--space-lg); } }
+
+.relatedWork { max-width: 65ch; margin-top: var(--space-xl); color: var(--text-secondary); }

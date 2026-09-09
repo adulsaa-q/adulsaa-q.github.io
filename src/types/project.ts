@@ -34,6 +34,8 @@ export interface Artifact {
   alt: string;
   caption: string;
   reconstructed: boolean;
+  /** Verbatim public-source excerpt, displayed without execution. */
+  excerpt?: string;
 }
 
 export interface ProjectDecision {

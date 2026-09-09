@@ -112,3 +112,6 @@ The follow-up performance trace showed that Fontsource's subset-only CSS omitted
 
 - Publication now depends on independent Chromium, Firefox and WebKit jobs against the exact static export. Browser tooling is pinned in `.github/qa`, outside the application dependency graph. Each job uploads its scan, screenshots and interaction results.
 - Removed 290 obsolete CSS selector branches and the global hero family after route-wide coverage; the new homepage uses the shared tokens through its CSS Module. Brand documentation and social preview now use the same personal identity.
+
+- The final curation uses Q's public GitHub inventory as the source of truth. Added AI Brand Tracker and AI Command Center as distinct application/framework cases, surfaced AIE-Pulse-Meridian in Lab, and replaced Schema Map's inaccurate file paths and synthetic artifact attribution with the actual source and screenshot. No external project implementation was changed.
+- The homepage pairs reporting with the analytics application rather than showing two similar marketplace dashboards. Work removes statistical quality proxies, preserves implementation boundaries and links every case to public source. Source-path validation guards against labelling a README link as a different verified code file.

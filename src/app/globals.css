@@ -1528,10 +1528,10 @@ button {
 }
 
 .work-card__stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-top: 0.85rem;
+  color: var(--text-secondary);
+  font-size: .875rem;
+  line-height: 1.7;
+  margin-top: var(--space-md);
 }
 
 .work-card__tag {
@@ -3256,3 +3256,13 @@ body {
 @media (max-width: 440px) { .wordmark span:last-child { display: inline; font-size: .75rem; } .site-header__actions { gap: var(--space-xs); } }
 .schema-demo-note, .schema-copy-status { color: var(--text-secondary); font-size: .875rem; line-height: 1.5; }
 .schema-copy-status:empty { display: none; }
+
+.artifact-code {
+  max-width: 100%;
+  overflow: auto;
+  padding: var(--space-lg);
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+  font: .875rem/1.7 var(--font-mono);
+  border: 1px solid var(--line-primary);
+}

@@ -27,6 +27,12 @@ export function validateProjects(projects: Project[]): string[] {
       if (!item.sourceUrl) {
         errors.push(`${project.slug}: evidence ${index + 1} requires a source URL`);
       }
+      if (item.class.startsWith("VERIFIED_")) {
+        const match = item.sourceUrl.match(/^https:\/\/github\.com\/[^/]+\/[^/]+\/(?:blob|tree)\/[^/]+\/(.+?)(?:[?#].*)?$/);
+        if (match && decodeURIComponent(match[1]).replace(/\/$/, "") !== item.sourcePath.replace(/\/$/, "")) {
+          errors.push(`${project.slug}: verified source path must match its linked file or directory`);
+        }
+      }
     });
 
     project.artifacts.forEach((artifact, index) => {

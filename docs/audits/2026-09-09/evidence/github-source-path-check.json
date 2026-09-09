@@ -1,0 +1,152 @@
+[
+  {
+    "repository": "ecommerce-sales-pipeline",
+    "path": "power_query/pq_order_sp.pq",
+    "url": "https://github.com/adulsaa-q/ecommerce-sales-pipeline/blob/main/power_query/pq_order_sp.pq",
+    "exists": true
+  },
+  {
+    "repository": "ecommerce-sales-pipeline",
+    "path": "dax/measures.md",
+    "url": "https://github.com/adulsaa-q/ecommerce-sales-pipeline/blob/main/dax/measures.md",
+    "exists": true
+  },
+  {
+    "repository": "ecommerce-sales-pipeline",
+    "path": "images/",
+    "url": "https://github.com/adulsaa-q/ecommerce-sales-pipeline/tree/main/images",
+    "exists": true
+  },
+  {
+    "repository": "ecommerce-sales-pipeline",
+    "path": "csv/",
+    "url": "https://github.com/adulsaa-q/ecommerce-sales-pipeline/tree/main/csv",
+    "exists": true
+  },
+  {
+    "repository": "shopee-thailand-analytics",
+    "path": "sql/01_sales_performance.sql",
+    "url": "https://github.com/adulsaa-q/shopee-thailand-analytics/blob/main/sql/01_sales_performance.sql",
+    "exists": true
+  },
+  {
+    "repository": "shopee-thailand-analytics",
+    "path": "insights/screenshots/",
+    "url": "https://github.com/adulsaa-q/shopee-thailand-analytics/tree/main/insights/screenshots",
+    "exists": true
+  },
+  {
+    "repository": "shopee-thailand-analytics",
+    "path": "README.md",
+    "url": "https://github.com/adulsaa-q/shopee-thailand-analytics/blob/main/README.md",
+    "exists": true
+  },
+  {
+    "repository": "shopee-thailand-analytics",
+    "path": "README.md",
+    "url": "https://github.com/adulsaa-q/shopee-thailand-analytics/blob/main/README.md",
+    "exists": true
+  },
+  {
+    "repository": "finance-etl-pipeline",
+    "path": "src/pipeline/orchestrator.py",
+    "url": "https://github.com/adulsaa-q/finance-etl-pipeline/blob/master/src/pipeline/orchestrator.py",
+    "exists": true
+  },
+  {
+    "repository": "finance-etl-pipeline",
+    "path": "db/migrations/0001_init.sql",
+    "url": "https://github.com/adulsaa-q/finance-etl-pipeline/blob/master/db/migrations/0001_init.sql",
+    "exists": true
+  },
+  {
+    "repository": "finance-etl-pipeline",
+    "path": "tests/",
+    "url": "https://github.com/adulsaa-q/finance-etl-pipeline/tree/master/tests",
+    "exists": true
+  },
+  {
+    "repository": "timelimit",
+    "path": "src/clock/clockEngine.ts",
+    "url": "https://github.com/adulsaa-q/timelimit/blob/main/src/clock/clockEngine.ts",
+    "exists": true
+  },
+  {
+    "repository": "timelimit",
+    "path": "tests/",
+    "url": "https://github.com/adulsaa-q/timelimit/tree/main/tests",
+    "exists": true
+  },
+  {
+    "repository": "timelimit",
+    "path": "docs/images/",
+    "url": "https://github.com/adulsaa-q/timelimit/tree/main/docs/images",
+    "exists": true
+  },
+  {
+    "repository": "schema-map",
+    "path": "schema_to_obsidian.py",
+    "url": "https://github.com/adulsaa-q/schema-map/blob/main/schema_to_obsidian.py",
+    "exists": true
+  },
+  {
+    "repository": "schema-map",
+    "path": "schema_filemd/",
+    "url": "https://github.com/adulsaa-q/schema-map/tree/main/schema_filemd",
+    "exists": true
+  },
+  {
+    "repository": "ai_brand_tracker",
+    "path": "src/runner.py",
+    "url": "https://github.com/adulsaa-q/ai_brand_tracker/blob/main/src/runner.py",
+    "exists": true
+  },
+  {
+    "repository": "ai_brand_tracker",
+    "path": "src/storage/duckdb_store.py",
+    "url": "https://github.com/adulsaa-q/ai_brand_tracker/blob/main/src/storage/duckdb_store.py",
+    "exists": true
+  },
+  {
+    "repository": "ai_brand_tracker",
+    "path": "tests/test_pipeline_integration.py",
+    "url": "https://github.com/adulsaa-q/ai_brand_tracker/blob/main/tests/test_pipeline_integration.py",
+    "exists": true
+  },
+  {
+    "repository": "ai_brand_tracker",
+    "path": "docs/assets/dashboard.png",
+    "url": "https://github.com/adulsaa-q/ai_brand_tracker/blob/main/docs/assets/dashboard.png",
+    "exists": true
+  },
+  {
+    "repository": "ai_brand_tracker",
+    "path": "docs/STATUS.md",
+    "url": "https://github.com/adulsaa-q/ai_brand_tracker/blob/main/docs/STATUS.md",
+    "exists": true
+  },
+  {
+    "repository": "ai-command-center",
+    "path": "docs/ARCHITECTURE.md",
+    "url": "https://github.com/adulsaa-q/ai-command-center/blob/main/docs/ARCHITECTURE.md",
+    "exists": true
+  },
+  {
+    "repository": "ai-command-center",
+    "path": "templates/.remember/schema.sql",
+    "url": "https://github.com/adulsaa-q/ai-command-center/blob/main/templates/.remember/schema.sql",
+    "exists": true
+  },
+  {
+    "repository": "ai-command-center",
+    "path": "tools/check_doc_staleness.py",
+    "url": "https://github.com/adulsaa-q/ai-command-center/blob/main/tools/check_doc_staleness.py",
+    "exists": true
+  },
+  {
+    "repository": "ai-command-center",
+    "path": "tools/file_lock.py",
+    "url": "https://github.com/adulsaa-q/ai-command-center/blob/main/tools/file_lock.py",
+    "exists": true
+  }
+]

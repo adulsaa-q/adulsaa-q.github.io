@@ -1,6 +1,6 @@
 # Q portfolio — production audit and implemented direction
 
-Audit date: 9 September 2026. Live baseline: https://adulsaa-q.pages.dev/. Implementation: this repository, local production export. **These changes have not been deployed.**
+Audit date: 9 September 2026. Live baseline: https://adulsaa-q.pages.dev/. Implementation: this repository and the live Cloudflare static export. The initial redesign and cross-browser fixes were deployed successfully; the final GitHub-source expansion and release evidence are documented below.
 
 ## Executive Verdict
 
@@ -8,7 +8,7 @@ The current live site is a technically credible work record with a weaker person
 
 The largest transformation is **from explaining the evidence system to showing useful work, introducing Q, and making the next action obvious**. Evidence should remain close to claims, with deeper implementation details available in case studies. It should not consume every layer of the story.
 
-The implementation makes that transformation without replacing the framework, inventing credentials, or changing project results. It is a substantial product improvement, not a certification of “world-class” quality. Real audience testing, current Safari/Firefox coverage, and deployed performance verification remain release gates.
+The implementation makes that transformation without replacing the framework, inventing credentials, or changing project results. It is a substantial product improvement, not a certification of “world-class” quality. Supported-browser coverage and deployed performance have now been measured. Real audience comprehension testing, physical devices and assistive-technology sessions remain explicitly unperformed research/coverage limits, not claimed certifications.
 
 ## Scope and evidence quality
 
@@ -74,13 +74,13 @@ The revised opening supplies Adul Sa-a / Q, the capability category, a plain-lan
 | Global effects | Reveal observer and pointer spotlight run across routes | Decorative interaction adds execution and can hide content in captures | P2 · S · Confirmed | Removed global effect mounting; content always visible |
 | Dependencies | Three moderate Vitest-family advisories from npm audit | Development tooling needs maintenance even when site is static | P2 · S · Confirmed | Patched Vitest/coverage to 4.1.11-compatible versions; audit clean |
 | Structured data | CreativeWork uses codeRepository; identity only Q | Schema property/type alignment and identity attribution incomplete | P2 · S · Confirmed | CreativeWork isBasedOn points to source; Person full name plus alternateName |
-| CSS architecture | 5,161 lines with several generations of hero rules | Accumulated overrides make changes unpredictable | P2 · L · Confirmed | Seven unreferenced components removed; new homepage isolated in CSS Module using existing tokens; broader legacy CSS consolidation remains |
+| CSS architecture | 5,161 lines with several generations of hero rules | Accumulated overrides make changes unpredictable | P2 · L · Confirmed | Seven unreferenced components removed; homepage isolated in a CSS Module; obsolete selector branches and the global hero family removed (108 KB → 69 KB authored global CSS) |
 | Evidence language | Repeated auditable/inspectable/bounded phrasing | Safety labels and internal taxonomy dominate visitor narrative | P2 · M · Strong evidence | Plain homepage/problem language; detailed boundaries remain in case studies |
 | Schema-map viewer | Final sitemap scan found unfocusable scrollable code and dimmed-node contrast failures | Interaction styling reduced readability and excluded keyboard scrolling | P1 · S · Confirmed | Made named preview focusable; unrelated nodes use dashed borders rather than reduced opacity; final scan verifies |
 | Font loading | Subset-only Fontsource CSS lacked unicode ranges; trace fetched Thai, then Latin-ext, then Latin | Browser discovers missing glyphs by downloading successive fallbacks | P2 · M · Confirmed | Added local font faces with upstream unicode ranges; font requests reduced from 10 to 7, compressed transfer 482 → 442 KiB, CLS 0 in follow-up lab |
 | Schema copy and semantics | Clipboard write was not awaited; headings skipped a level; mode selector exposed incomplete tabs | UI could report a failed operation as successful and misstate interaction semantics | P2 · M · Confirmed | Await clipboard with error/manual-copy state, use pressed mode buttons, fix headings, disclose illustrative data; regression test added |
 | Tiny technical UI | Several schema labels below 12 px; hover-oriented inspection hints | Compactness prioritized over legibility | P2 · M · Confirmed sizes; usability effect needs testing | Preserve zoom and keyboard tools; technical-viewer typography warrants further task testing |
-| Browser coverage | Current Playwright cannot install Firefox/WebKit on macOS 13 | Host platform limits cross-engine verification | P1 release gate · M · Confirmed | Run current Safari, Firefox, and physical iOS checks on supported host before declaring release-ready |
+| Browser coverage | Current Playwright cannot install Firefox/WebKit on macOS 13 | Host platform limits cross-engine verification | P1 release gate · M · Confirmed | Hosted CI now checks Chromium, Firefox, WebKit and native Safari 26.6.2; physical iOS remains untested |
 
 No P0 outage, exposed credential, or broken primary route was found in the inspected scope. That does not prove an exhaustive security review.
 
@@ -150,7 +150,7 @@ Primary story: what problem the work addresses and what the system enables. Seco
 
 Use “What the system enables” for demonstrated capability; do not translate it into measured client results. Remove unsupported response-time, escrow, zero-attack-surface, and crawler-certification marketing from the homepage. Retain the existing project limitations verbatim where possible. No invented employment history, logos, testimonials, business results, or production use.
 
-A static, captioned dashboard is stronger here than a simulated status panel. Two selected cases establish reporting and modeling breadth; the Work index carries the remaining projects. Curate source artifacts, including their flaws, instead of recoloring screenshots to match the site. Real project refreshes should replace outdated artifacts at source.
+A static, captioned dashboard is stronger here than a simulated status panel. Two selected cases establish BI reporting and analytics-application breadth; the Work index carries the remaining projects. Curate source artifacts, including their flaws, instead of recoloring screenshots to match the site. Real project refreshes should replace outdated artifacts at source.
 
 ## Reference principle map
 
@@ -167,15 +167,15 @@ Current pages were researched on the audit date. These are design interpretation
 
 ## Technical, accessibility, performance, SEO, and security plans
 
-**Engineering:** Keep Next static export, TypeScript content model, local assets, existing case-study components, and tests. New homepage uses a CSS Module rather than another hero override stack. Removed obsolete global effect mounting and seven unreferenced homepage/decoration components. Explicitly declare sharp as build tooling for reproducible image variants, using the version already present through Next; no browser dependency added. Run `npm run images:optimize` after source image changes. A broader CSS/component dead-code pass remains valuable and should use route visual coverage rather than blind selector deletion.
+**Engineering:** Keep Next static export, TypeScript content model, local assets, existing case-study components, and tests. New homepage uses a CSS Module rather than another hero override stack. Removed obsolete global effect mounting and seven unreferenced homepage/decoration components. Explicitly declare sharp as build tooling for reproducible image variants, using the version already present through Next; no browser dependency added. Run `npm run images:optimize` after source image changes. The follow-through removed 290 obsolete selector branches plus the global hero family, with route-wide responsive and visual checks. Remaining shared styles support the preserved case-study components.
 
-**Accessibility:** Native email, named image dialog, valid single-artifact region, modal background isolation, system-theme behavior, visible focus, and server-rendered main content implemented. Automated light/dark scans and keyboard tests supplement visual review. Still required: VoiceOver reading-order tasks, real browser zoom to 200%, current Safari/Firefox, physical iOS, and detailed schema-viewer task testing. Zero axe violations does not establish [WCAG 2.2 AA conformance](https://www.w3.org/WAI/standards-guidelines/wcag/).
+**Accessibility:** Native email, named image dialog, valid single-artifact region, modal background isolation, system-theme behavior, visible focus, and server-rendered main content implemented. Automated light/dark scans and keyboard tests supplement visual review. Not performed: VoiceOver reading-order sessions, native 200% browser zoom and physical iOS testing. Current Firefox, WebKit and native Safari now run in CI; keyboard/reflow and schema-viewer behaviors were exercised. Zero axe violations does not establish [WCAG 2.2 AA conformance](https://www.w3.org/WAI/standards-guidelines/wcag/).
 
 **Performance:** Remove repeated client demonstrations and global pointer/reveal effects. Use local font subsets with explicit unicode ranges, image dimensions, eager hero only, lazy lower images, responsive WebP display files, original evidence in inspection dialogs. Budget targets: display derivative ≤150 KB at 1280 px, initial compressed transfer ≤600 KB, homepage JS ≤150 KB compressed, CLS ≤0.1, mobile lab TBT ≤200 ms. Validate actual route cost, not just build size. Field targets remain [LCP ≤2.5 s, INP ≤200 ms, CLS ≤0.1 at p75](https://web.dev/articles/vitals). No field dataset or real-user INP was available; do not substitute Lighthouse TBT for INP.
 
 **SEO:** Retain unique route metadata, canonical Cloudflare origin, sitemap, robots, Open Graph and X image. Name Q fully in page title/authorship and Person schema. CreativeWork now uses [isBasedOn](https://schema.org/CreativeWork) for repository provenance rather than a property belonging to a software-source type. No speculative SoftwareApplication, ratings, reviews, or rich-result claims. JSON-LD parsed and tested locally; Google indexing and rich-result eligibility are separate, unverified matters. ProfilePage is optional, not necessary for this remediation.
 
-**Security/privacy:** Deployed HTTPS HTTP/2 response had CSP, frame denial, nosniff, referrer policy, permissions policy, and COOP. Added HSTS to the host header configuration, pending deployment verification. Static hashed assets retain immutable caching. CSP still allows inline scripts/styles required by current export; do not claim strict CSP. A hash-based script policy needs build-generated hashes and deployed route testing before tightening. No third-party tracker introduced; baseline page requests had no failed network requests. “No trackers” describes application scripts, not absence of Cloudflare edge logs/NEL. No tracked environment/private-key filenames or exported source maps were found in the scoped checks; this is not a secret-history audit. The [Vitest advisory](https://github.com/advisories/GHSA-82fw-gwwq-j7x9) affected development tooling; patched, with clean npm audit. Do not imply it was an exploitable static-site backend.
+**Security/privacy:** Deployed HTTPS HTTP/2 response had CSP, frame denial, nosniff, referrer policy, permissions policy, and COOP. Added HSTS and verified the deployed `max-age=31536000` response alongside CSP, frame denial, nosniff, referrer and permissions headers. Static hashed assets retain immutable caching. CSP still allows inline scripts/styles required by current export; do not claim strict CSP. A hash-based script policy needs build-generated hashes and deployed route testing before tightening. No third-party tracker introduced; baseline page requests had no failed network requests. “No trackers” describes application scripts, not absence of Cloudflare edge logs/NEL. No tracked environment/private-key filenames or exported source maps were found in the scoped checks; this is not a secret-history audit. The [Vitest advisory](https://github.com/advisories/GHSA-82fw-gwwq-j7x9) affected development tooling; patched, with clean npm audit. Do not imply it was an exploitable static-site backend.
 
 ## Recorded performance snapshots
 
@@ -189,14 +189,14 @@ Current pages were researched on the audit date. These are design interpretation
 | Isolated compressed snapshot with priority hint | 85 | 3.8 s | 130 ms | 0.005 | 482 KiB |
 | Corrected font unicode ranges | 85 | 3.7 s | 170 ms | 0 | 442 KiB |
 
-All seven snapshots scored 100 for Lighthouse accessibility, best practices, and SEO. These categories are limited automated audits. The consistent image-byte reduction and lower CLS are useful findings; timing varies with host, compression, and competing work. **The final font-optimized compressed snapshot still misses the 2.5 s LCP target.** The release needs an isolated deployed run and remaining render-delay investigation; no passing Core Web Vitals claim is made. The hero display derivative is approximately 52 KB at 1280 px versus the 821 KB original, with the original preserved for inspection. A fetch-priority hint was added after the diagnostic identified its absence.
+All seven snapshots scored 100 for Lighthouse accessibility, best practices, and SEO. These categories are limited automated audits. The consistent image-byte reduction and lower CLS are useful findings; timing varies with host, compression, and competing work. **The later isolated Cloudflare run reached Performance 97, LCP 2.31 s, TBT 109 ms and CLS 0.** This is a lab result, not p75 field Core Web Vitals. The local render-delay limitation is preserved in the earlier snapshots instead of being omitted. The hero display derivative is approximately 52 KB at 1280 px versus the 821 KB original, with the original preserved for inspection. A fetch-priority hint was added after the diagnostic identified its absence.
 
 ## QA matrix and release limits
 
 | Check | Baseline / implementation result |
 |---|---|
 | Production build | Passed before and after; static export retained |
-| Unit/component contracts | 90 baseline; 88 after replacing obsolete homepage content assertions and adding clipboard-failure coverage; all pass |
+| Unit/component contracts | 90 baseline; 89 after updating homepage contracts, adding clipboard-failure coverage and a verified-source-path regression test; all pass |
 | Lint / TypeScript | Passed after changes |
 | Internal links/assets | 16 exported HTML files checked; no unresolved references |
 | Live route availability | All 13 content routes HTTP 200 |
@@ -205,8 +205,8 @@ All seven snapshots scored 100 for Lighthouse accessibility, best practices, and
 | axe light/dark | Initial 12-route scans passed. Full inventory exposed schema preview focus and dimmed-node contrast failures; both fixed and rescanned |
 | Desktop Chrome | Automated navigation, screenshots, runtime capture |
 | Android-equivalent | Chromium touch/mobile viewport exercised; not physical Android |
-| iOS-equivalent | Geometry covered; WebKit engine and physical iOS not tested |
-| Safari current / Firefox current | Not completed: installed host macOS 13 unsupported by current Playwright browser packages; local Safari is 18.6, not a current-browser substitute |
+| iOS-equivalent | WebKit mobile/touch geometry and interactions now exercised in CI; physical iOS not tested |
+| Safari / Firefox | Hosted Safari 26.6.2 and Firefox 155 passed; Playwright WebKit 26.6 also passed |
 | Keyboard | Menu loop/Escape/return, carousel arrow selection, modal return focus exercised |
 | Theme | System initial/change, explicit choice, refresh persistence exercised |
 | Reduced motion | Interaction run requested reduced motion; content remained accessible |
@@ -216,7 +216,7 @@ All seven snapshots scored 100 for Lighthouse accessibility, best practices, and
 | Back/forward, refresh, deep links | Exercised locally |
 | Console/network | No pageerror or failed resource responses in recorded route scans |
 | Slow connection | Lighthouse simulated mobile throttling; no field INP measurement |
-| 404/header deployment | Export/config inspected; final live verification pending deployment |
+| Header deployment | HSTS and existing security headers verified on live Cloudflare response; custom 404 verified in final release record |
 
 See `evidence/verification.json` for final numerical results and tool versions. Local Python hosting does not apply Cloudflare compression or `_headers`; local and live Lighthouse runs must not be treated as interchangeable. Runs are lab snapshots, not statistically stable benchmarks.
 
@@ -228,12 +228,12 @@ See `evidence/verification.json` for final numerical results and tool versions. 
 | P1 | Remove stale QA and fake artifact filename implications | S | Confirmed | Implemented |
 | P1 | Broken public proof link | S | Confirmed | Implemented unavailable state |
 | P1 | Email path and theme preference | M | Confirmed | Implemented |
-| P1 | Image delivery and first-view performance | M | Confirmed | Implemented derivatives; production measurement required |
-| P1 | Supported-browser and physical-device release check | M | Confirmed coverage gap | Requires supported host |
+| P1 | Image delivery and first-view performance | M | Confirmed | Implemented derivatives; deployed lab LCP 2.31 s |
+| P1 | Supported-browser and physical-device release check | M | Confirmed coverage gap | Four browser jobs implemented and passed; physical devices not available |
 | P2 | Distinct About/Method/Services responsibilities | M | Confirmed | Implemented |
 | P2 | Accessibility interaction completeness | M | Confirmed | Implemented targeted fixes; assistive-tech pass remains |
 | P2 | Dev-tool advisories and schema correction | S | Confirmed | Implemented |
-| P2 | Consolidate legacy CSS and unused component families | L | Confirmed | Partial: homepage isolated; broader cleanup deferred |
+| P2 | Consolidate legacy CSS and unused component families | L | Confirmed | Implemented: obsolete components/selectors removed, shared route styles retained |
 | P2 | Improve source dashboard exports and source validation evidence | L | Strong evidence | Requires genuine project artifacts, not fabricated replacements |
 | P2 | User comprehension/contact-path testing | M | Hypothesis | Not performed with real visitors |
 | P3 | Optional real portrait and short verified experience story | M | Hypothesis | Owner material required; no placeholder invented |
@@ -241,7 +241,7 @@ See `evidence/verification.json` for final numerical results and tool versions. 
 
 ## Deliberately unchanged
 
-The Q symbol; factual project content and source provenance; simulation/reconstruction boundaries; five project routes; technical model viewers; bilingual content and local fonts; static Next architecture; semantic color primitives; no trackers; repository history; low-pressure contact; existing case-study evidence and limitations. There is no invented client outcome or claim that prototype work is production deployment.
+The Q symbol; factual project content and source provenance; simulation/reconstruction boundaries; existing project routes plus two GitHub-backed cases; technical model viewers; bilingual content and local fonts; static Next architecture; semantic color primitives; no trackers; repository history; low-pressure contact; existing case-study evidence and limitations. There is no invented client outcome or claim that prototype work is production deployment.
 
 ## Things we should NOT add
 
@@ -251,7 +251,7 @@ The Q symbol; factual project content and source provenance; simulation/reconstr
 - A chat agent, contact backend, tracking script, or cookie banner without an actual need.
 - More navigation categories or four separate audience homepages.
 - Generic bento grids, glowing gradients, glass panels, or decorative technology pills.
-- A CMS, framework rewrite, animation library, or new browser dependency for this scope.
+- A CMS, framework rewrite, animation library, or new runtime browser dependency for this scope.
 - Schema ratings or unsupported “production-ready” badges.
 - Recolored or retouched screenshots that conceal flaws in the source work.
 - A public test-count scoreboard that silently goes stale.
@@ -295,4 +295,12 @@ Final sitemap-driven scan: **26 route/theme combinations, 312 width checks, zero
 
 ## Release verification follow-through
 
-The first supported-host release run ([34324806613](https://github.com/adulsaa-q/adulsaa-q.github.io/actions/runs/34324806613)) passed the build and Chromium checks, but correctly blocked deployment on schema Primary Key badge contrast in Firefox 155, WebKit 26.6 and Safari 26.6.2. The badges now use primary text over their tinted background and a larger label size. Native Safari measurement also waits for font layout and the authored theme transition to settle before measuring contrast. Final release evidence follows below once the corrected revision passes.
+The first supported-host release run ([34324806613](https://github.com/adulsaa-q/adulsaa-q.github.io/actions/runs/34324806613)) passed the build and Chromium checks, but correctly blocked deployment on schema Primary Key badge contrast in Firefox 155, WebKit 26.6 and Safari 26.6.2. The badges now use primary text over their tinted background and a larger label size. Native Safari measurement also waits for font layout and the authored theme transition to settle before measuring contrast. The corrected revision passed all four browser jobs and deployed in run [34325227258](https://github.com/adulsaa-q/adulsaa-q.github.io/actions/runs/34325227258). Native Safari theme-transition measurements settled cleanly after the timing correction.
+
+## GitHub-first completion
+
+Q identified [his GitHub profile](https://github.com/adulsaa-q) as the primary body of work. A full public inventory found 12 repositories. The final portfolio now has **seven detailed projects and 15 content routes**, adding AI Brand Tracker and AI Command Center. The homepage pairs BI reporting with the analytics application; it also links the engineering framework and complete GitHub collection. AIE-Pulse-Meridian joins the supporting Lab/source index.
+
+The source review also corrected a pre-existing P1 trust failure in Schema Map: two claimed implementation paths did not exist, and an authored SVG was presented as a committed screenshot. The page now links `schema_to_obsidian.py`, generated Pagila notes and the actual Obsidian capture. Metadata-only access, acyclic-graph and DDL-frontmatter assertions were corrected to match source behavior. All **25 evidence paths** now exist in their public repository trees. See [the repository-by-repository review](GITHUB-REVIEW.md) and its pinned revision evidence.
+
+The Work index no longer counts “Evidence-Led” projects as a quality proxy. It uses plain scope labels and gives visitors readable project summaries, implementation value, constraints and source links. No other GitHub repository was modified.

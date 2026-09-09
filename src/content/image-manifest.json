@@ -1,4 +1,18 @@
 {
+  "/images/ai-brand-tracker/dashboard.png": {
+    "width": 1450,
+    "height": 1700,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/ai-brand-tracker/dashboard-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/ai-brand-tracker/dashboard-1280.webp"
+      }
+    ]
+  },
   "/images/ecommerce/data-model-overview-1.png": {
     "width": 1920,
     "height": 1095,
@@ -38,6 +52,20 @@
       {
         "width": 1280,
         "src": "/images/optimized/ecommerce/data-model-overview-5-1280.webp"
+      }
+    ]
+  },
+  "/images/schema-map/obsidian-graph.png": {
+    "width": 2180,
+    "height": 1598,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/schema-map/obsidian-graph-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/schema-map/obsidian-graph-1280.webp"
       }
     ]
   },

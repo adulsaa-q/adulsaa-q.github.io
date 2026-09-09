@@ -1,3 +1,4 @@
+import { githubProjects } from "@/content/github-projects";
 import type { Project } from "@/types/project";
 
 import { validateProjects } from "@/lib/content-validation";
@@ -382,7 +383,7 @@ export const projects: Project[] = [
     impact:
       "Automatically maps PostgreSQL catalog tables and foreign key dependencies into an interactive graph network, enabling instant relationship exploration and visual schema audit.",
     constraints: [
-      "Operates directly against standard PostgreSQL information_schema catalogs without external database modifications.",
+      "The script reads PostgreSQL metadata and counts table rows; SELECT access to those tables is required.",
       "Generates standardized Obsidian wikilink markdown notes for offline graph visualization.",
     ],
     input: [
@@ -391,9 +392,9 @@ export const projects: Project[] = [
       "Table column definitions, data types, nullability, and primary key metadata",
     ],
     system: [
-      "SQLAlchemy and PLpgSQL inspectors extract table entities, primary keys, and foreign key dependencies.",
-      "Graph transformation engine maps relational tuples into a bidirectional directed acyclic network.",
-      "Markdown emitter outputs individual table notes with frontmatter metadata and wikilinks compatible with Obsidian Graph View.",
+      "A Python SQLAlchemy inspector reads public-schema tables, keys, columns and indexes.",
+      "An incoming-key index complements outgoing foreign keys; the relationships are not assumed to form an acyclic graph.",
+      "The script writes Markdown tables, relation lists, row counts and an index note for Obsidian.",
     ],
     decisions: [
       {
@@ -401,45 +402,46 @@ export const projects: Project[] = [
         why: "Bidirectional linking allows exploring upstream dependencies and downstream consumers organically.",
       },
       {
-        title: "Preserve exact DDL definitions in note frontmatter",
-        why: "Provides immediate technical inspection without navigating away from the knowledge graph view.",
+        title: "Keep columns, keys and indexes beside the relation links",
+        why: "Generated notes make the schema details available without reconnecting to the database at question time.",
       },
     ],
     implementation: [
       "Python and SQLAlchemy schema inspector querying PostgreSQL information_schema.",
-      "Automated graph exporter emitting frontmatter markdown files with relational wikilinks.",
+      "Markdown exporter emitting table details and relational wikilinks.",
     ],
     stack: ["PostgreSQL", "Python", "SQLAlchemy", "PLpgSQL", "Knowledge graph", "Obsidian"],
     evidence: [
       {
         class: "VERIFIED_CODE",
         label: "PostgreSQL schema inspection query",
-        sourcePath: "src/schema_map/inspector.py",
-        sourceUrl: "https://github.com/adulsaa-q/schema-map/blob/main/README.md",
+        sourcePath: "schema_to_obsidian.py",
+        sourceUrl: "https://github.com/adulsaa-q/schema-map/blob/main/schema_to_obsidian.py",
       },
       {
-        class: "EXPERIMENTAL",
-        label: "Obsidian knowledge graph generator",
-        sourcePath: "src/schema_map/exporter.py",
-        sourceUrl: "https://github.com/adulsaa-q/schema-map",
+        class: "VERIFIED_ARTIFACT",
+        label: "Committed Pagila Markdown notes",
+        sourcePath: "schema_filemd/",
+        sourceUrl: "https://github.com/adulsaa-q/schema-map/tree/main/schema_filemd",
       },
     ],
     limitations: [
-      "Experimental research utility; requires read-only access to PostgreSQL catalog.",
-      "Designed for analytical schema exploration rather than transactional schema migration orchestration.",
+      "Snapshot utility: re-run after schema changes. Row counts require table SELECT access and may be costly on large tables.",
+      "Relationship labels use a heuristic and require review for composite keys. The portfolio viewer is illustrative, not connected to a database.",
     ],
     artifacts: [
       {
         type: "SCHEMA",
-        src: "/images/schema-map/schema-graph-preview.svg",
-        alt: "PostgreSQL schema relational entity graph with foreign key connections.",
-        caption: "Interactive relational graph view mapping PostgreSQL entities into Obsidian network nodes.",
+        src: "/images/schema-map/obsidian-graph.png",
+        alt: "Committed Obsidian screenshot showing Pagila table notes and their links, including rental, payment, customer and film.",
+        caption: "Actual repository screenshot: Obsidian Graph View of generated Pagila notes. The interactive viewer below is a separate illustration.",
         reconstructed: false,
       },
     ],
     services: ["Database architecture", "Schema audit", "Data lineage"],
     repository: "https://github.com/adulsaa-q/schema-map",
   },
+  ...githubProjects,
 ];
 
 const validationErrors = validateProjects(projects);

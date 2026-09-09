@@ -64,6 +64,9 @@ function DetailSection({
 }
 
 function ArtifactCard({ artifact, projectName }: { artifact: Artifact; projectName: string }) {
+  if (artifact.excerpt) {
+    return <figure className="artifact-card"><pre className="artifact-code" tabIndex={0} role="region" aria-label={artifact.alt}><code>{artifact.excerpt}</code></pre><figcaption>{artifact.caption}</figcaption></figure>;
+  }
   if (!artifact.src) {
     return (
       <figure className="artifact-card artifact-card--reconstructed">
@@ -164,7 +167,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <p>{project.context}</p>
         <h3>Problem</h3>
         <p>{project.problem}</p>
-        <h3>Operational impact</h3>
+        <h3>What it enables</h3>
         <p>{project.impact}</p>
         <h3>Constraints</h3>
         <ul className="detail-list">

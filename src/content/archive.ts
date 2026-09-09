@@ -1,4 +1,4 @@
-export type ArchiveStatus = "ARCHIVE" | "EXPERIMENTAL";
+export type ArchiveStatus = "UTILITY" | "EXPERIMENTAL" | "UNAVAILABLE";
 
 export interface ArchiveRecord {
   name: string;
@@ -12,17 +12,9 @@ export interface ArchiveRecord {
 
 export const archiveRecords: ArchiveRecord[] = [
   {
-    name: "schema-map",
-    status: "ARCHIVE",
-    summary: "PostgreSQL metadata to Markdown/Obsidian relationship map.",
-    limitation:
-      "Schema metadata can be sensitive; use requires least-privilege access and private handling.",
-    repository: "https://github.com/adulsaa-q/schema-map",
-  },
-  {
     name: "fastwork-status",
-    status: "ARCHIVE",
-    summary: "Operational service status board and response-time monitoring prototype.",
+    status: "EXPERIMENTAL",
+    summary: "Public service-status interface prototype.",
     limitation:
       "Service-level status only; does not expose internal worker logs, credentials, or control actions.",
     repository: "https://github.com/adulsaa-q/fastwork-status",
@@ -30,18 +22,25 @@ export const archiveRecords: ArchiveRecord[] = [
   {
     name: "kbank-finance-pipeline",
     sourceUnavailable: true,
-    status: "EXPERIMENTAL",
-    summary: "KBank statement transaction extraction and ledger reconciliation toolkit.",
+    status: "UNAVAILABLE",
+    summary: "Previously listed finance-parser project; its public source is currently unavailable.",
     limitation:
-      "Format-dependent parser; altered banking layout formats require updated parsing patterns.",
+      "Current implementation and maintenance status could not be verified from a public repository.",
     repository: "https://github.com/adulsaa-q/kbank-finance-pipeline",
   },
   {
     name: "housemark",
-    status: "EXPERIMENTAL",
+    status: "UTILITY",
     summary: "Deterministic frontend engineering standard and code craftsmanship rulebook.",
     limitation:
       "Technical floor standard; does not dictate company brand guidelines or visual art direction.",
     repository: "https://github.com/adulsaa-q/housemark",
+  },
+  {
+    name: "AIE-Pulse-Meridian",
+    status: "EXPERIMENTAL",
+    summary: "Python pipeline combining Trends/RSS collection, signal detection and an HTML intelligence report.",
+    limitation: "Experimental monitoring workflow; threshold-based signals and AI commentary are not validated forecasts or investment advice.",
+    repository: "https://github.com/adulsaa-q/AIE-Pulse-Meridian",
   },
 ];

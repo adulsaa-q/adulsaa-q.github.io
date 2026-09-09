@@ -65,7 +65,7 @@ Do not invent availability promises, response times, business impact or experien
 ## Validation
 
 Unit/content tests, lint, types, static build and internal links precede browser QA.
-The deployment workflow gates publication on Chromium, Firefox and WebKit route,
+The deployment workflow gates publication on Chromium, Firefox, WebKit and native Safari route,
 contrast, responsive, keyboard, touch, theme and dialog checks. Automated axe results
 are evidence, not a claim of full WCAG conformance. See the dated audit for measured
 performance and coverage limits; never place stale test counts in the product UI.

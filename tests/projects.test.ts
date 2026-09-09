@@ -12,6 +12,8 @@ describe("portfolio content", () => {
         "shopee-thailand-analytics",
         "finance-etl-pipeline",
         "timelimit",
+        "ai-brand-tracker",
+        "ai-command-center",
       ]),
     );
   });

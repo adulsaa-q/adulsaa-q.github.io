@@ -10,7 +10,7 @@ export const identity = {
   alternateName: "Q",
   jobTitle: "Data, BI and automation systems",
   url: canonicalUrl("/"),
-  siteName: "Q — Data, BI & Automation Systems",
+  siteName: "Adul Sa-a / Q — Data, BI & Automation",
   siteUrl: defaultSiteUrl,
   sameAs: ["https://github.com/adulsaa-q"],
   knowsAbout: [

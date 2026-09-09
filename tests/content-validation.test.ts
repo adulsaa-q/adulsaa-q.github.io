@@ -45,6 +45,14 @@ describe("validateProjects", () => {
     expect(validateProjects([baseProject])).toEqual([]);
   });
 
+  it("rejects a claimed source file linked to a different GitHub file", () => {
+    const mismatch: Project = {
+      ...baseProject,
+      evidence: [{ ...baseProject.evidence[0], sourceUrl: "https://github.com/adulsaa-q/example/blob/main/README.md" }],
+    };
+    expect(validateProjects([mismatch])).toContain("sample: verified source path must match its linked file or directory");
+  });
+
   it("requires a limitation for a simulated project", () => {
     const simulated: Project = {
       ...baseProject,

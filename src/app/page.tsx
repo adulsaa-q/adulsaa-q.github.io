@@ -7,7 +7,7 @@ import { projects } from "@/content/projects";
 import { textLang } from "@/lib/i18n";
 import styles from "./home.module.css";
 
-const selected = projects.slice(0, 2);
+const selected = projects.filter(project => ["ecommerce-sales-pipeline", "ai-brand-tracker"].includes(project.slug));
 const services = [
   { title: "Reporting people can use", text: "Bring scattered exports into a Power BI model with consistent measures and clear reporting views.", tools: "Power BI · Power Query · DAX" },
   { title: "A stronger data foundation", text: "Connect tables, define the grain, and make SQL analysis traceable to the question it answers.", tools: "SQL · PostgreSQL · Data modeling" },
@@ -51,15 +51,15 @@ export default function Home() {
           <p>Two case studies with working artifacts, source code, and clear limits on what they demonstrate.</p>
         </div>
         {selected.map((project, index) => (
-          <article id={`project-${project.slug}`} data-project-entry={project.slug} data-presentation={index === 0 ? "dashboard-plate" : "schema-led"} className={styles.project} key={project.slug}>
+          <article id={`project-${project.slug}`} data-project-entry={project.slug} data-presentation={index === 0 ? "dashboard-plate" : "analytics-application"} className={styles.project} key={project.slug}>
             <div className={styles.projectCopy}>
               <p className={styles.eyebrow}>0{index + 1} / {project.kind}</p>
-              <h3>{index === 0 ? "One view across sales channels." : "A connected view of marketplace performance."}</h3>
+              <h3>{index === 0 ? "One view across sales channels." : "Know what your visibility metrics actually measure."}</h3>
               <p className={styles.projectName}>{project.name}</p>
               <p lang={textLang(project.displayTitle)}>{project.displayTitle}</p>
               <p>{project.problem}</p>
               <div className={styles.result}><h4>What the system enables</h4><p>{project.impact}</p></div>
-              <span className="scope-label" data-scope-label="simulated">Simulated / demonstration scope</span>
+              <span className="scope-label" data-scope-label={index === 0 ? "simulated" : "experimental"}>{index === 0 ? "Simulated / demonstration scope" : "Public implementation / experimental"}</span>
               <div className={styles.actions}>
                 <Link className="text-link" href={`/work/${project.slug}`}>Read case study</Link>
                 <a className="text-link text-link--muted" href={project.repository} target="_blank" rel="noopener noreferrer">GitHub source</a>
@@ -69,6 +69,7 @@ export default function Home() {
           </article>
         ))}
         <div className={styles.sectionEnd}><p>More pipelines, internal tools, and implementation details.</p><Link className="text-link" href="/work">Explore all work</Link></div>
+        <p className={styles.relatedWork}>How I organize AI-assisted engineering: <Link href="/work/ai-command-center">AI Command Center</Link>. Browse the full source collection on <a href="https://github.com/adulsaa-q" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
       </section>
 
       <section className={styles.services} aria-labelledby="services-title">

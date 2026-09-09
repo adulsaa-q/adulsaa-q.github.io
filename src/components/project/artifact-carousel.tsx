@@ -57,7 +57,7 @@ export function ArtifactCarousel({
       ? "E-commerce reporting · Project artifacts"
       : projectSlug === "shopee-thailand-analytics"
       ? "Shopee analytics · Project artifacts"
-      : "artifacts/system_artifact";
+      : `${projectName} · Project artifact`;
 
   const displayTitle = windowTitle || defaultTitle;
   const labels = PLATE_LABELS[projectSlug] || validArtifacts.map((_, i) => `0${i + 1} · Plate ${i + 1}`);

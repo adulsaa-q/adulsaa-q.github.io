@@ -20,7 +20,7 @@ export default function LabPage() {
           <h1>Lab</h1>
         </div>
         <p className="page-intro__note">
-          Active prototypes, schema exploration utilities, and research systems.
+          Smaller utilities, interface prototypes, and research workflows.
           These are experiments, not claims of client deployment. The Archive
           provides a compact source index of the same projects.
         </p>

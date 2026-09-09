@@ -18,19 +18,19 @@ describe("homepage", () => {
     expect(html).toContain("I turn messy operational data into systems people can actually use.");
     expect(html.match(/data-project-entry=/g)).toHaveLength(2);
     expect(html).toContain('data-presentation="dashboard-plate"');
-    expect(html).toContain('data-presentation="schema-led"');
+    expect(html).toContain('data-presentation="analytics-application"');
     expect(html).not.toContain('data-presentation="system-flow"');
     expect(html).not.toContain('data-presentation="offline-instrument"');
     expect(html).toContain('href="/work"');
     expect(html).toContain("Explore all work");
     expect(html).toContain("GitHub source");
     expect(html).toContain(projects[0].repository);
-    expect(html).toContain(projects[1].repository);
+    expect(html).toContain(projects.find(project => project.slug === "ai-brand-tracker")!.repository);
     expect(html).toContain("Power BI reporting");
     expect(html).toContain("What the system enables");
     expect(html).toContain(projects[0].impact);
 
-    projects.slice(0, 2).forEach((project) => expect(html).toContain(project.name));
+    projects.filter(project => ["ecommerce-sales-pipeline", "ai-brand-tracker"].includes(project.slug)).forEach((project) => expect(html).toContain(project.name));
   });
 
   it("makes identity, work and contact available in server-rendered HTML", () => {
@@ -48,9 +48,10 @@ describe("homepage", () => {
     const html = renderToStaticMarkup(<Home />);
 
     expect(html).toContain("/images/ecommerce/data-model-overview-1.png");
-    expect(html).toContain("/images/shopee/page1_sales.png");
+    expect(html).toContain("/images/ai-brand-tracker/dashboard.png");
     expect(html).not.toContain("/images/timelimit/timelimit-widget.png");
-    expect(html.match(/data-scope-label="simulated"/g)).toHaveLength(2);
+    expect(html.match(/data-scope-label="simulated"/g)).toHaveLength(1);
+    expect(html).toContain('data-scope-label="experimental"');
     expect(html).not.toContain("RECONSTRUCTED FROM IMPLEMENTATION");
     expect(html).not.toContain("300,000");
   });
@@ -64,8 +65,8 @@ describe("work routes", () => {
       expect(html).toContain(project.name);
       expect(html).toContain(`/work/${project.slug}`);
       expect(html).toContain(project.repository);
-      expect(html).toContain(project.services[0]);
-      expect(html).toContain(project.status === "FEATURED" && project.evidence.some((item) => item.class === "SIMULATED") ? "SIMULATED" : "EVIDENCE LED");
+      expect(html).toContain(project.summary);
+      expect(html).toContain(project.evidence.some((item) => item.class === "SIMULATED") ? "DEMONSTRATION DATA" : project.status === "EXPERIMENTAL" ? "EXPERIMENTAL" : "PUBLIC IMPLEMENTATION");
     });
   });
 
@@ -86,7 +87,7 @@ describe("work routes", () => {
     expect(html).toContain(project.name);
     expect(html).toContain("Evidence");
     expect(html).toContain("Limitations");
-    expect(html).toContain("Operational impact");
+    expect(html).toContain("What it enables");
     expect(html).toContain(project.impact);
     expect(html).toContain(project.repository);
     expect(metadata.title).toBe(`${project.name} — Work`);
