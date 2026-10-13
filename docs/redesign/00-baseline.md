@@ -59,7 +59,7 @@
 | `/services` | `src/app/services/page.tsx` | Static (SSG) | 3 bounded capability offers and deliverables |
 | `/about` | `src/app/about/page.tsx` | Static (SSG) | Working philosophy and duplicated capability list |
 | `/archive` | `src/app/archive/page.tsx` | Static (SSG) | Table of 4 experimental/archived projects |
-| `/contact` | `src/app/contact/page.tsx` | Static (SSG) | Direct contact routes (GitHub, Email, Fastwork) |
+| `/contact` | `src/app/contact/page.tsx` | Static (SSG) | Direct contact routes (GitHub, Email, LinkedIn) |
 | `/_not-found` | `src/app/not-found.tsx` | Static (SSG) | Custom 404 error page |
 
 ---

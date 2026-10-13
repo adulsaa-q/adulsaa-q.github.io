@@ -11,9 +11,8 @@ describe("archive page", () => {
   it("renders the secondary source records with accurate availability", () => {
     const html = renderToStaticMarkup(<ArchivePage />);
 
-    expect(archiveRecords).toHaveLength(4);
+    expect(archiveRecords).toHaveLength(3);
     expect(archiveRecords.map(({ name }) => name)).toEqual([
-      "fastwork-status",
       "kbank-finance-pipeline",
       "housemark",
       "AIE-Pulse-Meridian",
@@ -31,10 +30,10 @@ describe("archive page", () => {
     });
   });
 
-  it("keeps both research prototypes visibly experimental", () => {
+  it("keeps the research prototype visibly experimental", () => {
     const html = renderToStaticMarkup(<ArchivePage />);
 
-    expect(html.match(/data-status="EXPERIMENTAL"/g)).toHaveLength(2);
+    expect(html.match(/data-status="EXPERIMENTAL"/g)).toHaveLength(1);
     expect(html).toContain("could not be verified");
     expect(html).toContain("brand guidelines");
   });
@@ -53,13 +52,13 @@ describe("about page", () => {
 });
 
 describe("contact page", () => {
-  it("offers GitHub, an email route and the approved Fastwork profile", () => {
+  it("offers GitHub, LinkedIn and an email route without Fastwork", () => {
     const html = renderToStaticMarkup(<ContactPage />);
 
     expect(html).toContain('href="https://github.com/adulsaa-q"');
+    expect(html).toContain('href="https://www.linkedin.com/in/adulsaa"');
     expect(html).toContain('rel="noopener noreferrer"');
-    expect(html).toMatch(/href="https:\/\/fastwork\.co\/user\/adulsaa\.q"/);
-    expect(html).not.toContain("Link pending approval");
+    expect(html).not.toMatch(/fastwork/i);
   });
 
   it("provides a working email link before hydration and without JavaScript", () => {

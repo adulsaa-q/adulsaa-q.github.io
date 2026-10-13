@@ -49,8 +49,7 @@ When adding a project:
 - link every displayed evidence item to its public source;
 - label simulated, experimental, reconstructed, or README-reported material honestly;
 - include alt text and captions for public artifacts;
-- do not add client results, live integrations, credentials, personal data, or security claims that the source cannot prove;
-- keep the Fastwork URL as a placeholder until an approved profile URL is available.
+- do not add client results, live integrations, credentials, personal data, or security claims that the source cannot prove.
 
 ## Brand and accessibility
 
@@ -63,4 +62,4 @@ The Orbit Q mark is implemented as SVG in the header and `src/app/icon.svg`. The
 - `/work/[slug]/` detailed case studies
 - `/archive/` secondary and experimental work
 - `/about/` working method, capabilities, and process
-- `/contact/` approved contact routes and pending Fastwork placeholder
+- `/contact/` approved contact routes (email, GitHub, and LinkedIn)

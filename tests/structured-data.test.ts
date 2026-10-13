@@ -25,6 +25,7 @@ describe("structured data", () => {
     expect(schema.name).toBe("Adul Sa-a");
     expect(schema.alternateName).toBe("Q");
     expect(schema.sameAs).toContain("https://github.com/adulsaa-q");
+    expect(schema.sameAs).toContain("https://www.linkedin.com/in/adulsaa");
     assertNoFabricatedTrustSignals(schema);
   });
 

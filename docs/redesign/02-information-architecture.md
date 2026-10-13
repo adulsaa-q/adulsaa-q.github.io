@@ -15,7 +15,7 @@ In accordance with Section 14 & 15 of the Master Execution Prompt and the strate
 1. WORK      ──> /work     (Evidence Register & Selected Case Studies)
 2. METHOD    ──> /method   (Working Philosophy, 3 Bounded Engagement Models & Delivery Lifecycle)
 3. LAB       ──> /lab      (Systems Laboratory, Experimental Utilities & Prototypes)
-4. CONTACT   ──> /contact  (Direct Communication Routes, GitHub, Fastwork)
+4. CONTACT   ──> /contact  (Direct Communication Routes, GitHub, LinkedIn)
 ```
 
 ### Psychological Journey Mapping

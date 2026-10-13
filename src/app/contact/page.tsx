@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Ways to inspect Q's work and start a work enquiry — GitHub, email, and Fastwork when a profile URL is available.",
+    "Ways to inspect Q's work and start a work enquiry — GitHub, email, and LinkedIn.",
   path: "/contact",
 });
 
@@ -56,33 +56,19 @@ export default function ContactPage() {
           </a>
         </article>
 
-        {contact.fastworkUrl ? (
-          <article className="contact-route">
-            <span className="section-index">03 / FASTWORK</span>
-            <h2>Fastwork</h2>
-            <p>Scope, milestones and payment handled through the Fastwork platform.</p>
-            <a
-              className="contact-route__action"
-              href={contact.fastworkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View the Fastwork profile
-            </a>
-          </article>
-        ) : (
-          <article className="contact-route contact-route--pending">
-            <span className="section-index">03 / FASTWORK</span>
-            <h2>Fastwork</h2>
-            <p>
-              The approved profile URL has not been supplied yet. This is
-              intentionally not an active link.
-            </p>
-            <span className="contact-route__action" aria-disabled="true">
-              Link pending approval
-            </span>
-          </article>
-        )}
+        <article className="contact-route">
+          <span className="section-index">03 / LINKEDIN</span>
+          <h2>LinkedIn</h2>
+          <p>Professional background, network, and updates on data engineering &amp; BI work.</p>
+          <a
+            className="contact-route__action"
+            href={contact.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/adulsaa
+          </a>
+        </article>
       </section>
 
       <section className="contact-brief" aria-labelledby="contact-brief-title">

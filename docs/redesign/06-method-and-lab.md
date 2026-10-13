@@ -35,9 +35,8 @@ Rebranding `/archive` into `/lab` elevates experimental prototypes into a living
 
 ### Registered Prototypes:
 1. **`schema-map`:** PostgreSQL metadata to Markdown/Obsidian relationship map.
-2. **`fastwork-status`:** Operational service status board and response-time monitoring prototype.
-3. **`kbank-finance-pipeline`:** KBank statement transaction extraction and ledger reconciliation toolkit.
-4. **`housemark`:** Deterministic frontend engineering standard and code craftsmanship rulebook.
+2. **`kbank-finance-pipeline`:** KBank statement transaction extraction and ledger reconciliation toolkit.
+3. **`housemark`:** Deterministic frontend engineering standard and code craftsmanship rulebook.
 
 Each record explicitly documents:
 - Prototype status badge (`ARCHIVE` vs `EXPERIMENTAL`).

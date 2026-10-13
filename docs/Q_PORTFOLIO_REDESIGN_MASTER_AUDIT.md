@@ -147,7 +147,7 @@ The hero must first deliver **instant clarity of purpose** in 2 seconds, followe
 ├── /services (3 capability tiers)
 ├── /archive (4 experimental records)
 ├── /about (Working philosophy & duplicated capabilities)
-└── /contact (GitHub, Email, Fastwork)
+└── /contact (GitHub, Email, LinkedIn)
 ```
 
 ### 5.2 Structural Problems
@@ -556,7 +556,7 @@ Three Pillars:
 * Live interactive schema graph viewer.
 
 ### 25.5 Contact Page (`/contact`)
-* Direct, transparent contact routes (Email, GitHub, Fastwork).
+* Direct, transparent contact routes (Email, GitHub, LinkedIn).
 * Helpful guidance: *"What helps in a first message"* (Problem, data format/volume, timeline).
 * Timezone and working hour expectations (Asia/Bangkok GMT+7).
 

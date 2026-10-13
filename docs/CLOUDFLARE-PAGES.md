@@ -52,4 +52,4 @@ traffic to the `pages.dev` URL, not `github.io`.
 
 Cloudflare Pages → project `adulsaa-q` → **Custom domains** → add the domain and
 follow the DNS steps. Then set `defaultSiteUrl` to the new origin, rebuild, and
-update the GitHub / Fastwork / `sameAs` links. Enable DNSSEC + registrar lock.
+update the GitHub / LinkedIn / `sameAs` links. Enable DNSSEC + registrar lock.

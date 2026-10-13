@@ -12,7 +12,7 @@ export const identity = {
   url: canonicalUrl("/"),
   siteName: "Adul Sa-a / Q — Data, BI & Automation",
   siteUrl: defaultSiteUrl,
-  sameAs: ["https://github.com/adulsaa-q"],
+  sameAs: ["https://github.com/adulsaa-q", "https://www.linkedin.com/in/adulsaa"],
   knowsAbout: [
     "Business intelligence",
     "Power BI",

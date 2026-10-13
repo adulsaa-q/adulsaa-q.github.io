@@ -12,14 +12,6 @@ export interface ArchiveRecord {
 
 export const archiveRecords: ArchiveRecord[] = [
   {
-    name: "fastwork-status",
-    status: "EXPERIMENTAL",
-    summary: "Public service-status interface prototype.",
-    limitation:
-      "Service-level status only; does not expose internal worker logs, credentials, or control actions.",
-    repository: "https://github.com/adulsaa-q/fastwork-status",
-  },
-  {
     name: "kbank-finance-pipeline",
     sourceUnavailable: true,
     status: "UNAVAILABLE",

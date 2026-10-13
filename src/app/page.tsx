@@ -97,7 +97,7 @@ export default function Home() {
         <h2 id="contact-title">What would you like<br />your data to do better?</h2>
         <p>For a project, a role, or a technical conversation, tell me what you’re working on.</p>
         <a className={styles.email} href={`mailto:${contactEmail}`}>{contactEmail} <span aria-hidden="true">↗</span></a>
-        <div className={styles.actions}><a className="text-link" href={contact.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a><a className="text-link" href={contact.fastworkUrl} target="_blank" rel="noopener noreferrer">Fastwork</a><span className={styles.location}>Bangkok · UTC+7</span></div>
+        <div className={styles.actions}><a className="text-link" href={contact.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a><a className="text-link" href={contact.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a><span className={styles.location}>Bangkok · UTC+7</span></div>
       </section>
     </main>
   );

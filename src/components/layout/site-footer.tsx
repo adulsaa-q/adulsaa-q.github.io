@@ -30,11 +30,9 @@ export function SiteFooter() {
             GitHub
           </a>
           <ObfuscatedEmail />
-          {contact.fastworkUrl ? (
-            <a href={contact.fastworkUrl} target="_blank" rel="noopener noreferrer">
-              Fastwork
-            </a>
-          ) : null}
+          <a href={contact.linkedinUrl} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
         </div>
       </div>
 
